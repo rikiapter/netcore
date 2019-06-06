@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Malam.Mastpen.API.Commom\Malam.Mastpen.API.Commom.csproj" />
+    <ProjectReference Include="..\Malam.Mastpen.API.Commom\Malam.Mastpen.HR.Commom.csproj" />
   </ItemGroup>
 
 </Project>

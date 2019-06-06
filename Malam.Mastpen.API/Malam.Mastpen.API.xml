@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Malam.Mastpen.API</name>
+        <name>Malam.Mastpen.HR.API</name>
     </assembly>
     <members>
         <member name="M:Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync(System.Int32,System.Int32,System.Nullable{System.Int32})">

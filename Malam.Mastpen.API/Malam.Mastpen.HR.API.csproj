@@ -20,8 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Malam.Mastpen.API.Commom\Malam.Mastpen.API.Commom.csproj" />
-    <ProjectReference Include="..\Malam.Mastpen.Core\Malam.Mastpen.Core.csproj" />
+    <ProjectReference Include="..\Malam.Mastpen.API.Commom\Malam.Mastpen.HR.Commom.csproj" />
+    <ProjectReference Include="..\Malam.Mastpen.Core\Malam.Mastpen.HR.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
