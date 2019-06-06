@@ -21,16 +21,5 @@ namespace Malam.Mastpen.API.XUnitTest.Mocks
         }
 
 
-        public static SiteController GetSiteController(string name)
-        {
-            // var logger = LoggingHelper.GetLogger<SiteController>();
-            var identityClient = new MockedRothschildHouseIdentityClient();
-
-            var userInfo = IdentityMocker.GetCustomerIdentity().GetUserInfo();
-            var service = ServiceMocker.GetSiteService(userInfo, name);
-              //var generalService = ServiceMocker.GetGeneralService(userInfo, name);
-
-            return new SiteController(identityClient, service);//, generalService);
-        }
     }
 }
