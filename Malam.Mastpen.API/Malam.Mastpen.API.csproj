@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <Product>Mastpen Btichot To construction sites</Product>
+    <Company>Malam Team</Company>
+    <Description>Safety system for construction sites</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>Malam.Mastpen.API.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="2.2.11" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Malam.Mastpen.API.Commom\Malam.Mastpen.API.Commom.csproj" />
+    <ProjectReference Include="..\Malam.Mastpen.Core\Malam.Mastpen.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="PolicyRequirements\" />
+  </ItemGroup>
+
+</Project>

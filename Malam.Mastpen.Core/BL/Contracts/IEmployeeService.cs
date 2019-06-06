@@ -1,0 +1,23 @@
+﻿
+using System;
+using System.Threading.Tasks;
+using Malam.Mastpen.Core.BL.Requests;
+using Malam.Mastpen.Core.BL.Responses;
+using Malam.Mastpen.Core.DAL.Dbo;
+using Malam.Mastpen.Core.DAL.Entities;
+
+
+namespace Malam.Mastpen.Core.BL.Contracts
+{
+    public interface IEmployeeService : IService
+    {
+        Task<IPagedResponse<Employee>> GetEmployeesAsync(int pageSize = 10, int pageNumber = 1, int? EmployeeId = null);
+        Task<SingleResponse<Employee>> GetEmployeeAsync(int Id);
+        Task<SingleResponse<Employee>> GetEmployeeByEmployeeNameAsync(int Id);
+        Task<SingleResponse<Employee>> CreateEmployeeAsync(Employee employee);
+        Task<Response> UpdateEmployeeAsync(Employee employee);
+        Task<Response> DeleteEmployeeAsync(int Id);
+
+
+    }
+}

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Malam.Mastpen.MS.HR", "Malam.Mastpen.MS.HR\Malam.Mastpen.MS.HR.csproj", "{A975FCF6-56E9-4B16-894E-6F1946598FB3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Malam.Mastpen.API", "Malam.Mastpen.API\Malam.Mastpen.API.csproj", "{DC2D13D2-FCF9-4E2E-B437-08C645B9CCF7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Malam.Mastpen.API.Commom", "Malam.Mastpen.API.Commom\Malam.Mastpen.API.Commom.csproj", "{F95F172F-E700-4DE8-A7BA-CB86D3D638F9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Malam.Mastpen.API.IntegrationTests", "Malam.Mastpen.API.IntegrationTests\Malam.Mastpen.API.IntegrationTests.csproj", "{2A04EAFD-44B7-4DAA-A349-C8B4F862E3E5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Malam.Mastpen.API.XUnitTest", "Malam.Mastpen.API.XUnitTest\Mastpen.API.XUnitTest\Malam.Mastpen.API.XUnitTest.csproj", "{3CA80CD7-0371-448E-BBBC-CDFB9EF1DCF1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Malam.Mastpen.Core", "Malam.Mastpen.Core\Malam.Mastpen.Core.csproj", "{802CCDFA-01E8-4B0A-BC37-181E4D1E55EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A975FCF6-56E9-4B16-894E-6F1946598FB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A975FCF6-56E9-4B16-894E-6F1946598FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A975FCF6-56E9-4B16-894E-6F1946598FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A975FCF6-56E9-4B16-894E-6F1946598FB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC2D13D2-FCF9-4E2E-B437-08C645B9CCF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC2D13D2-FCF9-4E2E-B437-08C645B9CCF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC2D13D2-FCF9-4E2E-B437-08C645B9CCF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC2D13D2-FCF9-4E2E-B437-08C645B9CCF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F95F172F-E700-4DE8-A7BA-CB86D3D638F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F95F172F-E700-4DE8-A7BA-CB86D3D638F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F95F172F-E700-4DE8-A7BA-CB86D3D638F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F95F172F-E700-4DE8-A7BA-CB86D3D638F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A04EAFD-44B7-4DAA-A349-C8B4F862E3E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A04EAFD-44B7-4DAA-A349-C8B4F862E3E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A04EAFD-44B7-4DAA-A349-C8B4F862E3E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A04EAFD-44B7-4DAA-A349-C8B4F862E3E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CA80CD7-0371-448E-BBBC-CDFB9EF1DCF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CA80CD7-0371-448E-BBBC-CDFB9EF1DCF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CA80CD7-0371-448E-BBBC-CDFB9EF1DCF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CA80CD7-0371-448E-BBBC-CDFB9EF1DCF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{802CCDFA-01E8-4B0A-BC37-181E4D1E55EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{802CCDFA-01E8-4B0A-BC37-181E4D1E55EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{802CCDFA-01E8-4B0A-BC37-181E4D1E55EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{802CCDFA-01E8-4B0A-BC37-181E4D1E55EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {64A5DCF1-4E7F-486D-A820-005CD7D5BB07}
+	EndGlobalSection
+EndGlobal
