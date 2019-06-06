@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Malam.Mastpen.MS.HR", "Malam.Mastpen.MS.HR\Malam.Mastpen.MS.HR.csproj", "{A975FCF6-56E9-4B16-894E-6F1946598FB3}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Malam.Mastpen.API", "Malam.Mastpen.API\Malam.Mastpen.API.csproj", "{DC2D13D2-FCF9-4E2E-B437-08C645B9CCF7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Malam.Mastpen.API.Commom", "Malam.Mastpen.API.Commom\Malam.Mastpen.API.Commom.csproj", "{F95F172F-E700-4DE8-A7BA-CB86D3D638F9}"
@@ -21,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A975FCF6-56E9-4B16-894E-6F1946598FB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A975FCF6-56E9-4B16-894E-6F1946598FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A975FCF6-56E9-4B16-894E-6F1946598FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A975FCF6-56E9-4B16-894E-6F1946598FB3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DC2D13D2-FCF9-4E2E-B437-08C645B9CCF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DC2D13D2-FCF9-4E2E-B437-08C645B9CCF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC2D13D2-FCF9-4E2E-B437-08C645B9CCF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
