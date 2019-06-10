@@ -25,17 +25,9 @@ namespace Malam.Mastpen.API.Filters
         public void OnActionExecuting(ActionExecutingContext context)
         {
             string actionName = context.ActionDescriptor.RouteValues.First().Value;
-            logger.Info("test log");
-          //  logger.InfoFormat(GeneralConsts.LOG_INVOKE, actionName);
+      
+        logger.InfoFormat(GeneralConsts.LOG_INVOKE, actionName);
 
-            //var dictionary = new Dictionary<string, string>() { { "test", "SCOPED_VALUE" } };
-            //using (var scope = logger.BeginScope(dictionary))
-            //{
-            //    logger.LogCritical("testLogCritical");
-            //}
-            // var controller = context.Controller as Malam.Mastpen.API.Controllers.Employee.EmployeeController;
-
-            //   Logger.LogDebug("'{0}' has been invoked", "test");
             var controller = context.Controller as MastpenController;
 
             foreach (var claim in controller.User.Claims)
