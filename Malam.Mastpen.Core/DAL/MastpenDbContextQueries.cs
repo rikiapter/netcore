@@ -33,7 +33,7 @@ namespace Malam.Mastpen.Core.DAL
 
         }
 
-        public static IQueryable<Employee> GetEmployee(this MastpenBitachonDbContext dbContext, int pageSize = 10, int pageNumber = 1, int? EmployeeID = null, int? SiteID = null, DateTime? DateFrom = null, DateTime? DateTo = null)
+        public static IQueryable<Employee> GetEmployee(this MastpenBitachonDbContext dbContext, int? EmployeeID = null, string EmployeeName = null, int? IdentityNumber = null)
         {
 
             // Get query from DbSet
@@ -45,10 +45,13 @@ namespace Malam.Mastpen.Core.DAL
             if (EmployeeID.HasValue)
                 query = query.Where(item => item.EmployeeId == EmployeeID);
 
+            if (EmployeeName!=null)
+                query = query.Where(item => item.FirstName == EmployeeName);
 
+            if (IdentityNumber.HasValue)
+                query = query.Where(item => item.IdentityNumber == IdentityNumber);
             return query;
 
-            //return dbContext.Employee.ToList().AsQueryable();
 
         }
 
