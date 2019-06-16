@@ -38,27 +38,35 @@ namespace Malam.Mastpen.Core.BL.Responses
         }
 
 
-        public static void SetMessageGetById(this IResponse response,string actionName, int Id)
+        public static void SetMessageGetById(this IResponse response, string actionName, int Id)
         {
             // todo: Save error in log file
 
             response.DIdError = false;
 
-            response.Message = string.Format("Find Result for {0} = {1} ",actionName, Id);
+            response.Message = string.Format("Find Result for {0} = {1} ", actionName, Id);
 
         }
 
-
-        public static void SetMessageSucssesDelete(this IResponse response,string actionName, int Id)
+        public static void SetMessageSucssesPut(this IResponse response, string actionName, int Id)
         {
             // todo: Save error in log file
 
             response.DIdError = false;
 
-            response.Message = string.Format("Sucsses Delete Employee Work Permit = {0} ", Id);
+            response.Message = string.Format("Sucsses Update {0} = {1} ", actionName, Id);
 
         }
 
+        public static void SetMessageSucssesDelete(this IResponse response, string actionName, int Id)
+        {
+            // todo: Save error in log file
+
+            response.DIdError = false;
+
+            response.Message = string.Format("Sucsses Delete {0} = {1} ", actionName, Id);
+
+        }
 
     }
 }
