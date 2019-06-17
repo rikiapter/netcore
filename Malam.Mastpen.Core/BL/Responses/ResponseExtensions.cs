@@ -58,6 +58,16 @@ namespace Malam.Mastpen.Core.BL.Responses
 
         }
 
+        public static void SetMessageSucssesPost(this IResponse response, string actionName, int Id)
+        {
+            // todo: Save error in log file
+
+            response.DIdError = false;
+
+            response.Message = string.Format("Sucsses Create {0} = {1} ", actionName, Id);
+
+        }
+
         public static void SetMessageSucssesDelete(this IResponse response, string actionName, int Id)
         {
             // todo: Save error in log file

@@ -11,6 +11,8 @@ namespace Malam.Mastpen.API.XUnitTest.Mocks
         public static IEmployeeService GetEmployeeService(IUserInfo userInfo, string dbName)
             => new EmployeeService( userInfo,  DbContextMocker.GetMastpenDbContext(dbName));
 
+        public static IOrganizationService GetOrganizationService(IUserInfo userInfo, string dbName)
+      => new OrganizationService(userInfo, DbContextMocker.GetMastpenDbContext(dbName));
 
     }
 }

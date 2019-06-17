@@ -133,6 +133,8 @@ namespace Malam.Mastpen.Core.DAL
         public static async Task<Address> GetAddressAsync(this MastpenBitachonDbContext dbContext, Address entity)
         => await dbContext.Address.FirstOrDefaultAsync(item => item.EntityTypeId == entity.EntityTypeId && item.EntityId == entity.EntityId);
 
+        public static async Task<Organization> GetOrganizationeByIdAsync(this MastpenBitachonDbContext dbContext, Organization entity)
+            => await dbContext.Organization.FirstOrDefaultAsync(item => item.OrganizationId == entity.OrganizationId);
 
         /// <summary>
         ///get entity table

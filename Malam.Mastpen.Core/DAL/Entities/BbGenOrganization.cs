@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Malam.Mastpen.Core.DAL.Entities
 {
-    public partial class Organization
+    public partial class Organization:IAuditableEntity
     {
         public Organization()
         {

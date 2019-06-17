@@ -19,7 +19,16 @@ namespace Malam.Mastpen.API.XUnitTest.Mocks
 
             return new EmployeeController( identityClient, service);
         }
+        public static OrganizationController GetOrganizationController(string name)
+        {
+            // var logger = LoggingHelper.GetLogger<EmployeeController>();
+            var identityClient = new MockedRothschildHouseIdentityClient();
 
+            var userInfo = IdentityMocker.GetCustomerIdentity().GetUserInfo();
+            var service = ServiceMocker.GetOrganizationService(userInfo, name);
+
+            return new OrganizationController(identityClient, service);
+        }
 
     }
 }
