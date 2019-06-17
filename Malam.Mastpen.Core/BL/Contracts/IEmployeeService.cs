@@ -12,7 +12,7 @@ namespace Malam.Mastpen.Core.BL.Contracts
     public interface IEmployeeService : IService
     {
         Task<IPagedResponse<Employee>> GetEmployeesAsync(int pageSize = 10, int pageNumber = 1, int? EmployeeId = null, string EmployeeName = null, int? IdentityNumber = null);
-        Task<SingleResponse<Employee>> GetEmployeeAsync(int Id);
+        Task<SingleResponse<EmployeeResponse>> GetEmployeeAsync(int Id);
         Task<SingleResponse<Employee>> GetEmployeeByEmployeeNameAsync(int Id);
         Task<SingleResponse<Employee>> CreateEmployeeAsync(Employee employee);
         Task<Response> UpdateEmployeeAsync(Employee employee);

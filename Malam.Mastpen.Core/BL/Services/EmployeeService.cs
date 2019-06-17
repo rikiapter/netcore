@@ -48,15 +48,21 @@ namespace Malam.Mastpen.Core.BL.Services
         }
 
 
-        public async Task<SingleResponse<Employee>> GetEmployeeAsync(int Id)
+        public async Task<SingleResponse<EmployeeResponse>> GetEmployeeAsync(int Id)
         {
-            var response = new SingleResponse<Core.DAL.Entities.Employee>();
+            var response = new SingleResponse<EmployeeResponse>();
             // Get the Employee by Id
-            response.Model = await DbContext.GetEmployeesAsync(new Core.DAL.Entities.Employee { EmployeeId = Id });
+
+            // Get query
+            var query = DbContext.GetEmployeesAsync(new Employee { EmployeeId = Id });
+
+            // Retrieve items, set model for response
+            response.Model = await query.FirstOrDefaultAsync();
 
             response.SetMessageGetById(nameof(GetEmployeeAsync), Id);
             return response;
         }
+
         public async Task<SingleResponse<Employee>> GetEmployeeByEmployeeNameAsync(int Id)
         {
             var response = new SingleResponse<Core.DAL.Entities.Employee>();
@@ -105,7 +111,7 @@ namespace Malam.Mastpen.Core.BL.Services
             var response = new Response();
 
             // Get Employee by Id
-            var entity = await DbContext.GetEmployeesAsync(new Employee { EmployeeId = Id });
+            var entity = await DbContext.GetEmployeeByEmployeeIdAsync(new Employee { EmployeeId = Id });
 
             // Remove entity from repository
             DbContext.Remove(entity);

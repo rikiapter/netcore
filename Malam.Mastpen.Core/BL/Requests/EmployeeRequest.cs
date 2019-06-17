@@ -41,8 +41,11 @@ namespace Malam.Mastpen.Core.BL.Requests
     }
 
 
+    public class EmployeeResponse : Employee
+    {
+        public PhoneMail phonMail { get; set; }
+    }
 
-    
 
 
     public static class ExtensionsEmployee
@@ -54,7 +57,44 @@ namespace Malam.Mastpen.Core.BL.Requests
         {
             EmployeeId = request.EmployeeId
         };
+        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone)
+            => new EmployeeResponse
+            {
+                EmployeeId = request.EmployeeId,
 
+                IdentificationTypeId = request.IdentificationTypeId,
+                IdentityNumber = request.IdentityNumber,
+                PassportCountryId = request.PassportCountryId,
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                FirstNameEn = request.FirstNameEn,
+                LastNameEn = request.LastNameEn,
+                OrganizationId = request.OrganizationId,
+                BirthDate = request.BirthDate,
+                GenderId = request.GenderId,
+                Citizenship = request.Citizenship,
+                UserInsert = request.UserInsert,
+                DateInsert = request.DateInsert,
+                UserUpdate = request.UserUpdate,
+                DateUpdate = request.DateUpdate,
+                State = request.State,
+
+                Gender = request.Gender,
+                IdentificationType = request.IdentificationType,
+                Organization = request.Organization,
+                PassportCountry = request.PassportCountry,
+                EmployeeEntry = request.EmployeeEntry,
+                SiteEmployeeEmployee = request.SiteEmployeeEmployee,
+                SiteEmployeeSite = request.SiteEmployeeSite,
+                EmplyeePicture = request.EmplyeePicture,
+                SiteRole = request.SiteRole,
+                EmployeeAuthtorization = request.EmployeeAuthtorization,
+                EmployeeProffesionType = request.EmployeeProffesionType,
+                EmployeeTraining = request.EmployeeTraining,
+                EmployeeWorkPermit = request.EmployeeWorkPermit,
+                phonMail = phone,
+
+            };
 
     }
 

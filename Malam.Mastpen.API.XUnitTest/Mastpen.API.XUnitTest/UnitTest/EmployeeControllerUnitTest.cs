@@ -40,7 +40,7 @@ namespace Malam.Mastpen.API.XUnitTest.UnitTest
 
             // Act
             var response = await controller.GetEmployeeAsync(id) as ObjectResult;
-            var value = response.Value as ISingleResponse<Employee>;
+            var value = response.Value as ISingleResponse<EmployeeResponse>;
 
             // Assert
             Assert.False(value.DIdError);

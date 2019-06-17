@@ -55,9 +55,24 @@ namespace Malam.Mastpen.Core.DAL
 
         }
 
-        public static async Task<Employee> GetEmployeesAsync(this MastpenBitachonDbContext dbContext, Employee entity)
-            => await dbContext.Employee.FirstOrDefaultAsync(item => item.EmployeeId == entity.EmployeeId);
+        public static  IQueryable<EmployeeResponse> GetEmployeesAsync(this MastpenBitachonDbContext dbContext, Employee entity)
+        {
+            string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
 
+            var query = from Employee in dbContext.Employee.Where(item => item.EmployeeId == entity.EmployeeId)
+                        join phonMail in dbContext.PhoneMail.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        on Employee.EmployeeId equals phonMail.EntityId
+                        select Employee.ToEntity(phonMail);
+            //.Include(b => b.EmplyeePicture)
+            //.Include(c => c.EmployeeProffesionType)
+
+        //  .FirstOrDefaultAsync(item => item.EmployeeId == entity.EmployeeId);
+        //  return query;
+
+            return query;
+        }
+        public static async Task<Employee> GetEmployeeByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, Employee entity)
+    => await dbContext.Employee.FirstOrDefaultAsync(item => item.EmployeeId == entity.EmployeeId);
         public static async Task<Employee> GetEmployeeByEmployeeNameAsync(this MastpenBitachonDbContext dbContext, Employee entity)
             => await dbContext.Employee.FirstOrDefaultAsync(item => item.EmployeeId == entity.EmployeeId);
         /// <summary>
