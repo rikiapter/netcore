@@ -45,6 +45,8 @@ namespace Malam.Mastpen.Core.BL.Requests
     {
         public PhoneMail phonMail { get; set; }
         public Notes note { get; set; }
+        public Address address { get; set; }
+        public Docs docs { get; set; }
     }
 
 
@@ -58,7 +60,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         {
             EmployeeId = request.EmployeeId
         };
-        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone,Notes notes)
+        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone,Notes notes,Address address,Docs docs)
             => new EmployeeResponse
             {
                 EmployeeId = request.EmployeeId,
@@ -94,7 +96,9 @@ namespace Malam.Mastpen.Core.BL.Requests
                 EmployeeTraining = request.EmployeeTraining,
                 EmployeeWorkPermit = request.EmployeeWorkPermit,
                 phonMail = phone,
-                note=notes
+                note=notes,
+                address=address,
+                docs=docs
 
             };
 

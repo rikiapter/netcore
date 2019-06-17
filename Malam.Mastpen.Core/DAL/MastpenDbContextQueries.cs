@@ -68,7 +68,13 @@ namespace Malam.Mastpen.Core.DAL
                         join note in dbContext.Notes.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
                         on Employee.EmployeeId equals note.EntityId
 
-                        select Employee.ToEntity(phonMail,note);
+                        join address in dbContext.Address.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        on Employee.EmployeeId equals address.EntityId
+
+                        join docs in dbContext.Docs.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        on Employee.EmployeeId equals docs.EntityId
+
+                        select Employee.ToEntity(phonMail,note,address,docs);
             
             //.Include(b => b.EmplyeePicture)
             //.Include(c => c.EmployeeProffesionType)
