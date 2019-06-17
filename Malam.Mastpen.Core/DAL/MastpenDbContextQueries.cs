@@ -59,10 +59,17 @@ namespace Malam.Mastpen.Core.DAL
         {
             string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
 
+
             var query = from Employee in dbContext.Employee.Where(item => item.EmployeeId == entity.EmployeeId)
+
                         join phonMail in dbContext.PhoneMail.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
                         on Employee.EmployeeId equals phonMail.EntityId
-                        select Employee.ToEntity(phonMail);
+
+                        join note in dbContext.Notes.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        on Employee.EmployeeId equals note.EntityId
+
+                        select Employee.ToEntity(phonMail,note);
+            
             //.Include(b => b.EmplyeePicture)
             //.Include(c => c.EmployeeProffesionType)
 
