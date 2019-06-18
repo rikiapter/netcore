@@ -7,6 +7,7 @@ using Malam.Mastpen.Core.DAL.Dbo;
 using Malam.Mastpen.Core.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 using Malam.Mastpen.API.Commom.Infrastructure;
+using Malam.Mastpen.HR.Core.BL.Requests;
 
 namespace Malam.Mastpen.Core.DAL
 {
@@ -88,34 +89,6 @@ namespace Malam.Mastpen.Core.DAL
     => await dbContext.Employee.FirstOrDefaultAsync(item => item.EmployeeId == entity.EmployeeId);
         public static async Task<Employee> GetEmployeeByEmployeeNameAsync(this MastpenBitachonDbContext dbContext, Employee entity)
             => await dbContext.Employee.FirstOrDefaultAsync(item => item.EmployeeId == entity.EmployeeId);
-        /// <summary>
-        /// מחזיר רשימת אתרים כולל הכתובות עבור עמוד הבית
-        /// </summary>
-        /// <param name="dbContext"></param>
-        /// <param name="entity"></param>
-        /// <returns></returns>
-        public static async Task<SiteResponse> GetSitesAsync(this MastpenBitachonDbContext dbContext, Sites entity)
-        {
-            string tableName = GetTableNameByType(dbContext, typeof(Sites)).Result;
-
-            var query = await dbContext.Sites
-                .Where(s => s.SiteId == entity.SiteId)
-                .Join(
-
-                   //מוציא את הכתובת לפי קוד טבלה וקוד רשומה מטבלת אתרים
-                   dbContext.Address.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId),
-                   site => site.SiteId,
-                   address => address.EntityId,
-
-                   (site, address) =>
-                   //מיפוי לאובייקט הרצוי
-                   site.ToEntity(address))
-
-                  .FirstOrDefaultAsync();
-
-            return query;
-
-        }
 
         public static async Task<SiteEmployee> GetSitesByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, SiteEmployee entity)
         => await dbContext.SiteEmployee.Include(b => b.Site)
@@ -136,6 +109,39 @@ namespace Malam.Mastpen.Core.DAL
         public static async Task<Organization> GetOrganizationeByIdAsync(this MastpenBitachonDbContext dbContext, Organization entity)
             => await dbContext.Organization.FirstOrDefaultAsync(item => item.OrganizationId == entity.OrganizationId);
 
+        public static IQueryable<OrganizationResponse> GetOrganizationsAsync(this MastpenBitachonDbContext dbContext, Organization entity)
+        {
+            string tableName = GetTableNameByType(dbContext, typeof(Organization)).Result;
+
+
+            var query = from organization in dbContext.Organization.Where(item => item.OrganizationId == entity.OrganizationId)
+
+                        join phonMail in dbContext.PhoneMail.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        on organization.OrganizationId equals phonMail.EntityId
+
+
+                        select organization.ToEntity(phonMail);
+
+            return query;
+        }
+
+        public static IQueryable<Organization> GetOrganization(this MastpenBitachonDbContext dbContext, int? OrganizationID = null, string OrganizationName = null)
+        {
+
+            // Get query from DbSet
+            var query = dbContext.Organization .AsQueryable();
+
+            // Filter by: 'EmployeeID'
+            if (OrganizationID.HasValue)
+                query = query.Where(item => item.OrganizationId == OrganizationID);
+
+            if (OrganizationName != null)
+                query = query.Where(item => item.OrganizationName == OrganizationName);
+
+            return query;
+
+
+        }
         /// <summary>
         ///get entity table
         ///return entityTypeId

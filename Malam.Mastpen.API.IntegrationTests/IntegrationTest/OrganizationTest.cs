@@ -42,5 +42,63 @@ namespace Malam.Mastpen.HR.IntegrationTests.IntegrationTest
             // Assert
             response.EnsureSuccessStatusCode();
         }
+        [Fact]
+        public async Task TestGetOrganizationsAsync()
+        {
+            var token = await TokenHelper.GetMastpenTokenForWolverineAsync();
+            // Arrange
+            var request = "/api/v1/Organization/Organization";
+
+            // Act
+            Client.SetBearerToken(token.AccessToken);
+            var response = await Client.GetAsync(request);
+
+            // Assert
+            response.EnsureSuccessStatusCode();
+        }
+
+
+        [Fact]
+        public async Task TestGetOrganizationAsync()
+        {
+            var token = await TokenHelper.GetMastpenTokenForWolverineAsync();
+            // Arrange
+            var request = "/api/v1/Organization/Organization/1";
+
+            // Act
+            Client.SetBearerToken(token.AccessToken);
+            var response = await Client.GetAsync(request);
+
+            // Assert
+            response.EnsureSuccessStatusCode();
+        }
+
+     
+        [Fact]
+        public async Task TestPutOrganizationAsync()
+        {
+            // Arrange
+            var request = new
+            {
+                Url = "/api/v1/Organization/Organization/1",
+                Body = new
+                {
+                    OrganizationID = 1
+                }
+            };
+
+            // Act
+            var response = await Client.PutAsync(request.Url, ContentHelper.GetStringContent(request.Body));
+
+            // Assert
+            response.EnsureSuccessStatusCode();
+        }
+
+        [Fact]
+        public async Task TestDeleteOrganizationAsync()
+        {
+            var deleteResponse = await Client.DeleteAsync(string.Format("/api/v1/Organization/Organization/{0}", 1));
+            deleteResponse.EnsureSuccessStatusCode();
+        }
     }
 }

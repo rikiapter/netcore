@@ -17,6 +17,7 @@ using Malam.Mastpen.API.Security;
 using Malam.Mastpen.API.Clients;
 using Malam.Mastpen.API.Clients.Contracts;
 using Malam.Mastpen.Core.BL.Contracts;
+using Malam.Mastpen.HR.Core.BL.Requests;
 
 namespace Malam.Mastpen.API.Controllers
 {
@@ -70,6 +71,127 @@ namespace Malam.Mastpen.API.Controllers
             entity.UserInsert = UserInfo.UserId;
 
             var response = await OrganizationService.CreateOrganizationAsync(entity);
+
+            return response.ToHttpResponse();
+        }
+
+
+        // GET
+        // api/v1/Organization/Organization
+
+        /// <summary>
+        /// Retrieves Site Organization
+        /// </summary>
+        /// <param name="pageSize">Page size</param>
+        /// <param name="pageNumber">Page number</param>
+        /// <param name="OrganizationId">Organization Id</param>
+        /// <param name="SiteId">Site Id</param>
+        /// <param name="DateFrom">Date From</param>
+        /// <param name="DateTo">Date To</param>
+        /// <returns>A response with Site Organization list</returns>
+        /// <response code="200">Returns the Site Organization list</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpGet("Organization")]
+        //  [Authorize(Policy = Policies.CustomerPolicy)]
+        public async Task<IActionResult> GetOrganizationsAsync(int pageSize = 10, int pageNumber = 1, int? OrganizationId = null, string OrganizationName = null, int? IdentityNumber = null)//, int? SiteId = null, DateTime? DateFrom = null, DateTime? DateTo = null)
+        {
+            var response = await OrganizationService.GetOrganizationsAsync(pageSize, pageNumber, OrganizationId, OrganizationName, IdentityNumber);
+
+            // Return as http response
+            return response.ToHttpResponse();
+        }
+
+        // GET
+        // api/v1/Organization/Organization/5
+
+        /// <summary>
+        /// Retrieves a Organization by Id
+        /// 1.33.	מסך מספר 2.3 – תיק עובד
+        /// 1.33.13.	לשונית לפרטים אישיים ורישיון עבודה
+        /// </summary>
+        /// <param name="Id">Organization Id</param>
+        /// <returns>A response with Organization</returns>
+        /// <response code="200">Returns the Site Organization list</response>
+        /// <response code="404">If Organization is not exists</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpGet("Organization/{Id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        [Authorize(Policy = Policies.CustomerPolicy)]
+        public async Task<IActionResult> GetOrganizationAsync(int Id)
+        {
+            var response = await OrganizationService.GetOrganizationAsync(Id);
+            return response.ToHttpResponse();
+        }
+
+
+        // PUT
+        // api/v1/Organization/Organization/5
+
+        /// <summary>
+        /// Updates an existing Organization
+        /// </summary>
+        /// <param name="Id">Organization Id</param>
+        /// <param name="request">Request model</param>
+        /// <returns>A response as update Organization result</returns>
+        /// <response code="200">If Organization was updated successfully</response>
+        /// <response code="400">For bad request</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpPut("Organization/{Id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> PutOrganizationAsync(int Id, [FromBody]OrganizationRequest request)
+        {   // Get Organization by Id
+            var entity = await OrganizationService.GetOrganizationsAsync(request.OrganizationId);
+            //// ValIdate if entity exists
+            if (entity == null)
+                return NotFound();
+
+            var Organization = request.ToEntity();
+
+            Organization.UserInsert = UserInfo.UserId;
+            Organization.OrganizationId = Id;
+            var response = await OrganizationService.UpdateOrganizationAsync(Organization);
+
+            response.Message = string.Format("Sucsses Put for Site Organization = {0} ", request.OrganizationId);
+
+
+            return response.ToHttpResponse();
+        }
+
+        // DELETE
+        // api/v1/Organization/Organization/5
+
+        /// <summary>
+        /// Deletes an existing Organization
+        /// </summary>
+        /// <param name="Id">Organization Id</param>
+        /// <returns>A response as delete Organization result</returns>
+        /// <response code="200">If Organization was deleted successfully</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpDelete("Organization/{Id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> DeleteOrganizationAsync(int Id)
+        {
+
+            //// Get Organization by Id
+            var entity = await OrganizationService.GetOrganizationsAsync(Id);
+
+            //// ValIdate if entity exists
+            if (entity == null)
+                return NotFound();
+
+            //// Remove entity from repository
+            var response = await OrganizationService.DeleteOrganizationAsync(Id);
+            //DbContext.Remove(entity);
+
+            //response.Message = string.Format("Sucsses Delete Site Organization = {0} ", Id);
+
+            //// Delete entity in database
+            //await DbContext.SaveChangesAsync();
 
             return response.ToHttpResponse();
         }
