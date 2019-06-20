@@ -11,7 +11,7 @@ namespace Malam.Mastpen.Core.BL.Contracts
 {
     public interface IEmployeeService : IService
     {
-        Task<IPagedResponse<Employee>> GetEmployeesAsync(int pageSize = 10, int pageNumber = 1, int? EmployeeId = null, string EmployeeName = null, int? IdentityNumber = null);
+        Task<IPagedResponse<Employee>> GetEmployeesAsync(int pageSize = 10, int pageNumber = 1, int? EmployeeId = null, string EmployeeName = null, int? IdentityNumber = null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null);
         Task<SingleResponse<EmployeeResponse>> GetEmployeeAsync(int Id);
         Task<SingleResponse<Employee>> GetEmployeeByEmployeeNameAsync(int Id);
         Task<SingleResponse<Employee>> CreateEmployeeAsync(Employee employee);

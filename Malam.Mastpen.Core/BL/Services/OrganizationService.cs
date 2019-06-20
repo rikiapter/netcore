@@ -52,7 +52,7 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
 
-        public async Task<IPagedResponse<Organization>> GetOrganizationsAsync(int pageSize = 10, int pageNumber = 1, int? OrganizationId = null, string OrganizationName = null, int? IdentityNumber = null)//, int? SiteId = null, DateTime? DateFrom = null, DateTime? DateTo = null)
+        public async Task<IPagedResponse<Organization>> GetOrganizationsAsync(int pageSize = 10, int pageNumber = 1, int? OrganizationId = null, string OrganizationName = null)
         {
 
             var response = new PagedResponse<Organization>();

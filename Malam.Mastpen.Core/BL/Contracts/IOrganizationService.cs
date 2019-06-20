@@ -11,7 +11,7 @@ namespace Malam.Mastpen.Core.BL.Contracts
     {
         Task<SingleResponse<Organization>> GetOrganizationIdAsync(int Id);
         Task<SingleResponse<Organization>> CreateOrganizationAsync(Organization organization);
-        Task<IPagedResponse<Organization>> GetOrganizationsAsync(int pageSize = 10, int pageNumber = 1, int? OrganizationId = null, string OrganizationName = null, int? IdentityNumber = null);
+        Task<IPagedResponse<Organization>> GetOrganizationsAsync(int pageSize = 10, int pageNumber = 1, int? OrganizationId = null, string OrganizationName = null)
 
         Task<SingleResponse<OrganizationResponse>> GetOrganizationAsync(int Id);
         Task<Response> UpdateOrganizationAsync(Organization Organization);

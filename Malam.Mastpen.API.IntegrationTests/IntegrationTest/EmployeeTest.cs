@@ -36,7 +36,9 @@ namespace Malam.Mastpen.API.IntegrationTests.IntegrationTest
 
         [Fact]
         public async Task TestGetEmployeeAsync()
-        {
+        {        
+            //יש להעלות את הפרויקט 
+            //identity server
             var token = await TokenHelper.GetMastpenTokenForWolverineAsync();
             // Arrange
             var request = "/api/v1/Employee/Employee/1";
