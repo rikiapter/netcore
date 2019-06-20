@@ -17,6 +17,14 @@ namespace Malam.Mastpen.Core.BL.Contracts
         Task<SingleResponse<Employee>> CreateEmployeeAsync(Employee employee);
         Task<Response> UpdateEmployeeAsync(Employee employee);
         Task<Response> DeleteEmployeeAsync(int Id);
+        Task<SingleResponse<EmployeeWorkPermit>> CreateEmployeeWorkPermitAsync(EmployeeWorkPermit employeeWorkPermit);
+        Task<SingleResponse<EmployeeTraining>> CreateEmployeeTrainingAsync(EmployeeTraining employeeTraining);
+        Task<SingleResponse<EmployeeAuthtorization>> CreateEmployeeAuthtorizationAsync(EmployeeAuthtorization employeeAuthtorization);
+        Task<ListResponse<EmployeeTraining>> GetEmployeeTrainingByEmployeeIdAsync(int Id);
+        Task<ListResponse<EmployeeWorkPermit>> GetEmployeeWorkPermitByEmployeeIdAsync(int Id);
+        Task<ListResponse<EmployeeAuthtorization>> GetEmployeeAuthtorizationByEmployeeIdAsync(int Id);
+
+
 
 
     }

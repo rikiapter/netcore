@@ -152,6 +152,20 @@ namespace Malam.Mastpen.Core.DAL
 
 
         }
+
+
+        public static IQueryable<EmployeeTraining> GetEmployeeTrainingByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeTraining entity)
+    =>  dbContext.EmployeeTraining.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId);
+
+        public static IQueryable<EmployeeWorkPermit> GetEmployeeWorkPermitByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeWorkPermit entity)
+=>  dbContext.EmployeeWorkPermit.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId);
+
+        public static  IQueryable< EmployeeAuthtorization> GetEmployeeAuthtorizationByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeAuthtorization entity)
+=>  dbContext.EmployeeAuthtorization.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId);
+      
+        
+        
+        
         /// <summary>
         ///get entity table
         ///return entityTypeId

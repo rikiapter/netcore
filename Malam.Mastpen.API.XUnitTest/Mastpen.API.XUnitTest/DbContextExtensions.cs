@@ -60,7 +60,17 @@ namespace Malam.Mastpen.API.XUnitTest
                 IsRequired =true
 
     });
-               await  dbContext.SaveChangesAsync();
+            await dbContext.SaveChangesAsync();
+            dbContext.EmployeeAuthtorization.Add(new EmployeeAuthtorization
+            {
+                Employee = dbContext.Employee.Find(new object[] { 1 }),
+                EmployeeAuthorizationId = 1,
+                Comment = "bla bla",
+                DateFrom = new DateTime(2000, 5, 1),
+                DateTo = new DateTime(2000, 5, 1)
+
+            });
+            await  dbContext.SaveChangesAsync();
             dbContext.EmplyeePicture.Add(new EmplyeePicture
             {
                 EmployeeId = 1,
@@ -231,7 +241,6 @@ namespace Malam.Mastpen.API.XUnitTest
                 EntityTypeId = 2,
                 EntityTypeName = "BB_HR_Employee"
             });
-
 
             await  dbContext.SaveChangesAsync();
         }

@@ -123,5 +123,93 @@ namespace Malam.Mastpen.Core.BL.Services
 
             return response;
         }
+
+
+
+        // POST
+        public async Task<SingleResponse<EmployeeTraining>> CreateEmployeeTrainingAsync(EmployeeTraining employeeTraining)
+        {
+            var response = new SingleResponse<EmployeeTraining>();
+
+            // Add entity to repository
+            DbContext.Add(employeeTraining, UserInfo);
+            // Save entity in database
+            await DbContext.SaveChangesAsync();
+
+            response.SetMessageSucssesPost(nameof(GetEmployeeAsync), employeeTraining.EmployeeTrainingId);
+            // Set the entity to response model
+            response.Model = employeeTraining;
+
+            return response;
+        }
+
+
+        // POST
+        public async Task<SingleResponse<EmployeeWorkPermit>> CreateEmployeeWorkPermitAsync(EmployeeWorkPermit employeeWorkPermit)
+        {
+            var response = new SingleResponse<EmployeeWorkPermit>();
+
+            // Add entity to repository
+            DbContext.Add(employeeWorkPermit, UserInfo);
+            // Save entity in database
+            await DbContext.SaveChangesAsync();
+
+            response.SetMessageSucssesPost(nameof(GetEmployeeAsync), employeeWorkPermit.EmployeeWorkPermitId);
+            // Set the entity to response model
+            response.Model = employeeWorkPermit;
+
+            return response;
+        }
+
+
+        // POST
+        public async Task<SingleResponse<EmployeeAuthtorization>> CreateEmployeeAuthtorizationAsync(EmployeeAuthtorization employeeAuthtorization)
+        {
+            var response = new SingleResponse<EmployeeAuthtorization>();
+
+            // Add entity to repository
+            DbContext.Add(employeeAuthtorization, UserInfo);
+            // Save entity in database
+            await DbContext.SaveChangesAsync();
+
+            response.SetMessageSucssesPost(nameof(GetEmployeeAsync), employeeAuthtorization.EmployeeAuthorizationId);
+            // Set the entity to response model
+            response.Model = employeeAuthtorization;
+
+            return response;
+        }
+        //Get List
+        public async Task<ListResponse<EmployeeTraining>> GetEmployeeTrainingByEmployeeIdAsync(int Id)
+        {
+            var response = new ListResponse<EmployeeTraining>();
+            // Get the Employee by Id
+            var query=  DbContext.GetEmployeeTrainingByEmployeeIdAsync(new EmployeeTraining { EmployeeId = Id });
+            response.Model = await query.ToListAsync();
+
+            return response;
+        }
+
+        //Get List
+        public async Task<ListResponse<EmployeeWorkPermit>> GetEmployeeWorkPermitByEmployeeIdAsync(int Id)
+        {
+            var response = new ListResponse<EmployeeWorkPermit>();
+            // Get the Employee by Id
+            var query = DbContext.GetEmployeeWorkPermitByEmployeeIdAsync(new EmployeeWorkPermit { EmployeeId = Id });
+            response.Model = await query.ToListAsync();
+
+            return response;
+        }
+
+        //Get List
+        public async Task<ListResponse<EmployeeAuthtorization>> GetEmployeeAuthtorizationByEmployeeIdAsync(int Id)
+        {
+            var response = new ListResponse<EmployeeAuthtorization>();
+            // Get the Employee by Id
+            var query = DbContext.GetEmployeeAuthtorizationByEmployeeIdAsync(new EmployeeAuthtorization { EmployeeId = Id });
+            response.Model = await query.ToListAsync();
+
+            return response;
+        }
+
     }
 }

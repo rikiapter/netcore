@@ -123,5 +123,117 @@ namespace Malam.Mastpen.API.XUnitTest.UnitTest
             // Assert
             Assert.False(value.DIdError);
         }
+
+
+        [Fact]
+        public async Task TestPostEmployeeTrainingAsync()
+        {
+            // Arrange
+            var controller = ControllerMocker.GetEmployeeController(nameof(TestPostEmployeeTrainingAsync));
+
+            var request = new EmployeeTraining
+            {
+                EmployeeId = 2,
+                EmployeeTrainingId=3
+
+            };
+
+            // Act
+            var response = await controller.PostEmployeeTrainingAsync(request) as ObjectResult;
+            var value = response.Value as ISingleResponse<EmployeeTraining>;
+
+            // Assert
+            Assert.False(value.DIdError);
+        }
+
+        [Fact]
+        public async Task TestPostEmployeeWorkPermitAsync()
+        {
+            // Arrange
+            var controller = ControllerMocker.GetEmployeeController(nameof(TestPostEmployeeWorkPermitAsync));
+
+            var request = new EmployeeWorkPermit
+            {
+                EmployeeId = 2,
+                EmployeeWorkPermitId = 3
+
+            };
+
+            // Act
+            var response = await controller.PostEmployeeWorkPermitAsync(request) as ObjectResult;
+            var value = response.Value as ISingleResponse<EmployeeWorkPermit>;
+
+            // Assert
+            Assert.False(value.DIdError);
+        }
+
+        [Fact]
+        public async Task TestPostEmployeeAuthtorizationAsync()
+        {
+            // Arrange
+            var controller = ControllerMocker.GetEmployeeController(nameof(TestPostEmployeeAuthtorizationAsync));
+
+            var request = new EmployeeAuthtorization
+            {
+                EmployeeId = 2,
+                EmployeeAuthorizationId = 3
+
+            };
+
+            // Act
+            var response = await controller.PostEmployeeAuthtorizationAsync(request) as ObjectResult;
+            var value = response.Value as ISingleResponse<EmployeeAuthtorization>;
+
+            // Assert
+            Assert.False(value.DIdError);
+        }
+
+        [Fact]
+        public async Task TestGetEmployeeTrainingAsync()
+        {
+            // Arrange
+            var controller = ControllerMocker.GetEmployeeController(nameof(TestGetEmployeeTrainingAsync));
+
+            var id = 1;
+
+            // Act
+            var response = await controller.GetEmployeeTrainingAsync(id) as ObjectResult;
+            var value = response.Value as IListResponse<EmployeeTraining>;
+
+            // Assert
+            Assert.False(value.DIdError);
+        }
+
+        [Fact]
+        public async Task TestGetEmployeeWorkPermitAsync()
+        {
+            // Arrange
+            var controller = ControllerMocker.GetEmployeeController(nameof(TestGetEmployeeWorkPermitAsync));
+
+            var id = 1;
+
+            // Act
+            var response = await controller.GetEmployeeWorkPermitAsync(id) as ObjectResult;
+            var value = response.Value as IListResponse<EmployeeWorkPermit>;
+
+            // Assert
+            Assert.False(value.DIdError);
+        }
+
+        [Fact]
+        public async Task TestGetEmployeeAuthtorizatioAsync()
+        {
+            // Arrange
+            var controller = ControllerMocker.GetEmployeeController(nameof(TestGetEmployeeAuthtorizatioAsync));
+
+            var id = 1;
+
+            // Act
+            var response = await controller.GetEmployeeAuthtorizationAsync(id) as ObjectResult;
+            var value = response.Value as IListResponse<EmployeeAuthtorization>;
+
+            // Assert
+            Assert.False(value.DIdError);
+        }
     }
 }

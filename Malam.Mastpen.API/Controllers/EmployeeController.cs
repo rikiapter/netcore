@@ -193,5 +193,161 @@ namespace Malam.Mastpen.API.Controllers
 
             return response.ToHttpResponse();
         }
+
+        // POST
+        // api/v1/Employee/EmployeeTraining/
+
+        /// <summary>
+        /// Creates a new EmployeeTraining
+        /// </summary>
+        /// <param name="request">Request model</param>
+        /// <returns>A response with new EmployeeTraining</returns>
+        /// <response code="200">Returns the EmployeeTraining </response>
+        /// <response code="201">A response as creation of EmployeeTraining</response>
+        /// <response code="400">For bad request</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpPost("EmployeeTraining")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> PostEmployeeTrainingAsync([FromBody]EmployeeTraining request)
+        {
+
+            var entity = request;
+
+            entity.UserInsert = UserInfo.UserId;
+
+            var response = await EmployeeService.CreateEmployeeTrainingAsync(entity);
+
+            return response.ToHttpResponse();
+        }
+
+        // POST
+        // api/v1/Employee/EmployeeWorkPermit/
+
+        /// <summary>
+        /// Creates a new EmployeeWorkPermit
+        /// </summary>
+        /// <param name="request">Request model</param>
+        /// <returns>A response with new EmployeeWorkPermit</returns>
+        /// <response code="200">Returns the EmployeeWorkPermit </response>
+        /// <response code="201">A response as creation of EmployeeWorkPermit</response>
+        /// <response code="400">For bad request</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpPost("EmployeeWorkPermit")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> PostEmployeeWorkPermitAsync([FromBody]EmployeeWorkPermit request)
+        {
+
+            var entity = request;
+
+            entity.UserInsert = UserInfo.UserId;
+
+            var response = await EmployeeService.CreateEmployeeWorkPermitAsync(entity);
+
+            return response.ToHttpResponse();
+        }
+
+        // POST
+        // api/v1/Employee/EmployeeAuthtorization/
+
+        /// <summary>
+        /// Creates a new EmployeeAuthtorization
+        /// </summary>
+        /// <param name="request">Request model</param>
+        /// <returns>A response with new EmployeeAuthtorization</returns>
+        /// <response code="200">Returns the EmployeeAuthtorization </response>
+        /// <response code="201">A response as creation of EmployeeAuthtorization</response>
+        /// <response code="400">For bad request</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpPost("EmployeeAuthtorization")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> PostEmployeeAuthtorizationAsync([FromBody]EmployeeAuthtorization request)
+        {
+
+            var entity = request;
+
+            entity.UserInsert = UserInfo.UserId;
+
+            var response = await EmployeeService.CreateEmployeeAuthtorizationAsync(entity);
+
+            return response.ToHttpResponse();
+        }
+
+
+        // GET
+        // api/v1/Employee/EmployeeTraining/5
+
+        /// <summary>
+        /// Retrieves a EmployeeTraining by EmployeeId
+        ///רשימת הדרכות
+        /// </summary>
+        /// <param name="Id">Employee Id</param>
+        /// <returns>A response with EmployeeTraining</returns>
+        /// <response code="200">Returns the EmployeeTraining list</response>
+        /// <response code="404">If EmployeeTraining is not exists</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpGet("EmployeeTraining/{Id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> GetEmployeeTrainingAsync(int EmployeeId)
+        {
+            var response = await EmployeeService.GetEmployeeTrainingByEmployeeIdAsync(EmployeeId);
+            return response.ToHttpResponse();
+        }
+
+
+        // GET
+        // api/v1/Employee/EmployeeWorkPermit/5
+
+        /// <summary>
+        /// Retrieves a EmployeeWorkPermit by EmployeeId
+        ///רשימת הדרכות
+        /// </summary>
+        /// <param name="Id">EmployeeWorkPermit Id</param>
+        /// <returns>A response with EmployeeWorkPermit</returns>
+        /// <response code="200">Returns the EmployeeWorkPermit list</response>
+        /// <response code="404">If EmployeeWorkPermit is not exists</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpGet("EmployeeWorkPermit/{Id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> GetEmployeeWorkPermitAsync(int EmployeeId)
+        {
+            var response = await EmployeeService.GetEmployeeWorkPermitByEmployeeIdAsync(EmployeeId);
+            return response.ToHttpResponse();
+        }
+
+
+        // GET
+        // api/v1/Employee/EmployeeAuthtorization/5
+
+        /// <summary>
+        /// Retrieves a EmployeeAuthtorization by EmployeeId
+        ///רשימת הדרכות
+        /// </summary>
+        /// <param name="Id">Employee Id</param>
+        /// <returns>A response with EmployeeAuthtorization</returns>
+        /// <response code="200">Returns the EmployeeAuthtorization list</response>
+        /// <response code="404">If EmployeeAuthtorization is not exists</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpGet("EmployeeAuthtorization/{Id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> GetEmployeeAuthtorizationAsync(int EmployeeId)
+        {
+            var response = await EmployeeService.GetEmployeeAuthtorizationByEmployeeIdAsync(EmployeeId);
+            return response.ToHttpResponse();
+        }
     }
 }
