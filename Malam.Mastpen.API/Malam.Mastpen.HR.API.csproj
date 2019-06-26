@@ -6,6 +6,7 @@
     <Product>Mastpen Btichot To construction sites</Product>
     <Company>Malam Team</Company>
     <Description>Safety system for construction sites</Description>
+    <UserSecretsId>e99f297f-5acc-448d-8c68-860a8fd9302a</UserSecretsId>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
