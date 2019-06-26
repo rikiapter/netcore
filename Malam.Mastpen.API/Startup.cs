@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Swashbuckle.AspNetCore.Swagger;
 using Malam.Mastpen.API.Controllers;
 
 using Malam.Mastpen.Core.DAL;
@@ -119,17 +118,29 @@ namespace Malam.Mastpen.API
 
             /* Configuration for Help page */
 
-            services.AddSwaggerGen(options =>
+
+            services.AddSwaggerDocument(config =>
             {
-                options.SwaggerDoc("v1", new Info { Title = "MastpenBitachon API", Version = "v1" });
-
-                // Get xml comments path
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-
-                // Set xml path
-                options.IncludeXmlComments(xmlPath);
+                config.PostProcess = document =>
+                {
+                    document.Info.Version = "v1";
+                    document.Info.Title = "Mastpen Bitachon API";
+                    document.Info.Description = "מצפן ביטחון";
+                    document.Info.TermsOfService = "None";
+                    document.Info.Contact = new NSwag.OpenApiContact
+                    {
+                        Name = "Malam Team",
+                        Email = string.Empty,
+                        Url = "https://www.malamteam.com/"
+                    };
+                    //document.Info.License = new NSwag.OpenApiLicense
+                    //{
+                    //    Name = "Use under LICX",
+                    //    Url = "https://example.com/license"
+                    //};
+                };
             });
+
 
 
 
@@ -155,13 +166,8 @@ namespace Malam.Mastpen.API
             //loggerFactory.lo
             app.UseAuthentication();
             // Enable mIddleware to serve generated Swagger as a JSON endpoint.
-            app.UseSwagger();
-
-            // Enable mIddleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "MastpenBitachon API V1");
-            });
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
 
             loggerFactory.AddLog4Net();
 
