@@ -124,8 +124,8 @@ namespace Malam.Mastpen.API
                 config.PostProcess = document =>
                 {
                     document.Info.Version = "v1";
-                    document.Info.Title = "Mastpen Bitachon API";
-                    document.Info.Description = "מצפן ביטחון";
+                    document.Info.Title = "Mastpen Bitachon HR API";
+                    document.Info.Description = "מצפן ביטחון - עובדים וקבלנים";
                     document.Info.TermsOfService = "None";
                     document.Info.Contact = new NSwag.OpenApiContact
                     {
