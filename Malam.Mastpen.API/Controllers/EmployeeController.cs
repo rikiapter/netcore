@@ -54,9 +54,9 @@ namespace Malam.Mastpen.API.Controllers
         /// <response code="500">If there was an internal server error</response>
         [HttpGet("Employee")]
         //  [Authorize(Policy = Policies.CustomerPolicy)]
-        public async Task<IActionResult> GetEmployeesAsync(int pageSize = 10, int pageNumber = 1, int? EmployeeId = null, string EmployeeName = null, int? IdentityNumber = null,int? OrganizationId=null,int? PassportCountryId=null,int? ProffesionType=null)//, int? SiteId = null, DateTime? DateFrom = null, DateTime? DateTo = null)
+        public async Task<IActionResult> GetEmployeesAsync(int pageSize = 10, int pageNumber = 1, int? EmployeeId = null, string EmployeeName = null, int? IdentityNumber = null,int? OrganizationId=null,int? PassportCountryId=null,int? ProffesionType=null, int? SiteId=null)//, int? SiteId = null, DateTime? DateFrom = null, DateTime? DateTo = null)
         {
-            var response = await EmployeeService.GetEmployeesAsync(pageSize, pageNumber, EmployeeId, EmployeeName ,  IdentityNumber, OrganizationId,PassportCountryId, ProffesionType);
+            var response = await EmployeeService.GetEmployeesAsync(pageSize, pageNumber, EmployeeId, EmployeeName ,  IdentityNumber, OrganizationId,PassportCountryId, ProffesionType, SiteId);
 
             // Return as http response
             return response.ToHttpResponse();
@@ -81,7 +81,7 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(500)]
         //יש להעלות את הפרויקט 
         //identity server
-        [Authorize(Policy = Policies.CustomerPolicy)]
+        //[Authorize(Policy = Policies.CustomerPolicy)]
         public async Task<IActionResult> GetEmployeeAsync(int Id)
         {
             var response = await EmployeeService.GetEmployeeAsync(Id);

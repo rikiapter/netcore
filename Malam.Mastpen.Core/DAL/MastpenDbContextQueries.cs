@@ -34,19 +34,28 @@ namespace Malam.Mastpen.Core.DAL
 
         }
 
-        public static IQueryable<Employee> GetEmployee(this MastpenBitachonDbContext dbContext, int? EmployeeID = null, string EmployeeName = null, int? IdentityNumber = null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null)
+        public static IQueryable<Employee> GetEmployee(this MastpenBitachonDbContext dbContext, int? EmployeeID = null, string EmployeeName = null, int? IdentityNumber = null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null,int ? SiteId=null)
         {
 
+            var query = from Employee in dbContext.Employee
+                        
+                        //join siteId in dbContext.SiteEmployee
+                        //on Employee.SiteEmployeeSite SiteId equals siteId.SiteId
+                        select Employee;
+
             // Get query from DbSet
-            var query = dbContext.Employee
+             query = query
                 .Include(b => b.IdentificationType)
-                .AsQueryable();
+                .Include(o => o.Organization)
+         
+                .AsQueryable()
+                 ;
 
             // Filter by: 'EmployeeID'
             if (EmployeeID.HasValue)
                 query = query.Where(item => item.EmployeeId == EmployeeID);
 
-            if (EmployeeName!=null)
+            if (EmployeeName != null)
                 query = query.Where(item => item.FirstName == EmployeeName);
 
             if (IdentityNumber.HasValue)
@@ -57,6 +66,12 @@ namespace Malam.Mastpen.Core.DAL
 
             if (PassportCountryId.HasValue)
                 query = query.Where(item => item.PassportCountryId == PassportCountryId);
+
+            if (SiteId.HasValue)
+                query = query.Where(item => item.SiteEmployeeSite.Any(siteid=> siteid.SiteId==SiteId));
+
+      
+
 
             //if (ProffesionType.HasValue)
             //    query = query.Where(item => item.ProffesionType == ProffesionType);
