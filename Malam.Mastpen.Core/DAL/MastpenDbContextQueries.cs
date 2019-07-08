@@ -37,14 +37,8 @@ namespace Malam.Mastpen.Core.DAL
         public static IQueryable<Employee> GetEmployee(this MastpenBitachonDbContext dbContext, int? EmployeeID = null, string EmployeeName = null, int? IdentityNumber = null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null,int ? SiteId=null)
         {
 
-            var query = from Employee in dbContext.Employee
-                        
-                        //join siteId in dbContext.SiteEmployee
-                        //on Employee.SiteEmployeeSite SiteId equals siteId.SiteId
-                        select Employee;
-
             // Get query from DbSet
-             query = query
+          var   query = dbContext.Employee
                 .Include(b => b.IdentificationType)
                 .Include(o => o.Organization)
          
@@ -89,18 +83,22 @@ namespace Malam.Mastpen.Core.DAL
             var query = from Employee in dbContext.Employee.Where(item => item.EmployeeId == entity.EmployeeId)
 
                         join phonMail in dbContext.PhoneMail.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
-                        on Employee.EmployeeId equals phonMail.EntityId
+                        on Employee.EmployeeId equals phonMail.EntityId into phonMail
+                        from x_phonMail in phonMail.DefaultIfEmpty()
 
                         join note in dbContext.Notes.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
-                        on Employee.EmployeeId equals note.EntityId
+                        on Employee.EmployeeId equals note.EntityId into note
+                        from x_note in note.DefaultIfEmpty()
 
                         join address in dbContext.Address.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
-                        on Employee.EmployeeId equals address.EntityId
+                        on Employee.EmployeeId equals address.EntityId into address
+                        from x_address in address.DefaultIfEmpty()
 
                         join docs in dbContext.Docs.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
-                        on Employee.EmployeeId equals docs.EntityId
+                        on Employee.EmployeeId equals docs.EntityId into docs
+                        from x_docs in docs.DefaultIfEmpty()
 
-                        select Employee.ToEntity(phonMail,note,address,docs);
+                        select Employee.ToEntity( x_phonMail,x_note,x_address,x_docs);
             
             //.Include(b => b.EmplyeePicture)
             //.Include(c => c.EmployeeProffesionType)

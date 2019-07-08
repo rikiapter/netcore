@@ -15,7 +15,7 @@ namespace Malam.Mastpen.Core.BL.Requests
 
     public class EmployeeRequest
     {
-        public int EmployeeId { get; set; }
+        public int? EmployeeId { get; set; }
 
         public int? IdentificationTypeId { get; set; }
 
@@ -114,7 +114,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         public static Employee ToEntity(this EmployeeRequest request)
         => new Employee
         {
-            EmployeeId = request.EmployeeId
+            EmployeeId = request.EmployeeId ?? 0
         };
         public static EmployeeInListResponse ToEntity(this Employee request)
      => new EmployeeInListResponse

@@ -107,7 +107,7 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> PostEmployeeAsync([FromBody]EmployeeRequest request)
         {
-            var existingEntity = await EmployeeService.GetEmployeeByEmployeeNameAsync(request.EmployeeId);
+            var existingEntity = await EmployeeService.GetEmployeeByEmployeeNameAsync(request.EmployeeId ?? 0);
 
             if (existingEntity.Model != null)
                 ModelState.AddModelError("EmployeeName", "Employee name already exists");
@@ -142,7 +142,7 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> PutEmployeeAsync(int Id, [FromBody]EmployeeRequest request)
         {   // Get Employee by Id
-            var entity = await EmployeeService.GetEmployeesAsync(request.EmployeeId);
+            var entity = await EmployeeService.GetEmployeesAsync(request.EmployeeId ?? 0);
             //// ValIdate if entity exists
             if (entity == null)
                 return NotFound();
