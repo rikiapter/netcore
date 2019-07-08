@@ -322,18 +322,18 @@ namespace Malam.Mastpen.API.Controllers
 
 
         // GET
-        // api/v1/Employee/EmployeeTraining/5
+        // api/v1/Employee/EmployeeTraining
 
         /// <summary>
         /// Retrieves a EmployeeTraining by EmployeeId
         ///רשימת הדרכות
         /// </summary>
-        /// <param name="Id">Employee Id</param>
+        /// <param name="EmployeeId">Employee Id</param>
         /// <returns>A response with EmployeeTraining</returns>
         /// <response code="200">Returns the EmployeeTraining list</response>
         /// <response code="404">If EmployeeTraining is not exists</response>
         /// <response code="500">If there was an internal server error</response>
-        [HttpGet("EmployeeTraining/{Id}")]
+        [HttpGet("EmployeeTraining")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
@@ -345,18 +345,18 @@ namespace Malam.Mastpen.API.Controllers
 
 
         // GET
-        // api/v1/Employee/EmployeeWorkPermit/5
+        // api/v1/Employee/EmployeeWorkPermit
 
         /// <summary>
         /// Retrieves a EmployeeWorkPermit by EmployeeId
         ///רשימת הדרכות
         /// </summary>
-        /// <param name="Id">EmployeeWorkPermit Id</param>
+        /// <param name="EmployeeId">EmployeeWorkPermit Id</param>
         /// <returns>A response with EmployeeWorkPermit</returns>
         /// <response code="200">Returns the EmployeeWorkPermit list</response>
         /// <response code="404">If EmployeeWorkPermit is not exists</response>
         /// <response code="500">If there was an internal server error</response>
-        [HttpGet("EmployeeWorkPermit/{Id}")]
+        [HttpGet("EmployeeWorkPermit")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
@@ -368,18 +368,18 @@ namespace Malam.Mastpen.API.Controllers
 
 
         // GET
-        // api/v1/Employee/EmployeeAuthtorization/5
+        // api/v1/Employee/EmployeeAuthtorization
 
         /// <summary>
         /// Retrieves a EmployeeAuthtorization by EmployeeId
         ///רשימת הדרכות
         /// </summary>
-        /// <param name="Id">Employee Id</param>
+        /// <param name="EmployeeId">Employee Id</param>
         /// <returns>A response with EmployeeAuthtorization</returns>
         /// <response code="200">Returns the EmployeeAuthtorization list</response>
         /// <response code="404">If EmployeeAuthtorization is not exists</response>
         /// <response code="500">If there was an internal server error</response>
-        [HttpGet("EmployeeAuthtorization/{Id}")]
+        [HttpGet("EmployeeAuthtorization")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
@@ -390,18 +390,18 @@ namespace Malam.Mastpen.API.Controllers
         }
 
         // GET
-        // api/v1/Employee/Notes/5
+        // api/v1/Employee/Notes
 
         /// <summary>
         /// Retrieves a Notes by EmployeeId
         ///רשימת הדרכות
         /// </summary>
-        /// <param name="Id">Employee Id</param>
+        /// <param name="EmployeeId">Employee Id</param>
         /// <returns>A response with Notes</returns>
         /// <response code="200">Returns the Notes list</response>
         /// <response code="404">If EmployeeAuthtorization is not exists</response>
         /// <response code="500">If there was an internal server error</response>
-        [HttpGet("Notes/{Id}")]
+        [HttpGet("Notes")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]

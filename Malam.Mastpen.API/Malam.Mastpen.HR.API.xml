@@ -110,7 +110,7 @@
              Retrieves a EmployeeTraining by EmployeeId
             רשימת הדרכות
              </summary>
-             <param name="Id">Employee Id</param>
+             <param name="EmployeeId">Employee Id</param>
              <returns>A response with EmployeeTraining</returns>
              <response code="200">Returns the EmployeeTraining list</response>
              <response code="404">If EmployeeTraining is not exists</response>
@@ -121,7 +121,7 @@
              Retrieves a EmployeeWorkPermit by EmployeeId
             רשימת הדרכות
              </summary>
-             <param name="Id">EmployeeWorkPermit Id</param>
+             <param name="EmployeeId">EmployeeWorkPermit Id</param>
              <returns>A response with EmployeeWorkPermit</returns>
              <response code="200">Returns the EmployeeWorkPermit list</response>
              <response code="404">If EmployeeWorkPermit is not exists</response>
@@ -132,7 +132,7 @@
              Retrieves a EmployeeAuthtorization by EmployeeId
             רשימת הדרכות
              </summary>
-             <param name="Id">Employee Id</param>
+             <param name="EmployeeId">Employee Id</param>
              <returns>A response with EmployeeAuthtorization</returns>
              <response code="200">Returns the EmployeeAuthtorization list</response>
              <response code="404">If EmployeeAuthtorization is not exists</response>
@@ -143,7 +143,7 @@
              Retrieves a Notes by EmployeeId
             רשימת הדרכות
              </summary>
-             <param name="Id">Employee Id</param>
+             <param name="EmployeeId">Employee Id</param>
              <returns>A response with Notes</returns>
              <response code="200">Returns the Notes list</response>
              <response code="404">If EmployeeAuthtorization is not exists</response>
