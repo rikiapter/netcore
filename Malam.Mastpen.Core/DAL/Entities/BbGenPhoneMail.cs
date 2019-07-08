@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Malam.Mastpen.Core.DAL.Entities
 {
-    public partial class PhoneMail
+    public partial class PhoneMail:IAuditableEntity
     {
         public int ContactId { get; set; }
         public int? EntityTypeId { get; set; }

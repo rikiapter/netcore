@@ -41,7 +41,8 @@ namespace Malam.Mastpen.Core.DAL
           var   query = dbContext.Employee
                 .Include(b => b.IdentificationType)
                 .Include(o => o.Organization)
-         
+           
+
                 .AsQueryable()
                  ;
 
@@ -64,11 +65,6 @@ namespace Malam.Mastpen.Core.DAL
             if (SiteId.HasValue)
                 query = query.Where(item => item.SiteEmployeeSite.Any(siteid=> siteid.SiteId==SiteId));
 
-      
-
-
-            //if (ProffesionType.HasValue)
-            //    query = query.Where(item => item.ProffesionType == ProffesionType);
 
             return query;
 
@@ -80,31 +76,23 @@ namespace Malam.Mastpen.Core.DAL
             string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
 
 
-            var query = from Employee in dbContext.Employee.Where(item => item.EmployeeId == entity.EmployeeId)
+            var query = from Employee in dbContext.Employee    
+                        .Where(item => item.EmployeeId == entity.EmployeeId)
+   
+                  .Include(x => x.EmployeeProffesionType).ThenInclude(p=>p.ProffesionType)
 
-                        join phonMail in dbContext.PhoneMail.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+
+            join phonMail in dbContext.PhoneMail.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
                         on Employee.EmployeeId equals phonMail.EntityId into phonMail
                         from x_phonMail in phonMail.DefaultIfEmpty()
 
-                        //join note in dbContext.Notes.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
-                        //on Employee.EmployeeId equals note.EntityId into note
-                        //from x_note in note.DefaultIfEmpty()
-
-                        join address in dbContext.Address.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
-                        on Employee.EmployeeId equals address.EntityId into address
-                        from x_address in address.DefaultIfEmpty()
 
                         join docs in dbContext.Docs.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
                         on Employee.EmployeeId equals docs.EntityId into docs
                         from x_docs in docs.DefaultIfEmpty()
 
-                        select Employee.ToEntity( x_phonMail,x_address,x_docs);
-            
-            //.Include(b => b.EmplyeePicture)
-            //.Include(c => c.EmployeeProffesionType)
+                        select Employee.ToEntity( x_phonMail,x_docs);
 
-        //  .FirstOrDefaultAsync(item => item.EmployeeId == entity.EmployeeId);
-        //  return query;
 
             return query;
         }
@@ -168,8 +156,17 @@ namespace Malam.Mastpen.Core.DAL
 
 
         public static IQueryable<EmployeeTraining> GetEmployeeTrainingByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeTraining entity)
-    =>  dbContext.EmployeeTraining.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId);
+        {
+     
 
+            // Get query from DbSet
+            var query = dbContext.EmployeeTraining
+                   .Include(x => x.TrainingType)
+                .Where(item => item.EmployeeId == entity.EmployeeId)
+                .AsQueryable();
+
+            return query;
+        }
         public static IQueryable<EmployeeWorkPermit> GetEmployeeWorkPermitByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeWorkPermit entity)
 =>  dbContext.EmployeeWorkPermit.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId);
 
@@ -189,8 +186,8 @@ namespace Malam.Mastpen.Core.DAL
         
         
         /// <summary>
-        ///get entity table
-        ///return entityTypeId
+        ///get ntityTypeId
+        ///return entity tablee
         /// </summary>
         /// <param name="dbContext"></param>
         /// <param name="entity"></param>
@@ -203,6 +200,24 @@ namespace Malam.Mastpen.Core.DAL
 
             //   return dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId;
             return tableName;
+        }
+
+
+        /// <summary>
+        ///get entity table
+        ///return entityTypeId
+        /// </summary>
+        /// <param name="dbContext"></param>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public static async Task<int> GetEntityTypeIdByEntityTypeName(this MastpenBitachonDbContext dbContext, Type entity)
+        {
+            var mapping = dbContext.Model.FindEntityType(entity).Relational();
+            var schema = mapping.Schema;
+            var tableName = mapping.TableName;
+
+            return dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId;
+ 
         }
     }
 }

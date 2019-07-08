@@ -38,6 +38,10 @@ namespace Malam.Mastpen.Core.BL.Requests
         public int? GenderId { get; set; }
 
         public int? Citizenship { get; set; }
+        public string Address { get; set; }
+        public string PhoneNumber { get; set; }
+
+
     }
 
     public class EmployeeInListResponse
@@ -54,6 +58,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         public DateTime? BirthDate { get; set; }
         public int? GenderId { get; set; }
         public int? Citizenship { get; set; }
+        public string Address { get; set; }
         public int? UserInsert { get; set; }
         public DateTime? DateInsert { get; set; }
         public int? UserUpdate { get; set; }
@@ -80,6 +85,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         public DateTime? BirthDate { get; set; }
         public int? GenderId { get; set; }
         public int? Citizenship { get; set; }
+        public string Address { get; set; }
         public int? UserInsert { get; set; }
         public DateTime? DateInsert { get; set; }
         public int? UserUpdate { get; set; }
@@ -90,18 +96,19 @@ namespace Malam.Mastpen.Core.BL.Requests
         public IdentificationType IdentificationType { get; set; }
         public Organization Organization { get; set; }
         public Country PassportCountry { get; set; }
+        public ProffesionType ProffesionType { get; set; }
         //public ICollection<EmployeeEntry> EmployeeEntry { get; set; }
         //public ICollection<SiteEmployee> SiteEmployeeEmployee { get; set; }
         //public ICollection<SiteEmployee> SiteEmployeeSite { get; set; }
         //public ICollection<EmplyeePicture> EmplyeePicture { get; set; }
         //public ICollection<SiteRole> SiteRole { get; set; }
         //public ICollection<EmployeeAuthtorization> EmployeeAuthtorization { get; set; }
-        //public ICollection<EmployeeProffesionType> EmployeeProffesionType { get; set; }
+       // public ICollection<EmployeeProffesionType> EmployeeProffesionType { get; set; }
         //public ICollection<EmployeeTraining> EmployeeTraining { get; set; }
         //public ICollection<EmployeeWorkPermit> EmployeeWorkPermit { get; set; }
         public PhoneMail phonMail { get; set; }
       //  public Notes note { get; set; }
-        public Address address { get; set; }
+     //   public Address address { get; set; }
         public Docs docs { get; set; }
     }
 
@@ -114,7 +121,20 @@ namespace Malam.Mastpen.Core.BL.Requests
         public static Employee ToEntity(this EmployeeRequest request)
         => new Employee
         {
-            EmployeeId = request.EmployeeId ?? 0
+            EmployeeId = request.EmployeeId ?? 0,
+
+             IdentificationTypeId = request.IdentificationTypeId,
+            IdentityNumber = request.IdentityNumber,
+            PassportCountryId = request.PassportCountryId,
+            FirstName = request.FirstName,
+            LastName = request.LastName,
+            FirstNameEn = request.FirstNameEN,
+            LastNameEn = request.LastNameEN,
+            OrganizationId = request.OrganizationId,
+            BirthDate = request.BirthDate,
+            GenderId = request.GenderId,
+            Citizenship = request.Citizenship,
+
         };
         public static EmployeeInListResponse ToEntity(this Employee request)
      => new EmployeeInListResponse
@@ -145,7 +165,7 @@ namespace Malam.Mastpen.Core.BL.Requests
 
 
      };
-        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone,Address address,Docs docs)
+        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone,Docs docs)
             => new EmployeeResponse
             {
                 EmployeeId = request.EmployeeId,
@@ -166,7 +186,7 @@ namespace Malam.Mastpen.Core.BL.Requests
                 UserUpdate = request.UserUpdate,
                 DateUpdate = request.DateUpdate,
                 State = request.State,
-
+                Address=request.Address,
                 Gender = request.Gender,
                 IdentificationType = request.IdentificationType,
                 Organization = request.Organization,
@@ -177,12 +197,14 @@ namespace Malam.Mastpen.Core.BL.Requests
                 //EmplyeePicture = request.EmplyeePicture,
                 //SiteRole = request.SiteRole,
                 //EmployeeAuthtorization = request.EmployeeAuthtorization,
-                //EmployeeProffesionType = request.EmployeeProffesionType,
+                 // EmployeeProffesionType = request.EmployeeProffesionType,
                 //EmployeeTraining = request.EmployeeTraining,
                 //EmployeeWorkPermit = request.EmployeeWorkPermit,
                 phonMail = phone,
+                ProffesionType=request.EmployeeProffesionType.First().ProffesionType,
+               
               //  note=notes,
-                address=address,
+              //  address=address,
                 docs=docs
 
             };

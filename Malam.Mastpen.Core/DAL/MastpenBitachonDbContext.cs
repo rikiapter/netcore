@@ -79,7 +79,8 @@ namespace Malam.Mastpen.Core.DAL
                   .ApplyConfiguration(new SearchTypeAdvancedConfiguration())
                   .ApplyConfiguration(new SearchTypeSimpleConfiguration())
                   .ApplyConfiguration(new LanguageConfiguration())
-                  ;
+                  .ApplyConfiguration(new TrainingTypeConfiguration())
+                  .ApplyConfiguration(new ProffesionTypeConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

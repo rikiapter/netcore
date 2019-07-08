@@ -4,6 +4,7 @@ using Malam.Mastpen.Core.DAL;
 using System.Threading.Tasks;
 using Malam.Mastpen.Core.BL.Responses;
 using Malam.Mastpen.Core.DAL.Entities;
+using System;
 
 namespace Malam.Mastpen.Core.BL.Services
 {
@@ -37,6 +38,27 @@ namespace Malam.Mastpen.Core.BL.Services
             response.Model = await DbContext.GetAddressAsync(new Address { EntityTypeId = EntityTypeId, EntityId = EntityId });
 
             response.SetMessageGetById(nameof(GetAddressAsync), EntityTypeId);
+            return response;
+        }
+
+
+
+        public async Task<SingleResponse<PhoneMail>> CreatePhoneMailAsync(PhoneMail phoneMail, Type type)
+        {
+            var response = new SingleResponse<PhoneMail>();
+
+            var EntityTypeId =  DbContext.GetEntityTypeIdByEntityTypeName( type).Result;
+
+            phoneMail.EntityTypeId = EntityTypeId;
+
+            DbContext.Add(phoneMail, UserInfo);
+
+            await DbContext.SaveChangesAsync();
+
+            response.SetMessageSucssesPost(nameof(CreatePhoneMailAsync), phoneMail.EntityId??0);
+
+            response.Model = phoneMail;
+
             return response;
         }
     }

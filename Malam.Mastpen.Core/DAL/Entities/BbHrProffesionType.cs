@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Malam.Mastpen.Core.DAL.Entities
 {
-    public partial class ProffesionType
+    public partial class ProffesionType:IAuditableEntity
     {
         public ProffesionType()
         {

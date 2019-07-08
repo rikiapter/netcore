@@ -1,0 +1,681 @@
+2019-07-07 11:08:32,468 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-07 11:08:32,468 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-07 11:08:32,574 INFO - Request finished in 101.9565ms 200 
+2019-07-07 11:08:32,579 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 11:08:32,843 INFO - Request finished in 377ms 404 
+2019-07-07 11:08:40,038 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-07 11:08:40,043 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 11:08:40,126 INFO - Request finished in 88.0673ms 200 text/html; charset=utf-8
+2019-07-07 11:08:40,148 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/swagger-ui-standalone-preset.js  
+2019-07-07 11:08:40,154 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 11:08:40,168 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/swagger-ui.css  
+2019-07-07 11:08:40,170 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 11:08:40,203 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/swagger-ui-bundle.js  
+2019-07-07 11:08:40,205 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 11:08:40,216 INFO - The file /swagger-ui.css was not modified
+2019-07-07 11:08:40,220 INFO - The file /swagger-ui-standalone-preset.js was not modified
+2019-07-07 11:08:40,222 INFO - The file /swagger-ui-bundle.js was not modified
+2019-07-07 11:08:40,229 INFO - Request finished in 57.5198ms 304 text/css
+2019-07-07 11:08:40,232 INFO - Request finished in 77.6932ms 304 application/javascript
+2019-07-07 11:08:40,233 INFO - Request finished in 21.8016ms 304 application/javascript
+2019-07-07 11:08:41,630 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-07 11:08:41,633 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 11:08:42,474 INFO - Request finished in 848.5638ms 200 application/json; charset=utf-8
+2019-07-07 11:46:10,166 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-07 11:46:10,166 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-07 11:46:10,166 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-07 11:46:10,204 INFO - Request finished in 43.6968ms 200 
+2019-07-07 11:46:10,228 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 11:46:10,228 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 11:46:10,348 INFO - Request finished in 186.1423ms 200 text/html; charset=utf-8
+2019-07-07 11:46:10,427 INFO - Request finished in 263.4651ms 404 
+2019-07-07 11:46:10,641 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-07 11:46:10,644 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 11:46:11,384 INFO - Request finished in 743.4086ms 200 application/json; charset=utf-8
+2019-07-07 11:47:08,499 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1&SiteId=1  
+2019-07-07 11:47:08,502 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 11:47:08,554 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-07 11:47:09,780 INFO - 'GetEmployeesAsync' has been invoked
+2019-07-07 11:47:09,789 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , , , , , 1) - Validation state: Valid
+2019-07-07 11:47:10,901 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-07 11:47:11,109 INFO - The GetEmployeesAsync have been retrieved successfully.
+2019-07-07 11:47:11,111 INFO - test log
+2019-07-07 11:47:11,111 ERROR - There was a critical error on 'GetEmployeesAsync': The Include property lambda expression 'C => {from SiteEmployee X in C.SiteEmployeeSite where ([X].SiteId == __SiteId_0) select [X]}' is invalid. The expression should represent a property access: 't => t.MyProperty'. To target navigations declared on derived types, specify an explicitly typed lambda parameter of the target type, E.g. '(Derived d) => d.MyProperty'. For more information on including related data, see http://go.microsoft.com/fwlink/?LinkID=746393.
+2019-07-07 11:47:11,118 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-07 11:47:11,129 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 2572.2951ms
+2019-07-07 11:47:11,135 INFO - Request finished in 2635.8587ms 200 application/json; charset=utf-8
+2019-07-07 11:47:34,358 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1&SiteId=1  
+2019-07-07 11:47:34,360 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 11:47:34,363 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-07 11:47:34,364 INFO - 'GetEmployeesAsync' has been invoked
+2019-07-07 11:47:34,388 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , , , , , 1) - Validation state: Valid
+2019-07-07 11:47:37,148 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-07 11:48:13,109 INFO - The GetEmployeesAsync have been retrieved successfully.
+2019-07-07 11:48:13,110 INFO - test log
+2019-07-07 11:48:13,110 ERROR - There was a critical error on 'GetEmployeesAsync': The Include property lambda expression 'C => {from SiteEmployee X in C.SiteEmployeeSite where ([X].SiteId == __SiteId_0) select [X]}' is invalid. The expression should represent a property access: 't => t.MyProperty'. To target navigations declared on derived types, specify an explicitly typed lambda parameter of the target type, E.g. '(Derived d) => d.MyProperty'. For more information on including related data, see http://go.microsoft.com/fwlink/?LinkID=746393.
+2019-07-07 11:48:13,111 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-07 11:48:13,115 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 38748.7115ms
+2019-07-07 11:48:13,118 INFO - Request finished in 38767.8465ms 200 application/json; charset=utf-8
+2019-07-07 11:58:20,922 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-07 11:58:20,922 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-07 11:58:20,956 INFO - Request finished in 40.631ms 200 
+2019-07-07 11:58:20,976 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 11:58:21,134 INFO - Request finished in 215.8684ms 404 
+2019-07-07 11:58:21,250 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-07 11:58:21,253 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 11:58:21,337 INFO - Request finished in 83.8222ms 200 text/html; charset=utf-8
+2019-07-07 11:58:22,093 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-07 11:58:22,095 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 11:58:22,804 INFO - Request finished in 711.3816ms 200 application/json; charset=utf-8
+2019-07-07 11:58:31,870 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1&SiteId=1  
+2019-07-07 11:58:31,872 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 11:58:31,914 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-07 11:58:32,274 INFO - 'GetEmployeesAsync' has been invoked
+2019-07-07 11:58:32,283 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , , , , , 1) - Validation state: Valid
+2019-07-07 11:58:37,280 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-07 11:58:51,857 WARN - The Include operation for navigation '[Employee].IdentificationType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-07 11:58:53,221 INFO - Executed DbCommand (125ms) [Parameters=[@__SiteId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [Employee]
+WHERE EXISTS (
+    SELECT 1
+    FROM [BB_EC_SiteEmployee] AS [siteid]
+    WHERE ([siteid].[SiteID] = @__SiteId_0) AND ([Employee].[EmployeeID] = [siteid].[SiteID]))
+2019-07-07 11:59:03,280 WARN - Query: '(from Employee Employee in DbSet<Employee> where  (from SiteEmployee siteid in [Employee].SiteEmploy...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-07-07 11:59:03,704 INFO - Executed DbCommand (79ms) [Parameters=[@__SiteId_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [Employee.IdentificationType].[IdentificationTypeID], [Employee.IdentificationType].[Comment], [Employee.IdentificationType].[dateInsert], [Employee.IdentificationType].[dateUpdate], [Employee.IdentificationType].[IdentificationTypeName], [Employee.IdentificationType].[state], [Employee.IdentificationType].[userInsert], [Employee.IdentificationType].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_HR_IdentificationType] AS [Employee.IdentificationType] ON [Employee].[IdentificationTypeID] = [Employee.IdentificationType].[IdentificationTypeID]
+WHERE EXISTS (
+    SELECT 1
+    FROM [BB_EC_SiteEmployee] AS [siteid]
+    WHERE ([siteid].[SiteID] = @__SiteId_0) AND ([Employee].[EmployeeID] = [siteid].[SiteID]))
+ORDER BY (SELECT 1)
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2019-07-07 11:59:23,752 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 51465.2879ms.
+2019-07-07 11:59:23,753 INFO - The GetEmployeesAsync have been retrieved successfully.
+2019-07-07 11:59:23,798 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-07 11:59:23,884 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 51966.4869ms
+2019-07-07 11:59:23,899 INFO - Request finished in 52027.7246ms 200 application/json; charset=utf-8
+2019-07-07 12:01:02,028 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-07 12:01:02,028 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-07 12:01:02,028 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-07 12:01:02,066 INFO - Request finished in 45.2537ms 200 
+2019-07-07 12:01:02,091 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:01:02,091 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:01:02,224 INFO - Request finished in 200.1034ms 200 text/html; charset=utf-8
+2019-07-07 12:01:02,300 INFO - Request finished in 278.0433ms 404 
+2019-07-07 12:01:02,627 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-07 12:01:02,629 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:01:03,392 INFO - Request finished in 764.9247ms 200 application/json; charset=utf-8
+2019-07-07 12:01:10,162 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1&SiteId=1  
+2019-07-07 12:01:10,165 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:01:10,214 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-07 12:01:10,548 INFO - 'GetEmployeesAsync' has been invoked
+2019-07-07 12:01:10,559 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , , , , , 1) - Validation state: Valid
+2019-07-07 12:01:13,372 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-07 12:01:18,389 WARN - The Include operation for navigation '[Employee].IdentificationType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-07 12:01:19,275 INFO - Executed DbCommand (93ms) [Parameters=[@__SiteId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [Employee]
+WHERE EXISTS (
+    SELECT 1
+    FROM [BB_EC_SiteEmployee] AS [siteid]
+    WHERE ([siteid].[SiteID] = @__SiteId_0) AND ([Employee].[EmployeeID] = [siteid].[SiteID]))
+2019-07-07 12:01:20,633 WARN - Query: '(from Employee Employee in DbSet<Employee> where  (from SiteEmployee siteid in [Employee].SiteEmploy...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-07-07 12:01:20,880 INFO - Executed DbCommand (82ms) [Parameters=[@__SiteId_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [Employee.IdentificationType].[IdentificationTypeID], [Employee.IdentificationType].[Comment], [Employee.IdentificationType].[dateInsert], [Employee.IdentificationType].[dateUpdate], [Employee.IdentificationType].[IdentificationTypeName], [Employee.IdentificationType].[state], [Employee.IdentificationType].[userInsert], [Employee.IdentificationType].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_HR_IdentificationType] AS [Employee.IdentificationType] ON [Employee].[IdentificationTypeID] = [Employee.IdentificationType].[IdentificationTypeID]
+WHERE EXISTS (
+    SELECT 1
+    FROM [BB_EC_SiteEmployee] AS [siteid]
+    WHERE ([siteid].[SiteID] = @__SiteId_0) AND ([Employee].[EmployeeID] = [siteid].[SiteID]))
+ORDER BY (SELECT 1)
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2019-07-07 12:01:44,693 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-07 12:01:44,693 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-07 12:01:44,729 INFO - Request finished in 42.9251ms 200 
+2019-07-07 12:01:44,751 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:01:44,928 INFO - Request finished in 236.1037ms 404 
+2019-07-07 12:01:46,770 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-07 12:01:46,777 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:01:46,852 INFO - Request finished in 79.7596ms 200 text/html; charset=utf-8
+2019-07-07 12:01:47,783 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-07 12:01:47,791 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:01:48,569 INFO - Request finished in 785.9758ms 200 application/json; charset=utf-8
+2019-07-07 12:01:57,332 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1&SiteId=1  
+2019-07-07 12:01:57,334 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:01:57,377 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-07 12:01:57,716 INFO - 'GetEmployeesAsync' has been invoked
+2019-07-07 12:01:57,723 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , , , , , 1) - Validation state: Valid
+2019-07-07 12:01:59,958 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-07 12:02:00,706 WARN - The Include operation for navigation '[Employee].IdentificationType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-07 12:02:00,708 WARN - The Include operation for navigation '[Employee].Organization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-07 12:02:01,826 INFO - Executed DbCommand (91ms) [Parameters=[@__SiteId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [Employee]
+WHERE EXISTS (
+    SELECT 1
+    FROM [BB_EC_SiteEmployee] AS [siteid]
+    WHERE ([siteid].[SiteID] = @__SiteId_0) AND ([Employee].[EmployeeID] = [siteid].[SiteID]))
+2019-07-07 12:02:01,878 WARN - Query: '(from Employee Employee in DbSet<Employee> where  (from SiteEmployee siteid in [Employee].SiteEmploy...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-07-07 12:02:02,133 INFO - Executed DbCommand (84ms) [Parameters=[@__SiteId_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [Employee.Organization].[OrganizationID], [Employee.Organization].[Comment], [Employee.Organization].[dateInsert], [Employee.Organization].[dateUpdate], [Employee.Organization].[OrganizationName], [Employee.Organization].[OrganizationNumber], [Employee.Organization].[OrganizationParentID], [Employee.Organization].[OrganizationTypeID], [Employee.Organization].[state], [Employee.Organization].[userInsert], [Employee.Organization].[UserUpdate], [Employee.IdentificationType].[IdentificationTypeID], [Employee.IdentificationType].[Comment], [Employee.IdentificationType].[dateInsert], [Employee.IdentificationType].[dateUpdate], [Employee.IdentificationType].[IdentificationTypeName], [Employee.IdentificationType].[state], [Employee.IdentificationType].[userInsert], [Employee.IdentificationType].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_GEN_Organization] AS [Employee.Organization] ON [Employee].[OrganizationID] = [Employee.Organization].[OrganizationID]
+LEFT JOIN [BB_HR_IdentificationType] AS [Employee.IdentificationType] ON [Employee].[IdentificationTypeID] = [Employee.IdentificationType].[IdentificationTypeID]
+WHERE EXISTS (
+    SELECT 1
+    FROM [BB_EC_SiteEmployee] AS [siteid]
+    WHERE ([siteid].[SiteID] = @__SiteId_0) AND ([Employee].[EmployeeID] = [siteid].[SiteID]))
+ORDER BY (SELECT 1)
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2019-07-07 12:02:02,299 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 4572.2258ms.
+2019-07-07 12:02:02,300 INFO - The GetEmployeesAsync have been retrieved successfully.
+2019-07-07 12:02:02,313 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-07 12:02:02,347 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 4964.1029ms
+2019-07-07 12:02:02,363 INFO - Request finished in 5028.393ms 200 application/json; charset=utf-8
+2019-07-07 12:19:11,510 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-07 12:19:11,510 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-07 12:19:11,546 INFO - Request finished in 60.104ms 200 
+2019-07-07 12:19:11,568 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:19:11,715 INFO - Request finished in 227.7668ms 404 
+2019-07-07 12:19:21,819 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-07 12:19:21,824 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:19:21,889 INFO - Request finished in 71.1341ms 200 text/html; charset=utf-8
+2019-07-07 12:19:22,791 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-07 12:19:22,792 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:19:23,543 INFO - Request finished in 753.0668ms 200 application/json; charset=utf-8
+2019-07-07 12:19:36,537 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee/1  
+2019-07-07 12:19:36,539 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:19:36,584 INFO - Route matched with {action = "GetEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-07 12:19:36,896 INFO - 'GetEmployeeAsync' has been invoked
+2019-07-07 12:19:36,903 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API) with arguments (1) - Validation state: Valid
+2019-07-07 12:19:44,742 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-07 12:20:05,821 INFO - Executed DbCommand (92ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item].[EmployeeID], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t0].[NoteID], [t0].[dateInsert], [t0].[dateUpdate], [t0].[EntityID], [t0].[EntityTypeID], [t0].[NoteContent], [t0].[NoteTypeID], [t0].[state], [t0].[userInsert], [t0].[UserUpdate], [t1].[AddressID], [t1].[AptNo], [t1].[CityID], [t1].[Comments], [t1].[CoorX], [t1].[CoorY], [t1].[dateInsert], [t1].[dateUpdate], [t1].[EntityID], [t1].[EntityTypeID], [t1].[EntranceNo], [t1].[HouseNumber], [t1].[POB], [t1].[state], [t1].[StreetName], [t1].[userInsert], [t1].[UserUpdate], [t1].[ZipCode], [t2].[DocumentID], [t2].[dateInsert], [t2].[dateUpdate], [t2].[DocumentDate], [t2].[DocumentPath], [t2].[DocumentTypeID], [t2].[EntityID], [t2].[EntityTypeID], [t2].[IsDocumentSigned], [t2].[LanguageID], [t2].[state], [t2].[userInsert], [t2].[UserUpdate], [t2].[ValIdDate]
+FROM [BB_HR_Employee] AS [item]
+INNER JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+INNER JOIN (
+    SELECT [a0].[NoteID], [a0].[dateInsert], [a0].[dateUpdate], [a0].[EntityID], [a0].[EntityTypeID], [a0].[NoteContent], [a0].[NoteTypeID], [a0].[state], [a0].[userInsert], [a0].[UserUpdate]
+    FROM [BB_GEN_Notes] AS [a0]
+    WHERE [a0].[EntityTypeID] = (
+        SELECT TOP(1) [item1].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item1]
+        WHERE [item1].[EntityTypeName] = @__tableName_2
+    )
+) AS [t0] ON [item].[EmployeeID] = [t0].[EntityID]
+INNER JOIN (
+    SELECT [a1].[AddressID], [a1].[AptNo], [a1].[CityID], [a1].[Comments], [a1].[CoorX], [a1].[CoorY], [a1].[dateInsert], [a1].[dateUpdate], [a1].[EntityID], [a1].[EntityTypeID], [a1].[EntranceNo], [a1].[HouseNumber], [a1].[POB], [a1].[state], [a1].[StreetName], [a1].[userInsert], [a1].[UserUpdate], [a1].[ZipCode]
+    FROM [BB_GEN_Address] AS [a1]
+    WHERE [a1].[EntityTypeID] = (
+        SELECT TOP(1) [item2].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item2]
+        WHERE [item2].[EntityTypeName] = @__tableName_3
+    )
+) AS [t1] ON [item].[EmployeeID] = [t1].[EntityID]
+INNER JOIN (
+    SELECT [a2].[DocumentID], [a2].[dateInsert], [a2].[dateUpdate], [a2].[DocumentDate], [a2].[DocumentPath], [a2].[DocumentTypeID], [a2].[EntityID], [a2].[EntityTypeID], [a2].[IsDocumentSigned], [a2].[LanguageID], [a2].[state], [a2].[userInsert], [a2].[UserUpdate], [a2].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a2]
+    WHERE [a2].[EntityTypeID] = (
+        SELECT TOP(1) [item3].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item3]
+        WHERE [item3].[EntityTypeName] = @__tableName_4
+    )
+) AS [t2] ON [item].[EmployeeID] = [t2].[EntityID]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-07 12:21:12,981 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-07 12:21:12,981 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-07 12:21:13,021 INFO - Request finished in 44.8998ms 200 
+2019-07-07 12:21:13,048 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:21:13,245 INFO - Request finished in 253.8449ms 404 
+2019-07-07 12:21:13,403 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-07 12:21:13,408 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:21:13,487 INFO - Request finished in 83.1808ms 200 text/html; charset=utf-8
+2019-07-07 12:21:14,397 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-07 12:21:14,400 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:21:15,120 INFO - Request finished in 722.3585ms 200 application/json; charset=utf-8
+2019-07-07 12:21:22,730 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee/1  
+2019-07-07 12:21:22,732 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:21:22,769 INFO - Route matched with {action = "GetEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-07 12:21:23,099 INFO - 'GetEmployeeAsync' has been invoked
+2019-07-07 12:21:23,107 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API) with arguments (1) - Validation state: Valid
+2019-07-07 12:21:29,549 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-07 12:22:10,089 INFO - Executed DbCommand (456ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item].[EmployeeID], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t0].[NoteID], [t0].[dateInsert], [t0].[dateUpdate], [t0].[EntityID], [t0].[EntityTypeID], [t0].[NoteContent], [t0].[NoteTypeID], [t0].[state], [t0].[userInsert], [t0].[UserUpdate], [t1].[AddressID], [t1].[AptNo], [t1].[CityID], [t1].[Comments], [t1].[CoorX], [t1].[CoorY], [t1].[dateInsert], [t1].[dateUpdate], [t1].[EntityID], [t1].[EntityTypeID], [t1].[EntranceNo], [t1].[HouseNumber], [t1].[POB], [t1].[state], [t1].[StreetName], [t1].[userInsert], [t1].[UserUpdate], [t1].[ZipCode], [t2].[DocumentID], [t2].[dateInsert], [t2].[dateUpdate], [t2].[DocumentDate], [t2].[DocumentPath], [t2].[DocumentTypeID], [t2].[EntityID], [t2].[EntityTypeID], [t2].[IsDocumentSigned], [t2].[LanguageID], [t2].[state], [t2].[userInsert], [t2].[UserUpdate], [t2].[ValIdDate]
+FROM [BB_HR_Employee] AS [item]
+INNER JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+INNER JOIN (
+    SELECT [a0].[NoteID], [a0].[dateInsert], [a0].[dateUpdate], [a0].[EntityID], [a0].[EntityTypeID], [a0].[NoteContent], [a0].[NoteTypeID], [a0].[state], [a0].[userInsert], [a0].[UserUpdate]
+    FROM [BB_GEN_Notes] AS [a0]
+    WHERE [a0].[EntityTypeID] = (
+        SELECT TOP(1) [item1].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item1]
+        WHERE [item1].[EntityTypeName] = @__tableName_2
+    )
+) AS [t0] ON [item].[EmployeeID] = [t0].[EntityID]
+INNER JOIN (
+    SELECT [a1].[AddressID], [a1].[AptNo], [a1].[CityID], [a1].[Comments], [a1].[CoorX], [a1].[CoorY], [a1].[dateInsert], [a1].[dateUpdate], [a1].[EntityID], [a1].[EntityTypeID], [a1].[EntranceNo], [a1].[HouseNumber], [a1].[POB], [a1].[state], [a1].[StreetName], [a1].[userInsert], [a1].[UserUpdate], [a1].[ZipCode]
+    FROM [BB_GEN_Address] AS [a1]
+    WHERE [a1].[EntityTypeID] = (
+        SELECT TOP(1) [item2].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item2]
+        WHERE [item2].[EntityTypeName] = @__tableName_3
+    )
+) AS [t1] ON [item].[EmployeeID] = [t1].[EntityID]
+INNER JOIN (
+    SELECT [a2].[DocumentID], [a2].[dateInsert], [a2].[dateUpdate], [a2].[DocumentDate], [a2].[DocumentPath], [a2].[DocumentTypeID], [a2].[EntityID], [a2].[EntityTypeID], [a2].[IsDocumentSigned], [a2].[LanguageID], [a2].[state], [a2].[userInsert], [a2].[UserUpdate], [a2].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a2]
+    WHERE [a2].[EntityTypeID] = (
+        SELECT TOP(1) [item3].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item3]
+        WHERE [item3].[EntityTypeName] = @__tableName_4
+    )
+) AS [t2] ON [item].[EmployeeID] = [t2].[EntityID]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-07 12:22:11,850 INFO - Executed DbCommand (86ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item].[EmployeeID], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t0].[NoteID], [t0].[dateInsert], [t0].[dateUpdate], [t0].[EntityID], [t0].[EntityTypeID], [t0].[NoteContent], [t0].[NoteTypeID], [t0].[state], [t0].[userInsert], [t0].[UserUpdate], [t1].[AddressID], [t1].[AptNo], [t1].[CityID], [t1].[Comments], [t1].[CoorX], [t1].[CoorY], [t1].[dateInsert], [t1].[dateUpdate], [t1].[EntityID], [t1].[EntityTypeID], [t1].[EntranceNo], [t1].[HouseNumber], [t1].[POB], [t1].[state], [t1].[StreetName], [t1].[userInsert], [t1].[UserUpdate], [t1].[ZipCode], [t2].[DocumentID], [t2].[dateInsert], [t2].[dateUpdate], [t2].[DocumentDate], [t2].[DocumentPath], [t2].[DocumentTypeID], [t2].[EntityID], [t2].[EntityTypeID], [t2].[IsDocumentSigned], [t2].[LanguageID], [t2].[state], [t2].[userInsert], [t2].[UserUpdate], [t2].[ValIdDate]
+FROM [BB_HR_Employee] AS [item]
+INNER JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+INNER JOIN (
+    SELECT [a0].[NoteID], [a0].[dateInsert], [a0].[dateUpdate], [a0].[EntityID], [a0].[EntityTypeID], [a0].[NoteContent], [a0].[NoteTypeID], [a0].[state], [a0].[userInsert], [a0].[UserUpdate]
+    FROM [BB_GEN_Notes] AS [a0]
+    WHERE [a0].[EntityTypeID] = (
+        SELECT TOP(1) [item1].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item1]
+        WHERE [item1].[EntityTypeName] = @__tableName_2
+    )
+) AS [t0] ON [item].[EmployeeID] = [t0].[EntityID]
+INNER JOIN (
+    SELECT [a1].[AddressID], [a1].[AptNo], [a1].[CityID], [a1].[Comments], [a1].[CoorX], [a1].[CoorY], [a1].[dateInsert], [a1].[dateUpdate], [a1].[EntityID], [a1].[EntityTypeID], [a1].[EntranceNo], [a1].[HouseNumber], [a1].[POB], [a1].[state], [a1].[StreetName], [a1].[userInsert], [a1].[UserUpdate], [a1].[ZipCode]
+    FROM [BB_GEN_Address] AS [a1]
+    WHERE [a1].[EntityTypeID] = (
+        SELECT TOP(1) [item2].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item2]
+        WHERE [item2].[EntityTypeName] = @__tableName_3
+    )
+) AS [t1] ON [item].[EmployeeID] = [t1].[EntityID]
+INNER JOIN (
+    SELECT [a2].[DocumentID], [a2].[dateInsert], [a2].[dateUpdate], [a2].[DocumentDate], [a2].[DocumentPath], [a2].[DocumentTypeID], [a2].[EntityID], [a2].[EntityTypeID], [a2].[IsDocumentSigned], [a2].[LanguageID], [a2].[state], [a2].[userInsert], [a2].[UserUpdate], [a2].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a2]
+    WHERE [a2].[EntityTypeID] = (
+        SELECT TOP(1) [item3].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item3]
+        WHERE [item3].[EntityTypeName] = @__tableName_4
+    )
+) AS [t2] ON [item].[EmployeeID] = [t2].[EntityID]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-07 12:47:04,112 INFO - Executed DbCommand (113ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t0].[NoteID], [t0].[dateInsert], [t0].[dateUpdate], [t0].[EntityID], [t0].[EntityTypeID], [t0].[NoteContent], [t0].[NoteTypeID], [t0].[state], [t0].[userInsert], [t0].[UserUpdate], [t1].[AddressID], [t1].[AptNo], [t1].[CityID], [t1].[Comments], [t1].[CoorX], [t1].[CoorY], [t1].[dateInsert], [t1].[dateUpdate], [t1].[EntityID], [t1].[EntityTypeID], [t1].[EntranceNo], [t1].[HouseNumber], [t1].[POB], [t1].[state], [t1].[StreetName], [t1].[userInsert], [t1].[UserUpdate], [t1].[ZipCode], [t2].[DocumentID], [t2].[dateInsert], [t2].[dateUpdate], [t2].[DocumentDate], [t2].[DocumentPath], [t2].[DocumentTypeID], [t2].[EntityID], [t2].[EntityTypeID], [t2].[IsDocumentSigned], [t2].[LanguageID], [t2].[state], [t2].[userInsert], [t2].[UserUpdate], [t2].[ValIdDate]
+FROM [BB_HR_Employee] AS [item]
+INNER JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+INNER JOIN (
+    SELECT [a0].[NoteID], [a0].[dateInsert], [a0].[dateUpdate], [a0].[EntityID], [a0].[EntityTypeID], [a0].[NoteContent], [a0].[NoteTypeID], [a0].[state], [a0].[userInsert], [a0].[UserUpdate]
+    FROM [BB_GEN_Notes] AS [a0]
+    WHERE [a0].[EntityTypeID] = (
+        SELECT TOP(1) [item1].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item1]
+        WHERE [item1].[EntityTypeName] = @__tableName_2
+    )
+) AS [t0] ON [item].[EmployeeID] = [t0].[EntityID]
+INNER JOIN (
+    SELECT [a1].[AddressID], [a1].[AptNo], [a1].[CityID], [a1].[Comments], [a1].[CoorX], [a1].[CoorY], [a1].[dateInsert], [a1].[dateUpdate], [a1].[EntityID], [a1].[EntityTypeID], [a1].[EntranceNo], [a1].[HouseNumber], [a1].[POB], [a1].[state], [a1].[StreetName], [a1].[userInsert], [a1].[UserUpdate], [a1].[ZipCode]
+    FROM [BB_GEN_Address] AS [a1]
+    WHERE [a1].[EntityTypeID] = (
+        SELECT TOP(1) [item2].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item2]
+        WHERE [item2].[EntityTypeName] = @__tableName_3
+    )
+) AS [t1] ON [item].[EmployeeID] = [t1].[EntityID]
+INNER JOIN (
+    SELECT [a2].[DocumentID], [a2].[dateInsert], [a2].[dateUpdate], [a2].[DocumentDate], [a2].[DocumentPath], [a2].[DocumentTypeID], [a2].[EntityID], [a2].[EntityTypeID], [a2].[IsDocumentSigned], [a2].[LanguageID], [a2].[state], [a2].[userInsert], [a2].[UserUpdate], [a2].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a2]
+    WHERE [a2].[EntityTypeID] = (
+        SELECT TOP(1) [item3].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item3]
+        WHERE [item3].[EntityTypeName] = @__tableName_4
+    )
+) AS [t2] ON [item].[EmployeeID] = [t2].[EntityID]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-07 12:47:04,127 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1541035.3235ms.
+2019-07-07 12:47:04,129 INFO - The GetEmployeeAsync have been retrieved successfully.
+2019-07-07 12:47:04,139 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-07 12:47:04,159 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API) in 1541400.381ms
+2019-07-07 12:47:04,169 INFO - Request finished in 1541456.853ms 404 application/json; charset=utf-8
+2019-07-07 12:50:49,967 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-07 12:50:49,967 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-07 12:50:50,002 INFO - Request finished in 39.5213ms 200 
+2019-07-07 12:50:50,024 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:50:50,193 INFO - Request finished in 226.3159ms 404 
+2019-07-07 12:51:02,700 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-07 12:51:02,704 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:51:02,769 INFO - Request finished in 69.8701ms 200 text/html; charset=utf-8
+2019-07-07 12:51:03,991 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-07 12:51:03,996 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:51:04,739 INFO - Request finished in 746.7674ms 200 application/json; charset=utf-8
+2019-07-07 12:51:21,757 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee/1  
+2019-07-07 12:51:21,759 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:51:21,800 INFO - Route matched with {action = "GetEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-07 12:51:22,006 INFO - 'GetEmployeeAsync' has been invoked
+2019-07-07 12:51:22,014 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API) with arguments (1) - Validation state: Valid
+2019-07-07 12:52:00,860 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-07 12:55:38,677 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-07 12:55:38,677 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-07 12:55:38,677 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-07 12:55:38,713 INFO - Request finished in 63.3439ms 200 
+2019-07-07 12:55:38,737 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:55:38,737 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:55:38,845 INFO - Request finished in 193.8503ms 200 text/html; charset=utf-8
+2019-07-07 12:55:38,927 INFO - Request finished in 277.2741ms 404 
+2019-07-07 12:55:39,020 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-07 12:55:39,023 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:55:39,783 INFO - Request finished in 761.8273ms 200 application/json; charset=utf-8
+2019-07-07 12:55:47,562 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee/1  
+2019-07-07 12:55:47,564 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:55:47,607 INFO - Route matched with {action = "GetEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-07 12:55:47,974 INFO - 'GetEmployeeAsync' has been invoked
+2019-07-07 12:55:47,984 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API) with arguments (1) - Validation state: Valid
+2019-07-07 12:55:50,739 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-07 12:55:55,563 INFO - Executed DbCommand (89ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-07 12:58:47,640 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-07 12:58:47,640 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-07 12:58:47,678 INFO - Request finished in 39.7257ms 200 
+2019-07-07 12:58:47,703 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:58:47,868 INFO - Request finished in 231.1516ms 404 
+2019-07-07 12:58:51,509 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-07 12:58:51,518 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:58:51,592 INFO - Request finished in 82.8117ms 200 text/html; charset=utf-8
+2019-07-07 12:58:52,312 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-07 12:58:52,315 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:58:53,082 INFO - Request finished in 769.9944ms 200 application/json; charset=utf-8
+2019-07-07 12:59:11,172 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee/1  
+2019-07-07 12:59:11,173 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 12:59:11,215 INFO - Route matched with {action = "GetEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-07 12:59:11,527 INFO - 'GetEmployeeAsync' has been invoked
+2019-07-07 12:59:11,537 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API) with arguments (1) - Validation state: Valid
+2019-07-07 12:59:14,059 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-07 12:59:15,185 INFO - Executed DbCommand (100ms) [Parameters=[@__tableName_1='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+INNER JOIN (
+    SELECT [a].*
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-07 12:59:17,428 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 5888.0867ms.
+2019-07-07 12:59:17,429 INFO - The GetEmployeeAsync have been retrieved successfully.
+2019-07-07 12:59:17,440 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-07 12:59:17,463 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API) in 6245.1983ms
+2019-07-07 12:59:17,473 INFO - Request finished in 6302.4826ms 200 application/json; charset=utf-8
+2019-07-07 13:01:57,906 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-07 13:01:57,906 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-07 13:01:57,906 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-07 13:01:57,941 INFO - Request finished in 63.0432ms 200 
+2019-07-07 13:01:57,965 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:01:57,965 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:01:58,056 INFO - Request finished in 176.64ms 200 text/html; charset=utf-8
+2019-07-07 13:01:58,124 INFO - Request finished in 245.9718ms 404 
+2019-07-07 13:01:58,493 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-07 13:01:58,495 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:01:59,237 INFO - Request finished in 744.7075ms 200 application/json; charset=utf-8
+2019-07-07 13:02:07,002 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee/1  
+2019-07-07 13:02:07,004 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:02:07,040 INFO - Route matched with {action = "GetEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-07 13:02:07,381 INFO - 'GetEmployeeAsync' has been invoked
+2019-07-07 13:02:07,388 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API) with arguments (1) - Validation state: Valid
+2019-07-07 13:02:10,193 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-07 13:02:11,395 INFO - Executed DbCommand (102ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t0].[NoteID], [t0].[dateInsert], [t0].[dateUpdate], [t0].[EntityID], [t0].[EntityTypeID], [t0].[NoteContent], [t0].[NoteTypeID], [t0].[state], [t0].[userInsert], [t0].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+INNER JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+INNER JOIN (
+    SELECT [a0].[NoteID], [a0].[dateInsert], [a0].[dateUpdate], [a0].[EntityID], [a0].[EntityTypeID], [a0].[NoteContent], [a0].[NoteTypeID], [a0].[state], [a0].[userInsert], [a0].[UserUpdate]
+    FROM [BB_GEN_Notes] AS [a0]
+    WHERE [a0].[EntityTypeID] = (
+        SELECT TOP(1) [item1].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item1]
+        WHERE [item1].[EntityTypeName] = @__tableName_2
+    )
+) AS [t0] ON [item].[EmployeeID] = [t0].[EntityID]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-07 13:02:13,067 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 5675.9281ms.
+2019-07-07 13:02:13,068 INFO - The GetEmployeeAsync have been retrieved successfully.
+2019-07-07 13:02:13,080 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-07 13:02:13,110 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API) in 6066.4181ms
+2019-07-07 13:02:13,123 INFO - Request finished in 6119.2828ms 200 application/json; charset=utf-8
+2019-07-07 13:05:57,646 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-07 13:05:57,646 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-07 13:05:57,682 INFO - Request finished in 60.0005ms 200 
+2019-07-07 13:05:57,700 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:05:57,864 INFO - Request finished in 233.8401ms 404 
+2019-07-07 13:05:57,973 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-07 13:05:57,977 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:05:58,053 INFO - Request finished in 79.4249ms 200 text/html; charset=utf-8
+2019-07-07 13:05:58,889 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-07 13:05:58,893 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:05:59,623 INFO - Request finished in 733.6675ms 200 application/json; charset=utf-8
+2019-07-07 13:06:06,738 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee/1  
+2019-07-07 13:06:06,740 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:06:06,781 INFO - Route matched with {action = "GetEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-07 13:06:07,102 INFO - 'GetEmployeeAsync' has been invoked
+2019-07-07 13:06:07,110 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API) with arguments (1) - Validation state: Valid
+2019-07-07 13:06:10,082 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-07 13:06:11,272 INFO - Executed DbCommand (105ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t0].[NoteID], [t0].[dateInsert], [t0].[dateUpdate], [t0].[EntityID], [t0].[EntityTypeID], [t0].[NoteContent], [t0].[NoteTypeID], [t0].[state], [t0].[userInsert], [t0].[UserUpdate], [t1].[AddressID], [t1].[AptNo], [t1].[CityID], [t1].[Comments], [t1].[CoorX], [t1].[CoorY], [t1].[dateInsert], [t1].[dateUpdate], [t1].[EntityID], [t1].[EntityTypeID], [t1].[EntranceNo], [t1].[HouseNumber], [t1].[POB], [t1].[state], [t1].[StreetName], [t1].[userInsert], [t1].[UserUpdate], [t1].[ZipCode]
+FROM [BB_HR_Employee] AS [item]
+INNER JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+LEFT JOIN (
+    SELECT [a0].[NoteID], [a0].[dateInsert], [a0].[dateUpdate], [a0].[EntityID], [a0].[EntityTypeID], [a0].[NoteContent], [a0].[NoteTypeID], [a0].[state], [a0].[userInsert], [a0].[UserUpdate]
+    FROM [BB_GEN_Notes] AS [a0]
+    WHERE [a0].[EntityTypeID] = (
+        SELECT TOP(1) [item1].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item1]
+        WHERE [item1].[EntityTypeName] = @__tableName_2
+    )
+) AS [t0] ON [item].[EmployeeID] = [t0].[EntityID]
+LEFT JOIN (
+    SELECT [a1].[AddressID], [a1].[AptNo], [a1].[CityID], [a1].[Comments], [a1].[CoorX], [a1].[CoorY], [a1].[dateInsert], [a1].[dateUpdate], [a1].[EntityID], [a1].[EntityTypeID], [a1].[EntranceNo], [a1].[HouseNumber], [a1].[POB], [a1].[state], [a1].[StreetName], [a1].[userInsert], [a1].[UserUpdate], [a1].[ZipCode]
+    FROM [BB_GEN_Address] AS [a1]
+    WHERE [a1].[EntityTypeID] = (
+        SELECT TOP(1) [item2].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item2]
+        WHERE [item2].[EntityTypeName] = @__tableName_3
+    )
+) AS [t1] ON [item].[EmployeeID] = [t1].[EntityID]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-07 13:06:13,076 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 5962.2806ms.
+2019-07-07 13:06:13,078 INFO - The GetEmployeeAsync have been retrieved successfully.
+2019-07-07 13:06:13,091 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-07 13:06:13,123 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API) in 6337.1633ms
+2019-07-07 13:06:13,138 INFO - Request finished in 6403.0272ms 200 application/json; charset=utf-8
+2019-07-07 13:08:56,541 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-07 13:08:56,541 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-07 13:08:56,574 INFO - Request finished in 38.0409ms 200 
+2019-07-07 13:08:56,596 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:08:56,740 INFO - Request finished in 202.692ms 404 
+2019-07-07 13:13:54,479 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-07 13:13:54,479 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-07 13:13:54,517 INFO - Request finished in 39.7213ms 200 
+2019-07-07 13:13:54,538 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:13:54,707 INFO - Request finished in 224.6382ms 404 
+2019-07-07 13:13:57,148 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-07 13:13:57,152 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:13:57,220 INFO - Request finished in 71.4983ms 200 text/html; charset=utf-8
+2019-07-07 13:13:58,110 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-07 13:13:58,113 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:13:58,885 INFO - Request finished in 776.2418ms 200 application/json; charset=utf-8
+2019-07-07 13:14:17,407 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee/1  
+2019-07-07 13:14:17,409 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:14:17,450 INFO - Route matched with {action = "GetEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-07 13:14:17,776 INFO - 'GetEmployeeAsync' has been invoked
+2019-07-07 13:14:17,784 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API) with arguments (1) - Validation state: Valid
+2019-07-07 13:14:20,879 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-07 13:14:22,204 INFO - Executed DbCommand (111ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t0].[NoteID], [t0].[dateInsert], [t0].[dateUpdate], [t0].[EntityID], [t0].[EntityTypeID], [t0].[NoteContent], [t0].[NoteTypeID], [t0].[state], [t0].[userInsert], [t0].[UserUpdate], [t1].[AddressID], [t1].[AptNo], [t1].[CityID], [t1].[Comments], [t1].[CoorX], [t1].[CoorY], [t1].[dateInsert], [t1].[dateUpdate], [t1].[EntityID], [t1].[EntityTypeID], [t1].[EntranceNo], [t1].[HouseNumber], [t1].[POB], [t1].[state], [t1].[StreetName], [t1].[userInsert], [t1].[UserUpdate], [t1].[ZipCode], [t2].[DocumentID], [t2].[dateInsert], [t2].[dateUpdate], [t2].[DocumentDate], [t2].[DocumentPath], [t2].[DocumentTypeID], [t2].[EntityID], [t2].[EntityTypeID], [t2].[IsDocumentSigned], [t2].[LanguageID], [t2].[state], [t2].[userInsert], [t2].[UserUpdate], [t2].[ValIdDate]
+FROM [BB_HR_Employee] AS [item]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+LEFT JOIN (
+    SELECT [a0].[NoteID], [a0].[dateInsert], [a0].[dateUpdate], [a0].[EntityID], [a0].[EntityTypeID], [a0].[NoteContent], [a0].[NoteTypeID], [a0].[state], [a0].[userInsert], [a0].[UserUpdate]
+    FROM [BB_GEN_Notes] AS [a0]
+    WHERE [a0].[EntityTypeID] = (
+        SELECT TOP(1) [item1].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item1]
+        WHERE [item1].[EntityTypeName] = @__tableName_2
+    )
+) AS [t0] ON [item].[EmployeeID] = [t0].[EntityID]
+LEFT JOIN (
+    SELECT [a1].[AddressID], [a1].[AptNo], [a1].[CityID], [a1].[Comments], [a1].[CoorX], [a1].[CoorY], [a1].[dateInsert], [a1].[dateUpdate], [a1].[EntityID], [a1].[EntityTypeID], [a1].[EntranceNo], [a1].[HouseNumber], [a1].[POB], [a1].[state], [a1].[StreetName], [a1].[userInsert], [a1].[UserUpdate], [a1].[ZipCode]
+    FROM [BB_GEN_Address] AS [a1]
+    WHERE [a1].[EntityTypeID] = (
+        SELECT TOP(1) [item2].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item2]
+        WHERE [item2].[EntityTypeName] = @__tableName_3
+    )
+) AS [t1] ON [item].[EmployeeID] = [t1].[EntityID]
+LEFT JOIN (
+    SELECT [a2].[DocumentID], [a2].[dateInsert], [a2].[dateUpdate], [a2].[DocumentDate], [a2].[DocumentPath], [a2].[DocumentTypeID], [a2].[EntityID], [a2].[EntityTypeID], [a2].[IsDocumentSigned], [a2].[LanguageID], [a2].[state], [a2].[userInsert], [a2].[UserUpdate], [a2].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a2]
+    WHERE [a2].[EntityTypeID] = (
+        SELECT TOP(1) [item3].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item3]
+        WHERE [item3].[EntityTypeName] = @__tableName_4
+    )
+) AS [t2] ON [item].[EmployeeID] = [t2].[EntityID]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-07 13:14:23,975 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 6187.3432ms.
+2019-07-07 13:14:23,976 INFO - The GetEmployeeAsync have been retrieved successfully.
+2019-07-07 13:14:23,988 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-07 13:14:24,019 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API) in 6565.5242ms
+2019-07-07 13:14:24,029 INFO - Request finished in 6622.2519ms 200 application/json; charset=utf-8
+2019-07-07 13:15:40,671 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 312
+2019-07-07 13:15:40,676 INFO - CORS policy execution failed.
+2019-07-07 13:15:40,678 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-07 13:15:40,681 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:15:40,688 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-07 13:15:40,782 INFO - 'PostEmployeeAsync' has been invoked
+2019-07-07 13:15:40,783 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.EmployeeRequest) - Validation state: Valid
+2019-07-07 13:16:44,762 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-07 13:16:44,877 INFO - Executed DbCommand (83ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-07 13:16:45,321 INFO - Executed DbCommand (106ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (Size = 50), @p5='?' (Size = 50), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (Size = 50), @p9='?' (Size = 50), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_Employee] ([BirthDate], [Citizenship], [dateInsert], [dateUpdate], [FirstName], [FirstNameEN], [GenderID], [IdentityNumber], [LastName], [LastNameEN], [OrganizationID], [PassportCountryID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+SELECT [EmployeeID], [IdentificationTypeID], [state]
+FROM [BB_HR_Employee]
+WHERE @@ROWCOUNT = 1 AND [EmployeeID] = scope_identity();
+2019-07-07 13:16:45,527 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 64742.2563ms.
+2019-07-07 13:16:45,528 INFO - The PostEmployeeAsync have been retrieved successfully.
+2019-07-07 13:16:45,530 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-07 13:16:45,556 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) in 64865.6472ms
+2019-07-07 13:16:45,559 INFO - Request finished in 64888.3999ms 200 application/json; charset=utf-8
+2019-07-07 13:17:51,030 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 269
+2019-07-07 13:17:51,031 INFO - CORS policy execution failed.
+2019-07-07 13:17:51,033 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-07 13:17:51,036 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:17:51,038 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-07 13:17:51,078 INFO - Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.SerializableError'.
+2019-07-07 13:17:51,085 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) in 44.2162ms
+2019-07-07 13:17:51,088 INFO - Request finished in 58.8335ms 400 application/json; charset=utf-8
+2019-07-07 13:20:16,330 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-07 13:20:16,330 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-07 13:20:16,330 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-07 13:20:16,365 INFO - Request finished in 42.9258ms 200 
+2019-07-07 13:20:16,389 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:20:16,389 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:20:16,522 INFO - Request finished in 196.5435ms 200 text/html; charset=utf-8
+2019-07-07 13:20:16,622 INFO - Request finished in 295.9403ms 404 
+2019-07-07 13:20:16,693 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-07 13:20:16,695 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:20:17,471 INFO - Request finished in 779.0264ms 200 application/json; charset=utf-8
+2019-07-07 13:20:53,978 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 287
+2019-07-07 13:20:53,982 INFO - CORS policy execution failed.
+2019-07-07 13:20:53,984 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-07 13:20:53,986 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-07 13:20:54,024 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-07 13:20:54,363 INFO - 'PostEmployeeAsync' has been invoked
+2019-07-07 13:20:54,369 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.EmployeeRequest) - Validation state: Valid
+2019-07-07 13:21:01,876 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-07 13:21:02,970 INFO - Executed DbCommand (113ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-07 13:21:03,446 INFO - Executed DbCommand (85ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (Size = 50), @p5='?' (Size = 50), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (Size = 50), @p9='?' (Size = 50), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_Employee] ([BirthDate], [Citizenship], [dateInsert], [dateUpdate], [FirstName], [FirstNameEN], [GenderID], [IdentityNumber], [LastName], [LastNameEN], [OrganizationID], [PassportCountryID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+SELECT [EmployeeID], [IdentificationTypeID], [state]
+FROM [BB_HR_Employee]
+WHERE @@ROWCOUNT = 1 AND [EmployeeID] = scope_identity();
+2019-07-07 13:21:03,593 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 9221.1135ms.
+2019-07-07 13:21:03,595 INFO - The PostEmployeeAsync have been retrieved successfully.
+2019-07-07 13:21:03,621 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-07 13:21:03,648 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) in 9620.5201ms
+2019-07-07 13:21:03,668 INFO - Request finished in 9687.9363ms 200 application/json; charset=utf-8

@@ -192,6 +192,8 @@ namespace Malam.Mastpen.Core.DAL.Configurations
 
             builder.Property(e => e.GenderId).HasColumnName("GenderID");
 
+            builder.Property(e => e.Address).HasMaxLength(50);
+
             builder.Property(e => e.IdentificationTypeId)
                 .HasColumnName("IdentificationTypeID")
                 .HasDefaultValueSql("((1))");

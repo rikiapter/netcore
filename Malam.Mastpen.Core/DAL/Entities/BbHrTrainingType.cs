@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Malam.Mastpen.Core.DAL.Entities
 {
-    public partial class TrainingType
+    public partial class TrainingType:IAuditableEntity
     {
         public TrainingType()
         {

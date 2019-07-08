@@ -11,5 +11,6 @@ namespace Malam.Mastpen.Core.BL.Contracts
         MastpenBitachonDbContext DbContext { get; }
 
         Task<SingleResponse<Address>> GetAddressAsync(int EntityTypeId, int EntityId);
+        Task<SingleResponse<PhoneMail>> CreatePhoneMailAsync(PhoneMail phoneMail, Type type);
     }
 }

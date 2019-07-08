@@ -119,9 +119,18 @@ namespace Malam.Mastpen.API.Controllers
 
             entity.UserInsert = UserInfo.UserId;
 
-            var response = await EmployeeService.CreateEmployeeAsync(entity);
+            var employeeResponse = await EmployeeService.CreateEmployeeAsync(entity);
 
-            return response.ToHttpResponse();
+            PhoneMail p = new PhoneMail();
+            p.PhoneNumber = request.PhoneNumber;
+            p.EntityTypeId = 1;
+            p.EntityId = employeeResponse.Model.EmployeeId;
+
+            var phoneNumberResponse = await EmployeeService.CreatePhoneMailAsync(p, typeof(Employee));
+
+
+
+            return employeeResponse.ToHttpResponse();
         }
 
         // PUT

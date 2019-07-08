@@ -13,6 +13,7 @@ using Malam.Mastpen.Core.BL.Requests;
 using Malam.Mastpen.Core.DAL;
 
 
+
 namespace Malam.Mastpen.Core.BL.Services
 {
     public class EmployeeService : Service, IEmployeeService
@@ -58,6 +59,7 @@ namespace Malam.Mastpen.Core.BL.Services
 
             // Retrieve items, set model for response
             response.Model = await query.FirstOrDefaultAsync();
+            response.Model.ProffesionType.EmployeeProffesionType = null;
 
             response.SetMessageGetById(nameof(GetEmployeeAsync), Id);
             return response;
@@ -201,6 +203,7 @@ namespace Malam.Mastpen.Core.BL.Services
             var response = new ListResponse<EmployeeTraining>();
             // Get the Employee by Id
             var query=  DbContext.GetEmployeeTrainingByEmployeeIdAsync(new EmployeeTraining { EmployeeId = Id });
+
             response.Model = await query.ToListAsync();
 
             return response;
