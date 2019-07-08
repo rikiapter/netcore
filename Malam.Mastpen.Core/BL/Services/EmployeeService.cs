@@ -178,6 +178,23 @@ namespace Malam.Mastpen.Core.BL.Services
 
             return response;
         }
+
+        // POST
+        public async Task<SingleResponse<Notes>> CreateEmployeeNoteAsync(Notes note)
+        {
+            var response = new SingleResponse<Notes>();
+
+            // Add entity to repository
+            DbContext.Add(note, UserInfo);
+            // Save entity in database
+            await DbContext.SaveChangesAsync();
+
+            response.SetMessageSucssesPost(nameof(GetEmployeeAsync), note.NoteId);
+            // Set the entity to response model
+            response.Model = note;
+
+            return response;
+        }
         //Get List
         public async Task<ListResponse<EmployeeTraining>> GetEmployeeTrainingByEmployeeIdAsync(int Id)
         {
@@ -210,6 +227,17 @@ namespace Malam.Mastpen.Core.BL.Services
 
             return response;
         }
+        //Get List
+        public async Task<ListResponse<Notes>> GetEmployeeNoteByEmployeeIdAsync(int EmployeeId)
+        {
+            var response = new ListResponse<Notes>();
+            // Get the Employee by Id
+            var query = DbContext.GetEmployeeNoteByEmployeeIdAsync(EmployeeId);
+            response.Model = await query.ToListAsync();
+
+            return response;
+        }
+       
 
     }
 }

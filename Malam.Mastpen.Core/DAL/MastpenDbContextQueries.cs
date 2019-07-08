@@ -86,9 +86,9 @@ namespace Malam.Mastpen.Core.DAL
                         on Employee.EmployeeId equals phonMail.EntityId into phonMail
                         from x_phonMail in phonMail.DefaultIfEmpty()
 
-                        join note in dbContext.Notes.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
-                        on Employee.EmployeeId equals note.EntityId into note
-                        from x_note in note.DefaultIfEmpty()
+                        //join note in dbContext.Notes.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        //on Employee.EmployeeId equals note.EntityId into note
+                        //from x_note in note.DefaultIfEmpty()
 
                         join address in dbContext.Address.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
                         on Employee.EmployeeId equals address.EntityId into address
@@ -98,7 +98,7 @@ namespace Malam.Mastpen.Core.DAL
                         on Employee.EmployeeId equals docs.EntityId into docs
                         from x_docs in docs.DefaultIfEmpty()
 
-                        select Employee.ToEntity( x_phonMail,x_note,x_address,x_docs);
+                        select Employee.ToEntity( x_phonMail,x_address,x_docs);
             
             //.Include(b => b.EmplyeePicture)
             //.Include(c => c.EmployeeProffesionType)
@@ -175,7 +175,16 @@ namespace Malam.Mastpen.Core.DAL
 
         public static  IQueryable< EmployeeAuthtorization> GetEmployeeAuthtorizationByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeAuthtorization entity)
 =>  dbContext.EmployeeAuthtorization.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId);
-      
+
+        public static IQueryable<Notes> GetEmployeeNoteByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, int EmployeeId)
+        {
+            string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
+
+
+            return dbContext.Notes.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                .Where(item => item.EntityId == EmployeeId).AsQueryable();
+
+        }
         
         
         

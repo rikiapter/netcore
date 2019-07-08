@@ -100,7 +100,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         //public ICollection<EmployeeTraining> EmployeeTraining { get; set; }
         //public ICollection<EmployeeWorkPermit> EmployeeWorkPermit { get; set; }
         public PhoneMail phonMail { get; set; }
-        public Notes note { get; set; }
+      //  public Notes note { get; set; }
         public Address address { get; set; }
         public Docs docs { get; set; }
     }
@@ -145,7 +145,7 @@ namespace Malam.Mastpen.Core.BL.Requests
 
 
      };
-        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone,Notes notes,Address address,Docs docs)
+        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone,Address address,Docs docs)
             => new EmployeeResponse
             {
                 EmployeeId = request.EmployeeId,
@@ -181,7 +181,7 @@ namespace Malam.Mastpen.Core.BL.Requests
                 //EmployeeTraining = request.EmployeeTraining,
                 //EmployeeWorkPermit = request.EmployeeWorkPermit,
                 phonMail = phone,
-                note=notes,
+              //  note=notes,
                 address=address,
                 docs=docs
 

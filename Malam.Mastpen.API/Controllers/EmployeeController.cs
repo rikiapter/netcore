@@ -282,6 +282,36 @@ namespace Malam.Mastpen.API.Controllers
         }
 
 
+        // POST
+        // api/v1/Employee/Notes/
+
+        /// <summary>
+        /// Creates a new Notes
+        /// </summary>
+        /// <param name="request">Request model</param>
+        /// <returns>A response with new EmployeeAuthtorization</returns>
+        /// <response code="200">Returns the EmployeeAuthtorization </response>
+        /// <response code="201">A response as creation of EmployeeAuthtorization</response>
+        /// <response code="400">For bad request</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpPost("Notes")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> PostEmployeeNoteAsync([FromBody]Notes request)
+        {
+
+            var entity = request;
+
+            entity.UserInsert = UserInfo.UserId;
+
+            var response = await EmployeeService.CreateEmployeeNoteAsync(entity);
+
+            return response.ToHttpResponse();
+        }
+
+
         // GET
         // api/v1/Employee/EmployeeTraining/5
 
@@ -347,6 +377,28 @@ namespace Malam.Mastpen.API.Controllers
         public async Task<IActionResult> GetEmployeeAuthtorizationAsync(int EmployeeId)
         {
             var response = await EmployeeService.GetEmployeeAuthtorizationByEmployeeIdAsync(EmployeeId);
+            return response.ToHttpResponse();
+        }
+
+        // GET
+        // api/v1/Employee/Notes/5
+
+        /// <summary>
+        /// Retrieves a Notes by EmployeeId
+        ///רשימת הדרכות
+        /// </summary>
+        /// <param name="Id">Employee Id</param>
+        /// <returns>A response with Notes</returns>
+        /// <response code="200">Returns the Notes list</response>
+        /// <response code="404">If EmployeeAuthtorization is not exists</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpGet("Notes/{Id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> GetEmployeeNoteAsync(int EmployeeId)
+        {
+            var response = await EmployeeService.GetEmployeeNoteByEmployeeIdAsync(EmployeeId);
             return response.ToHttpResponse();
         }
     }
