@@ -9,6 +9,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
         public int? EntityTypeId { get; set; }
         public int? EntityId { get; set; }
         public int? NoteTypeId { get; set; }
+        public int? SiteId { get; set; }
         public string NoteContent { get; set; }
         public int? UserInsert { get; set; }
         public DateTime? DateInsert { get; set; }
@@ -18,5 +19,6 @@ namespace Malam.Mastpen.Core.DAL.Entities
 
         public EntityType EntityType { get; set; }
         public NoteType NoteType { get; set; }
+        public Sites Site { get; set; }
     }
 }

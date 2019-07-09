@@ -7,6 +7,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
     {
         public int EmployeeTrainingId { get; set; }
         public int? EmployeeId { get; set; }
+        public int? SiteId { get; set; }
         public int? TrainingTypeId { get; set; }
         public DateTime? DateFrom { get; set; }
         public DateTime? DateTo { get; set; }
@@ -19,5 +20,6 @@ namespace Malam.Mastpen.Core.DAL.Entities
 
         public Employee Employee { get; set; }
         public TrainingType TrainingType { get; set; }
+        public Sites Site { get; set; }
     }
 }

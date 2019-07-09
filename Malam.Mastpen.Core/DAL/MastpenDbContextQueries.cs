@@ -156,17 +156,17 @@ namespace Malam.Mastpen.Core.DAL
 
             // Get query from DbSet
             var query = dbContext.EmployeeTraining
-                   .Include(x => x.TrainingType)
+                   .Include(x => x.TrainingType).Include(x=>x.Site)
                 .Where(item => item.EmployeeId == entity.EmployeeId)
                 .AsQueryable();
 
             return query;
         }
         public static IQueryable<EmployeeWorkPermit> GetEmployeeWorkPermitByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeWorkPermit entity)
-=>  dbContext.EmployeeWorkPermit.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId);
+=>  dbContext.EmployeeWorkPermit.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId).Include(x => x.Site);
 
         public static  IQueryable< EmployeeAuthtorization> GetEmployeeAuthtorizationByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeAuthtorization entity)
-=>  dbContext.EmployeeAuthtorization.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId);
+=>  dbContext.EmployeeAuthtorization.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId).Include(x => x.Site);
 
         public static IQueryable<Notes> GetEmployeeNoteByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, int EmployeeId)
         {
@@ -174,7 +174,7 @@ namespace Malam.Mastpen.Core.DAL
 
 
             return dbContext.Notes.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
-                .Where(item => item.EntityId == EmployeeId).AsQueryable();
+                .Where(item => item.EntityId == EmployeeId).Include(x => x.Site).AsQueryable();
 
         }
         

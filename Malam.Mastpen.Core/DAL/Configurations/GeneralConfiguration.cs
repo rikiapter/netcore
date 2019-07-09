@@ -358,6 +358,7 @@ namespace Malam.Mastpen.Core.DAL.Configurations
             builder.Property(e => e.NoteContent).HasMaxLength(50);
 
             builder.Property(e => e.NoteTypeId).HasColumnName("NoteTypeID");
+            builder.Property(e => e.SiteId).HasColumnName("SiteID");
 
             builder.Property(e => e.State)
                 .HasColumnName("state")

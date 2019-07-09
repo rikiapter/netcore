@@ -100,6 +100,10 @@ namespace Malam.Mastpen.Core.DAL.Configurations
 
             builder.Property(e => e.SiteId).HasColumnName("SiteID");
 
+            builder.HasOne(d => d.Site)
+                    .WithMany(p => p.SiteEmployeeSite)
+                    .HasForeignKey(d => d.SiteId)
+                    .HasConstraintName("FK_BB_EC_SiteEmployee_SiteID");
             builder.Property(e => e.State)
                     .HasColumnName("state")
                     .HasDefaultValueSql("((1))");
@@ -113,10 +117,7 @@ namespace Malam.Mastpen.Core.DAL.Configurations
                     .HasForeignKey(d => d.EmployeeId)
                     .HasConstraintName("FK_BB_EC_SiteEmployee_EmployeeID");
 
-            builder.HasOne(d => d.Site)
-                    .WithMany(p => p.SiteEmployeeSite)
-                    .HasForeignKey(d => d.SiteId)
-                    .HasConstraintName("FK_BB_EC_SiteEmployee_SiteID");
+      
             
         }
     }
@@ -312,6 +313,7 @@ namespace Malam.Mastpen.Core.DAL.Configurations
                 .HasColumnType("datetime");
 
             builder.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
+            builder.Property(e => e.SiteId).HasColumnName("SiteID");
 
             builder.Property(e => e.State)
                 .HasColumnName("state")
@@ -362,6 +364,10 @@ namespace Malam.Mastpen.Core.DAL.Configurations
 
             builder.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 
+            builder.Property(e => e.SiteId).HasColumnName("SiteID");
+
+  
+
             builder.Property(e => e.State)
                 .HasColumnName("state")
                 .HasDefaultValueSql("((1))");
@@ -401,6 +407,8 @@ namespace Malam.Mastpen.Core.DAL.Configurations
             builder.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 
             builder.Property(e => e.ProffesionTypeId).HasColumnName("ProffesionTypeID");
+          
+
 
             builder.Property(e => e.State)
                 .HasColumnName("state")

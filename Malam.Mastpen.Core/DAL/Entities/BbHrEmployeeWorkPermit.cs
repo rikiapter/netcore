@@ -7,6 +7,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
     {
         public int EmployeeWorkPermitId { get; set; }
         public int? EmployeeId { get; set; }
+        public int? SiteId { get; set; }
         public bool? IsRequired { get; set; }
         public DateTime? DateFrom { get; set; }
         public DateTime? DateTo { get; set; }
@@ -18,5 +19,6 @@ namespace Malam.Mastpen.Core.DAL.Entities
         public bool? State { get; set; }
 
         public Employee Employee { get; set; }
+        public Sites Site { get; set; }
     }
 }
