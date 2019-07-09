@@ -61,7 +61,7 @@
             <response code="200">If Employee was deleted successfully</response>
             <response code="500">If there was an internal server error</response>
         </member>
-        <member name="M:Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeTrainingAsync(Malam.Mastpen.Core.DAL.Entities.EmployeeTraining)">
+        <member name="M:Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeTrainingAsync(Malam.Mastpen.HR.Core.BL.Requests.Training)">
             <summary>
             Creates a new EmployeeTraining
             </summary>

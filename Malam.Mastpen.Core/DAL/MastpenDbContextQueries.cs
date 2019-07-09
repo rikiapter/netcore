@@ -22,15 +22,8 @@ namespace Malam.Mastpen.Core.DAL
         /// <returns></returns>
         public static IQueryable<Gender> GetCodeTable(this MastpenBitachonDbContext dbContext, string tableName)
         {
-            // Get query from DbSet
             var query = dbContext.Gender.AsQueryable();
-
-            //   var query2=dbContext.Where(item => item.TableName == tableName)
-            // if (tableName)
-
             return query;
-
-            //return dbContext.Employee.ToList().AsQueryable();
 
         }
 
@@ -41,7 +34,7 @@ namespace Malam.Mastpen.Core.DAL
           var   query = dbContext.Employee
                 .Include(b => b.IdentificationType)
                 .Include(o => o.Organization)
-           
+               .Include(x => x.EmployeeProffesionType).ThenInclude(p => p.ProffesionType)
 
                 .AsQueryable()
                  ;

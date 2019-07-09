@@ -26,8 +26,8 @@ namespace Malam.Mastpen.HR.API.Infrastructure
         {
             try
             {
-
-                var _task = Task.Run(() => this.UploadFileToBlobAsync(strFileName, fileRequest.FileByte, fileRequest.Type));
+                byte[] byteFile = Convert.FromBase64String(fileRequest.FileByte);
+                var _task = Task.Run(() => this.UploadFileToBlobAsync(strFileName, byteFile, fileRequest.Type));
                 _task.Wait();
                 string fileUrl = _task.Result;
                 return fileUrl;

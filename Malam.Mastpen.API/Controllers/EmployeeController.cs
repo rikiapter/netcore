@@ -18,6 +18,7 @@ using Malam.Mastpen.API.Clients;
 using Malam.Mastpen.API.Clients.Contracts;
 using Malam.Mastpen.Core.BL.Contracts;
 using Malam.Mastpen.HR.API.Infrastructure;
+using Malam.Mastpen.HR.Core.BL.Requests;
 
 namespace Malam.Mastpen.API.Controllers
 {
@@ -227,14 +228,16 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> PostEmployeeTrainingAsync([FromBody]EmployeeTraining request)
+        public async Task<IActionResult> PostEmployeeTrainingAsync([FromBody]Training request)
         {
+            EmployeeTraining employeeTraining = new EmployeeTraining();
+            
 
-            var entity = request;
+            var entity =  request;
 
             entity.UserInsert = UserInfo.UserId;
 
-            var response = await EmployeeService.CreateEmployeeTrainingAsync(entity);
+            var response = await EmployeeService.CreateEmployeeTrainingAsync(employeeTraining);
 
             return response.ToHttpResponse();
         }
