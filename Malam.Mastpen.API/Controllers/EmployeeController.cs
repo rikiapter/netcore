@@ -17,6 +17,7 @@ using Malam.Mastpen.API.Security;
 using Malam.Mastpen.API.Clients;
 using Malam.Mastpen.API.Clients.Contracts;
 using Malam.Mastpen.Core.BL.Contracts;
+using Malam.Mastpen.HR.API.Infrastructure;
 
 namespace Malam.Mastpen.API.Controllers
 {
@@ -28,12 +29,14 @@ namespace Malam.Mastpen.API.Controllers
     {
         protected readonly IRothschildHouseIdentityClient RothschildHouseIdentityClient;
         protected readonly IEmployeeService EmployeeService;
+        protected readonly BlobStorageService blobStorageService;
         public EmployeeController(
             IRothschildHouseIdentityClient rothschildHouseIdentityClient,
-                 IEmployeeService employeeService)
+                 IEmployeeService employeeService,BlobStorageService blobStorageService)
         {
             RothschildHouseIdentityClient = rothschildHouseIdentityClient;
             EmployeeService = employeeService;
+            this.blobStorageService = blobStorageService;
         }
 #pragma warning restore CS1591
 
@@ -128,7 +131,11 @@ namespace Malam.Mastpen.API.Controllers
 
             var phoneNumberResponse = await EmployeeService.CreatePhoneMailAsync(p, typeof(Employee));
 
+            //upload to blob
+            var fileUrl=  blobStorageService.UploadFileToBlob(request.IdentityNumber+request.FirstNameEN+" "+request.LastNameEN, request.picture);
 
+            //save file path in db
+            //var emplyeePictureResponse = await EmployeeService.CreateEmplyeePictureAsync(p, typeof(Employee));
 
             return employeeResponse.ToHttpResponse();
         }

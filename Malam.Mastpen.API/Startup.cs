@@ -21,6 +21,7 @@ using Newtonsoft.Json;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Malam.Mastpen.Core.BL.Contracts;
 using Malam.Mastpen.Core.BL.Services;
+using Malam.Mastpen.HR.API.Infrastructure;
 
 namespace Malam.Mastpen.API
 {
@@ -66,6 +67,7 @@ namespace Malam.Mastpen.API
            //ADD SERVICES
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IOrganizationService, OrganizationService>();
+            services.AddScoped<BlobStorageService>();
           
             //// Logger for services
             //services.AddScoped<ILogger, Logger<Service>>();

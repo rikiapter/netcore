@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using Malam.Mastpen.Core.DAL.Entities;
 using Malam.Mastpen.Core.DAL;
+using Malam.Mastpen.HR.Core.BL.Requests;
 
 namespace Malam.Mastpen.Core.BL.Requests
     {
@@ -41,6 +42,9 @@ namespace Malam.Mastpen.Core.BL.Requests
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
 
+        public FileRequest picture { get; set; }
+
+        public FileRequest IdentityFile { get; set; }
 
     }
 
