@@ -228,16 +228,13 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> PostEmployeeTrainingAsync([FromBody]Training request)
+        public async Task<IActionResult> PostEmployeeTrainingAsync([FromBody]EmployeeTraining request)
         {
-            EmployeeTraining employeeTraining = new EmployeeTraining();
-            
-
-            var entity =  request;
+      var entity =  request;
 
             entity.UserInsert = UserInfo.UserId;
 
-            var response = await EmployeeService.CreateEmployeeTrainingAsync(employeeTraining);
+            var response = await EmployeeService.CreateEmployeeTrainingAsync(entity);
 
             return response.ToHttpResponse();
         }

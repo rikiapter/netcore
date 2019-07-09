@@ -101,21 +101,34 @@ namespace Malam.Mastpen.Core.BL.Requests
         public Organization Organization { get; set; }
         public Country PassportCountry { get; set; }
         public ProffesionType ProffesionType { get; set; }
+ 
+        public TrainingResponse EmployeeAuthtorization { get; set; }
+        public TrainingResponse EmployeeTraining { get; set; }
+        public TrainingResponse EmployeeWorkPermit { get; set; }
+        public PhoneMail phonMail { get; set; }
+
+        public Docs docs { get; set; }       
+        
         //public ICollection<EmployeeEntry> EmployeeEntry { get; set; }
         //public ICollection<SiteEmployee> SiteEmployeeEmployee { get; set; }
         //public ICollection<SiteEmployee> SiteEmployeeSite { get; set; }
         //public ICollection<EmplyeePicture> EmplyeePicture { get; set; }
         //public ICollection<SiteRole> SiteRole { get; set; }
-        //public ICollection<EmployeeAuthtorization> EmployeeAuthtorization { get; set; }
-       // public ICollection<EmployeeProffesionType> EmployeeProffesionType { get; set; }
-        //public ICollection<EmployeeTraining> EmployeeTraining { get; set; }
-        //public ICollection<EmployeeWorkPermit> EmployeeWorkPermit { get; set; }
-        public PhoneMail phonMail { get; set; }
-      //  public Notes note { get; set; }
-     //   public Address address { get; set; }
-        public Docs docs { get; set; }
     }
+    public class TrainingResponse
+    {
+        public TrainingResponse(int regular, string TrainingName)
+        {
+            this.regular = regular;
+            this.TrainingName = TrainingName;
+        }
 
+        public int regular { get; set; }
+        //במקום הסמכות – אישור עבודה בגובה
+        //במקום הדרכות – תדריך בטיחות
+        //במקום היתרים – היתר הדרכה
+        public string TrainingName { get; set; }
+    }
 
 
     public static class ExtensionsEmployee
@@ -202,7 +215,9 @@ namespace Malam.Mastpen.Core.BL.Requests
                 //SiteRole = request.SiteRole,
                 //EmployeeAuthtorization = request.EmployeeAuthtorization,
                  // EmployeeProffesionType = request.EmployeeProffesionType,
-                //EmployeeTraining = request.EmployeeTraining,
+                EmployeeTraining = new TrainingResponse((request.EmployeeTraining.First().DateTo.Value.Date- DateTime.Now.Date).Days , "היתר הדרכה" ),
+                EmployeeAuthtorization = new TrainingResponse((request.EmployeeAuthtorization.First().DateTo.Value.Date-DateTime.Now.Date).Days, "תדריך בטיחות"),
+                EmployeeWorkPermit = new TrainingResponse(( request.EmployeeWorkPermit.First().DateTo.Value.Date- DateTime.Now.Date ).Days, "אישור עבודה בגובה"),
                 //EmployeeWorkPermit = request.EmployeeWorkPermit,
                 phonMail = phone,
                 ProffesionType=request.EmployeeProffesionType.First().ProffesionType,

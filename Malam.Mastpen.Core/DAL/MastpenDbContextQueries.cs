@@ -72,10 +72,12 @@ namespace Malam.Mastpen.Core.DAL
             var query = from Employee in dbContext.Employee    
                         .Where(item => item.EmployeeId == entity.EmployeeId)
    
-                  .Include(x => x.EmployeeProffesionType).ThenInclude(p=>p.ProffesionType)
+                        .Include(x => x.EmployeeProffesionType).ThenInclude(p=>p.ProffesionType)
+                        .Include(x => x.EmployeeAuthtorization)
+                        .Include(x => x.EmployeeTraining)
+                        .Include(x => x.EmployeeWorkPermit)
 
-
-            join phonMail in dbContext.PhoneMail.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        join phonMail in dbContext.PhoneMail.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
                         on Employee.EmployeeId equals phonMail.EntityId into phonMail
                         from x_phonMail in phonMail.DefaultIfEmpty()
 
