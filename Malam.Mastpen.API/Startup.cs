@@ -39,20 +39,22 @@ namespace Malam.Mastpen.API
         public void ConfigureServices(IServiceCollection services)
         {
 
+
             /* Configuration for MVC */
             var appSettingsSection = Configuration.GetSection("AppSettings");
-                services.AddMvc(config =>
+            services.AddMvc(config =>
+        {
+            config.Filters.Add(typeof(MastpenExceptionFilter));
+            config.Filters.Add(typeof(MastpenActionFilter));
+        })
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+            .AddJsonOptions(options =>
             {
-                config.Filters.Add(typeof(MastpenExceptionFilter));
-                config.Filters.Add(typeof(MastpenActionFilter));
-            })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-                .AddJsonOptions(options =>
-                {
-                    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                });
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });    
+           
 
-     
+ 
 
             /* Setting dependency injection */
             // For DbContext

@@ -222,15 +222,15 @@ namespace Malam.Mastpen.Core.DAL.Configurations
                 .HasForeignKey(d => d.GenderId)
                 .HasConstraintName("FK_BB_HR_Employee_GenderID");
 
-            builder.HasOne(d => d.IdentificationType)
-                .WithMany(p => p.Employee)
-                .HasForeignKey(d => d.IdentificationTypeId)
-                .HasConstraintName("FK_BB_HR_Employee_IdentificationTypeID");
+            //builder.HasOne(d => d.IdentificationType)
+            //    .WithMany(p => p.Employee)
+            //    .HasForeignKey(d => d.IdentificationTypeId)
+            //    .HasConstraintName("FK_BB_HR_Employee_IdentificationTypeID");
 
-            builder.HasOne(d => d.Organization)
-                .WithMany(p => p.Employee)
-                .HasForeignKey(d => d.OrganizationId)
-                .HasConstraintName("FK_BB_HR_Employee_OrganizationID");
+            //builder.HasOne(d => d.Organization)
+            //    .WithMany(p => p.Employee)
+            //    .HasForeignKey(d => d.OrganizationId)
+            //    .HasConstraintName("FK_BB_HR_Employee_OrganizationID");
 
             builder.HasOne(d => d.PassportCountry)
                 .WithMany(p => p.Employee)
@@ -425,10 +425,10 @@ namespace Malam.Mastpen.Core.DAL.Configurations
                 .HasForeignKey(d => d.EmployeeId)
                 .HasConstraintName("FK_BB_HR_EmployeeProffesionType_EmployeeID");
 
-            builder.HasOne(d => d.ProffesionType)
-                .WithMany(p => p.EmployeeProffesionType)
-                .HasForeignKey(d => d.ProffesionTypeId)
-                .HasConstraintName("FK_BB_HR_EmployeeProffesionType_ProffesionTypeID");
+            //builder.HasOne(d => d.ProffesionType)
+            //    .WithMany(p => p.EmployeeProffesionType)
+            //    .HasForeignKey(d => d.ProffesionTypeId)
+            //    .HasConstraintName("FK_BB_HR_EmployeeProffesionType_ProffesionTypeID");
 
         }
     }

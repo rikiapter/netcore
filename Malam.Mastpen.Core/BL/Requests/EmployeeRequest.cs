@@ -34,8 +34,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         public FileRequest IdentityFile { get; set; }
 
     }
-
-
+    
     public class EmployeeResponse
     {
         public int EmployeeId { get; set; }
@@ -160,6 +159,7 @@ namespace Malam.Mastpen.Core.BL.Requests
                 EmployeeWorkPermit = request.EmployeeWorkPermit.Count > 0 ? new TrainingResponse((request.EmployeeWorkPermit.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "אישור עבודה בגובה"):null,
                 phonMail = phone,
                 ProffesionType = request.EmployeeProffesionType.Count>0? request.EmployeeProffesionType.First().ProffesionType:null,
+     
                 docs = docs
 
             };

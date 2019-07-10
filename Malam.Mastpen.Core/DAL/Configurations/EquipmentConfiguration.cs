@@ -113,10 +113,10 @@ namespace Malam.Mastpen.Core.DAL.Configurations
                 .HasForeignKey(d => d.EquipmentTypeId)
                 .HasConstraintName("FK_BB_EC_Equipment_EquipmentTypeID");
 
-            builder.HasOne(d => d.Organization)
-                .WithMany(p => p.Equipment)
-                .HasForeignKey(d => d.OrganizationId)
-                .HasConstraintName("FK_BB_EC_Equipment_OrganizationID");
+            //builder.HasOne(d => d.Organization)
+            //    .WithMany(p => p.Equipment)
+            //    .HasForeignKey(d => d.OrganizationId)
+            //    .HasConstraintName("FK_BB_EC_Equipment_OrganizationID");
         }
     }
         public class EquipmentLocationConfiguration : IEntityTypeConfiguration<EquipmentLocation>

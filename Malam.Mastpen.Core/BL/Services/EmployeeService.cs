@@ -40,6 +40,7 @@ namespace Malam.Mastpen.Core.BL.Services
             .Paging(pageSize, pageNumber)
             .ToListAsync();
 
+            
             // throw new NotImplementedException();
             return response;
         }
@@ -55,7 +56,7 @@ namespace Malam.Mastpen.Core.BL.Services
 
             // Retrieve items, set model for response
             response.Model = await query.FirstOrDefaultAsync();
-            response.Model.ProffesionType.EmployeeProffesionType = null;
+           // response.Model.ProffesionType.EmployeeProffesionType = null;
 
             response.SetMessageGetById(nameof(GetEmployeeAsync), Id);
             return response;

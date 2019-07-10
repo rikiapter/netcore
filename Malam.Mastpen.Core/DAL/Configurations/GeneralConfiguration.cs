@@ -733,10 +733,10 @@ namespace Malam.Mastpen.Core.DAL.Configurations
                 .HasColumnName("userInsert")
                 .HasDefaultValueSql("((1))");
 
-            builder.HasOne(d => d.Organization)
-                .WithMany(p => p.Sites)
-                .HasForeignKey(d => d.OrganizationId)
-                .HasConstraintName("FK_BB_GEN_Sites_OrganizationID");
+            //builder.HasOne(d => d.Organization)
+            //    .WithMany(p => p.Sites)
+            //    .HasForeignKey(d => d.OrganizationId)
+            //    .HasConstraintName("FK_BB_GEN_Sites_OrganizationID");
 
             builder.HasOne(d => d.SiteStatus)
                 .WithMany(p => p.Sites)

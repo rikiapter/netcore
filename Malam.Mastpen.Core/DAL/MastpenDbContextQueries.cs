@@ -27,19 +27,22 @@ namespace Malam.Mastpen.Core.DAL
 
         }
 
-        public static IQueryable<EmployeeResponse> GetEmployee(this MastpenBitachonDbContext dbContext, int? EmployeeID = null, string EmployeeName = null, int? IdentityNumber = null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null,int ? SiteId=null)
+        public static IQueryable<EmployeeResponse> GetEmployee(this MastpenBitachonDbContext dbContext, int? EmployeeID = null, string EmployeeName = null, int? IdentityNumber = null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null, int? SiteId = null)
         {
 
             // Get query from DbSet
             var query = from emp in dbContext.Employee
                  .Include(b => b.IdentificationType)
                  .Include(o => o.Organization)
-                 .Include(x => x.EmployeeProffesionType).ThenInclude(p => p.ProffesionType)
+                 .Include(x => x.EmployeeProffesionType)
+                 .ThenInclude(p => p.ProffesionType)
+
+
                  .Include(x => x.EmployeeAuthtorization)
                  .Include(x => x.EmployeeTraining)
                  .Include(x => x.EmployeeWorkPermit)
                  .AsQueryable()
-                 select emp.ToEntity(null,null);
+                        select emp.ToEntity(null, null);
 
             // Filter by: 'EmployeeID'
             if (EmployeeID.HasValue)
@@ -58,7 +61,7 @@ namespace Malam.Mastpen.Core.DAL
                 query = query.Where(item => item.PassportCountryId == PassportCountryId);
 
             if (SiteId.HasValue)
-                query = query.Where(item => item.SiteEmployeeSite.Any(siteid=> siteid.SiteId==SiteId));
+                query = query.Where(item => item.SiteEmployeeSite.Any(siteid => siteid.SiteId == SiteId));
 
 
             return query;
@@ -66,15 +69,15 @@ namespace Malam.Mastpen.Core.DAL
 
         }
 
-        public static  IQueryable<EmployeeResponse> GetEmployeesAsync(this MastpenBitachonDbContext dbContext, Employee entity)
+        public static IQueryable<EmployeeResponse> GetEmployeesAsync(this MastpenBitachonDbContext dbContext, Employee entity)
         {
             string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
 
 
-            var query = from Employee in dbContext.Employee    
+            var query = from Employee in dbContext.Employee
                         .Where(item => item.EmployeeId == entity.EmployeeId)
-   
-                        .Include(x => x.EmployeeProffesionType).ThenInclude(p=>p.ProffesionType)
+
+                        .Include(x => x.EmployeeProffesionType).ThenInclude(p => p.ProffesionType)
                         .Include(x => x.EmployeeAuthtorization)
                         .Include(x => x.EmployeeTraining)
                         .Include(x => x.EmployeeWorkPermit)
@@ -88,7 +91,7 @@ namespace Malam.Mastpen.Core.DAL
                         on Employee.EmployeeId equals docs.EntityId into docs
                         from x_docs in docs.DefaultIfEmpty()
 
-                        select Employee.ToEntity( x_phonMail,x_docs);
+                        select Employee.ToEntity(x_phonMail, x_docs);
 
 
             return query;
@@ -137,7 +140,7 @@ namespace Malam.Mastpen.Core.DAL
         {
 
             // Get query from DbSet
-            var query = dbContext.Organization .AsQueryable();
+            var query = dbContext.Organization.AsQueryable();
 
             // Filter by: 'EmployeeID'
             if (OrganizationID.HasValue)
@@ -154,20 +157,20 @@ namespace Malam.Mastpen.Core.DAL
 
         public static IQueryable<EmployeeTraining> GetEmployeeTrainingByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeTraining entity)
         {
-     
+
             // Get query from DbSet
             var query = dbContext.EmployeeTraining
-                .Include(x => x.TrainingType).Include(x=>x.Site)
+                .Include(x => x.TrainingType).Include(x => x.Site)
                 .Where(item => item.EmployeeId == entity.EmployeeId)
                 .AsQueryable();
 
             return query;
         }
         public static IQueryable<EmployeeWorkPermit> GetEmployeeWorkPermitByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeWorkPermit entity)
-=>  dbContext.EmployeeWorkPermit.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId).Include(x => x.Site);
+=> dbContext.EmployeeWorkPermit.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId).Include(x => x.Site);
 
-        public static  IQueryable< EmployeeAuthtorization> GetEmployeeAuthtorizationByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeAuthtorization entity)
-=>  dbContext.EmployeeAuthtorization.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId).Include(x => x.Site);
+        public static IQueryable<EmployeeAuthtorization> GetEmployeeAuthtorizationByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeAuthtorization entity)
+=> dbContext.EmployeeAuthtorization.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId).Include(x => x.Site);
 
         public static IQueryable<NoteResponse> GetEmployeeNoteByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, int EmployeeId)
         {
@@ -186,9 +189,9 @@ namespace Malam.Mastpen.Core.DAL
 
             return query;
         }
-        
-        
-        
+
+
+
         /// <summary>
         ///get ntityTypeId
         ///return entity tablee
@@ -221,7 +224,7 @@ namespace Malam.Mastpen.Core.DAL
             var tableName = mapping.TableName;
 
             return dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId;
- 
+
         }
     }
 }

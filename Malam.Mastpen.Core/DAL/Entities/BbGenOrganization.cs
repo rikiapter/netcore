@@ -7,9 +7,9 @@ namespace Malam.Mastpen.Core.DAL.Entities
     {
         public Organization()
         {
-            Equipment = new HashSet<Equipment>();
-            Sites = new HashSet<Sites>();
-            Employee = new HashSet<Employee>();
+            //Equipment = new HashSet<Equipment>();
+            //Sites = new HashSet<Sites>();
+            //Employee = new HashSet<Employee>();
         }
 
         public int OrganizationId { get; set; }
@@ -25,8 +25,8 @@ namespace Malam.Mastpen.Core.DAL.Entities
         public bool? State { get; set; }
 
         public OrganizationType OrganizationType { get; set; }
-        public ICollection<Equipment> Equipment { get; set; }
-        public ICollection<Sites> Sites { get; set; }
-        public ICollection<Employee> Employee { get; set; }
+        //public ICollection<Equipment> Equipment { get; set; }
+        //public ICollection<Sites> Sites { get; set; }
+        //public ICollection<Employee> Employee { get; set; }
     }
 }

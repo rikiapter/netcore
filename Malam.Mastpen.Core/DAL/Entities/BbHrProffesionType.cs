@@ -7,7 +7,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
     {
         public ProffesionType()
         {
-            EmployeeProffesionType = new HashSet<EmployeeProffesionType>();
+         //   EmployeeProffesionType = new HashSet<EmployeeProffesionType>();
         }
 
         public int ProffesionTypeId { get; set; }
@@ -19,6 +19,6 @@ namespace Malam.Mastpen.Core.DAL.Entities
         public DateTime? DateUpdate { get; set; }
         public bool? State { get; set; }
 
-        public ICollection<EmployeeProffesionType> EmployeeProffesionType { get; set; }
+      //  public ICollection<EmployeeProffesionType> EmployeeProffesionType { get; set; }
     }
 }
