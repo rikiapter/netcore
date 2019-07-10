@@ -34,10 +34,11 @@ namespace Malam.Mastpen.Core.DAL
           var   query = dbContext.Employee
                 .Include(b => b.IdentificationType)
                 .Include(o => o.Organization)
-               .Include(x => x.EmployeeProffesionType).ThenInclude(p => p.ProffesionType)
-
-                .AsQueryable()
-                 ;
+                .Include(x => x.EmployeeProffesionType).ThenInclude(p => p.ProffesionType)
+                .Include(x => x.EmployeeAuthtorization)
+                .Include(x => x.EmployeeTraining)
+                .Include(x => x.EmployeeWorkPermit)
+                .AsQueryable();
 
             // Filter by: 'EmployeeID'
             if (EmployeeID.HasValue)
@@ -168,14 +169,22 @@ namespace Malam.Mastpen.Core.DAL
         public static  IQueryable< EmployeeAuthtorization> GetEmployeeAuthtorizationByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeAuthtorization entity)
 =>  dbContext.EmployeeAuthtorization.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId).Include(x => x.Site);
 
-        public static IQueryable<Notes> GetEmployeeNoteByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, int EmployeeId)
+        public static IQueryable<NoteResponse> GetEmployeeNoteByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, int EmployeeId)
         {
             string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
 
 
-            return dbContext.Notes.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
-                .Where(item => item.EntityId == EmployeeId).Include(x => x.Site).AsQueryable();
+            var query = from note in dbContext.Notes
+                .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                .Where(item => item.EntityId == EmployeeId).Include(x => x.Site).AsQueryable()
 
+                        join employee in dbContext.Employee
+                        on note.UserInsert equals employee.EmployeeId
+
+
+                        select note.ToEntity(employee);
+
+            return query;
         }
         
         

@@ -18,6 +18,7 @@ using Malam.Mastpen.API.Clients;
 using Malam.Mastpen.API.Clients.Contracts;
 using Malam.Mastpen.Core.BL.Contracts;
 using Malam.Mastpen.HR.Core.BL.Requests;
+using Malam.Mastpen.Core.BL.Services;
 
 namespace Malam.Mastpen.API.Controllers
 {
@@ -28,10 +29,10 @@ namespace Malam.Mastpen.API.Controllers
     public class OrganizationController : MastpenController
     {
         protected readonly IRothschildHouseIdentityClient RothschildHouseIdentityClient;
-        protected readonly IOrganizationService OrganizationService;
+        protected readonly OrganizationService OrganizationService;
         public OrganizationController(
             IRothschildHouseIdentityClient rothschildHouseIdentityClient,
-                 IOrganizationService organizationService)
+                 OrganizationService organizationService)
         {
             RothschildHouseIdentityClient = rothschildHouseIdentityClient;
             OrganizationService = organizationService;

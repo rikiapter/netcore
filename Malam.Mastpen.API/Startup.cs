@@ -65,8 +65,8 @@ namespace Malam.Mastpen.API
             services.AddScoped<IUserInfo, UserInfo>();
 
            //ADD SERVICES
-            services.AddScoped<IEmployeeService, EmployeeService>();
-            services.AddScoped<IOrganizationService, OrganizationService>();
+            services.AddScoped<EmployeeService>();
+            services.AddScoped<OrganizationService>();
             services.AddScoped<BlobStorageService>();
           
             //// Logger for services

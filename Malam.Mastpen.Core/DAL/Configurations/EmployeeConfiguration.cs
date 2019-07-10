@@ -248,6 +248,7 @@ namespace Malam.Mastpen.Core.DAL.Configurations
             builder.ToTable("BB_HR_EmployeeAuthtorization");
 
             builder.Property(e => e.EmployeeAuthorizationId).HasColumnName("EmployeeAuthorizationID");
+            builder.Property(e => e.EmployeeAuthorizationName).HasMaxLength(50);
 
             builder.Property(e => e.AuthorizationTypeId).HasColumnName("AuthorizationTypeID");
 
@@ -296,7 +297,7 @@ namespace Malam.Mastpen.Core.DAL.Configurations
             builder.ToTable("BB_HR_EmployeeTraining");
 
             builder.Property(e => e.EmployeeTrainingId).HasColumnName("EmployeeTrainingID");
-
+            builder.Property(e => e.EmployeeTrainingName).HasMaxLength(50);
             builder.Property(e => e.Comment).HasMaxLength(50);
 
             builder.Property(e => e.DateFrom).HasColumnType("datetime");
@@ -347,6 +348,7 @@ namespace Malam.Mastpen.Core.DAL.Configurations
 
             builder.Property(e => e.EmployeeWorkPermitId).HasColumnName("EmployeeWorkPermitID");
 
+            builder.Property(e => e.EmployeeWorkPermitName).HasMaxLength(50);
             builder.Property(e => e.Comment).HasMaxLength(50);
 
             builder.Property(e => e.DateFrom).HasColumnType("datetime");

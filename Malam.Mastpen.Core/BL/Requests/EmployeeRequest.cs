@@ -17,33 +17,20 @@ namespace Malam.Mastpen.Core.BL.Requests
     public class EmployeeRequest
     {
         public int? EmployeeId { get; set; }
-
         public int? IdentificationTypeId { get; set; }
-
         public int? IdentityNumber { get; set; }
-
         public int? PassportCountryId { get; set; }
-
         public string FirstName { get; set; }
-
         public string LastName { get; set; }
-
         public string FirstNameEN { get; set; }
-
         public string LastNameEN { get; set; }
-
         public int? OrganizationId { get; set; }
-
         public DateTime? BirthDate { get; set; }
-
         public int? GenderId { get; set; }
-
         public int? Citizenship { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
-
         public FileRequest picture { get; set; }
-
         public FileRequest IdentityFile { get; set; }
 
     }
@@ -74,6 +61,9 @@ namespace Malam.Mastpen.Core.BL.Requests
         public Organization Organization { get; set; }
         public Country PassportCountry { get; set; }
 
+        public TrainingResponse EmployeeAuthtorization { get; set; }
+        public TrainingResponse EmployeeTraining { get; set; }
+        public TrainingResponse EmployeeWorkPermit { get; set; }
     }
     public class EmployeeResponse
     {
@@ -115,6 +105,11 @@ namespace Malam.Mastpen.Core.BL.Requests
         //public ICollection<EmplyeePicture> EmplyeePicture { get; set; }
         //public ICollection<SiteRole> SiteRole { get; set; }
     }
+
+    public class NoteResponse:Notes
+    {
+        public Employee employee { get; set; }
+    }
     public class TrainingResponse
     {
         public TrainingResponse(int regular, string TrainingName)
@@ -133,14 +128,12 @@ namespace Malam.Mastpen.Core.BL.Requests
 
     public static class ExtensionsEmployee
     {
-
-
         public static Employee ToEntity(this EmployeeRequest request)
         => new Employee
         {
             EmployeeId = request.EmployeeId ?? 0,
 
-             IdentificationTypeId = request.IdentificationTypeId,
+            IdentificationTypeId = request.IdentificationTypeId,
             IdentityNumber = request.IdentityNumber,
             PassportCountryId = request.PassportCountryId,
             FirstName = request.FirstName,
@@ -178,11 +171,16 @@ namespace Malam.Mastpen.Core.BL.Requests
          Gender = request.Gender,
          IdentificationType = request.IdentificationType,
          Organization = request.Organization,
-         PassportCountry = request.PassportCountry
+         PassportCountry = request.PassportCountry,
+
+         EmployeeTraining = new TrainingResponse((request.EmployeeTraining.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "היתר הדרכה"),
+         EmployeeAuthtorization = new TrainingResponse((request.EmployeeAuthtorization.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "תדריך בטיחות"),
+         EmployeeWorkPermit = new TrainingResponse((request.EmployeeWorkPermit.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "אישור עבודה בגובה")
+
 
 
      };
-        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone,Docs docs)
+        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone, Docs docs)
             => new EmployeeResponse
             {
                 EmployeeId = request.EmployeeId,
@@ -203,34 +201,41 @@ namespace Malam.Mastpen.Core.BL.Requests
                 UserUpdate = request.UserUpdate,
                 DateUpdate = request.DateUpdate,
                 State = request.State,
-                Address=request.Address,
+                Address = request.Address,
                 Gender = request.Gender,
                 IdentificationType = request.IdentificationType,
                 Organization = request.Organization,
                 PassportCountry = request.PassportCountry,
-                //EmployeeEntry = request.EmployeeEntry,
-                //SiteEmployeeEmployee = request.SiteEmployeeEmployee,
-                //SiteEmployeeSite = request.SiteEmployeeSite,
-                //EmplyeePicture = request.EmplyeePicture,
-                //SiteRole = request.SiteRole,
-                //EmployeeAuthtorization = request.EmployeeAuthtorization,
-                 // EmployeeProffesionType = request.EmployeeProffesionType,
-                EmployeeTraining = new TrainingResponse((request.EmployeeTraining.Max(x=>x.DateTo).Value.Date- DateTime.Now.Date).Days , "היתר הדרכה" ),
-                EmployeeAuthtorization = new TrainingResponse((request.EmployeeAuthtorization.Max(x => x.DateTo).Value.Date-DateTime.Now.Date).Days, "תדריך בטיחות"),
-                EmployeeWorkPermit = new TrainingResponse(( request.EmployeeWorkPermit.Max(x => x.DateTo).Value.Date- DateTime.Now.Date ).Days, "אישור עבודה בגובה"),
-                //EmployeeWorkPermit = request.EmployeeWorkPermit,
+                EmployeeTraining = new TrainingResponse((request.EmployeeTraining.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "היתר הדרכה"),
+                EmployeeAuthtorization = new TrainingResponse((request.EmployeeAuthtorization.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "תדריך בטיחות"),
+                EmployeeWorkPermit = new TrainingResponse((request.EmployeeWorkPermit.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "אישור עבודה בגובה"),
                 phonMail = phone,
-                ProffesionType=request.EmployeeProffesionType.First().ProffesionType,
-               
-              //  note=notes,
-              //  address=address,
-                docs=docs
+                ProffesionType = request.EmployeeProffesionType.First().ProffesionType,
+                docs = docs
 
             };
 
+
+
+        public static NoteResponse ToEntity(this Notes request, Employee employee)
+              => new NoteResponse
+              {
+                  employee = employee,
+                  NoteId = request.NoteId,
+                  NoteTypeId = request.NoteTypeId,
+                  Site = request.Site,
+                  NoteContent = request.NoteContent,
+                  UserInsert = request.UserInsert,
+                  DateInsert = request.DateInsert,
+                  UserUpdate = request.UserUpdate,
+                  DateUpdate = request.DateUpdate,
+                  State = request.State,
+
+              };
+
+
+
+
     }
-
-
-
 #pragma warning restore CS1591
 }

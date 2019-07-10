@@ -19,6 +19,7 @@ using Malam.Mastpen.API.Clients.Contracts;
 using Malam.Mastpen.Core.BL.Contracts;
 using Malam.Mastpen.HR.API.Infrastructure;
 using Malam.Mastpen.HR.Core.BL.Requests;
+using Malam.Mastpen.Core.BL.Services;
 
 namespace Malam.Mastpen.API.Controllers
 {
@@ -29,11 +30,11 @@ namespace Malam.Mastpen.API.Controllers
     public class EmployeeController : MastpenController
     {
         protected readonly IRothschildHouseIdentityClient RothschildHouseIdentityClient;
-        protected readonly IEmployeeService EmployeeService;
+        protected readonly EmployeeService EmployeeService;
         protected readonly BlobStorageService blobStorageService;
         public EmployeeController(
             IRothschildHouseIdentityClient rothschildHouseIdentityClient,
-                 IEmployeeService employeeService,BlobStorageService blobStorageService)
+                 EmployeeService employeeService,BlobStorageService blobStorageService)
         {
             RothschildHouseIdentityClient = rothschildHouseIdentityClient;
             EmployeeService = employeeService;

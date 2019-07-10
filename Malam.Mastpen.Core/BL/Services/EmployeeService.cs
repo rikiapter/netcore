@@ -16,7 +16,7 @@ using Malam.Mastpen.Core.DAL;
 
 namespace Malam.Mastpen.Core.BL.Services
 {
-    public class EmployeeService : Service, IEmployeeService
+    public class EmployeeService : Service
     {
         public EmployeeService(IUserInfo userInfo, MastpenBitachonDbContext dbContext)
             : base( userInfo, dbContext)
@@ -24,7 +24,6 @@ namespace Malam.Mastpen.Core.BL.Services
         }
         public async Task<IPagedResponse<Employee>> GetEmployeesAsync(int pageSize = 10, int pageNumber = 1, int? EmployeeId = null ,string EmployeeName = null,int? IdentityNumber=null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null, int? SiteId=null)//, int? SiteId = null, DateTime? DateFrom = null, DateTime? DateTo = null)
         {
-
             var response = new PagedResponse<Employee>();
 
             // Get the "proposed" query from repository
@@ -34,9 +33,6 @@ namespace Malam.Mastpen.Core.BL.Services
             response.PageSize = pageSize;
             response.PageNumber = pageNumber;
             response.ItemsCount = await query.CountAsync();
-
-            // Get the specific page from database
-            // response.Model = await query.Paging(pageSize, pageNumber).ToListAsync();
 
             response.SetMessagePages(nameof(GetEmployeesAsync), pageNumber, response.PageCount, response.ItemsCount);
 
@@ -79,7 +75,7 @@ namespace Malam.Mastpen.Core.BL.Services
         {
             var response = new SingleResponse<Core.DAL.Entities.Employee>();
        
-               // Add entity to repository
+            // Add entity to repository
             DbContext.Add(employee, UserInfo);
             // Save entity in database
             await DbContext.SaveChangesAsync();
@@ -109,7 +105,6 @@ namespace Malam.Mastpen.Core.BL.Services
         // DELETE
         public async Task<Response> DeleteEmployeeAsync(int Id)
         {
-
             var response = new Response();
 
             // Get Employee by Id
@@ -125,8 +120,6 @@ namespace Malam.Mastpen.Core.BL.Services
 
             return response;
         }
-
-
 
         // POST
         public async Task<SingleResponse<EmployeeTraining>> CreateEmployeeTrainingAsync(EmployeeTraining employeeTraining)
@@ -231,9 +224,9 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
         //Get List
-        public async Task<ListResponse<Notes>> GetEmployeeNoteByEmployeeIdAsync(int EmployeeId)
+        public async Task<ListResponse<NoteResponse>> GetEmployeeNoteByEmployeeIdAsync(int EmployeeId)
         {
-            var response = new ListResponse<Notes>();
+            var response = new ListResponse<NoteResponse>();
             // Get the Employee by Id
             var query = DbContext.GetEmployeeNoteByEmployeeIdAsync(EmployeeId);
             response.Model = await query.ToListAsync();
