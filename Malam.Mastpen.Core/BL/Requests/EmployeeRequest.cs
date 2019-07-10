@@ -124,7 +124,18 @@ namespace Malam.Mastpen.Core.BL.Requests
         //במקום היתרים – היתר הדרכה
         public string TrainingName { get; set; }
     }
-
+    public class EmployeeAuthtorizationRequest: EmployeeAuthtorization
+    {
+      public  FileRequest fileRequest { get; set; }
+    }
+    public class EmployeeTrainingRequest : EmployeeTraining
+    {
+        public FileRequest fileRequest { get; set; }
+    }
+    public class EmployeeWorkPermitRequest : EmployeeWorkPermit
+    {
+        public FileRequest fileRequest { get; set; }
+    }
 
     public static class ExtensionsEmployee
     {

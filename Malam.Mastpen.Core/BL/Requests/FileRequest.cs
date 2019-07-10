@@ -6,8 +6,8 @@ namespace Malam.Mastpen.HR.Core.BL.Requests
 {
     public class FileRequest
     {
-        public string FileByte { get; set; }
-        public string Type { get; set; }
+        public string FileByte { get; set; } 
+        public string ContentType { get; set; }
 
     }
 

@@ -154,10 +154,9 @@ namespace Malam.Mastpen.Core.DAL
         public static IQueryable<EmployeeTraining> GetEmployeeTrainingByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeTraining entity)
         {
      
-
             // Get query from DbSet
             var query = dbContext.EmployeeTraining
-                   .Include(x => x.TrainingType).Include(x=>x.Site)
+                .Include(x => x.TrainingType).Include(x=>x.Site)
                 .Where(item => item.EmployeeId == entity.EmployeeId)
                 .AsQueryable();
 

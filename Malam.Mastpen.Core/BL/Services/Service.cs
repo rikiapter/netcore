@@ -61,5 +61,25 @@ namespace Malam.Mastpen.Core.BL.Services
 
             return response;
         }
+
+
+        public async Task<SingleResponse<Docs>> CreateDocsAsync(Docs docs, Type type)
+        {
+            var response = new SingleResponse<Docs>();
+
+            var EntityTypeId = DbContext.GetEntityTypeIdByEntityTypeName(type).Result;
+
+            docs.EntityTypeId = EntityTypeId;
+
+            DbContext.Add(docs, UserInfo);
+
+            await DbContext.SaveChangesAsync();
+
+            response.SetMessageSucssesPost(nameof(CreatePhoneMailAsync), docs.EntityId ?? 0);
+
+            response.Model = docs;
+
+            return response;
+        }
     }
 }

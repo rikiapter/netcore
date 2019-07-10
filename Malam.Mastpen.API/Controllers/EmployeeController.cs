@@ -126,19 +126,45 @@ namespace Malam.Mastpen.API.Controllers
 
             var employeeResponse = await EmployeeService.CreateEmployeeAsync(entity);
 
-            PhoneMail p = new PhoneMail();
-            p.PhoneNumber = request.PhoneNumber;
-            p.EntityTypeId = 1;
-            p.EntityId = employeeResponse.Model.EmployeeId;
+            PhoneMail phoneMail = new PhoneMail();
+            phoneMail.PhoneNumber = request.PhoneNumber;
+            phoneMail.EntityTypeId = 1;
+            phoneMail.EntityId = employeeResponse.Model.EmployeeId;
 
-            var phoneNumberResponse = await EmployeeService.CreatePhoneMailAsync(p, typeof(Employee));
+            var phoneNumberResponse = await EmployeeService.CreatePhoneMailAsync(phoneMail, typeof(Employee));
+            string fileUrl;
+            
+            //upload picture to blob
+            if (request.picture != null)
+            {
+                 fileUrl = blobStorageService.UploadFileToBlob(request.IdentityNumber + request.FirstNameEN + "_" + request.LastNameEN, request.picture);
 
-            //upload to blob
-            var fileUrl=  blobStorageService.UploadFileToBlob(request.IdentityNumber+request.FirstNameEN+" "+request.LastNameEN, request.picture);
+               //get personid from face recognition 
+               //  EmplyeePicture emplyeePicture = new EmplyeePicture();
+               //  emplyeePicture.EmployeeId = employeeResponse.Model.EmployeeId;
 
-            //save file path in db
-            //var emplyeePictureResponse = await EmployeeService.CreateEmplyeePictureAsync(p, typeof(Employee));
+               //save file path in db
+               // var emplyeePictureResponse = await EmployeeService.CreateEmplyeePictureAsync(emplyeePicture);
 
+                Docs docs = new Docs();
+                docs.DocumentPath = fileUrl;
+                docs.EntityId= employeeResponse.Model.EmployeeId;
+                docs.EntityTypeId = 2;
+                docs.DocumentTypeId = 7;
+                var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee)); 
+            }
+
+            //upload IdentityFile to blob
+            if (request.IdentityFile != null)
+            {
+                fileUrl = blobStorageService.UploadFileToBlob(request.IdentityNumber + request.FirstNameEN + "_" + request.LastNameEN, request.IdentityFile);
+                Docs docs = new Docs();
+                docs.DocumentPath = fileUrl;
+                docs.EntityId = employeeResponse.Model.EmployeeId;
+                docs.EntityTypeId = 2;
+                docs.DocumentTypeId = 1;
+                var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee));
+            }
             return employeeResponse.ToHttpResponse();
         }
 
@@ -229,14 +255,26 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> PostEmployeeTrainingAsync([FromBody]EmployeeTraining request)
+        public async Task<IActionResult> PostEmployeeTrainingAsync([FromBody]EmployeeTrainingRequest request)
         {
-      var entity =  request;
+            var entity =  request;
 
             entity.UserInsert = UserInfo.UserId;
 
             var response = await EmployeeService.CreateEmployeeTrainingAsync(entity);
 
+            if (request.fileRequest != null)
+            {
+              var  fileUrl = blobStorageService.UploadFileToBlob(request.EmployeeTrainingName , request.fileRequest);
+
+                //save in docs
+                Docs docs = new Docs();
+                docs.DocumentPath = fileUrl;
+                docs.EntityId = response.Model.EmployeeTrainingId;
+                docs.EntityTypeId = 5;
+                docs.DocumentTypeId = 4;
+                var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(EmployeeTraining));
+            }
             return response.ToHttpResponse();
         }
 
@@ -257,7 +295,7 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> PostEmployeeWorkPermitAsync([FromBody]EmployeeWorkPermit request)
+        public async Task<IActionResult> PostEmployeeWorkPermitAsync([FromBody]EmployeeWorkPermitRequest request)
         {
 
             var entity = request;
@@ -266,6 +304,18 @@ namespace Malam.Mastpen.API.Controllers
 
             var response = await EmployeeService.CreateEmployeeWorkPermitAsync(entity);
 
+            if (request.fileRequest != null)
+            {
+                var fileUrl = blobStorageService.UploadFileToBlob(request.EmployeeWorkPermitName, request.fileRequest);
+
+                //save in docs
+                Docs docs = new Docs();
+                docs.DocumentPath = fileUrl;
+                docs.EntityId = response.Model.EmployeeWorkPermitId;
+                docs.EntityTypeId = 4;
+                docs.DocumentTypeId = 3;
+                var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(EmployeeWorkPermit));
+            }
             return response.ToHttpResponse();
         }
 
@@ -286,7 +336,7 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> PostEmployeeAuthtorizationAsync([FromBody]EmployeeAuthtorization request)
+        public async Task<IActionResult> PostEmployeeAuthtorizationAsync([FromBody]EmployeeAuthtorizationRequest request)
         {
 
             var entity = request;
@@ -295,6 +345,18 @@ namespace Malam.Mastpen.API.Controllers
 
             var response = await EmployeeService.CreateEmployeeAuthtorizationAsync(entity);
 
+            if (request.fileRequest != null)
+            {
+                var fileUrl = blobStorageService.UploadFileToBlob(request.EmployeeAuthorizationName, request.fileRequest);
+
+                //save in docs
+                Docs docs = new Docs();
+                docs.DocumentPath = fileUrl;
+                docs.EntityId = response.Model.EmployeeAuthorizationId;
+                docs.EntityTypeId = 3;
+                docs.DocumentTypeId = 5;
+                var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(EmployeeAuthtorization));
+            }
             return response.ToHttpResponse();
         }
 

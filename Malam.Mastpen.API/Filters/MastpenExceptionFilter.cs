@@ -34,19 +34,33 @@ namespace Malam.Mastpen.API.Filters
 
 
             response.DIdError = true;
-
-            if (exceptionType is MastpenException)
+            if (exceptionType is Microsoft.EntityFrameworkCore.DbUpdateException)
             {
-                logger.ErrorFormat( "There was an error on '{0}': {1}", actionName, context.Exception.Message);
-
-                response.ErrorMessage = string.Format("There was an error on '{0}': {1} ,Massage {2}", actionName, context.Exception.Message, context.Exception.Message);
+                logger.ErrorFormat("There was a critical error on '{0}': {1}", actionName, context.Exception);
+          
+                response.ErrorMessage = string.Format("There was an internal error on '{0}': {1}, please contact to technical support.", actionName, context.Exception.InnerException);
+        
             }
+            if (exceptionType is System.FormatException)
+            {
+                logger.ErrorFormat("There was an error on '{0}': {1}", actionName, context.Exception);
+
+                response.ErrorMessage = string.Format("There was an error on '{0}': {1} ,Massage {2}", actionName, context.Exception.Message, context.Exception);
+            }
+     
             else
             {
-                logger.ErrorFormat("There was a critical error on '{0}': {1}", actionName, context.Exception.Message);
-          
-                response.ErrorMessage = string.Format("There was an internal error on '{0}': {1}, please contact to technical support.", actionName, context.Exception.Message);
-            }
+                logger.ErrorFormat("There was a critical error on '{0}': {1}", actionName, context.Exception);
+
+                response.ErrorMessage = string.Format("There was an internal error on '{0}': {1}, please contact to technical support.", actionName, context.Exception);
+            }  
+            
+            //if (exceptionType is MastpenException)
+            //{
+            //    logger.ErrorFormat( "There was an error on '{0}': {1}", actionName, context.Exception);
+
+            //    response.ErrorMessage = string.Format("There was an error on '{0}': {1} ,Massage {2}", actionName, context.Exception.Message, context.Exception.InnerException);
+            //}
             context.Result = new ObjectResult(response);
         }
     }

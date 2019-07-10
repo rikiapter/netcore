@@ -80,9 +80,26 @@ namespace Malam.Mastpen.Core.BL.Services
             // Save entity in database
             await DbContext.SaveChangesAsync();
 
-            response.Message = string.Format("Sucsses Post for Site Employee = {0} ", employee.EmployeeId);
+            response.Message = string.Format("Sucsses Post for Employee = {0} ", employee.EmployeeId);
             // Set the entity to response model
             response.Model = employee;
+
+            return response;
+        }
+
+        // POST
+        public async Task<SingleResponse<EmplyeePicture>> CreateEmplyeePictureAsync(EmplyeePicture emplyeePicture)
+        {
+            var response = new SingleResponse<EmplyeePicture>();
+
+            // Add entity to repository
+            DbContext.Add(emplyeePicture, UserInfo);
+            // Save entity in database
+            await DbContext.SaveChangesAsync();
+
+            response.Message = string.Format("Sucsses Post for  emplyeePicture = {0} ", emplyeePicture);
+            // Set the entity to response model
+            response.Model = emplyeePicture;
 
             return response;
         }
