@@ -22,9 +22,9 @@ namespace Malam.Mastpen.Core.BL.Services
             : base( userInfo, dbContext)
         {
         }
-        public async Task<IPagedResponse<Employee>> GetEmployeesAsync(int pageSize = 10, int pageNumber = 1, int? EmployeeId = null ,string EmployeeName = null,int? IdentityNumber=null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null, int? SiteId=null)//, int? SiteId = null, DateTime? DateFrom = null, DateTime? DateTo = null)
+        public async Task<IPagedResponse<EmployeeResponse>> GetEmployeesAsync(int pageSize = 10, int pageNumber = 1, int? EmployeeId = null ,string EmployeeName = null,int? IdentityNumber=null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null, int? SiteId=null)//, int? SiteId = null, DateTime? DateFrom = null, DateTime? DateTo = null)
         {
-            var response = new PagedResponse<Employee>();
+            var response = new PagedResponse<EmployeeResponse>();
 
             // Get the "proposed" query from repository
             var query =DbContext.GetEmployee(EmployeeId,  EmployeeName , IdentityNumber,OrganizationId , PassportCountryId ,ProffesionType, SiteId);// אם רוצים לפי סינונים מסוימים אז יש להשתמש בפונקציה

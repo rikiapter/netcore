@@ -95,5 +95,38 @@ namespace Malam.Mastpen.HR.API.Infrastructure
                 throw (ex);
             }
         }
+
+        private async Task<string> DoFileToBlobAsync(string strFileName, byte[] fileData, string fileMimeType)
+        {
+            try
+            {
+                CloudStorageAccount cloudStorageAccount = CloudStorageAccount.Parse(accessKey);
+                CloudBlobClient cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
+                string strContainerName = "uploads";
+                CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference(strContainerName);
+                string fileName = this.GenerateFileName(strFileName);
+
+
+                if (fileName != null && fileData != null)
+                {
+                    CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(fileName);
+                    cloudBlockBlob.Properties.ContentType = fileMimeType;
+     
+
+
+                    byte[] destinationFile=new byte[1];
+   
+                    await cloudBlockBlob.DownloadToByteArrayAsync(destinationFile,1);
+
+
+                    return cloudBlockBlob.Uri.AbsoluteUri;
+                }
+                return "";
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
     }
 }

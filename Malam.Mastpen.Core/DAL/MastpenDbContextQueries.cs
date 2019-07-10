@@ -27,18 +27,19 @@ namespace Malam.Mastpen.Core.DAL
 
         }
 
-        public static IQueryable<Employee> GetEmployee(this MastpenBitachonDbContext dbContext, int? EmployeeID = null, string EmployeeName = null, int? IdentityNumber = null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null,int ? SiteId=null)
+        public static IQueryable<EmployeeResponse> GetEmployee(this MastpenBitachonDbContext dbContext, int? EmployeeID = null, string EmployeeName = null, int? IdentityNumber = null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null,int ? SiteId=null)
         {
 
             // Get query from DbSet
-          var   query = dbContext.Employee
-                .Include(b => b.IdentificationType)
-                .Include(o => o.Organization)
-                .Include(x => x.EmployeeProffesionType).ThenInclude(p => p.ProffesionType)
-                .Include(x => x.EmployeeAuthtorization)
-                .Include(x => x.EmployeeTraining)
-                .Include(x => x.EmployeeWorkPermit)
-                .AsQueryable();
+            var query = from emp in dbContext.Employee
+                 .Include(b => b.IdentificationType)
+                 .Include(o => o.Organization)
+                 .Include(x => x.EmployeeProffesionType).ThenInclude(p => p.ProffesionType)
+                 .Include(x => x.EmployeeAuthtorization)
+                 .Include(x => x.EmployeeTraining)
+                 .Include(x => x.EmployeeWorkPermit)
+                 .AsQueryable()
+                 select emp.ToEntity(null,null);
 
             // Filter by: 'EmployeeID'
             if (EmployeeID.HasValue)

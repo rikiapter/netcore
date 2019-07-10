@@ -131,7 +131,7 @@ namespace Malam.Mastpen.API.XUnitTest.UnitTest
             // Arrange
             var controller = ControllerMocker.GetEmployeeController(nameof(TestPostEmployeeTrainingAsync));
 
-            var request = new EmployeeTraining
+            var request = new EmployeeTrainingRequest
             {
                 EmployeeId = 2,
                 EmployeeTrainingId=3
@@ -152,7 +152,7 @@ namespace Malam.Mastpen.API.XUnitTest.UnitTest
             // Arrange
             var controller = ControllerMocker.GetEmployeeController(nameof(TestPostEmployeeWorkPermitAsync));
 
-            var request = new EmployeeWorkPermit
+            var request = new EmployeeWorkPermitRequest
             {
                 EmployeeId = 2,
                 EmployeeWorkPermitId = 3
@@ -173,7 +173,7 @@ namespace Malam.Mastpen.API.XUnitTest.UnitTest
             // Arrange
             var controller = ControllerMocker.GetEmployeeController(nameof(TestPostEmployeeAuthtorizationAsync));
 
-            var request = new EmployeeAuthtorization
+            var request = new EmployeeAuthtorizationRequest
             {
                 EmployeeId = 2,
                 EmployeeAuthorizationId = 3
