@@ -22,6 +22,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Malam.Mastpen.Core.BL.Contracts;
 using Malam.Mastpen.Core.BL.Services;
 using Malam.Mastpen.HR.API.Infrastructure;
+using Malam.Mastpen.HR.API.Clients;
 
 namespace Malam.Mastpen.API
 {
@@ -63,12 +64,18 @@ namespace Malam.Mastpen.API
                 options.UseSqlServer(Configuration["AppSettings:ConnectionString"]);
             });
 
+       
             // User info
             services.AddScoped<IUserInfo, UserInfo>();
 
            //ADD SERVICES
             services.AddScoped<EmployeeService>();
             services.AddScoped<OrganizationService>();
+
+            services.Configure<BlobConection>(Configuration.GetSection("BlobConnections"));
+            services.AddSingleton<BlobConection>();
+
+
             services.AddScoped<BlobStorageService>();
           
             //// Logger for services
@@ -86,6 +93,8 @@ namespace Malam.Mastpen.API
             services.Configure<MastpenIdentityClientSettings>(Configuration.GetSection("MastpenFaceRecognitionSettings"));
             services.AddSingleton<MastpenIdentityClientSettings>();
 
+            services.Configure<BlobConection>(Configuration.GetSection("BlobConnections"));
+            services.AddSingleton<BlobConection>();
 
             services.AddScoped<IRothschildHouseIdentityClient, RothschildHouseIdentityClient>();
         

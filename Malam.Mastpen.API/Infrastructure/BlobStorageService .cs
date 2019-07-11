@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.IO;  
 using System.Threading.Tasks;
 using Malam.Mastpen.HR.Core.BL.Requests;
+using Malam.Mastpen.HR.API.Clients;
+using Microsoft.Extensions.Options;
 
 namespace Malam.Mastpen.HR.API.Infrastructure
 { 
@@ -16,9 +18,9 @@ namespace Malam.Mastpen.HR.API.Infrastructure
     {
         string accessKey = string.Empty;
 
-        public BlobStorageService()
+        public BlobStorageService(IOptions<BlobConection> blobConection)
         {
-            this.accessKey = "DefaultEndpointsProtocol=https;AccountName=mastpenblob;AccountKey=A01qaRxdQ2LIKFs7sFyUXxLrQE+/IwR622H1CEtoI4pYEyFCk5QbOLfwRfmekSORDsuCLFNQOnU1nOqbmDMk2Q==;EndpointSuffix=core.windows.net"; 
+            this.accessKey = blobConection.Value.AccessKey;// "DefaultEndpointsProtocol=https;AccountName=mastpenblob;AccountKey=A01qaRxdQ2LIKFs7sFyUXxLrQE+/IwR622H1CEtoI4pYEyFCk5QbOLfwRfmekSORDsuCLFNQOnU1nOqbmDMk2Q==;EndpointSuffix=core.windows.net"; 
                 // AppConfiguration.GetConfiguration("AccessKey");
         }
 
@@ -96,44 +98,7 @@ namespace Malam.Mastpen.HR.API.Infrastructure
             }
         }
 
-        //private async Task<byte[]> DownloadFileToBlobAsync(string uri, byte[] fileData, string fileMimeType)
-        //{
-        //    try
-        //    {
-        //        CloudStorageAccount cloudStorageAccount = CloudStorageAccount.Parse(accessKey);
-        //        CloudBlobClient cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
-        //        string strContainerName = "uploads";
-        //        CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference(strContainerName);
 
-        //        byte[] fileStream;
-        //        CloudBlockBlob blockBlob = cloudBlobContainer.GetBlockBlobReference(uri);
-        //     // var byteData =
-        //            await blockBlob.DownloadToByteArrayAsync(fileStream,1);
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw (ex);
-        //    }
-        //}
-
-        public  async Task<byte[]> GetFileAsync( string name)
-        {
-            CloudStorageAccount cloudStorageAccount = CloudStorageAccount.Parse(accessKey);
-            CloudBlobClient cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
-            string strContainerName = "uploads";
-            CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference(strContainerName);
-
-            var blob = cloudBlobContainer.GetBlobReference(name);
-            if (await blob.ExistsAsync())
-            {
-                await blob.FetchAttributesAsync();
-                byte[] blobBytes = new byte[blob.Properties.Length];
-
-                await blob.DownloadToByteArrayAsync(blobBytes, 0);
-                return blobBytes;
-            }
-            return null;
-        }
     }
 }

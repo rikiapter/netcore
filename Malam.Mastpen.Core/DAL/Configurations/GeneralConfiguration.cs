@@ -148,7 +148,7 @@ namespace Malam.Mastpen.Core.DAL.Configurations
 
             builder.Property(e => e.DocumentDate).HasColumnType("datetime");
 
-            builder.Property(e => e.DocumentPath).HasMaxLength(50);
+            builder.Property(e => e.DocumentPath).HasMaxLength(250);
 
             builder.Property(e => e.DocumentTypeId).HasColumnName("DocumentTypeID");
 
