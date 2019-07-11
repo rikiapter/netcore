@@ -20,7 +20,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
 
         public int EmployeeId { get; set; }
         public int? IdentificationTypeId { get; set; }
-        public int? IdentityNumber { get; set; }
+        public string IdentityNumber { get; set; }
         public int? PassportCountryId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

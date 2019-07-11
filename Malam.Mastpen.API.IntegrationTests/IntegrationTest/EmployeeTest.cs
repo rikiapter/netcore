@@ -62,7 +62,7 @@ namespace Malam.Mastpen.API.IntegrationTests.IntegrationTest
                 {
                     EmployeeID = 1,
                     IdentificationTypeID = 1,
-                    IdentityNumber = 1,
+                    IdentityNumber = "1",
                     PassportCountryID = 1,
                     FirstName = "FirstName",
                     LastName = "",
@@ -94,7 +94,7 @@ namespace Malam.Mastpen.API.IntegrationTests.IntegrationTest
                 {
                     EmployeeID = 1,
                     IdentificationTypeID = 1,
-                    IdentityNumber = 1,
+                    IdentityNumber = "1",
                     PassportCountryID = 1,
                     FirstName = "FirstName",
                     LastName = "",

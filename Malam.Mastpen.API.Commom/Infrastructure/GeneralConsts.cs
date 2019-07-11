@@ -17,7 +17,25 @@ namespace Malam.Mastpen.API.Commom.Infrastructure
             public const string SP_NECIM_SEARCH_GET = "spNechimSearchGet";
         }
 
-
+        public  enum DocumentType
+        {
+            CopyofID=1,
+            CopyPassport,
+            CopyWorkLicense,
+            CopyCertificateOfAccreditation,
+            SafetyBriefing,
+            Signature,
+            FaceImage,
+        }
+        public enum EntityTypeEnum
+        {
+            Sites=1,
+            Employee,
+            EmplyeePicture,
+            EmployeeAuthtorization,
+            EmployeeTraining,
+            EmployeeWorkPermit
+        }
     }
 
 }

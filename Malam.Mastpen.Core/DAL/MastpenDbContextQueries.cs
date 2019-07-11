@@ -8,6 +8,7 @@ using Malam.Mastpen.Core.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 using Malam.Mastpen.API.Commom.Infrastructure;
 using Malam.Mastpen.HR.Core.BL.Requests;
+using static Malam.Mastpen.API.Commom.Infrastructure.GeneralConsts;
 
 namespace Malam.Mastpen.Core.DAL
 {
@@ -27,7 +28,7 @@ namespace Malam.Mastpen.Core.DAL
 
         }
 
-        public static IQueryable<EmployeeResponse> GetEmployee(this MastpenBitachonDbContext dbContext, int? EmployeeID = null, string EmployeeName = null, int? IdentityNumber = null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null, int? SiteId = null)
+        public static IQueryable<EmployeeResponse> GetEmployee(this MastpenBitachonDbContext dbContext, int? EmployeeID = null, string EmployeeName = null, string IdentityNumber = null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null, int? SiteId = null)
         {
 
             // Get query from DbSet
@@ -42,7 +43,7 @@ namespace Malam.Mastpen.Core.DAL
                  .Include(x => x.EmployeeTraining)
                  .Include(x => x.EmployeeWorkPermit)
                  .AsQueryable()
-                        select emp.ToEntity(null, null);
+                        select emp.ToEntity(null, null,null,null);
 
             // Filter by: 'EmployeeID'
             if (EmployeeID.HasValue)
@@ -51,7 +52,7 @@ namespace Malam.Mastpen.Core.DAL
             if (EmployeeName != null)
                 query = query.Where(item => item.FirstName == EmployeeName);
 
-            if (IdentityNumber.HasValue)
+            if (IdentityNumber!=null)
                 query = query.Where(item => item.IdentityNumber == IdentityNumber);
 
             if (OrganizationId.HasValue)
@@ -82,16 +83,30 @@ namespace Malam.Mastpen.Core.DAL
                         .Include(x => x.EmployeeTraining)
                         .Include(x => x.EmployeeWorkPermit)
 
-                        join phonMail in dbContext.PhoneMail.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        join phonMail in dbContext.PhoneMail
+                        .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
                         on Employee.EmployeeId equals phonMail.EntityId into phonMail
                         from x_phonMail in phonMail.DefaultIfEmpty()
 
+                        join docsFaceImage in dbContext.Docs
+                        .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        .Where(a=>a.DocumentTypeId== (int)DocumentType.FaceImage)
+                        on Employee.EmployeeId equals docsFaceImage.EntityId into docsFaceImage
+                        from x_docsFaceImage in docsFaceImage.DefaultIfEmpty()
 
-                        join docs in dbContext.Docs.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
-                        on Employee.EmployeeId equals docs.EntityId into docs
-                        from x_docs in docs.DefaultIfEmpty()
+                        join docsCopyofID in dbContext.Docs
+                       .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                       .Where(a => a.DocumentTypeId == (int)DocumentType.CopyofID)
+                        on Employee.EmployeeId equals docsCopyofID.EntityId into docsCopyofID
+                        from x_docsCopyofID in docsCopyofID.DefaultIfEmpty()
 
-                        select Employee.ToEntity(x_phonMail, x_docs);
+                        join docsCopyPassport in dbContext.Docs
+                        .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        .Where(a => a.DocumentTypeId == (int)DocumentType.CopyPassport)
+                        on Employee.EmployeeId equals docsCopyPassport.EntityId into docsCopyPassport
+                        from x_docsCopyPassport in docsCopyPassport.DefaultIfEmpty()
+
+                        select Employee.ToEntity(x_phonMail, x_docsFaceImage, x_docsCopyPassport, x_docsCopyofID);
 
 
             return query;
@@ -155,15 +170,23 @@ namespace Malam.Mastpen.Core.DAL
         }
 
 
-        public static IQueryable<EmployeeTraining> GetEmployeeTrainingByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeTraining entity)
+        public static IQueryable<EmployeeTrainingRequest> GetEmployeeTrainingByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeTraining entity)
         {
+            string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
 
             // Get query from DbSet
-            var query = dbContext.EmployeeTraining
+            var query = from tr in dbContext.EmployeeTraining
                 .Include(x => x.TrainingType).Include(x => x.Site)
                 .Where(item => item.EmployeeId == entity.EmployeeId)
-                .AsQueryable();
+                .AsQueryable()
 
+                        join docs in dbContext.Docs
+                        .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        .Where(a => a.DocumentTypeId == (int)DocumentType.CopyCertificateOfAccreditation)
+                        on tr.EmployeeId equals docs.EntityId into docs
+                        from x_docs in docs.DefaultIfEmpty()
+
+                        select tr.ToEntity(x_docs);
             return query;
         }
         public static IQueryable<EmployeeWorkPermit> GetEmployeeWorkPermitByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeWorkPermit entity)

@@ -56,7 +56,7 @@ namespace Malam.Mastpen.API.XUnitTest.UnitTest
             {
                 EmployeeId = 2,
                 IdentificationTypeId = 1,
-                IdentityNumber = 1,
+                IdentityNumber = "1",
                 PassportCountryId = 1,
                 FirstName = "FirstName",
                 LastName = "",
@@ -88,7 +88,7 @@ namespace Malam.Mastpen.API.XUnitTest.UnitTest
             {
                 EmployeeId = 1,
                 IdentificationTypeId = 2,
-                IdentityNumber = 2,
+                IdentityNumber = "2",
                 PassportCountryId = 2,
                 FirstName = "FirstName1",
                 LastName = "",

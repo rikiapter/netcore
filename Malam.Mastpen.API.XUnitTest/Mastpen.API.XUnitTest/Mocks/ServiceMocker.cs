@@ -8,10 +8,10 @@ namespace Malam.Mastpen.API.XUnitTest.Mocks
 {
     public static class ServiceMocker
     {
-        public static IEmployeeService GetEmployeeService(IUserInfo userInfo, string dbName)
+        public static EmployeeService GetEmployeeService(IUserInfo userInfo, string dbName)
             => new EmployeeService( userInfo,  DbContextMocker.GetMastpenDbContext(dbName));
 
-        public static IOrganizationService GetOrganizationService(IUserInfo userInfo, string dbName)
+        public static OrganizationService GetOrganizationService(IUserInfo userInfo, string dbName)
       => new OrganizationService(userInfo, DbContextMocker.GetMastpenDbContext(dbName));
 
     }

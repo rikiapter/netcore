@@ -24,6 +24,8 @@ namespace Malam.Mastpen.API.Controllers
                 m_userInfo = value;
             }
         }
+
+       
     }
 #pragma warning restore CS1591
 }

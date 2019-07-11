@@ -101,9 +101,9 @@ namespace Malam.Mastpen.Core.BL.Services
         }
 
         // PUT
-        public async Task<Response> UpdateOrganizationAsync(Organization Organization)
+        public async Task<ResponseBasic> UpdateOrganizationAsync(Organization Organization)
         {
-            var response = new Response();
+            var response = new ResponseBasic();
 
             // Update entity in repository
             DbContext.Update(Organization, UserInfo);
@@ -116,10 +116,10 @@ namespace Malam.Mastpen.Core.BL.Services
         }
 
         // DELETE
-        public async Task<Response> DeleteOrganizationAsync(int Id)
+        public async Task<ResponseBasic> DeleteOrganizationAsync(int Id)
         {
 
-            var response = new Response();
+            var response = new ResponseBasic();
 
             // Get Organization by Id
             var entity = await DbContext.GetOrganizationeByIdAsync(new Organization { OrganizationId = Id });

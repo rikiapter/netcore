@@ -11,8 +11,8 @@ using Malam.Mastpen.Core.DAL.Entities;
 using Malam.Mastpen.Core.BL.Responses;
 using Malam.Mastpen.Core.BL.Requests;
 using Malam.Mastpen.Core.DAL;
-
-
+using IdentityModel.Client;
+using System.Net.Http;
 
 namespace Malam.Mastpen.Core.BL.Services
 {
@@ -22,7 +22,9 @@ namespace Malam.Mastpen.Core.BL.Services
             : base( userInfo, dbContext)
         {
         }
-        public async Task<IPagedResponse<EmployeeResponse>> GetEmployeesAsync(int pageSize = 10, int pageNumber = 1, int? EmployeeId = null ,string EmployeeName = null,int? IdentityNumber=null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null, int? SiteId=null)//, int? SiteId = null, DateTime? DateFrom = null, DateTime? DateTo = null)
+
+
+        public async Task<IPagedResponse<EmployeeResponse>> GetEmployeesAsync(int pageSize = 10, int pageNumber = 1, int? EmployeeId = null ,string EmployeeName = null,string IdentityNumber=null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null, int? SiteId=null)//, int? SiteId = null, DateTime? DateFrom = null, DateTime? DateTo = null)
         {
             var response = new PagedResponse<EmployeeResponse>();
 
@@ -106,9 +108,9 @@ namespace Malam.Mastpen.Core.BL.Services
         }
 
         // PUT
-        public async Task<Response> UpdateEmployeeAsync(Employee employee)
+        public async Task<ResponseBasic> UpdateEmployeeAsync(Employee employee)
         {
-            var response = new Response();
+            var response = new ResponseBasic();
         
             // Update entity in repository
             DbContext.Update(employee,UserInfo);
@@ -121,9 +123,9 @@ namespace Malam.Mastpen.Core.BL.Services
         }
 
         // DELETE
-        public async Task<Response> DeleteEmployeeAsync(int Id)
+        public async Task<ResponseBasic> DeleteEmployeeAsync(int Id)
         {
-            var response = new Response();
+            var response = new ResponseBasic();
 
             // Get Employee by Id
             var entity = await DbContext.GetEmployeeByEmployeeIdAsync(new Employee { EmployeeId = Id });

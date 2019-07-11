@@ -20,6 +20,7 @@ using Malam.Mastpen.Core.BL.Contracts;
 using Malam.Mastpen.HR.API.Infrastructure;
 using Malam.Mastpen.HR.Core.BL.Requests;
 using Malam.Mastpen.Core.BL.Services;
+using static Malam.Mastpen.API.Commom.Infrastructure.GeneralConsts;
 
 namespace Malam.Mastpen.API.Controllers
 {
@@ -42,6 +43,8 @@ namespace Malam.Mastpen.API.Controllers
         }
 #pragma warning restore CS1591
 
+
+
         // GET
         // api/v1/Employee/Employee
 
@@ -59,7 +62,7 @@ namespace Malam.Mastpen.API.Controllers
         /// <response code="500">If there was an internal server error</response>
         [HttpGet("Employee")]
        // [Authorize(Policy = Policies.CustomerPolicy)]
-        public async Task<IActionResult> GetEmployeesAsync(int pageSize = 10, int pageNumber = 1, int? EmployeeId = null, string EmployeeName = null, int? IdentityNumber = null,int? OrganizationId=null,int? PassportCountryId=null,int? ProffesionType=null, int? SiteId=null)//, int? SiteId = null, DateTime? DateFrom = null, DateTime? DateTo = null)
+        public async Task<IActionResult> GetEmployeesAsync(int pageSize = 10, int pageNumber = 1, int? EmployeeId = null, string EmployeeName = null, string IdentityNumber = null,int? OrganizationId=null,int? PassportCountryId=null,int? ProffesionType=null, int? SiteId=null)//, int? SiteId = null, DateTime? DateFrom = null, DateTime? DateTo = null)
         {
             var response = await EmployeeService.GetEmployeesAsync(pageSize, pageNumber, EmployeeId, EmployeeName ,  IdentityNumber, OrganizationId,PassportCountryId, ProffesionType, SiteId);
 
@@ -149,8 +152,8 @@ namespace Malam.Mastpen.API.Controllers
                 Docs docs = new Docs();
                 docs.DocumentPath = fileUrl;
                 docs.EntityId= employeeResponse.Model.EmployeeId;
-                docs.EntityTypeId = 2;
-                docs.DocumentTypeId = 7;
+                docs.EntityTypeId=(int)EntityTypeEnum.Employee;
+                docs.DocumentTypeId = (int)DocumentType.FaceImage;
                 var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee)); 
             }
 
@@ -161,10 +164,22 @@ namespace Malam.Mastpen.API.Controllers
                 Docs docs = new Docs();
                 docs.DocumentPath = fileUrl;
                 docs.EntityId = employeeResponse.Model.EmployeeId;
-                docs.EntityTypeId = 2;
-                docs.DocumentTypeId = 1;
+                docs.EntityTypeId = (int)EntityTypeEnum.Employee;
+                docs.DocumentTypeId= (int)DocumentType.CopyofID;
                 var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee));
             }
+
+            if (request.PassportFile != null)
+            {
+                fileUrl = blobStorageService.UploadFileToBlob(request.IdentityNumber + request.FirstNameEN + "_" + request.LastNameEN, request.IdentityFile);
+                Docs docs = new Docs();
+                docs.DocumentPath = fileUrl;
+                docs.EntityId = employeeResponse.Model.EmployeeId;
+                docs.EntityTypeId = (int)EntityTypeEnum.Employee;
+                docs.DocumentTypeId = (int)DocumentType.CopyPassport;
+                var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee));
+            }
+
             return employeeResponse.ToHttpResponse();
         }
 
@@ -271,8 +286,8 @@ namespace Malam.Mastpen.API.Controllers
                 Docs docs = new Docs();
                 docs.DocumentPath = fileUrl;
                 docs.EntityId = response.Model.EmployeeTrainingId;
-                docs.EntityTypeId = 5;
-                docs.DocumentTypeId = 4;
+                docs.EntityTypeId = (int)EntityTypeEnum.EmployeeTraining;
+                docs.DocumentTypeId =(int)DocumentType.CopyCertificateOfAccreditation;
                 var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(EmployeeTraining));
             }
             return response.ToHttpResponse();
@@ -312,8 +327,8 @@ namespace Malam.Mastpen.API.Controllers
                 Docs docs = new Docs();
                 docs.DocumentPath = fileUrl;
                 docs.EntityId = response.Model.EmployeeWorkPermitId;
-                docs.EntityTypeId = 4;
-                docs.DocumentTypeId = 3;
+                docs.EntityTypeId = (int)EntityTypeEnum.EmployeeWorkPermit;
+                docs.DocumentTypeId = (int)DocumentType.CopyWorkLicense;
                 var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(EmployeeWorkPermit));
             }
             return response.ToHttpResponse();
@@ -353,8 +368,8 @@ namespace Malam.Mastpen.API.Controllers
                 Docs docs = new Docs();
                 docs.DocumentPath = fileUrl;
                 docs.EntityId = response.Model.EmployeeAuthorizationId;
-                docs.EntityTypeId = 3;
-                docs.DocumentTypeId = 5;
+                docs.EntityTypeId = (int)EntityTypeEnum.EmployeeAuthtorization;
+                docs.DocumentTypeId = (int)DocumentType.SafetyBriefing;
                 var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(EmployeeAuthtorization));
             }
             return response.ToHttpResponse();

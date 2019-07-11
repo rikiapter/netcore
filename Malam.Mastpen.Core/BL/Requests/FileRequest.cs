@@ -9,6 +9,7 @@ namespace Malam.Mastpen.HR.Core.BL.Requests
         public string FileByte { get; set; } 
         public string ContentType { get; set; }
 
+
     }
 
     public  class Training 

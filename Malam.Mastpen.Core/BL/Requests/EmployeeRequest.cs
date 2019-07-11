@@ -18,7 +18,7 @@ namespace Malam.Mastpen.Core.BL.Requests
     {
         public int? EmployeeId { get; set; }
         public int? IdentificationTypeId { get; set; }
-        public int? IdentityNumber { get; set; }
+        public string IdentityNumber { get; set; }
         public int? PassportCountryId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -32,6 +32,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         public string PhoneNumber { get; set; }
         public FileRequest picture { get; set; }
         public FileRequest IdentityFile { get; set; }
+        public FileRequest PassportFile { get; set; }
 
     }
     
@@ -39,7 +40,7 @@ namespace Malam.Mastpen.Core.BL.Requests
     {
         public int EmployeeId { get; set; }
         public int? IdentificationTypeId { get; set; }
-        public int? IdentityNumber { get; set; }
+        public string IdentityNumber { get; set; }
         public int? PassportCountryId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -67,8 +68,11 @@ namespace Malam.Mastpen.Core.BL.Requests
         public TrainingResponse EmployeeWorkPermit { get; set; }
         public PhoneMail phonMail { get; set; }
 
-        public Docs docs { get; set; }       
-        
+        public string picture { get; set; }
+        public string IdentityFile { get; set; }
+        public string PassportFile { get; set; }
+        //public Docs docs { get; set; }       
+
         //public ICollection<EmployeeEntry> EmployeeEntry { get; set; }
         //public ICollection<SiteEmployee> SiteEmployeeEmployee { get; set; }
         public ICollection<SiteEmployee> SiteEmployeeSite { get; set; }
@@ -97,14 +101,17 @@ namespace Malam.Mastpen.Core.BL.Requests
     public class EmployeeAuthtorizationRequest: EmployeeAuthtorization
     {
       public  FileRequest fileRequest { get; set; }
+        public string uri { get; set; }
     }
     public class EmployeeTrainingRequest : EmployeeTraining
     {
         public FileRequest fileRequest { get; set; }
+        public string uri { get; set; }
     }
     public class EmployeeWorkPermitRequest : EmployeeWorkPermit
     {
         public FileRequest fileRequest { get; set; }
+        public string uri { get; set; }
     }
 
     public static class ExtensionsEmployee
@@ -128,7 +135,7 @@ namespace Malam.Mastpen.Core.BL.Requests
 
         };
 
-        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone, Docs docs)
+        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone, Docs docsFaceImage, Docs docsCopyPassport,Docs docsCopyofID)
             => new EmployeeResponse
             {
                 EmployeeId = request.EmployeeId,
@@ -159,8 +166,10 @@ namespace Malam.Mastpen.Core.BL.Requests
                 EmployeeWorkPermit = request.EmployeeWorkPermit.Count > 0 ? new TrainingResponse((request.EmployeeWorkPermit.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "אישור עבודה בגובה"):null,
                 phonMail = phone,
                 ProffesionType = request.EmployeeProffesionType.Count>0? request.EmployeeProffesionType.First().ProffesionType:null,
-     
-                docs = docs
+                picture= docsFaceImage.DocumentPath,
+                IdentityFile= docsCopyofID.DocumentPath,
+                PassportFile=docsCopyPassport.DocumentPath
+
 
             };
 
@@ -182,7 +191,76 @@ namespace Malam.Mastpen.Core.BL.Requests
 
               };
 
+        public static EmployeeAuthtorizationRequest ToEntity(this EmployeeAuthtorization request, Docs docs)
+          => new EmployeeAuthtorizationRequest
+          {
+              EmployeeAuthorizationId = request.EmployeeAuthorizationId,
+              EmployeeAuthorizationName = request.EmployeeAuthorizationName,
+              EmployeeId = request.EmployeeId,
+              SiteId = request.SiteId,
+              DateFrom = request.DateFrom,
+              DateTo = request.DateTo,
+              Comment = request.Comment,
 
+              Employee = request.Employee,
+              Site = request.Site,
+
+              uri =docs.DocumentPath,
+              UserInsert = request.UserInsert,
+              DateInsert = request.DateInsert,
+              UserUpdate = request.UserUpdate,
+              DateUpdate = request.DateUpdate,
+              State = request.State,
+
+          };
+
+        public static EmployeeTrainingRequest ToEntity(this EmployeeTraining request, Docs docs)
+          => new EmployeeTrainingRequest
+          {
+              EmployeeTrainingId = request.EmployeeTrainingId,
+              EmployeeTrainingName = request.EmployeeTrainingName,
+              EmployeeId = request.EmployeeId,
+              SiteId = request.SiteId,
+              DateFrom = request.DateFrom,
+              DateTo = request.DateTo,
+              Comment = request.Comment,
+              TrainingTypeId=request.TrainingTypeId,
+              TrainingType=request.TrainingType,
+              Employee = request.Employee,
+              Site = request.Site,
+
+              uri = docs.DocumentPath,
+              UserInsert = request.UserInsert,
+              DateInsert = request.DateInsert,
+              UserUpdate = request.UserUpdate,
+              DateUpdate = request.DateUpdate,
+              State = request.State,
+
+          };
+
+        public static EmployeeWorkPermitRequest ToEntity(this EmployeeWorkPermit request, Docs docs)
+              => new EmployeeWorkPermitRequest
+              {
+                  EmployeeWorkPermitId = request.EmployeeWorkPermitId,
+                  EmployeeWorkPermitName = request.EmployeeWorkPermitName,
+                  EmployeeId = request.EmployeeId,
+                  SiteId = request.SiteId,
+                  IsRequired = request.IsRequired,
+                  DateFrom = request.DateFrom,
+                  DateTo = request.DateTo,
+                  Comment = request.Comment,
+
+                  Employee = request.Employee,
+                  Site = request.Site,
+
+                  uri = docs.DocumentPath,
+                  UserInsert = request.UserInsert,
+                  DateInsert = request.DateInsert,
+                  UserUpdate = request.UserUpdate,
+                  DateUpdate = request.DateUpdate,
+                  State = request.State,
+
+              };
 
 
     }

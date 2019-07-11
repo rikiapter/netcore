@@ -15,7 +15,7 @@ namespace Malam.Mastpen.API.XUnitTest
             dbContext.Employee.Add(new Employee {
                 EmployeeId = 1,
                 IdentificationTypeId = 2,
-                IdentityNumber = 2,
+                IdentityNumber = "2",
                 PassportCountryId = 2,
                 FirstName = "FirstName1",
                 LastName = "",

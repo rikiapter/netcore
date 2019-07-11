@@ -1,6 +1,6 @@
 ﻿namespace Malam.Mastpen.Core.BL.Responses
 {
-    public class Response : IResponse
+    public class ResponseBasic : IResponse
     {
         public string Message { get; set; }
 
