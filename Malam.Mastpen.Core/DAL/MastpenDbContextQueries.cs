@@ -182,7 +182,7 @@ namespace Malam.Mastpen.Core.DAL
 
                         join docs in dbContext.Docs
                         .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
-                        .Where(a => a.DocumentTypeId == (int)DocumentType.CopyCertificateOfAccreditation)
+                        .Where(a => a.DocumentTypeId == (int)DocumentType.Training)
                         on tr.EmployeeId equals docs.EntityId into docs
                         from x_docs in docs.DefaultIfEmpty()
 

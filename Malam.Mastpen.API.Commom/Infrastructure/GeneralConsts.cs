@@ -21,9 +21,9 @@ namespace Malam.Mastpen.API.Commom.Infrastructure
         {
             CopyofID=1,
             CopyPassport,
-            CopyWorkLicense,
-            CopyCertificateOfAccreditation,
-            SafetyBriefing,
+            CopyWorkPermit,
+            Training,
+            Authtorization,
             Signature,
             FaceImage,
         }

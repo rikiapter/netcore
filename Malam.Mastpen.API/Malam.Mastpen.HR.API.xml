@@ -4,7 +4,7 @@
         <name>Malam.Mastpen.HR.API</name>
     </assembly>
     <members>
-        <member name="M:Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync(System.Int32,System.Int32,System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+        <member name="M:Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync(System.Int32,System.Int32,System.Nullable{System.Int32},System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
             Retrieves Site Employee
             </summary>

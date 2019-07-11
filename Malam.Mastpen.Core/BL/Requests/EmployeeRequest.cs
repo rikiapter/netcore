@@ -166,9 +166,9 @@ namespace Malam.Mastpen.Core.BL.Requests
                 EmployeeWorkPermit = request.EmployeeWorkPermit.Count > 0 ? new TrainingResponse((request.EmployeeWorkPermit.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "אישור עבודה בגובה"):null,
                 phonMail = phone,
                 ProffesionType = request.EmployeeProffesionType.Count>0? request.EmployeeProffesionType.First().ProffesionType:null,
-                picture= docsFaceImage.DocumentPath,
-                IdentityFile= docsCopyofID.DocumentPath,
-                PassportFile=docsCopyPassport.DocumentPath
+                picture= docsFaceImage ==null ? null: docsFaceImage.DocumentPath,
+                IdentityFile = docsCopyofID == null ? null : docsCopyofID.DocumentPath,
+                PassportFile = docsCopyPassport == null ? null : docsCopyPassport.DocumentPath
 
 
             };
