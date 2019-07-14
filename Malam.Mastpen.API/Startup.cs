@@ -23,6 +23,12 @@ using Malam.Mastpen.Core.BL.Contracts;
 using Malam.Mastpen.Core.BL.Services;
 using Malam.Mastpen.HR.API.Infrastructure;
 using Malam.Mastpen.HR.API.Clients;
+using System.Collections.Generic;
+using IdentityServer4.AccessTokenValidation;
+using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using Microsoft.AspNetCore.Authorization;
+using System.Linq;
 
 namespace Malam.Mastpen.API
 {
@@ -115,47 +121,41 @@ namespace Malam.Mastpen.API
 
             /* Configuration for Identity Server authentication */
 
-            services
-                .AddAuthentication("Bearer")
-                 //.AddJwtBearer(GetJwtBearerOptions)
-                .AddIdentityServerAuthentication(options =>
+
+            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+    
+                            .AddIdentityServerAuthentication(options =>
+                            {
+                                var settings = new IdentityServerSettings();
+
+                                Configuration.Bind("IdentityServerSettings", settings);
+
+                                options.Authority = settings.Authority;
+                                options.RequireHttpsMetadata = settings.RequireHttpsMetadata;
+                                options.ApiName = settings.ApiName;
+                            });
+                       
+      
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new Info { Title = "Protected API", Version = "v1" });
+
+                var settings = new MastpenIdentityClientSettings();
+
+                Configuration.Bind("MastpenIdentityClientSettings", settings);
+
+                options.AddSecurityDefinition("oauth2",
+                    
+                 new OAuth2Scheme
                 {
-                    var settings = new IdentityServerSettings();
-
-                    Configuration.Bind("IdentityServerSettings", settings);
-
-                    options.Authority = settings.Authority;
-                    options.RequireHttpsMetadata = settings.RequireHttpsMetadata;
-                    options.ApiName = settings.ApiName;
+                    Flow = "implicit", // just get token via browser (suitable for swagger SPA)
+                    AuthorizationUrl = settings.Url,// "https://malammastpenapiidentityserver.azurewebsites.net/connect/authorize",
+                    Scopes = new Dictionary<string, string> { { settings.ClientSecret, settings.ClientSecret+" API - full access" } }
                 });
 
-            /* Configuration for Help page */
 
-
-            services.AddSwaggerDocument(config =>
-            {
-                config.PostProcess = document =>
-                {
-                    document.Info.Version = "v1";
-                    document.Info.Title = "Mastpen Bitachon HR API";
-                    document.Info.Description = "מצפן ביטחון - עובדים וקבלנים";
-                    document.Info.TermsOfService = "None";
-                    document.Info.Contact = new NSwag.OpenApiContact
-                    {
-                        Name = "Malam Team",
-                        Email = string.Empty,
-                        Url = "https://www.malamteam.com/"
-                    };
-                    //document.Info.License = new NSwag.OpenApiLicense
-                    //{
-                    //    Name = "Use under LICX",
-                    //    Url = "https://example.com/license"
-                    //};
-                };
+                options.OperationFilter<AuthorizeCheckOperationFilter>(); // Required to use access token
             });
-
-
-
 
         }
 
@@ -176,26 +176,58 @@ namespace Malam.Mastpen.API
                 builder.AllowAnyMethod();
             });
 
-            //loggerFactory.lo
             app.UseAuthentication();
-            // Enable mIddleware to serve generated Swagger as a JSON endpoint.
-            app.UseOpenApi();
-            app.UseSwaggerUi3();
+
+            // Swagger JSON Doc
+            app.UseSwagger();
+
+            // Swagger UI
+            app.UseSwaggerUI(options =>
+            {
+
+                var settings = new MastpenIdentityClientSettings();
+
+                Configuration.Bind("MastpenIdentityClientSettings", settings);
+
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                options.RoutePrefix = string.Empty;
+
+            options.OAuthClientId(settings.ClientId);// "MastpenWebAPI_swagger");
+                options.OAuthAppName(settings.ClientSecret+" API - Swagger"); // presentation purposes only
+            });
 
             loggerFactory.AddLog4Net();
 
             app.UseMvc();
         }
 
-        //private static void GetJwtBearerOptions(JwtBearerOptions options)
-        //{
-        //    options.Authority = "http://localhost:5000";
-        //    options.Audience = "http://localhost:5000/resources";
-        //    options.RequireHttpsMetadata = false;
-        //}
 
     }
+    public class AuthorizeCheckOperationFilter : IOperationFilter
+    {
+        public void Apply(Operation operation, OperationFilterContext context)
+        {
 
+            var globalAttributes = context.ApiDescription.ActionDescriptor.FilterDescriptors.Select(p => p.Filter);
+            var controlerAttributes = context.MethodInfo?.DeclaringType?.GetCustomAttributes(true);
+            var methodAttributes = context.MethodInfo?.GetCustomAttributes(true);
+            var hasAuthorize = globalAttributes
+                .Union(controlerAttributes)
+                .Union(methodAttributes)
+                .OfType<AuthorizeAttribute>().Any();
+
+            if (hasAuthorize)
+            {
+                operation.Responses.Add("401", new Response { Description = "Unauthorized" });
+                operation.Responses.Add("403", new Response { Description = "Forbidden" });
+
+                operation.Security = new List<IDictionary<string, IEnumerable<string>>>
+                {
+                    new Dictionary<string, IEnumerable<string>> {{"oauth2", new[] {"MastpenWebAPI"}}}
+                };
+            }
+        }
+    }
 #pragma warning restore CS1591
 }
 

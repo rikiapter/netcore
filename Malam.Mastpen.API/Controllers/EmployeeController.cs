@@ -26,6 +26,7 @@ namespace Malam.Mastpen.API.Controllers
 {
 
 #pragma warning disable CS1591
+  //  [Authorize]
     [ApiController]
     [Route("api/v1/[controller]")]
     public class EmployeeController : MastpenController
@@ -61,7 +62,7 @@ namespace Malam.Mastpen.API.Controllers
         /// <response code="200">Returns the Site Employee list</response>
         /// <response code="500">If there was an internal server error</response>
         [HttpGet("Employee")]
-       // [Authorize(Policy = Policies.CustomerPolicy)]
+     
         public async Task<IActionResult> GetEmployeesAsync(int pageSize = 10, int pageNumber = 1, int? EmployeeId = null, string EmployeeName = null, string IdentityNumber = null,int? OrganizationId=null,int? PassportCountryId=null,int? ProffesionType=null, int? SiteId=null)//, int? SiteId = null, DateTime? DateFrom = null, DateTime? DateTo = null)
         {
             var response = await EmployeeService.GetEmployeesAsync(pageSize, pageNumber, EmployeeId, EmployeeName ,  IdentityNumber, OrganizationId,PassportCountryId, ProffesionType, SiteId);
@@ -89,7 +90,7 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(500)]
         //יש להעלות את הפרויקט 
         //identity server
-        //[Authorize(Policy = Policies.CustomerPolicy)]
+     //   [Authorize]//(Policy = Policies.CustomerPolicy)]
         public async Task<IActionResult> GetEmployeeAsync(int Id)
         {
             var response = await EmployeeService.GetEmployeeAsync(Id);
@@ -183,6 +184,29 @@ namespace Malam.Mastpen.API.Controllers
             return employeeResponse.ToHttpResponse();
         }
 
+
+        // POST
+        // api/v1/Employee/EmplyeePicture/
+
+        /// <summary>
+        /// Creates a new EmplyeePicture
+        /// </summary>
+        /// <param name="request">Request model</param>
+        /// <returns>A response with new EmplyeePicture</returns>
+        /// <response code="200">Returns the EmplyeePicture list</response>
+        /// <response code="201">A response as creation of EmplyeePicture</response>
+        /// <response code="400">For bad request</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpPost("EmplyeePicture")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> PostEmplyeePictureAsync([FromBody]EmplyeePicture request)
+        {
+           var Response = await EmployeeService.CreateEmplyeePictureAsync(request);
+            return Response.ToHttpResponse();
+        }
         // PUT
         // api/v1/Employee/Employee/5
 

@@ -24,7 +24,7 @@ namespace Malam.Mastpen.API.XUnitTest.UnitTest
 
             // Act
             var response = await controller.GetEmployeesAsync() as ObjectResult;
-            var value = response.Value as IPagedResponse<Employee>;
+            var value = response.Value as IPagedResponse<EmployeeResponse>;
 
             // Assert
             Assert.False(value.DIdError);

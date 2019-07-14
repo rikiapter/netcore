@@ -23,7 +23,8 @@ namespace Malam.Mastpen.API.IntegrationTests.Helper
                 {
                     Address = disco.TokenEndpoint,
                     ClientId = settings.ClientId,
-                    ClientSecret = settings.ClientSecret,
+                    
+                   // ClientSecret = settings.ClientSecret,
                     UserName = settings.UserName,
                     Password = settings.Password
                 });
@@ -37,6 +38,6 @@ namespace Malam.Mastpen.API.IntegrationTests.Helper
             => await GetMastpenCustomerTokenAsync("Mastpenmanager1@Mastpen.com", "password1");
 
         public static async Task<TokenResponse> GetMastpenTokenForWolverineAsync()
-            => await GetMastpenCustomerTokenAsync("jameslogan@walla.com", "wolverine");
+            => await GetMastpenCustomerTokenAsync("alice", "alice");//"jameslogan@walla.com", "wolverine");
     }
 }

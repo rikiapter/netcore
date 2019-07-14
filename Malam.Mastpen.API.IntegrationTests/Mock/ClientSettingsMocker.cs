@@ -12,8 +12,8 @@ namespace Malam.Mastpen.API.IntegrationTests.Mock
         public static MastpenIdentityClientSettings GetMastpenIdentityClientSettings(string userName, string password)
             => new MastpenIdentityClientSettings
             {
-                Url = "http://localhost:56000",
-                ClientId = "Mastpenclient",
+                Url = "https://malammastpenapiidentityserver.azurewebsites.net/",
+                ClientId = "MastpenWebAPI",
                 ClientSecret = "Mastpenclientsecret1",
                 UserName = userName,
                 Password = password

@@ -1,0 +1,1353 @@
+2019-07-11 09:52:11,225 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-11 09:52:11,225 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-11 09:52:11,225 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-11 09:52:11,355 INFO - Request finished in 148.5094ms 200 
+2019-07-11 09:52:11,373 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 09:52:11,378 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 09:52:11,550 INFO - Request finished in 327.4659ms 200 text/html; charset=utf-8
+2019-07-11 09:52:11,908 INFO - Request finished in 584.9015ms 404 
+2019-07-11 09:52:11,934 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/swagger-ui-bundle.js  
+2019-07-11 09:52:11,950 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/swagger-ui-standalone-preset.js  
+2019-07-11 09:52:11,953 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 09:52:11,956 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 09:52:11,959 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/swagger-ui.css  
+2019-07-11 09:52:11,963 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 09:52:12,173 INFO - The file /swagger-ui-standalone-preset.js was not modified
+2019-07-11 09:52:12,173 INFO - The file /swagger-ui-bundle.js was not modified
+2019-07-11 09:52:12,175 INFO - The file /swagger-ui.css was not modified
+2019-07-11 09:52:12,190 INFO - Request finished in 275.2879ms 304 application/javascript
+2019-07-11 09:52:12,271 INFO - Request finished in 275.2941ms 304 application/javascript
+2019-07-11 09:52:12,299 INFO - Request finished in 259.3981ms 304 text/css
+2019-07-11 09:52:12,573 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-11 09:52:12,575 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 09:52:13,542 INFO - Request finished in 971.1226ms 200 application/json; charset=utf-8
+2019-07-11 09:52:18,537 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1  
+2019-07-11 09:52:18,558 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 09:52:18,611 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-11 09:52:19,188 INFO - 'GetEmployeesAsync' has been invoked
+2019-07-11 09:52:19,196 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , , , , , ) - Validation state: Valid
+2019-07-11 09:52:23,655 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-11 09:52:26,041 WARN - The Include operation for navigation '[b].IdentificationType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-11 09:52:26,043 WARN - The Include operation for navigation '[b].Organization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-11 09:52:26,044 WARN - The Include operation for navigation '[b].EmployeeProffesionType.ProffesionType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-11 09:52:26,045 WARN - The Include operation for navigation '[b].EmployeeAuthtorization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-11 09:52:26,046 WARN - The Include operation for navigation '[b].EmployeeTraining' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-11 09:52:26,047 WARN - The Include operation for navigation '[b].EmployeeWorkPermit' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-11 09:52:27,108 INFO - Executed DbCommand (95ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [b]
+2019-07-11 09:52:29,244 WARN - Query: '(from Employee b in DbSet<Employee> select EmployeeResponse ToEntity( 
+    request: [b], , 
+    ph...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-07-11 09:52:29,695 INFO - Executed DbCommand (75ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b].[EmployeeID], [b].[Address], [b].[BirthDate], [b].[Citizenship], [b].[dateInsert], [b].[dateUpdate], [b].[FirstName], [b].[FirstNameEN], [b].[GenderID], [b].[IdentificationTypeID], [b].[IdentityNumber], [b].[LastName], [b].[LastNameEN], [b].[OrganizationID], [b].[PassportCountryID], [b].[state], [b].[userInsert], [b].[UserUpdate], [b.Organization].[OrganizationID], [b.Organization].[Comment], [b.Organization].[dateInsert], [b.Organization].[dateUpdate], [b.Organization].[OrganizationName], [b.Organization].[OrganizationNumber], [b.Organization].[OrganizationParentID], [b.Organization].[OrganizationTypeID], [b.Organization].[state], [b.Organization].[userInsert], [b.Organization].[UserUpdate], [b.IdentificationType].[IdentificationTypeID], [b.IdentificationType].[Comment], [b.IdentificationType].[dateInsert], [b.IdentificationType].[dateUpdate], [b.IdentificationType].[IdentificationTypeName], [b.IdentificationType].[state], [b.IdentificationType].[userInsert], [b.IdentificationType].[UserUpdate]
+FROM [BB_HR_Employee] AS [b]
+LEFT JOIN [BB_GEN_Organization] AS [b.Organization] ON [b].[OrganizationID] = [b.Organization].[OrganizationID]
+LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType] ON [b].[IdentificationTypeID] = [b.IdentificationType].[IdentificationTypeID]
+ORDER BY [b].[EmployeeID]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2019-07-11 09:52:29,993 INFO - Executed DbCommand (73ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeProffesionType].[EmployeeAuthorizationID], [b.EmployeeProffesionType].[Comment], [b.EmployeeProffesionType].[dateInsert], [b.EmployeeProffesionType].[dateUpdate], [b.EmployeeProffesionType].[EmployeeID], [b.EmployeeProffesionType].[ProffesionTypeID], [b.EmployeeProffesionType].[state], [b.EmployeeProffesionType].[userInsert], [b.EmployeeProffesionType].[UserUpdate], [e.ProffesionType].[ProffesionTypeID], [e.ProffesionType].[Comment], [e.ProffesionType].[dateInsert], [e.ProffesionType].[dateUpdate], [e.ProffesionType].[ProffesionTypeName], [e.ProffesionType].[state], [e.ProffesionType].[userInsert], [e.ProffesionType].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [b.EmployeeProffesionType]
+LEFT JOIN [BB_HR_ProffesionType] AS [e.ProffesionType] ON [b.EmployeeProffesionType].[ProffesionTypeID] = [e.ProffesionType].[ProffesionTypeID]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT [b0].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b0]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization0] ON [b0].[OrganizationID] = [b.Organization0].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType0] ON [b0].[IdentificationTypeID] = [b.IdentificationType0].[IdentificationTypeID]
+        ORDER BY [b0].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t]
+) AS [t0] ON [b.EmployeeProffesionType].[EmployeeID] = [t0].[EmployeeID]
+ORDER BY [t0].[EmployeeID]
+2019-07-11 09:52:30,115 INFO - Executed DbCommand (74ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeAuthtorization].[EmployeeAuthorizationID], [b.EmployeeAuthtorization].[AuthorizationTypeID], [b.EmployeeAuthtorization].[Comment], [b.EmployeeAuthtorization].[DateFrom], [b.EmployeeAuthtorization].[dateInsert], [b.EmployeeAuthtorization].[DateTo], [b.EmployeeAuthtorization].[dateUpdate], [b.EmployeeAuthtorization].[EmployeeAuthorizationName], [b.EmployeeAuthtorization].[EmployeeID], [b.EmployeeAuthtorization].[SiteId], [b.EmployeeAuthtorization].[state], [b.EmployeeAuthtorization].[userInsert], [b.EmployeeAuthtorization].[UserUpdate]
+FROM [BB_HR_EmployeeAuthtorization] AS [b.EmployeeAuthtorization]
+INNER JOIN (
+    SELECT DISTINCT [t1].*
+    FROM (
+        SELECT [b1].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b1]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization1] ON [b1].[OrganizationID] = [b.Organization1].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType1] ON [b1].[IdentificationTypeID] = [b.IdentificationType1].[IdentificationTypeID]
+        ORDER BY [b1].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t1]
+) AS [t2] ON [b.EmployeeAuthtorization].[EmployeeID] = [t2].[EmployeeID]
+ORDER BY [t2].[EmployeeID]
+2019-07-11 09:52:30,206 INFO - Executed DbCommand (73ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeTraining].[EmployeeTrainingID], [b.EmployeeTraining].[Comment], [b.EmployeeTraining].[DateFrom], [b.EmployeeTraining].[dateInsert], [b.EmployeeTraining].[DateTo], [b.EmployeeTraining].[dateUpdate], [b.EmployeeTraining].[EmployeeID], [b.EmployeeTraining].[EmployeeTrainingName], [b.EmployeeTraining].[SiteID], [b.EmployeeTraining].[state], [b.EmployeeTraining].[TrainingTypeID], [b.EmployeeTraining].[userInsert], [b.EmployeeTraining].[UserUpdate]
+FROM [BB_HR_EmployeeTraining] AS [b.EmployeeTraining]
+INNER JOIN (
+    SELECT DISTINCT [t3].*
+    FROM (
+        SELECT [b2].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b2]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization2] ON [b2].[OrganizationID] = [b.Organization2].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType2] ON [b2].[IdentificationTypeID] = [b.IdentificationType2].[IdentificationTypeID]
+        ORDER BY [b2].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t3]
+) AS [t4] ON [b.EmployeeTraining].[EmployeeID] = [t4].[EmployeeID]
+ORDER BY [t4].[EmployeeID]
+2019-07-11 09:52:30,292 INFO - Executed DbCommand (73ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeWorkPermit].[EmployeeWorkPermitID], [b.EmployeeWorkPermit].[Comment], [b.EmployeeWorkPermit].[DateFrom], [b.EmployeeWorkPermit].[dateInsert], [b.EmployeeWorkPermit].[DateTo], [b.EmployeeWorkPermit].[dateUpdate], [b.EmployeeWorkPermit].[EmployeeID], [b.EmployeeWorkPermit].[EmployeeWorkPermitName], [b.EmployeeWorkPermit].[IsRequired], [b.EmployeeWorkPermit].[SiteID], [b.EmployeeWorkPermit].[state], [b.EmployeeWorkPermit].[userInsert], [b.EmployeeWorkPermit].[UserUpdate]
+FROM [BB_HR_EmployeeWorkPermit] AS [b.EmployeeWorkPermit]
+INNER JOIN (
+    SELECT DISTINCT [t5].*
+    FROM (
+        SELECT [b3].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b3]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization3] ON [b3].[OrganizationID] = [b.Organization3].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType3] ON [b3].[IdentificationTypeID] = [b.IdentificationType3].[IdentificationTypeID]
+        ORDER BY [b3].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t5]
+) AS [t6] ON [b.EmployeeWorkPermit].[EmployeeID] = [t6].[EmployeeID]
+ORDER BY [t6].[EmployeeID]
+2019-07-11 09:54:15,985 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-11 09:54:15,985 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-11 09:54:15,985 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-11 09:54:16,043 INFO - Request finished in 53.9312ms 200 
+2019-07-11 09:54:16,057 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 09:54:16,057 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 09:54:16,230 INFO - Request finished in 237.3039ms 200 text/html; charset=utf-8
+2019-07-11 09:54:16,348 INFO - Request finished in 353.6796ms 404 
+2019-07-11 09:54:16,938 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-11 09:54:16,940 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 09:54:17,798 INFO - Request finished in 860.2081ms 200 application/json; charset=utf-8
+2019-07-11 09:54:22,160 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1  
+2019-07-11 09:54:22,162 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 09:54:22,217 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-11 09:54:22,546 INFO - 'GetEmployeesAsync' has been invoked
+2019-07-11 09:54:22,555 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , , , , , ) - Validation state: Valid
+2019-07-11 09:54:24,877 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-11 09:54:25,038 WARN - The Include operation for navigation '[b].IdentificationType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-11 09:54:25,040 WARN - The Include operation for navigation '[b].Organization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-11 09:54:25,042 WARN - The Include operation for navigation '[b].EmployeeProffesionType.ProffesionType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-11 09:54:25,043 WARN - The Include operation for navigation '[b].EmployeeAuthtorization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-11 09:54:25,044 WARN - The Include operation for navigation '[b].EmployeeTraining' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-11 09:54:25,045 WARN - The Include operation for navigation '[b].EmployeeWorkPermit' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-11 09:54:25,922 INFO - Executed DbCommand (92ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [b]
+2019-07-11 09:54:25,990 WARN - Query: '(from Employee b in DbSet<Employee> select EmployeeResponse ToEntity( 
+    request: [b], , 
+    ph...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-07-11 09:54:26,409 INFO - Executed DbCommand (79ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b].[EmployeeID], [b].[Address], [b].[BirthDate], [b].[Citizenship], [b].[dateInsert], [b].[dateUpdate], [b].[FirstName], [b].[FirstNameEN], [b].[GenderID], [b].[IdentificationTypeID], [b].[IdentityNumber], [b].[LastName], [b].[LastNameEN], [b].[OrganizationID], [b].[PassportCountryID], [b].[state], [b].[userInsert], [b].[UserUpdate], [b.Organization].[OrganizationID], [b.Organization].[Comment], [b.Organization].[dateInsert], [b.Organization].[dateUpdate], [b.Organization].[OrganizationName], [b.Organization].[OrganizationNumber], [b.Organization].[OrganizationParentID], [b.Organization].[OrganizationTypeID], [b.Organization].[state], [b.Organization].[userInsert], [b.Organization].[UserUpdate], [b.IdentificationType].[IdentificationTypeID], [b.IdentificationType].[Comment], [b.IdentificationType].[dateInsert], [b.IdentificationType].[dateUpdate], [b.IdentificationType].[IdentificationTypeName], [b.IdentificationType].[state], [b.IdentificationType].[userInsert], [b.IdentificationType].[UserUpdate]
+FROM [BB_HR_Employee] AS [b]
+LEFT JOIN [BB_GEN_Organization] AS [b.Organization] ON [b].[OrganizationID] = [b.Organization].[OrganizationID]
+LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType] ON [b].[IdentificationTypeID] = [b.IdentificationType].[IdentificationTypeID]
+ORDER BY [b].[EmployeeID]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2019-07-11 09:54:26,680 INFO - Executed DbCommand (76ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeProffesionType].[EmployeeAuthorizationID], [b.EmployeeProffesionType].[Comment], [b.EmployeeProffesionType].[dateInsert], [b.EmployeeProffesionType].[dateUpdate], [b.EmployeeProffesionType].[EmployeeID], [b.EmployeeProffesionType].[ProffesionTypeID], [b.EmployeeProffesionType].[state], [b.EmployeeProffesionType].[userInsert], [b.EmployeeProffesionType].[UserUpdate], [e.ProffesionType].[ProffesionTypeID], [e.ProffesionType].[Comment], [e.ProffesionType].[dateInsert], [e.ProffesionType].[dateUpdate], [e.ProffesionType].[ProffesionTypeName], [e.ProffesionType].[state], [e.ProffesionType].[userInsert], [e.ProffesionType].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [b.EmployeeProffesionType]
+LEFT JOIN [BB_HR_ProffesionType] AS [e.ProffesionType] ON [b.EmployeeProffesionType].[ProffesionTypeID] = [e.ProffesionType].[ProffesionTypeID]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT [b0].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b0]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization0] ON [b0].[OrganizationID] = [b.Organization0].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType0] ON [b0].[IdentificationTypeID] = [b.IdentificationType0].[IdentificationTypeID]
+        ORDER BY [b0].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t]
+) AS [t0] ON [b.EmployeeProffesionType].[EmployeeID] = [t0].[EmployeeID]
+ORDER BY [t0].[EmployeeID]
+2019-07-11 09:54:26,790 INFO - Executed DbCommand (76ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeAuthtorization].[EmployeeAuthorizationID], [b.EmployeeAuthtorization].[AuthorizationTypeID], [b.EmployeeAuthtorization].[Comment], [b.EmployeeAuthtorization].[DateFrom], [b.EmployeeAuthtorization].[dateInsert], [b.EmployeeAuthtorization].[DateTo], [b.EmployeeAuthtorization].[dateUpdate], [b.EmployeeAuthtorization].[EmployeeAuthorizationName], [b.EmployeeAuthtorization].[EmployeeID], [b.EmployeeAuthtorization].[SiteId], [b.EmployeeAuthtorization].[state], [b.EmployeeAuthtorization].[userInsert], [b.EmployeeAuthtorization].[UserUpdate]
+FROM [BB_HR_EmployeeAuthtorization] AS [b.EmployeeAuthtorization]
+INNER JOIN (
+    SELECT DISTINCT [t1].*
+    FROM (
+        SELECT [b1].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b1]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization1] ON [b1].[OrganizationID] = [b.Organization1].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType1] ON [b1].[IdentificationTypeID] = [b.IdentificationType1].[IdentificationTypeID]
+        ORDER BY [b1].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t1]
+) AS [t2] ON [b.EmployeeAuthtorization].[EmployeeID] = [t2].[EmployeeID]
+ORDER BY [t2].[EmployeeID]
+2019-07-11 09:54:26,882 INFO - Executed DbCommand (76ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeTraining].[EmployeeTrainingID], [b.EmployeeTraining].[Comment], [b.EmployeeTraining].[DateFrom], [b.EmployeeTraining].[dateInsert], [b.EmployeeTraining].[DateTo], [b.EmployeeTraining].[dateUpdate], [b.EmployeeTraining].[EmployeeID], [b.EmployeeTraining].[EmployeeTrainingName], [b.EmployeeTraining].[SiteID], [b.EmployeeTraining].[state], [b.EmployeeTraining].[TrainingTypeID], [b.EmployeeTraining].[userInsert], [b.EmployeeTraining].[UserUpdate]
+FROM [BB_HR_EmployeeTraining] AS [b.EmployeeTraining]
+INNER JOIN (
+    SELECT DISTINCT [t3].*
+    FROM (
+        SELECT [b2].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b2]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization2] ON [b2].[OrganizationID] = [b.Organization2].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType2] ON [b2].[IdentificationTypeID] = [b.IdentificationType2].[IdentificationTypeID]
+        ORDER BY [b2].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t3]
+) AS [t4] ON [b.EmployeeTraining].[EmployeeID] = [t4].[EmployeeID]
+ORDER BY [t4].[EmployeeID]
+2019-07-11 09:54:26,974 INFO - Executed DbCommand (76ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeWorkPermit].[EmployeeWorkPermitID], [b.EmployeeWorkPermit].[Comment], [b.EmployeeWorkPermit].[DateFrom], [b.EmployeeWorkPermit].[dateInsert], [b.EmployeeWorkPermit].[DateTo], [b.EmployeeWorkPermit].[dateUpdate], [b.EmployeeWorkPermit].[EmployeeID], [b.EmployeeWorkPermit].[EmployeeWorkPermitName], [b.EmployeeWorkPermit].[IsRequired], [b.EmployeeWorkPermit].[SiteID], [b.EmployeeWorkPermit].[state], [b.EmployeeWorkPermit].[userInsert], [b.EmployeeWorkPermit].[UserUpdate]
+FROM [BB_HR_EmployeeWorkPermit] AS [b.EmployeeWorkPermit]
+INNER JOIN (
+    SELECT DISTINCT [t5].*
+    FROM (
+        SELECT [b3].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b3]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization3] ON [b3].[OrganizationID] = [b.Organization3].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType3] ON [b3].[IdentificationTypeID] = [b.IdentificationType3].[IdentificationTypeID]
+        ORDER BY [b3].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t5]
+) AS [t6] ON [b.EmployeeWorkPermit].[EmployeeID] = [t6].[EmployeeID]
+ORDER BY [t6].[EmployeeID]
+2019-07-11 09:54:28,297 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 5739.5182ms.
+2019-07-11 09:54:28,299 INFO - The GetEmployeesAsync have been retrieved successfully.
+2019-07-11 09:54:28,430 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-11 09:54:28,479 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 6258.164ms
+2019-07-11 09:54:28,507 INFO - Request finished in 6326.9826ms 200 application/json; charset=utf-8
+2019-07-11 10:20:06,065 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-11 10:20:06,065 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-11 10:20:06,106 INFO - Request finished in 53.2653ms 200 
+2019-07-11 10:20:06,131 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:20:06,312 INFO - Request finished in 254.6684ms 404 
+2019-07-11 10:20:10,746 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-11 10:20:10,750 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:20:10,821 INFO - Request finished in 71.65ms 200 text/html; charset=utf-8
+2019-07-11 10:20:11,607 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-11 10:20:11,609 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:20:12,463 INFO - Request finished in 863.5015ms 200 application/json; charset=utf-8
+2019-07-11 10:24:11,424 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-11 10:24:11,426 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:24:11,430 INFO - Request finished in 3.8199ms 200 text/html; charset=utf-8
+2019-07-11 10:24:12,572 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-11 10:24:12,576 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:24:12,591 INFO - Request finished in 18.1178ms 200 application/json; charset=utf-8
+2019-07-11 10:25:42,630 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 5652887
+2019-07-11 10:25:42,634 INFO - CORS policy execution failed.
+2019-07-11 10:25:42,636 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-11 10:25:42,650 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:25:42,699 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-11 10:25:43,709 INFO - Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.SerializableError'.
+2019-07-11 10:25:43,762 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) in 1059.3203ms
+2019-07-11 10:25:43,771 INFO - Request finished in 1149.2854ms 400 application/json; charset=utf-8
+2019-07-11 10:29:31,494 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 5652887
+2019-07-11 10:29:31,496 INFO - CORS policy execution failed.
+2019-07-11 10:29:31,499 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-11 10:29:31,501 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:29:31,505 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-11 10:29:32,075 INFO - 'PostEmployeeAsync' has been invoked
+2019-07-11 10:29:32,083 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.EmployeeRequest) - Validation state: Valid
+2019-07-11 10:29:33,128 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-11 10:29:34,236 INFO - Executed DbCommand (96ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-11 10:29:34,780 INFO - Executed DbCommand (113ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (Size = 50), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 50), @p11='?' (Size = 50), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_Employee] ([Address], [BirthDate], [Citizenship], [dateInsert], [dateUpdate], [FirstName], [FirstNameEN], [GenderID], [IdentificationTypeID], [IdentityNumber], [LastName], [LastNameEN], [OrganizationID], [PassportCountryID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+SELECT [EmployeeID], [state]
+FROM [BB_HR_Employee]
+WHERE @@ROWCOUNT = 1 AND [EmployeeID] = scope_identity();
+2019-07-11 10:29:35,053 INFO - Executed DbCommand (85ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-11 10:29:35,281 INFO - Executed DbCommand (83ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (Size = 50), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Size = 50), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_PhoneMail] ([dateInsert], [dateUpdate], [EMail], [EntityID], [EntityTypeID], [PhoneNumber], [PhoneTypeID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [ContactID], [state]
+FROM [BB_GEN_PhoneMail]
+WHERE @@ROWCOUNT = 1 AND [ContactID] = scope_identity();
+2019-07-11 10:29:44,880 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 5652887
+2019-07-11 10:29:44,885 INFO - CORS policy execution failed.
+2019-07-11 10:29:44,887 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-11 10:29:44,898 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:29:44,902 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-11 10:29:45,124 INFO - The PostEmployeeAsync have been retrieved successfully.
+2019-07-11 10:29:46,061 INFO - test log
+2019-07-11 10:29:46,063 ERROR - There was a critical error on 'PostEmployeeAsync': System.AggregateException: One or more errors occurred. (Value cannot be null.
+Parameter name: connectionString) ---> System.ArgumentNullException: Value cannot be null.
+Parameter name: connectionString
+   at Malam.Mastpen.HR.API.Infrastructure.BlobStorageService.UploadFileToBlobAsync(String strFileName, Byte[] fileData, String fileMimeType) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Infrastructure\BlobStorageService .cs:line 96
+   --- End of inner exception stack trace ---
+   at Malam.Mastpen.HR.API.Infrastructure.BlobStorageService.UploadFileToBlob(String strFileName, FileRequest fileRequest) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Infrastructure\BlobStorageService .cs:line 38
+   at Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync(EmployeeRequest request) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeController.cs:line 143
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+---> (Inner Exception #0) System.ArgumentNullException: Value cannot be null.
+Parameter name: connectionString
+   at Malam.Mastpen.HR.API.Infrastructure.BlobStorageService.UploadFileToBlobAsync(String strFileName, Byte[] fileData, String fileMimeType) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Infrastructure\BlobStorageService .cs:line 96<---
+
+2019-07-11 10:29:46,348 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-11 10:29:46,369 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) in 14858.4931ms
+2019-07-11 10:29:46,402 INFO - Request finished in 14900.5695ms 200 application/json; charset=utf-8
+2019-07-11 10:29:46,617 INFO - 'PostEmployeeAsync' has been invoked
+2019-07-11 10:29:46,620 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.EmployeeRequest) - Validation state: Valid
+2019-07-11 10:29:46,624 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-11 10:29:46,717 INFO - Executed DbCommand (81ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-11 10:29:46,885 INFO - Executed DbCommand (81ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (Size = 50), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 50), @p11='?' (Size = 50), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_Employee] ([Address], [BirthDate], [Citizenship], [dateInsert], [dateUpdate], [FirstName], [FirstNameEN], [GenderID], [IdentificationTypeID], [IdentityNumber], [LastName], [LastNameEN], [OrganizationID], [PassportCountryID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+SELECT [EmployeeID], [state]
+FROM [BB_HR_Employee]
+WHERE @@ROWCOUNT = 1 AND [EmployeeID] = scope_identity();
+2019-07-11 10:29:47,056 INFO - Executed DbCommand (81ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-11 10:29:47,220 INFO - Executed DbCommand (81ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (Size = 50), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Size = 50), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_PhoneMail] ([dateInsert], [dateUpdate], [EMail], [EntityID], [EntityTypeID], [PhoneNumber], [PhoneTypeID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [ContactID], [state]
+FROM [BB_GEN_PhoneMail]
+WHERE @@ROWCOUNT = 1 AND [ContactID] = scope_identity();
+2019-07-11 10:29:48,491 INFO - The PostEmployeeAsync have been retrieved successfully.
+2019-07-11 10:29:49,379 INFO - test log
+2019-07-11 10:29:49,379 ERROR - There was a critical error on 'PostEmployeeAsync': System.AggregateException: One or more errors occurred. (Value cannot be null.
+Parameter name: connectionString) ---> System.ArgumentNullException: Value cannot be null.
+Parameter name: connectionString
+   at Malam.Mastpen.HR.API.Infrastructure.BlobStorageService.UploadFileToBlobAsync(String strFileName, Byte[] fileData, String fileMimeType) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Infrastructure\BlobStorageService .cs:line 96
+   --- End of inner exception stack trace ---
+   at Malam.Mastpen.HR.API.Infrastructure.BlobStorageService.UploadFileToBlob(String strFileName, FileRequest fileRequest) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Infrastructure\BlobStorageService .cs:line 38
+   at Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync(EmployeeRequest request) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeController.cs:line 143
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+---> (Inner Exception #0) System.ArgumentNullException: Value cannot be null.
+Parameter name: connectionString
+   at Malam.Mastpen.HR.API.Infrastructure.BlobStorageService.UploadFileToBlobAsync(String strFileName, Byte[] fileData, String fileMimeType) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Infrastructure\BlobStorageService .cs:line 96<---
+
+2019-07-11 10:29:49,383 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-11 10:29:49,388 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) in 4481.6316ms
+2019-07-11 10:29:49,416 INFO - Request finished in 4545.4682ms 200 application/json; charset=utf-8
+2019-07-11 10:30:02,828 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 5652887
+2019-07-11 10:30:02,834 INFO - CORS policy execution failed.
+2019-07-11 10:30:02,851 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-11 10:30:02,859 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:30:02,867 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-11 10:30:03,396 INFO - 'PostEmployeeAsync' has been invoked
+2019-07-11 10:30:03,399 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.EmployeeRequest) - Validation state: Valid
+2019-07-11 10:30:03,402 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-11 10:30:03,485 INFO - Executed DbCommand (81ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-11 10:30:03,655 INFO - Executed DbCommand (82ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (Size = 50), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 50), @p11='?' (Size = 50), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_Employee] ([Address], [BirthDate], [Citizenship], [dateInsert], [dateUpdate], [FirstName], [FirstNameEN], [GenderID], [IdentificationTypeID], [IdentityNumber], [LastName], [LastNameEN], [OrganizationID], [PassportCountryID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+SELECT [EmployeeID], [state]
+FROM [BB_HR_Employee]
+WHERE @@ROWCOUNT = 1 AND [EmployeeID] = scope_identity();
+2019-07-11 10:30:03,826 INFO - Executed DbCommand (80ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-11 10:30:03,990 INFO - Executed DbCommand (81ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (Size = 50), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Size = 50), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_PhoneMail] ([dateInsert], [dateUpdate], [EMail], [EntityID], [EntityTypeID], [PhoneNumber], [PhoneTypeID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [ContactID], [state]
+FROM [BB_GEN_PhoneMail]
+WHERE @@ROWCOUNT = 1 AND [ContactID] = scope_identity();
+2019-07-11 10:30:13,899 INFO - The PostEmployeeAsync have been retrieved successfully.
+2019-07-11 10:30:15,380 INFO - test log
+2019-07-11 10:30:15,380 ERROR - There was a critical error on 'PostEmployeeAsync': System.AggregateException: One or more errors occurred. (Value cannot be null.
+Parameter name: connectionString) ---> System.ArgumentNullException: Value cannot be null.
+Parameter name: connectionString
+   at Malam.Mastpen.HR.API.Infrastructure.BlobStorageService.UploadFileToBlobAsync(String strFileName, Byte[] fileData, String fileMimeType) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Infrastructure\BlobStorageService .cs:line 96
+   --- End of inner exception stack trace ---
+   at Malam.Mastpen.HR.API.Infrastructure.BlobStorageService.UploadFileToBlob(String strFileName, FileRequest fileRequest) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Infrastructure\BlobStorageService .cs:line 38
+   at Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync(EmployeeRequest request) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeController.cs:line 143
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+---> (Inner Exception #0) System.ArgumentNullException: Value cannot be null.
+Parameter name: connectionString
+   at Malam.Mastpen.HR.API.Infrastructure.BlobStorageService.UploadFileToBlobAsync(String strFileName, Byte[] fileData, String fileMimeType) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Infrastructure\BlobStorageService .cs:line 96<---
+
+2019-07-11 10:30:15,383 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-11 10:30:15,393 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) in 12516.2472ms
+2019-07-11 10:30:15,427 INFO - Request finished in 12575.6739ms 200 application/json; charset=utf-8
+2019-07-11 10:30:31,147 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 5652887
+2019-07-11 10:30:31,148 INFO - CORS policy execution failed.
+2019-07-11 10:30:31,151 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-11 10:30:31,159 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:30:31,169 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-11 10:32:29,562 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-11 10:32:29,562 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-11 10:32:29,626 INFO - Request finished in 88.3428ms 200 
+2019-07-11 10:32:29,653 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:32:29,838 INFO - Request finished in 294.4921ms 404 
+2019-07-11 10:32:52,145 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-11 10:32:52,149 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:32:52,218 INFO - Request finished in 72.8229ms 200 text/html; charset=utf-8
+2019-07-11 10:32:52,909 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-11 10:32:52,917 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:32:53,770 INFO - Request finished in 866.5921ms 200 application/json; charset=utf-8
+2019-07-11 10:36:04,766 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 755831
+2019-07-11 10:36:04,773 INFO - CORS policy execution failed.
+2019-07-11 10:36:04,798 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-11 10:36:04,800 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:36:04,846 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-11 10:36:20,749 INFO - 'PostEmployeeAsync' has been invoked
+2019-07-11 10:36:20,760 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.EmployeeRequest) - Validation state: Valid
+2019-07-11 10:36:21,818 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-11 10:36:23,012 INFO - Executed DbCommand (92ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-11 10:36:23,491 INFO - Executed DbCommand (76ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (Size = 50), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 50), @p11='?' (Size = 50), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_Employee] ([Address], [BirthDate], [Citizenship], [dateInsert], [dateUpdate], [FirstName], [FirstNameEN], [GenderID], [IdentificationTypeID], [IdentityNumber], [LastName], [LastNameEN], [OrganizationID], [PassportCountryID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+SELECT [EmployeeID], [state]
+FROM [BB_HR_Employee]
+WHERE @@ROWCOUNT = 1 AND [EmployeeID] = scope_identity();
+2019-07-11 10:36:23,727 INFO - Executed DbCommand (75ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-11 10:36:23,945 INFO - Executed DbCommand (76ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (Size = 50), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Size = 50), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_PhoneMail] ([dateInsert], [dateUpdate], [EMail], [EntityID], [EntityTypeID], [PhoneNumber], [PhoneTypeID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [ContactID], [state]
+FROM [BB_GEN_PhoneMail]
+WHERE @@ROWCOUNT = 1 AND [ContactID] = scope_identity();
+2019-07-11 10:36:27,952 INFO - Executed DbCommand (75ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-11 10:36:28,264 ERROR - Failed executing DbCommand (143ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (Size = -1), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?', @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_Docs] ([dateInsert], [dateUpdate], [DocumentDate], [DocumentPath], [DocumentTypeID], [EntityID], [EntityTypeID], [IsDocumentSigned], [LanguageID], [userInsert], [UserUpdate], [ValIdDate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+SELECT [DocumentID], [state]
+FROM [BB_GEN_Docs]
+WHERE @@ROWCOUNT = 1 AND [DocumentID] = scope_identity();
+System.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+ClientConnectionId:a8a0af44-40a8-4eb6-b4b8-3939a52d6224
+Error Number:8152,State:10,Class:16
+2019-07-11 10:36:28,373 ERROR - An exception occurred in the database while saving changes for context type 'Malam.Mastpen.Core.DAL.MastpenBitachonDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2019-07-11 10:36:28,460 INFO - The PostEmployeeAsync have been retrieved successfully.
+2019-07-11 10:36:29,526 INFO - test log
+2019-07-11 10:36:29,526 ERROR - There was a critical error on 'PostEmployeeAsync': Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Malam.Mastpen.Core.BL.Services.Service.CreateDocsAsync(Docs docs, Type type) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\Service.cs:line 76
+   at Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync(EmployeeRequest request) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeController.cs:line 157
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2019-07-11 10:36:29,537 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-11 10:36:29,569 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) in 24710.0546ms
+2019-07-11 10:36:29,598 INFO - Request finished in 24822.2838ms 200 application/json; charset=utf-8
+2019-07-11 10:36:51,416 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 755831
+2019-07-11 10:36:51,423 INFO - CORS policy execution failed.
+2019-07-11 10:36:51,429 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-11 10:36:51,432 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:36:51,459 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-11 10:36:52,903 INFO - 'PostEmployeeAsync' has been invoked
+2019-07-11 10:36:52,904 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.EmployeeRequest) - Validation state: Valid
+2019-07-11 10:36:52,908 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-11 10:36:52,987 INFO - Executed DbCommand (76ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-11 10:36:53,142 INFO - Executed DbCommand (76ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (Size = 50), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 50), @p11='?' (Size = 50), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_Employee] ([Address], [BirthDate], [Citizenship], [dateInsert], [dateUpdate], [FirstName], [FirstNameEN], [GenderID], [IdentificationTypeID], [IdentityNumber], [LastName], [LastNameEN], [OrganizationID], [PassportCountryID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+SELECT [EmployeeID], [state]
+FROM [BB_HR_Employee]
+WHERE @@ROWCOUNT = 1 AND [EmployeeID] = scope_identity();
+2019-07-11 10:36:53,301 INFO - Executed DbCommand (76ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-11 10:36:53,453 INFO - Executed DbCommand (75ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (Size = 50), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Size = 50), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_PhoneMail] ([dateInsert], [dateUpdate], [EMail], [EntityID], [EntityTypeID], [PhoneNumber], [PhoneTypeID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [ContactID], [state]
+FROM [BB_GEN_PhoneMail]
+WHERE @@ROWCOUNT = 1 AND [ContactID] = scope_identity();
+2019-07-11 10:37:57,286 INFO - Executed DbCommand (89ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-11 10:38:14,173 ERROR - Failed executing DbCommand (81ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (Size = -1), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?', @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_Docs] ([dateInsert], [dateUpdate], [DocumentDate], [DocumentPath], [DocumentTypeID], [EntityID], [EntityTypeID], [IsDocumentSigned], [LanguageID], [userInsert], [UserUpdate], [ValIdDate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+SELECT [DocumentID], [state]
+FROM [BB_GEN_Docs]
+WHERE @@ROWCOUNT = 1 AND [DocumentID] = scope_identity();
+System.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+ClientConnectionId:a8a0af44-40a8-4eb6-b4b8-3939a52d6224
+Error Number:8152,State:10,Class:16
+2019-07-11 10:38:14,263 ERROR - An exception occurred in the database while saving changes for context type 'Malam.Mastpen.Core.DAL.MastpenBitachonDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2019-07-11 10:38:14,393 INFO - The PostEmployeeAsync have been retrieved successfully.
+2019-07-11 10:38:18,592 INFO - test log
+2019-07-11 10:39:02,222 ERROR - There was a critical error on 'PostEmployeeAsync': Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Malam.Mastpen.Core.BL.Services.Service.CreateDocsAsync(Docs docs, Type type) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\Service.cs:line 76
+   at Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync(EmployeeRequest request) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeController.cs:line 157
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2019-07-11 10:39:02,229 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-11 10:39:02,232 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) in 130768.7528ms
+2019-07-11 10:39:02,237 INFO - Request finished in 130829.3172ms 200 application/json; charset=utf-8
+2019-07-11 10:39:09,555 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 755831
+2019-07-11 10:39:09,560 INFO - CORS policy execution failed.
+2019-07-11 10:39:09,569 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-11 10:39:09,579 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:39:09,584 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-11 10:39:11,068 INFO - 'PostEmployeeAsync' has been invoked
+2019-07-11 10:39:11,070 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.EmployeeRequest) - Validation state: Valid
+2019-07-11 10:39:11,071 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-11 10:39:11,149 INFO - Executed DbCommand (75ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-11 10:39:11,304 INFO - Executed DbCommand (76ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (Size = 50), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 50), @p11='?' (Size = 50), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_Employee] ([Address], [BirthDate], [Citizenship], [dateInsert], [dateUpdate], [FirstName], [FirstNameEN], [GenderID], [IdentificationTypeID], [IdentityNumber], [LastName], [LastNameEN], [OrganizationID], [PassportCountryID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+SELECT [EmployeeID], [state]
+FROM [BB_HR_Employee]
+WHERE @@ROWCOUNT = 1 AND [EmployeeID] = scope_identity();
+2019-07-11 10:39:11,473 INFO - Executed DbCommand (75ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-11 10:39:11,631 INFO - Executed DbCommand (76ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (Size = 50), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Size = 50), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_PhoneMail] ([dateInsert], [dateUpdate], [EMail], [EntityID], [EntityTypeID], [PhoneNumber], [PhoneTypeID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [ContactID], [state]
+FROM [BB_GEN_PhoneMail]
+WHERE @@ROWCOUNT = 1 AND [ContactID] = scope_identity();
+2019-07-11 10:39:35,428 INFO - Executed DbCommand (75ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-11 10:39:38,288 ERROR - Failed executing DbCommand (92ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (Size = -1), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?', @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_Docs] ([dateInsert], [dateUpdate], [DocumentDate], [DocumentPath], [DocumentTypeID], [EntityID], [EntityTypeID], [IsDocumentSigned], [LanguageID], [userInsert], [UserUpdate], [ValIdDate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+SELECT [DocumentID], [state]
+FROM [BB_GEN_Docs]
+WHERE @@ROWCOUNT = 1 AND [DocumentID] = scope_identity();
+System.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+ClientConnectionId:a8a0af44-40a8-4eb6-b4b8-3939a52d6224
+Error Number:8152,State:10,Class:16
+2019-07-11 10:39:38,372 ERROR - An exception occurred in the database while saving changes for context type 'Malam.Mastpen.Core.DAL.MastpenBitachonDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2019-07-11 10:39:38,491 INFO - The PostEmployeeAsync have been retrieved successfully.
+2019-07-11 10:39:39,537 INFO - test log
+2019-07-11 10:42:08,741 ERROR - There was a critical error on 'PostEmployeeAsync': Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Malam.Mastpen.Core.BL.Services.Service.CreateDocsAsync(Docs docs, Type type) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\Service.cs:line 76
+   at Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync(EmployeeRequest request) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeController.cs:line 157
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2019-07-11 10:42:08,748 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-11 10:42:08,752 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) in 179165.9682ms
+2019-07-11 10:42:08,783 INFO - Request finished in 179208.3899ms 200 application/json; charset=utf-8
+2019-07-11 10:42:11,059 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 755831
+2019-07-11 10:42:11,073 INFO - CORS policy execution failed.
+2019-07-11 10:42:11,084 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-11 10:42:11,088 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:42:11,091 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-11 10:42:12,760 INFO - 'PostEmployeeAsync' has been invoked
+2019-07-11 10:42:12,773 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.EmployeeRequest) - Validation state: Valid
+2019-07-11 10:42:12,834 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-11 10:42:12,956 INFO - Executed DbCommand (98ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-11 10:42:13,143 INFO - Executed DbCommand (92ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (Size = 50), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 50), @p11='?' (Size = 50), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_Employee] ([Address], [BirthDate], [Citizenship], [dateInsert], [dateUpdate], [FirstName], [FirstNameEN], [GenderID], [IdentificationTypeID], [IdentityNumber], [LastName], [LastNameEN], [OrganizationID], [PassportCountryID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+SELECT [EmployeeID], [state]
+FROM [BB_HR_Employee]
+WHERE @@ROWCOUNT = 1 AND [EmployeeID] = scope_identity();
+2019-07-11 10:42:13,353 INFO - Executed DbCommand (101ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-11 10:42:13,543 INFO - Executed DbCommand (90ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (Size = 50), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Size = 50), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_PhoneMail] ([dateInsert], [dateUpdate], [EMail], [EntityID], [EntityTypeID], [PhoneNumber], [PhoneTypeID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [ContactID], [state]
+FROM [BB_GEN_PhoneMail]
+WHERE @@ROWCOUNT = 1 AND [ContactID] = scope_identity();
+2019-07-11 10:43:36,791 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-11 10:43:36,791 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-11 10:43:36,791 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-11 10:43:36,848 INFO - Request finished in 53.1322ms 200 
+2019-07-11 10:43:36,858 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:43:36,858 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:43:37,041 INFO - Request finished in 241.8808ms 200 text/html; charset=utf-8
+2019-07-11 10:43:37,176 INFO - Request finished in 389.9685ms 404 
+2019-07-11 10:43:37,242 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-11 10:43:37,246 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:43:38,242 INFO - Request finished in 1003.897ms 200 application/json; charset=utf-8
+2019-07-11 10:45:07,403 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 138083
+2019-07-11 10:45:07,409 INFO - CORS policy execution failed.
+2019-07-11 10:45:07,412 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-11 10:45:07,415 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:45:07,459 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-11 10:45:12,082 INFO - 'PostEmployeeAsync' has been invoked
+2019-07-11 10:45:12,090 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.EmployeeRequest) - Validation state: Valid
+2019-07-11 10:45:13,149 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-11 10:45:14,180 INFO - Executed DbCommand (98ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-11 10:45:14,689 INFO - Executed DbCommand (82ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (Size = 50), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 50), @p11='?' (Size = 50), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_Employee] ([Address], [BirthDate], [Citizenship], [dateInsert], [dateUpdate], [FirstName], [FirstNameEN], [GenderID], [IdentificationTypeID], [IdentityNumber], [LastName], [LastNameEN], [OrganizationID], [PassportCountryID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+SELECT [EmployeeID], [state]
+FROM [BB_HR_Employee]
+WHERE @@ROWCOUNT = 1 AND [EmployeeID] = scope_identity();
+2019-07-11 10:45:14,943 INFO - Executed DbCommand (83ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-11 10:45:15,194 INFO - Executed DbCommand (81ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (Size = 50), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Size = 50), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_PhoneMail] ([dateInsert], [dateUpdate], [EMail], [EntityID], [EntityTypeID], [PhoneNumber], [PhoneTypeID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [ContactID], [state]
+FROM [BB_GEN_PhoneMail]
+WHERE @@ROWCOUNT = 1 AND [ContactID] = scope_identity();
+2019-07-11 10:45:30,878 INFO - Executed DbCommand (86ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-11 10:45:31,098 ERROR - Failed executing DbCommand (92ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (Size = 250), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?', @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_Docs] ([dateInsert], [dateUpdate], [DocumentDate], [DocumentPath], [DocumentTypeID], [EntityID], [EntityTypeID], [IsDocumentSigned], [LanguageID], [userInsert], [UserUpdate], [ValIdDate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+SELECT [DocumentID], [state]
+FROM [BB_GEN_Docs]
+WHERE @@ROWCOUNT = 1 AND [DocumentID] = scope_identity();
+System.Data.SqlClient.SqlException (0x80131904): String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+ClientConnectionId:ecac6feb-9b18-46ad-8358-8e687f23bf95
+Error Number:8152,State:13,Class:16
+2019-07-11 10:45:31,212 ERROR - An exception occurred in the database while saving changes for context type 'Malam.Mastpen.Core.DAL.MastpenBitachonDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2019-07-11 10:45:31,297 INFO - The PostEmployeeAsync have been retrieved successfully.
+2019-07-11 10:45:34,375 INFO - test log
+2019-07-11 10:46:22,550 ERROR - There was a critical error on 'PostEmployeeAsync': Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Malam.Mastpen.Core.BL.Services.Service.CreateDocsAsync(Docs docs, Type type) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\Service.cs:line 76
+   at Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync(EmployeeRequest request) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeController.cs:line 157
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2019-07-11 10:46:22,567 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-11 10:46:22,583 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) in 75120.8572ms
+2019-07-11 10:46:22,599 INFO - Request finished in 75196.4299ms 200 application/json; charset=utf-8
+2019-07-11 10:46:24,624 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 138083
+2019-07-11 10:46:24,639 INFO - CORS policy execution failed.
+2019-07-11 10:46:24,645 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-11 10:46:24,648 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:46:24,652 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-11 10:46:25,830 INFO - 'PostEmployeeAsync' has been invoked
+2019-07-11 10:46:25,832 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.EmployeeRequest) - Validation state: Valid
+2019-07-11 10:46:25,836 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-11 10:46:25,920 INFO - Executed DbCommand (81ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-11 10:46:26,090 INFO - Executed DbCommand (82ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (Size = 50), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 50), @p11='?' (Size = 50), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_Employee] ([Address], [BirthDate], [Citizenship], [dateInsert], [dateUpdate], [FirstName], [FirstNameEN], [GenderID], [IdentificationTypeID], [IdentityNumber], [LastName], [LastNameEN], [OrganizationID], [PassportCountryID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+SELECT [EmployeeID], [state]
+FROM [BB_HR_Employee]
+WHERE @@ROWCOUNT = 1 AND [EmployeeID] = scope_identity();
+2019-07-11 10:46:26,271 INFO - Executed DbCommand (83ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-11 10:46:26,439 INFO - Executed DbCommand (84ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (Size = 50), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Size = 50), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_PhoneMail] ([dateInsert], [dateUpdate], [EMail], [EntityID], [EntityTypeID], [PhoneNumber], [PhoneTypeID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [ContactID], [state]
+FROM [BB_GEN_PhoneMail]
+WHERE @@ROWCOUNT = 1 AND [ContactID] = scope_identity();
+2019-07-11 10:46:28,735 INFO - Executed DbCommand (81ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-11 10:46:28,902 INFO - Executed DbCommand (84ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (Size = 250), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?', @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_Docs] ([dateInsert], [dateUpdate], [DocumentDate], [DocumentPath], [DocumentTypeID], [EntityID], [EntityTypeID], [IsDocumentSigned], [LanguageID], [userInsert], [UserUpdate], [ValIdDate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+SELECT [DocumentID], [state]
+FROM [BB_GEN_Docs]
+WHERE @@ROWCOUNT = 1 AND [DocumentID] = scope_identity();
+2019-07-11 10:46:29,124 INFO - The PostEmployeeAsync have been retrieved successfully.
+2019-07-11 10:46:32,016 INFO - test log
+2019-07-11 10:46:41,963 ERROR - There was a critical error on 'PostEmployeeAsync': System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at Malam.Mastpen.HR.API.Infrastructure.BlobStorageService.UploadFileToBlob(String strFileName, FileRequest fileRequest) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Infrastructure\BlobStorageService .cs:line 39
+   at Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync(EmployeeRequest request) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeController.cs:line 163
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2019-07-11 10:46:41,991 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-11 10:46:41,994 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) in 17339.6091ms
+2019-07-11 10:46:42,000 INFO - Request finished in 17378.727ms 200 application/json; charset=utf-8
+2019-07-11 10:46:44,018 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 138083
+2019-07-11 10:46:44,039 INFO - CORS policy execution failed.
+2019-07-11 10:46:44,044 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-11 10:46:44,053 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:46:44,056 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-11 10:46:46,315 INFO - 'PostEmployeeAsync' has been invoked
+2019-07-11 10:46:46,316 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.EmployeeRequest) - Validation state: Valid
+2019-07-11 10:46:46,318 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-11 10:46:46,408 INFO - Executed DbCommand (86ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-11 10:46:46,571 INFO - Executed DbCommand (81ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (Size = 50), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 50), @p11='?' (Size = 50), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_Employee] ([Address], [BirthDate], [Citizenship], [dateInsert], [dateUpdate], [FirstName], [FirstNameEN], [GenderID], [IdentificationTypeID], [IdentityNumber], [LastName], [LastNameEN], [OrganizationID], [PassportCountryID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+SELECT [EmployeeID], [state]
+FROM [BB_HR_Employee]
+WHERE @@ROWCOUNT = 1 AND [EmployeeID] = scope_identity();
+2019-07-11 10:46:46,741 INFO - Executed DbCommand (82ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-11 10:46:46,907 INFO - Executed DbCommand (80ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (Size = 50), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Size = 50), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_PhoneMail] ([dateInsert], [dateUpdate], [EMail], [EntityID], [EntityTypeID], [PhoneNumber], [PhoneTypeID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [ContactID], [state]
+FROM [BB_GEN_PhoneMail]
+WHERE @@ROWCOUNT = 1 AND [ContactID] = scope_identity();
+2019-07-11 10:46:50,841 INFO - Executed DbCommand (81ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-11 10:46:51,553 INFO - Executed DbCommand (81ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (Size = 250), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?', @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_Docs] ([dateInsert], [dateUpdate], [DocumentDate], [DocumentPath], [DocumentTypeID], [EntityID], [EntityTypeID], [IsDocumentSigned], [LanguageID], [userInsert], [UserUpdate], [ValIdDate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+SELECT [DocumentID], [state]
+FROM [BB_GEN_Docs]
+WHERE @@ROWCOUNT = 1 AND [DocumentID] = scope_identity();
+2019-07-11 10:47:14,242 INFO - The PostEmployeeAsync have been retrieved successfully.
+2019-07-11 10:47:15,154 INFO - test log
+2019-07-11 10:47:15,154 ERROR - There was a critical error on 'PostEmployeeAsync': System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at Malam.Mastpen.HR.API.Infrastructure.BlobStorageService.UploadFileToBlob(String strFileName, FileRequest fileRequest) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Infrastructure\BlobStorageService .cs:line 39
+   at Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync(EmployeeRequest request) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeController.cs:line 163
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2019-07-11 10:47:15,158 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-11 10:47:15,160 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) in 31102.0759ms
+2019-07-11 10:47:15,164 INFO - Request finished in 31151.0187ms 200 application/json; charset=utf-8
+2019-07-11 10:47:31,708 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 137927
+2019-07-11 10:47:31,710 INFO - CORS policy execution failed.
+2019-07-11 10:47:31,712 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-11 10:47:31,714 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 10:47:31,716 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-11 10:47:32,887 INFO - 'PostEmployeeAsync' has been invoked
+2019-07-11 10:47:32,888 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.EmployeeRequest) - Validation state: Valid
+2019-07-11 10:47:32,891 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-11 10:47:32,974 INFO - Executed DbCommand (81ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2019-07-11 10:47:33,142 INFO - Executed DbCommand (84ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (Size = 50), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 50), @p11='?' (Size = 50), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_Employee] ([Address], [BirthDate], [Citizenship], [dateInsert], [dateUpdate], [FirstName], [FirstNameEN], [GenderID], [IdentificationTypeID], [IdentityNumber], [LastName], [LastNameEN], [OrganizationID], [PassportCountryID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+SELECT [EmployeeID], [state]
+FROM [BB_HR_Employee]
+WHERE @@ROWCOUNT = 1 AND [EmployeeID] = scope_identity();
+2019-07-11 10:47:33,318 INFO - Executed DbCommand (81ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-11 10:47:33,503 INFO - Executed DbCommand (81ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (Size = 50), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Size = 50), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_PhoneMail] ([dateInsert], [dateUpdate], [EMail], [EntityID], [EntityTypeID], [PhoneNumber], [PhoneTypeID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [ContactID], [state]
+FROM [BB_GEN_PhoneMail]
+WHERE @@ROWCOUNT = 1 AND [ContactID] = scope_identity();
+2019-07-11 10:47:35,788 INFO - Executed DbCommand (81ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-11 10:47:35,951 INFO - Executed DbCommand (81ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (Size = 250), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?', @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_Docs] ([dateInsert], [dateUpdate], [DocumentDate], [DocumentPath], [DocumentTypeID], [EntityID], [EntityTypeID], [IsDocumentSigned], [LanguageID], [userInsert], [UserUpdate], [ValIdDate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+SELECT [DocumentID], [state]
+FROM [BB_GEN_Docs]
+WHERE @@ROWCOUNT = 1 AND [DocumentID] = scope_identity();
+2019-07-11 10:47:36,039 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 3147.9157ms.
+2019-07-11 10:47:36,040 INFO - The PostEmployeeAsync have been retrieved successfully.
+2019-07-11 10:47:36,044 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-11 10:47:36,058 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) in 4339.967ms
+2019-07-11 10:47:36,065 INFO - Request finished in 4356.0225ms 200 application/json; charset=utf-8
+2019-07-11 13:11:08,154 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-11 13:11:08,154 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-11 13:11:08,222 INFO - Request finished in 65.7232ms 200 
+2019-07-11 13:11:08,248 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:11:08,462 INFO - Request finished in 302.7006ms 404 
+2019-07-11 13:11:13,200 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-11 13:11:13,206 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:11:13,283 INFO - Request finished in 82.393ms 200 text/html; charset=utf-8
+2019-07-11 13:11:14,070 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-11 13:11:14,080 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:11:14,888 ERROR - An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The method 'post' on path '/api/v1/Employee/Employee' is registered multiple times.
+   at NSwag.Generation.AspNetCore.AspNetCoreOpenApiDocumentGenerator.AddOperationDescriptionsToDocument(OpenApiDocument document, Type controllerType, List`1 operations, OpenApiDocumentGenerator swaggerGenerator, OpenApiSchemaResolver schemaResolver)
+   at NSwag.Generation.AspNetCore.AspNetCoreOpenApiDocumentGenerator.GenerateForControllers(OpenApiDocument document, IGrouping`2[] apiGroups, OpenApiSchemaResolver schemaResolver)
+   at NSwag.Generation.AspNetCore.AspNetCoreOpenApiDocumentGenerator.GenerateAsync(ApiDescriptionGroupCollection apiDescriptionGroups)
+   at NSwag.Generation.AspNetCore.AspNetCoreOpenApiDocumentGenerator.GenerateAsync(Object serviceProvider)
+   at NSwag.AspNetCore.OpenApiDocumentProvider.GenerateAsync(String documentName)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.GenerateDocumentAsync(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.GetDocumentAsync(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-07-11 13:11:15,273 INFO - Request finished in 1204.8001ms 500 text/html; charset=utf-8
+2019-07-11 13:11:20,250 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/swagger-ui-bundle.js.map  
+2019-07-11 13:11:20,253 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/swagger-ui-standalone-preset.js.map  
+2019-07-11 13:11:20,254 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:11:20,257 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:11:20,266 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/swagger-ui.css.map  
+2019-07-11 13:11:20,268 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:11:20,282 INFO - Request finished in 39.6342ms 404 
+2019-07-11 13:11:20,291 INFO - Request finished in 20.3597ms 404 
+2019-07-11 13:11:20,296 INFO - Request finished in 43.894ms 404 
+2019-07-11 13:11:22,023 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-11 13:11:22,025 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:11:22,035 ERROR - An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The method 'post' on path '/api/v1/Employee/Employee' is registered multiple times.
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.GetDocumentAsync(HttpContext context)
+   at NSwag.AspNetCore.Middlewares.OpenApiDocumentMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-07-11 13:11:22,047 INFO - Request finished in 19.5457ms 500 text/html; charset=utf-8
+2019-07-11 13:11:22,208 INFO - Request starting HTTP/1.1 GET http://localhost:59821/favicon.ico  
+2019-07-11 13:11:22,210 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:11:22,217 INFO - Request finished in 3.6616ms 404 
+2019-07-11 13:12:12,160 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-11 13:12:12,160 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-11 13:12:12,160 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-11 13:12:12,207 INFO - Request finished in 78.6533ms 200 
+2019-07-11 13:12:12,248 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:12:12,255 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:12:12,450 INFO - Request finished in 281.1098ms 200 text/html; charset=utf-8
+2019-07-11 13:12:12,583 INFO - Request finished in 448.5188ms 404 
+2019-07-11 13:12:13,123 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-11 13:12:13,130 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:12:14,201 INFO - Request finished in 1079.8619ms 200 application/json; charset=utf-8
+2019-07-11 13:13:06,927 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-11 13:13:06,930 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-11 13:13:06,986 INFO - Request finished in 63.0621ms 200 
+2019-07-11 13:13:07,001 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:13:07,222 INFO - Request finished in 286.2516ms 404 
+2019-07-11 13:13:07,891 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-11 13:13:07,904 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:13:07,985 INFO - Request finished in 92.5994ms 200 text/html; charset=utf-8
+2019-07-11 13:13:08,637 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-11 13:13:08,641 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:13:09,581 INFO - Request finished in 942.7803ms 200 application/json; charset=utf-8
+2019-07-11 13:13:35,683 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1  
+2019-07-11 13:13:35,690 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:13:35,742 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-11 13:13:39,380 INFO - 'GetEmployeesAsync' has been invoked
+2019-07-11 13:13:39,390 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , , , , , ) - Validation state: Valid
+2019-07-11 13:13:41,292 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-11 13:13:41,433 WARN - The Include operation for navigation '[b].IdentificationType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-11 13:13:41,435 WARN - The Include operation for navigation '[b].Organization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-11 13:13:41,443 WARN - The Include operation for navigation '[b].EmployeeProffesionType.ProffesionType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-11 13:13:41,444 WARN - The Include operation for navigation '[b].EmployeeAuthtorization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-11 13:13:41,446 WARN - The Include operation for navigation '[b].EmployeeTraining' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-11 13:13:41,447 WARN - The Include operation for navigation '[b].EmployeeWorkPermit' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-11 13:13:42,397 INFO - Executed DbCommand (94ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [b]
+2019-07-11 13:13:42,474 WARN - Query: '(from Employee b in DbSet<Employee> select EmployeeResponse ToEntity( 
+    request: [b], , 
+    ph...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-07-11 13:13:42,916 INFO - Executed DbCommand (80ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b].[EmployeeID], [b].[Address], [b].[BirthDate], [b].[Citizenship], [b].[dateInsert], [b].[dateUpdate], [b].[FirstName], [b].[FirstNameEN], [b].[GenderID], [b].[IdentificationTypeID], [b].[IdentityNumber], [b].[LastName], [b].[LastNameEN], [b].[OrganizationID], [b].[PassportCountryID], [b].[state], [b].[userInsert], [b].[UserUpdate], [b.Organization].[OrganizationID], [b.Organization].[Comment], [b.Organization].[dateInsert], [b.Organization].[dateUpdate], [b.Organization].[OrganizationName], [b.Organization].[OrganizationNumber], [b.Organization].[OrganizationParentID], [b.Organization].[OrganizationTypeID], [b.Organization].[state], [b.Organization].[userInsert], [b.Organization].[UserUpdate], [b.IdentificationType].[IdentificationTypeID], [b.IdentificationType].[Comment], [b.IdentificationType].[dateInsert], [b.IdentificationType].[dateUpdate], [b.IdentificationType].[IdentificationTypeName], [b.IdentificationType].[state], [b.IdentificationType].[userInsert], [b.IdentificationType].[UserUpdate]
+FROM [BB_HR_Employee] AS [b]
+LEFT JOIN [BB_GEN_Organization] AS [b.Organization] ON [b].[OrganizationID] = [b.Organization].[OrganizationID]
+LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType] ON [b].[IdentificationTypeID] = [b.IdentificationType].[IdentificationTypeID]
+ORDER BY [b].[EmployeeID]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2019-07-11 13:13:43,197 INFO - Executed DbCommand (79ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeProffesionType].[EmployeeAuthorizationID], [b.EmployeeProffesionType].[Comment], [b.EmployeeProffesionType].[dateInsert], [b.EmployeeProffesionType].[dateUpdate], [b.EmployeeProffesionType].[EmployeeID], [b.EmployeeProffesionType].[ProffesionTypeID], [b.EmployeeProffesionType].[state], [b.EmployeeProffesionType].[userInsert], [b.EmployeeProffesionType].[UserUpdate], [e.ProffesionType].[ProffesionTypeID], [e.ProffesionType].[Comment], [e.ProffesionType].[dateInsert], [e.ProffesionType].[dateUpdate], [e.ProffesionType].[ProffesionTypeName], [e.ProffesionType].[state], [e.ProffesionType].[userInsert], [e.ProffesionType].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [b.EmployeeProffesionType]
+LEFT JOIN [BB_HR_ProffesionType] AS [e.ProffesionType] ON [b.EmployeeProffesionType].[ProffesionTypeID] = [e.ProffesionType].[ProffesionTypeID]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT [b0].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b0]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization0] ON [b0].[OrganizationID] = [b.Organization0].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType0] ON [b0].[IdentificationTypeID] = [b.IdentificationType0].[IdentificationTypeID]
+        ORDER BY [b0].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t]
+) AS [t0] ON [b.EmployeeProffesionType].[EmployeeID] = [t0].[EmployeeID]
+ORDER BY [t0].[EmployeeID]
+2019-07-11 13:13:43,313 INFO - Executed DbCommand (79ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeAuthtorization].[EmployeeAuthorizationID], [b.EmployeeAuthtorization].[AuthorizationTypeID], [b.EmployeeAuthtorization].[Comment], [b.EmployeeAuthtorization].[DateFrom], [b.EmployeeAuthtorization].[dateInsert], [b.EmployeeAuthtorization].[DateTo], [b.EmployeeAuthtorization].[dateUpdate], [b.EmployeeAuthtorization].[EmployeeAuthorizationName], [b.EmployeeAuthtorization].[EmployeeID], [b.EmployeeAuthtorization].[SiteId], [b.EmployeeAuthtorization].[state], [b.EmployeeAuthtorization].[userInsert], [b.EmployeeAuthtorization].[UserUpdate]
+FROM [BB_HR_EmployeeAuthtorization] AS [b.EmployeeAuthtorization]
+INNER JOIN (
+    SELECT DISTINCT [t1].*
+    FROM (
+        SELECT [b1].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b1]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization1] ON [b1].[OrganizationID] = [b.Organization1].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType1] ON [b1].[IdentificationTypeID] = [b.IdentificationType1].[IdentificationTypeID]
+        ORDER BY [b1].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t1]
+) AS [t2] ON [b.EmployeeAuthtorization].[EmployeeID] = [t2].[EmployeeID]
+ORDER BY [t2].[EmployeeID]
+2019-07-11 13:13:43,413 INFO - Executed DbCommand (79ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeTraining].[EmployeeTrainingID], [b.EmployeeTraining].[Comment], [b.EmployeeTraining].[DateFrom], [b.EmployeeTraining].[dateInsert], [b.EmployeeTraining].[DateTo], [b.EmployeeTraining].[dateUpdate], [b.EmployeeTraining].[EmployeeID], [b.EmployeeTraining].[EmployeeTrainingName], [b.EmployeeTraining].[SiteID], [b.EmployeeTraining].[state], [b.EmployeeTraining].[TrainingTypeID], [b.EmployeeTraining].[userInsert], [b.EmployeeTraining].[UserUpdate]
+FROM [BB_HR_EmployeeTraining] AS [b.EmployeeTraining]
+INNER JOIN (
+    SELECT DISTINCT [t3].*
+    FROM (
+        SELECT [b2].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b2]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization2] ON [b2].[OrganizationID] = [b.Organization2].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType2] ON [b2].[IdentificationTypeID] = [b.IdentificationType2].[IdentificationTypeID]
+        ORDER BY [b2].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t3]
+) AS [t4] ON [b.EmployeeTraining].[EmployeeID] = [t4].[EmployeeID]
+ORDER BY [t4].[EmployeeID]
+2019-07-11 13:13:43,512 INFO - Executed DbCommand (79ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeWorkPermit].[EmployeeWorkPermitID], [b.EmployeeWorkPermit].[Comment], [b.EmployeeWorkPermit].[DateFrom], [b.EmployeeWorkPermit].[dateInsert], [b.EmployeeWorkPermit].[DateTo], [b.EmployeeWorkPermit].[dateUpdate], [b.EmployeeWorkPermit].[EmployeeID], [b.EmployeeWorkPermit].[EmployeeWorkPermitName], [b.EmployeeWorkPermit].[IsRequired], [b.EmployeeWorkPermit].[SiteID], [b.EmployeeWorkPermit].[state], [b.EmployeeWorkPermit].[userInsert], [b.EmployeeWorkPermit].[UserUpdate]
+FROM [BB_HR_EmployeeWorkPermit] AS [b.EmployeeWorkPermit]
+INNER JOIN (
+    SELECT DISTINCT [t5].*
+    FROM (
+        SELECT [b3].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b3]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization3] ON [b3].[OrganizationID] = [b.Organization3].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType3] ON [b3].[IdentificationTypeID] = [b.IdentificationType3].[IdentificationTypeID]
+        ORDER BY [b3].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t5]
+) AS [t6] ON [b.EmployeeWorkPermit].[EmployeeID] = [t6].[EmployeeID]
+ORDER BY [t6].[EmployeeID]
+2019-07-11 13:13:44,959 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 5563.8607ms.
+2019-07-11 13:13:44,960 INFO - The GetEmployeesAsync have been retrieved successfully.
+2019-07-11 13:13:44,974 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-11 13:13:45,016 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 9271.0567ms
+2019-07-11 13:13:45,032 INFO - Request finished in 9345.5539ms 200 application/json; charset=utf-8
+2019-07-11 13:28:16,148 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/index.html  
+2019-07-11 13:28:16,148 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-11 13:28:16,148 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Mastpen/  
+2019-07-11 13:28:16,197 INFO - Request finished in 47.796ms 200 
+2019-07-11 13:28:16,221 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:28:16,227 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:28:16,402 INFO - Request finished in 255.2093ms 404 
+2019-07-11 13:28:16,404 INFO - Request finished in 255.2983ms 404 
+2019-07-11 13:28:44,425 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger  
+2019-07-11 13:28:44,427 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:28:44,437 INFO - Request finished in 5.0519ms 404 
+2019-07-11 13:31:24,233 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html?url=/swagger/v1/swagger.json  
+2019-07-11 13:31:24,235 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,293 INFO - Request finished in 60.0337ms 200 text/html; charset=utf-8
+2019-07-11 13:31:24,351 INFO - Request starting HTTP/1.1 GET http://localhost:59821/css/screen.css  
+2019-07-11 13:31:24,356 INFO - Request starting HTTP/1.1 GET http://localhost:59821/lib/jquery-1.8.0.min.js  
+2019-07-11 13:31:24,357 INFO - Request starting HTTP/1.1 GET http://localhost:59821/css/reset.css  
+2019-07-11 13:31:24,360 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,366 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,367 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,369 INFO - Request starting HTTP/1.1 GET http://localhost:59821/css/typography.css  
+2019-07-11 13:31:24,371 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,403 INFO - Sending file. Request path: '/css/reset.css'. Physical path: 'N/A'
+2019-07-11 13:31:24,405 INFO - Sending file. Request path: '/css/screen.css'. Physical path: 'N/A'
+2019-07-11 13:31:24,407 INFO - Request finished in 47.1488ms 200 text/css
+2019-07-11 13:31:24,409 INFO - Request finished in 65.1195ms 200 text/css
+2019-07-11 13:31:24,414 INFO - Sending file. Request path: '/css/typography.css'. Physical path: 'N/A'
+2019-07-11 13:31:24,416 INFO - Request starting HTTP/1.1 GET http://localhost:59821/lib/object-assign-pollyfill.js  
+2019-07-11 13:31:24,422 INFO - Request finished in 56.7263ms 200 text/css
+2019-07-11 13:31:24,436 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,447 INFO - Request starting HTTP/1.1 GET http://localhost:59821/lib/jquery.slideto.min.js  
+2019-07-11 13:31:24,456 INFO - Sending file. Request path: '/lib/object-assign-pollyfill.js'. Physical path: 'N/A'
+2019-07-11 13:31:24,458 INFO - Sending file. Request path: '/lib/jquery-1.8.0.min.js'. Physical path: 'N/A'
+2019-07-11 13:31:24,468 INFO - Request finished in 46.5174ms 200 application/javascript
+2019-07-11 13:31:24,469 INFO - Request finished in 120.6749ms 200 application/javascript
+2019-07-11 13:31:24,471 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,472 INFO - Request starting HTTP/1.1 GET http://localhost:59821/lib/jquery.wiggle.min.js  
+2019-07-11 13:31:24,475 INFO - Sending file. Request path: '/lib/jquery.slideto.min.js'. Physical path: 'N/A'
+2019-07-11 13:31:24,482 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,485 INFO - Request starting HTTP/1.1 GET http://localhost:59821/lib/jquery.ba-bbq.min.js  
+2019-07-11 13:31:24,489 INFO - Request finished in 51.7597ms 200 application/javascript
+2019-07-11 13:31:24,493 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,498 INFO - Sending file. Request path: '/lib/jquery.wiggle.min.js'. Physical path: 'N/A'
+2019-07-11 13:31:24,501 INFO - Request starting HTTP/1.1 GET http://localhost:59821/lib/handlebars-4.0.5.js  
+2019-07-11 13:31:24,505 INFO - Sending file. Request path: '/lib/jquery.ba-bbq.min.js'. Physical path: 'N/A'
+2019-07-11 13:31:24,507 INFO - Request starting HTTP/1.1 GET http://localhost:59821/lib/lodash.min.js  
+2019-07-11 13:31:24,509 INFO - Request finished in 30.4299ms 200 application/javascript
+2019-07-11 13:31:24,511 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,519 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,524 INFO - Request finished in 49.2802ms 200 application/javascript
+2019-07-11 13:31:24,535 INFO - Sending file. Request path: '/lib/lodash.min.js'. Physical path: 'N/A'
+2019-07-11 13:31:24,540 INFO - Request starting HTTP/1.1 GET http://localhost:59821/lib/highlight.9.1.0.pack.js  
+2019-07-11 13:31:24,543 INFO - Request finished in 36.7228ms 200 application/javascript
+2019-07-11 13:31:24,553 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,564 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger-ui.js  
+2019-07-11 13:31:24,570 INFO - Sending file. Request path: '/lib/highlight.9.1.0.pack.js'. Physical path: 'N/A'
+2019-07-11 13:31:24,572 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,576 INFO - Sending file. Request path: '/lib/handlebars-4.0.5.js'. Physical path: 'N/A'
+2019-07-11 13:31:24,602 INFO - Request finished in 45.2671ms 200 application/javascript
+2019-07-11 13:31:24,604 INFO - Request starting HTTP/1.1 GET http://localhost:59821/lib/backbone-min.js  
+2019-07-11 13:31:24,618 INFO - Request starting HTTP/1.1 GET http://localhost:59821/lib/marked.js  
+2019-07-11 13:31:24,624 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,639 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,668 INFO - Sending file. Request path: '/lib/backbone-min.js'. Physical path: 'N/A'
+2019-07-11 13:31:24,688 INFO - Sending file. Request path: '/lib/marked.js'. Physical path: 'N/A'
+2019-07-11 13:31:24,700 INFO - Request finished in 160.6955ms 200 application/javascript
+2019-07-11 13:31:24,702 INFO - Request finished in 86.1361ms 200 application/javascript
+2019-07-11 13:31:24,709 INFO - Request starting HTTP/1.1 GET http://localhost:59821/images/logo_small.png  
+2019-07-11 13:31:24,719 INFO - Request starting HTTP/1.1 GET http://localhost:59821/css/print.css  
+2019-07-11 13:31:24,721 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,726 INFO - Request starting HTTP/1.1 GET http://localhost:59821/lib/highlight.9.1.0.pack_extended.js  
+2019-07-11 13:31:24,731 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,737 INFO - Sending file. Request path: '/images/logo_small.png'. Physical path: 'N/A'
+2019-07-11 13:31:24,740 INFO - Sending file. Request path: '/css/print.css'. Physical path: 'N/A'
+2019-07-11 13:31:24,742 INFO - Request finished in 38.2735ms 200 image/png
+2019-07-11 13:31:24,757 INFO - Request finished in 38.3537ms 200 text/css
+2019-07-11 13:31:24,759 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,768 INFO - Request finished in 221.56ms 200 application/javascript
+2019-07-11 13:31:24,775 INFO - Sending file. Request path: '/lib/highlight.9.1.0.pack_extended.js'. Physical path: 'N/A'
+2019-07-11 13:31:24,781 INFO - Request starting HTTP/1.1 GET http://localhost:59821/lib/swagger-oauth.js  
+2019-07-11 13:31:24,782 INFO - Request finished in 240.5652ms 200 application/javascript
+2019-07-11 13:31:24,784 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,789 INFO - Request starting HTTP/1.1 GET http://localhost:59821/lib/jsoneditor.min.js  
+2019-07-11 13:31:24,798 INFO - Sending file. Request path: '/lib/swagger-oauth.js'. Physical path: 'N/A'
+2019-07-11 13:31:24,805 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:24,806 INFO - Request finished in 32.0537ms 200 application/javascript
+2019-07-11 13:31:24,820 INFO - Sending file. Request path: '/lib/jsoneditor.min.js'. Physical path: 'N/A'
+2019-07-11 13:31:24,833 INFO - Request finished in 267.0583ms 200 application/javascript
+2019-07-11 13:31:24,903 INFO - Sending file. Request path: '/swagger-ui.js'. Physical path: 'N/A'
+2019-07-11 13:31:24,906 INFO - Request finished in 392.8023ms 200 application/javascript
+2019-07-11 13:31:25,084 INFO - Request starting HTTP/1.1 GET http://localhost:59821/images/favicon-32x32.png  
+2019-07-11 13:31:25,086 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:25,088 INFO - Sending file. Request path: '/images/favicon-32x32.png'. Physical path: 'N/A'
+2019-07-11 13:31:25,090 INFO - Request finished in 5.254ms 200 image/png
+2019-07-11 13:31:25,119 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-11 13:31:25,121 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:26,322 INFO - Request finished in 1197.6438ms 200 application/json; charset=utf-8
+2019-07-11 13:31:31,821 INFO - Request starting HTTP/1.1 GET http://localhost:59821/images/throbber.gif  
+2019-07-11 13:31:31,822 INFO - Request starting HTTP/1.1 GET http://localhost:59821/images/explorer_icons.png  
+2019-07-11 13:31:31,825 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:31,826 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-11 13:31:31,829 INFO - Sending file. Request path: '/images/throbber.gif'. Physical path: 'N/A'
+2019-07-11 13:31:31,835 INFO - Sending file. Request path: '/images/explorer_icons.png'. Physical path: 'N/A'
+2019-07-11 13:31:31,837 INFO - Request finished in 10.4701ms 200 image/gif
+2019-07-11 13:31:31,838 INFO - Request finished in 18.0115ms 200 image/png
