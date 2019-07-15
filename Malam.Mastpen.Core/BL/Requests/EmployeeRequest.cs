@@ -205,7 +205,7 @@ namespace Malam.Mastpen.Core.BL.Requests
               Employee = request.Employee,
               Site = request.Site,
 
-              uri =docs.DocumentPath,
+              uri = docs == null ? null : docs.DocumentPath,
               UserInsert = request.UserInsert,
               DateInsert = request.DateInsert,
               UserUpdate = request.UserUpdate,
@@ -229,7 +229,7 @@ namespace Malam.Mastpen.Core.BL.Requests
               Employee = request.Employee,
               Site = request.Site,
 
-              uri = docs.DocumentPath,
+              uri = docs==null?null:docs.DocumentPath,
               UserInsert = request.UserInsert,
               DateInsert = request.DateInsert,
               UserUpdate = request.UserUpdate,
@@ -253,7 +253,7 @@ namespace Malam.Mastpen.Core.BL.Requests
                   Employee = request.Employee,
                   Site = request.Site,
 
-                  uri = docs.DocumentPath,
+                  uri = docs == null ? null : docs.DocumentPath,
                   UserInsert = request.UserInsert,
                   DateInsert = request.DateInsert,
                   UserUpdate = request.UserUpdate,
