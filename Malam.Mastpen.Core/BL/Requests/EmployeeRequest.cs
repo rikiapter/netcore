@@ -68,9 +68,9 @@ namespace Malam.Mastpen.Core.BL.Requests
         public TrainingResponse EmployeeWorkPermit { get; set; }
         public PhoneMail phonMail { get; set; }
 
-        public string picture { get; set; }
-        public string IdentityFile { get; set; }
-        public string PassportFile { get; set; }
+        public string picturePath { get; set; }
+        public string IdentityFilePath { get; set; }
+        public string PassportFilePath { get; set; }
         //public Docs docs { get; set; }       
 
         //public ICollection<EmployeeEntry> EmployeeEntry { get; set; }
@@ -166,9 +166,9 @@ namespace Malam.Mastpen.Core.BL.Requests
                 EmployeeWorkPermit = request.EmployeeWorkPermit.Count > 0 ? new TrainingResponse((request.EmployeeWorkPermit.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "אישור עבודה בגובה"):null,
                 phonMail = phone,
                 ProffesionType = request.EmployeeProffesionType.Count>0? request.EmployeeProffesionType.First().ProffesionType:null,
-                picture= docsFaceImage ==null ? null: docsFaceImage.DocumentPath,
-                IdentityFile = docsCopyofID == null ? null : docsCopyofID.DocumentPath,
-                PassportFile = docsCopyPassport == null ? null : docsCopyPassport.DocumentPath
+                picturePath= docsFaceImage ==null ? null: docsFaceImage.DocumentPath,
+                IdentityFilePath = docsCopyofID == null ? null : docsCopyofID.DocumentPath,
+                PassportFilePath = docsCopyPassport == null ? null : docsCopyPassport.DocumentPath
 
 
             };

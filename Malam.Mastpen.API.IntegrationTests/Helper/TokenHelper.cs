@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using IdentityModel.Client;
 using Malam.Mastpen.API.IntegrationTests.Mock;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Malam.Mastpen.API.IntegrationTests.Helper
 {
@@ -20,14 +21,14 @@ namespace Malam.Mastpen.API.IntegrationTests.Helper
                 var disco = await client.GetDiscoveryDocumentAsync(settings.Url);
 
                 return await client.RequestPasswordTokenAsync(new PasswordTokenRequest
-                {
+                       {
                     Address = disco.TokenEndpoint,
-                    ClientId = settings.ClientId,
-                    
-                   // ClientSecret = settings.ClientSecret,
-                    UserName = settings.UserName,
-                    Password = settings.Password
-                });
+                    ClientId = settings.ClientId, 
+                     ClientSecret = settings.ClientSecret, 
+                     UserName = settings.UserName, 
+                     Password = settings.Password
+                       });
+
             }
         }
 
@@ -38,6 +39,6 @@ namespace Malam.Mastpen.API.IntegrationTests.Helper
             => await GetMastpenCustomerTokenAsync("Mastpenmanager1@Mastpen.com", "password1");
 
         public static async Task<TokenResponse> GetMastpenTokenForWolverineAsync()
-            => await GetMastpenCustomerTokenAsync("alice", "alice");//"jameslogan@walla.com", "wolverine");
+            => await GetMastpenCustomerTokenAsync("riki", "riki");//"jameslogan@walla.com", "wolverine");
     }
 }

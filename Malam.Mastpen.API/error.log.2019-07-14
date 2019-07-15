@@ -1,0 +1,979 @@
+2019-07-14 10:00:03,249 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 10:00:03,249 INFO - Request starting HTTP/1.1 GET http://localhost:59821/  
+2019-07-14 10:00:03,282 INFO - Request finished in 36.0954ms 200 
+2019-07-14 10:00:03,297 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:00:03,331 INFO - Request finished in 82.9108ms 301 
+2019-07-14 10:00:03,335 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 10:00:03,339 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:00:03,465 INFO - Request finished in 125.4673ms 200 text/html
+2019-07-14 10:00:03,518 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger-ui-bundle.js  
+2019-07-14 10:00:03,548 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger-ui.css  
+2019-07-14 10:00:03,549 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger-ui-standalone-preset.js  
+2019-07-14 10:00:03,552 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:00:03,556 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:00:03,557 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:00:03,650 INFO - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2019-07-14 10:00:03,725 INFO - Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2019-07-14 10:00:03,731 INFO - Request finished in 160.6608ms 200 text/css
+2019-07-14 10:00:03,745 INFO - Request finished in 209.2188ms 200 application/javascript
+2019-07-14 10:00:03,752 INFO - Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2019-07-14 10:00:03,762 INFO - Request finished in 243.3828ms 200 application/javascript
+2019-07-14 10:00:04,044 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 10:00:04,048 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:00:04,127 INFO - Request starting HTTP/1.1 GET http://localhost:59821/favicon-32x32.png  
+2019-07-14 10:00:04,151 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:00:04,173 INFO - Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2019-07-14 10:00:04,187 INFO - Request finished in 67.4848ms 200 image/png
+2019-07-14 10:00:04,494 INFO - Request finished in 446.2059ms 200 application/json;charset=utf-8
+2019-07-14 10:02:49,078 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 10:02:49,081 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 10:02:49,145 INFO - Request finished in 67.8568ms 200 
+2019-07-14 10:02:49,169 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:02:49,462 INFO - Request finished in 306.6027ms 200 text/html
+2019-07-14 10:02:49,910 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 10:02:49,923 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:02:50,676 INFO - Request finished in 746.8831ms 200 application/json;charset=utf-8
+2019-07-14 10:04:15,516 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 10:04:15,551 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:04:15,628 INFO - Request finished in 115.9641ms 200 text/html
+2019-07-14 10:04:27,891 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 10:04:27,891 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 10:04:27,945 INFO - Request finished in 52.4858ms 200 
+2019-07-14 10:04:27,964 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:04:28,075 INFO - Request finished in 190.2961ms 200 text/html
+2019-07-14 10:04:28,308 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 10:04:28,338 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:04:28,724 INFO - Request finished in 422.2322ms 200 application/json;charset=utf-8
+2019-07-14 10:06:56,970 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 10:06:56,970 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 10:06:57,010 INFO - Request finished in 44.5536ms 200 
+2019-07-14 10:06:57,030 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:06:57,132 INFO - Request finished in 167.8594ms 200 text/html
+2019-07-14 10:06:57,647 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 10:06:57,776 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:06:58,232 INFO - Request finished in 671.0927ms 200 application/json;charset=utf-8
+2019-07-14 10:10:46,977 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 10:10:46,979 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 10:10:47,084 INFO - Request finished in 185.7754ms 200 
+2019-07-14 10:10:47,118 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:10:47,325 INFO - Request finished in 408.5361ms 200 text/html
+2019-07-14 10:10:47,630 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 10:10:47,642 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:10:48,228 INFO - Request finished in 592.1711ms 200 application/json;charset=utf-8
+2019-07-14 10:10:59,094 INFO - Request starting HTTP/1.1 GET http://localhost:59821/oauth2-redirect.html  
+2019-07-14 10:10:59,096 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:10:59,113 INFO - Sending file. Request path: '/oauth2-redirect.html'. Physical path: 'N/A'
+2019-07-14 10:10:59,115 INFO - Request finished in 20.0097ms 200 text/html
+2019-07-14 10:11:12,168 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1  
+2019-07-14 10:11:12,170 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:11:12,251 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-14 10:11:12,279 INFO - Authorization failed.
+2019-07-14 10:11:12,281 INFO - Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-07-14 10:11:12,287 INFO - Executing ChallengeResult with authentication schemes ().
+2019-07-14 10:11:12,465 INFO - AuthenticationScheme: BearerIdentityServerAuthenticationJwt was challenged.
+2019-07-14 10:11:12,472 INFO - AuthenticationScheme: Bearer was challenged.
+2019-07-14 10:11:12,475 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 221.3125ms
+2019-07-14 10:11:12,477 INFO - Request finished in 309.4158ms 401 
+2019-07-14 10:11:53,385 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 10:11:53,385 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 10:11:53,421 INFO - Request finished in 45.2938ms 200 
+2019-07-14 10:11:53,439 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:11:53,556 INFO - Request finished in 181.1648ms 200 text/html
+2019-07-14 10:11:53,754 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 10:11:53,763 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:11:54,145 INFO - Request finished in 390.603ms 200 application/json;charset=utf-8
+2019-07-14 10:12:06,941 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1  
+2019-07-14 10:12:06,945 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:12:07,030 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-14 10:12:07,040 INFO - Authorization failed.
+2019-07-14 10:12:07,042 INFO - Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-07-14 10:12:07,048 INFO - Executing ChallengeResult with authentication schemes ().
+2019-07-14 10:12:07,106 INFO - AuthenticationScheme: BearerIdentityServerAuthenticationJwt was challenged.
+2019-07-14 10:12:07,108 INFO - AuthenticationScheme: Bearer was challenged.
+2019-07-14 10:12:07,110 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 77.4228ms
+2019-07-14 10:12:07,112 INFO - Request finished in 171.5568ms 401 
+2019-07-14 10:31:06,906 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 10:31:06,943 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:31:07,028 INFO - Request finished in 125.612ms 200 text/html
+2019-07-14 10:33:55,666 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 10:33:55,666 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 10:33:55,709 INFO - Request finished in 47.5904ms 200 
+2019-07-14 10:33:55,731 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:33:55,872 INFO - Request finished in 211.6339ms 200 text/html
+2019-07-14 10:33:56,107 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 10:33:56,116 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:33:56,498 INFO - Request finished in 397.7219ms 200 application/json;charset=utf-8
+2019-07-14 10:43:23,687 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 10:43:23,687 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 10:43:23,741 INFO - Request finished in 61.4721ms 200 
+2019-07-14 10:43:23,766 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:43:23,935 INFO - Request finished in 257.3949ms 200 text/html
+2019-07-14 10:43:24,170 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 10:43:24,179 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:43:24,566 INFO - Request finished in 391.1037ms 200 application/json;charset=utf-8
+2019-07-14 10:46:12,716 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 10:46:12,716 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 10:46:12,756 INFO - Request finished in 43.6504ms 200 
+2019-07-14 10:46:12,778 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:46:12,896 INFO - Request finished in 184.9111ms 200 text/html
+2019-07-14 10:46:13,117 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 10:46:13,129 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:46:13,507 INFO - Request finished in 392.0446ms 200 application/json;charset=utf-8
+2019-07-14 10:47:57,005 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 10:47:57,005 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 10:47:57,077 INFO - Request finished in 62.9386ms 200 
+2019-07-14 10:47:57,087 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:47:57,213 INFO - Request finished in 213.1644ms 200 text/html
+2019-07-14 10:47:57,421 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 10:47:57,427 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:47:57,848 INFO - Request finished in 413.2256ms 200 application/json;charset=utf-8
+2019-07-14 10:50:49,928 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 10:50:49,928 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 10:50:50,007 INFO - Request finished in 88.413ms 200 
+2019-07-14 10:50:50,027 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:50:50,146 INFO - Request finished in 229.6497ms 200 text/html
+2019-07-14 10:50:50,352 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 10:50:50,355 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:50:50,684 INFO - Request finished in 331.8808ms 200 application/json;charset=utf-8
+2019-07-14 10:55:15,652 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 10:55:15,652 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 10:55:15,719 INFO - Request finished in 77.792ms 200 
+2019-07-14 10:55:15,738 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:55:15,870 INFO - Request finished in 231.64ms 200 text/html
+2019-07-14 10:55:16,075 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 10:55:16,087 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:55:16,598 INFO - Request finished in 486.5726ms 200 application/json;charset=utf-8
+2019-07-14 10:57:31,939 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 10:57:31,939 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 10:57:31,980 INFO - Request finished in 42.5478ms 200 
+2019-07-14 10:57:32,001 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:57:32,136 INFO - Request finished in 204.0167ms 200 text/html
+2019-07-14 10:57:32,370 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 10:57:32,375 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 10:57:32,769 INFO - Request finished in 398.6083ms 200 application/json;charset=utf-8
+2019-07-14 11:32:35,439 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 11:32:35,439 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 11:32:35,486 INFO - Request finished in 54.3352ms 200 
+2019-07-14 11:32:35,501 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 11:32:35,610 INFO - Request finished in 180.6837ms 200 text/html
+2019-07-14 11:32:35,810 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 11:32:35,815 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 11:32:36,186 INFO - Request finished in 376.1636ms 200 application/json;charset=utf-8
+2019-07-14 11:34:35,807 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 11:34:35,807 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 11:34:35,848 INFO - Request finished in 69.6632ms 200 
+2019-07-14 11:34:35,871 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 11:34:36,016 INFO - Request finished in 238.177ms 200 text/html
+2019-07-14 11:34:36,238 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 11:34:36,245 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 11:34:36,672 INFO - Request finished in 433.4609ms 200 application/json;charset=utf-8
+2019-07-14 11:35:41,775 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 11:35:41,775 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 11:35:41,814 INFO - Request finished in 40.6951ms 200 
+2019-07-14 11:35:41,832 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 11:35:42,033 INFO - Request finished in 224.1453ms 200 text/html
+2019-07-14 11:35:42,284 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 11:35:42,290 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 11:35:42,768 INFO - Request finished in 491.2821ms 200 application/json;charset=utf-8
+2019-07-14 11:35:53,705 INFO - Request starting HTTP/1.1 GET http://localhost:59821/oauth2-redirect.html  
+2019-07-14 11:35:53,709 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 11:35:53,724 INFO - The file /oauth2-redirect.html was not modified
+2019-07-14 11:35:53,727 INFO - Request finished in 33.2869ms 304 text/html
+2019-07-14 11:36:13,448 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1  
+2019-07-14 11:36:13,450 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 11:36:13,533 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-14 11:36:13,547 INFO - Authorization failed.
+2019-07-14 11:36:13,548 INFO - Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-07-14 11:36:13,553 INFO - Executing ChallengeResult with authentication schemes ().
+2019-07-14 11:36:13,616 INFO - AuthenticationScheme: BearerIdentityServerAuthenticationJwt was challenged.
+2019-07-14 11:36:13,618 INFO - AuthenticationScheme: Bearer was challenged.
+2019-07-14 11:36:13,622 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 84.645ms
+2019-07-14 11:36:13,625 INFO - Request finished in 176.3966ms 401 
+2019-07-14 11:37:30,743 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 11:37:30,743 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 11:37:30,807 INFO - Request finished in 68.0857ms 200 
+2019-07-14 11:37:30,841 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 11:37:30,957 INFO - Request finished in 222.8652ms 200 text/html
+2019-07-14 11:37:31,177 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 11:37:31,193 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 11:37:31,706 INFO - Request finished in 518.2758ms 200 application/json;charset=utf-8
+2019-07-14 11:38:03,514 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1  
+2019-07-14 11:38:03,517 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 11:38:03,600 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-14 11:38:03,613 INFO - Authorization failed.
+2019-07-14 11:38:03,615 INFO - Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2019-07-14 11:38:03,620 INFO - Executing ChallengeResult with authentication schemes ().
+2019-07-14 11:38:03,698 INFO - AuthenticationScheme: BearerIdentityServerAuthenticationJwt was challenged.
+2019-07-14 11:38:03,700 INFO - AuthenticationScheme: Bearer was challenged.
+2019-07-14 11:38:03,703 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 99.7932ms
+2019-07-14 11:38:03,706 INFO - Request finished in 193.0436ms 401 
+2019-07-14 11:43:10,188 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 11:43:10,188 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 11:43:10,267 INFO - Request finished in 117.7086ms 200 
+2019-07-14 11:43:10,277 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 11:43:10,402 INFO - Request finished in 258.8887ms 200 text/html
+2019-07-14 11:43:10,641 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 11:43:10,645 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 11:44:41,369 INFO - Request finished in 90727.6623ms 200 application/json;charset=utf-8
+2019-07-14 11:44:55,858 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1  
+2019-07-14 11:44:56,957 INFO - Successfully validated the token.
+2019-07-14 11:44:56,979 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2019-07-14 11:44:57,087 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-14 11:44:57,098 INFO - Authorization was successful.
+2019-07-14 11:45:12,960 INFO - 'GetEmployeesAsync' has been invoked
+2019-07-14 11:45:12,968 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , , , , , ) - Validation state: Valid
+2019-07-14 11:45:24,184 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 11:45:24,319 WARN - The Include operation for navigation '[b].IdentificationType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 11:45:24,321 WARN - The Include operation for navigation '[b].Organization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 11:45:24,322 WARN - The Include operation for navigation '[b].EmployeeProffesionType.ProffesionType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 11:45:24,328 WARN - The Include operation for navigation '[b].EmployeeAuthtorization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 11:45:24,330 WARN - The Include operation for navigation '[b].EmployeeTraining' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 11:45:24,333 WARN - The Include operation for navigation '[b].EmployeeWorkPermit' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 11:45:25,255 INFO - Executed DbCommand (97ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [b]
+2019-07-14 11:45:25,323 WARN - Query: '(from Employee b in DbSet<Employee> select EmployeeResponse ToEntity( 
+    request: [b], , 
+    ph...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-07-14 11:45:25,785 INFO - Executed DbCommand (78ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b].[EmployeeID], [b].[Address], [b].[BirthDate], [b].[Citizenship], [b].[dateInsert], [b].[dateUpdate], [b].[FirstName], [b].[FirstNameEN], [b].[GenderID], [b].[IdentificationTypeID], [b].[IdentityNumber], [b].[LastName], [b].[LastNameEN], [b].[OrganizationID], [b].[PassportCountryID], [b].[state], [b].[userInsert], [b].[UserUpdate], [b.Organization].[OrganizationID], [b.Organization].[Comment], [b.Organization].[dateInsert], [b.Organization].[dateUpdate], [b.Organization].[OrganizationName], [b.Organization].[OrganizationNumber], [b.Organization].[OrganizationParentID], [b.Organization].[OrganizationTypeID], [b.Organization].[state], [b.Organization].[userInsert], [b.Organization].[UserUpdate], [b.IdentificationType].[IdentificationTypeID], [b.IdentificationType].[Comment], [b.IdentificationType].[dateInsert], [b.IdentificationType].[dateUpdate], [b.IdentificationType].[IdentificationTypeName], [b.IdentificationType].[state], [b.IdentificationType].[userInsert], [b.IdentificationType].[UserUpdate]
+FROM [BB_HR_Employee] AS [b]
+LEFT JOIN [BB_GEN_Organization] AS [b.Organization] ON [b].[OrganizationID] = [b.Organization].[OrganizationID]
+LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType] ON [b].[IdentificationTypeID] = [b.IdentificationType].[IdentificationTypeID]
+ORDER BY [b].[EmployeeID]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2019-07-14 11:45:26,135 INFO - Executed DbCommand (76ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeProffesionType].[EmployeeAuthorizationID], [b.EmployeeProffesionType].[Comment], [b.EmployeeProffesionType].[dateInsert], [b.EmployeeProffesionType].[dateUpdate], [b.EmployeeProffesionType].[EmployeeID], [b.EmployeeProffesionType].[ProffesionTypeID], [b.EmployeeProffesionType].[state], [b.EmployeeProffesionType].[userInsert], [b.EmployeeProffesionType].[UserUpdate], [e.ProffesionType].[ProffesionTypeID], [e.ProffesionType].[Comment], [e.ProffesionType].[dateInsert], [e.ProffesionType].[dateUpdate], [e.ProffesionType].[ProffesionTypeName], [e.ProffesionType].[state], [e.ProffesionType].[userInsert], [e.ProffesionType].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [b.EmployeeProffesionType]
+LEFT JOIN [BB_HR_ProffesionType] AS [e.ProffesionType] ON [b.EmployeeProffesionType].[ProffesionTypeID] = [e.ProffesionType].[ProffesionTypeID]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT [b0].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b0]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization0] ON [b0].[OrganizationID] = [b.Organization0].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType0] ON [b0].[IdentificationTypeID] = [b.IdentificationType0].[IdentificationTypeID]
+        ORDER BY [b0].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t]
+) AS [t0] ON [b.EmployeeProffesionType].[EmployeeID] = [t0].[EmployeeID]
+ORDER BY [t0].[EmployeeID]
+2019-07-14 11:45:26,272 INFO - Executed DbCommand (83ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeAuthtorization].[EmployeeAuthorizationID], [b.EmployeeAuthtorization].[AuthorizationTypeID], [b.EmployeeAuthtorization].[Comment], [b.EmployeeAuthtorization].[DateFrom], [b.EmployeeAuthtorization].[dateInsert], [b.EmployeeAuthtorization].[DateTo], [b.EmployeeAuthtorization].[dateUpdate], [b.EmployeeAuthtorization].[EmployeeAuthorizationName], [b.EmployeeAuthtorization].[EmployeeID], [b.EmployeeAuthtorization].[SiteId], [b.EmployeeAuthtorization].[state], [b.EmployeeAuthtorization].[userInsert], [b.EmployeeAuthtorization].[UserUpdate]
+FROM [BB_HR_EmployeeAuthtorization] AS [b.EmployeeAuthtorization]
+INNER JOIN (
+    SELECT DISTINCT [t1].*
+    FROM (
+        SELECT [b1].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b1]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization1] ON [b1].[OrganizationID] = [b.Organization1].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType1] ON [b1].[IdentificationTypeID] = [b.IdentificationType1].[IdentificationTypeID]
+        ORDER BY [b1].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t1]
+) AS [t2] ON [b.EmployeeAuthtorization].[EmployeeID] = [t2].[EmployeeID]
+ORDER BY [t2].[EmployeeID]
+2019-07-14 11:45:26,380 INFO - Executed DbCommand (79ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeTraining].[EmployeeTrainingID], [b.EmployeeTraining].[Comment], [b.EmployeeTraining].[DateFrom], [b.EmployeeTraining].[dateInsert], [b.EmployeeTraining].[DateTo], [b.EmployeeTraining].[dateUpdate], [b.EmployeeTraining].[EmployeeID], [b.EmployeeTraining].[EmployeeTrainingName], [b.EmployeeTraining].[SiteID], [b.EmployeeTraining].[state], [b.EmployeeTraining].[TrainingTypeID], [b.EmployeeTraining].[userInsert], [b.EmployeeTraining].[UserUpdate]
+FROM [BB_HR_EmployeeTraining] AS [b.EmployeeTraining]
+INNER JOIN (
+    SELECT DISTINCT [t3].*
+    FROM (
+        SELECT [b2].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b2]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization2] ON [b2].[OrganizationID] = [b.Organization2].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType2] ON [b2].[IdentificationTypeID] = [b.IdentificationType2].[IdentificationTypeID]
+        ORDER BY [b2].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t3]
+) AS [t4] ON [b.EmployeeTraining].[EmployeeID] = [t4].[EmployeeID]
+ORDER BY [t4].[EmployeeID]
+2019-07-14 11:45:26,482 INFO - Executed DbCommand (76ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeWorkPermit].[EmployeeWorkPermitID], [b.EmployeeWorkPermit].[Comment], [b.EmployeeWorkPermit].[DateFrom], [b.EmployeeWorkPermit].[dateInsert], [b.EmployeeWorkPermit].[DateTo], [b.EmployeeWorkPermit].[dateUpdate], [b.EmployeeWorkPermit].[EmployeeID], [b.EmployeeWorkPermit].[EmployeeWorkPermitName], [b.EmployeeWorkPermit].[IsRequired], [b.EmployeeWorkPermit].[SiteID], [b.EmployeeWorkPermit].[state], [b.EmployeeWorkPermit].[userInsert], [b.EmployeeWorkPermit].[UserUpdate]
+FROM [BB_HR_EmployeeWorkPermit] AS [b.EmployeeWorkPermit]
+INNER JOIN (
+    SELECT DISTINCT [t5].*
+    FROM (
+        SELECT [b3].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b3]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization3] ON [b3].[OrganizationID] = [b.Organization3].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType3] ON [b3].[IdentificationTypeID] = [b.IdentificationType3].[IdentificationTypeID]
+        ORDER BY [b3].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t5]
+) AS [t6] ON [b.EmployeeWorkPermit].[EmployeeID] = [t6].[EmployeeID]
+ORDER BY [t6].[EmployeeID]
+2019-07-14 11:45:27,796 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 14823.6316ms.
+2019-07-14 11:45:27,797 INFO - The GetEmployeesAsync have been retrieved successfully.
+2019-07-14 11:45:27,812 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-14 11:45:27,846 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 30751.5188ms
+2019-07-14 11:45:27,859 INFO - Request finished in 31999.73ms 200 application/json; charset=utf-8
+2019-07-14 11:54:41,812 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 11:54:41,812 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 11:54:41,872 INFO - Request finished in 81.5867ms 200 
+2019-07-14 11:54:41,893 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 11:54:42,083 INFO - Request finished in 283.6189ms 200 text/html
+2019-07-14 11:54:42,312 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 11:54:42,318 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 11:54:42,768 INFO - Request finished in 458.2287ms 200 application/json;charset=utf-8
+2019-07-14 11:55:05,449 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1  
+2019-07-14 11:55:05,966 INFO - Successfully validated the token.
+2019-07-14 11:55:06,040 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2019-07-14 11:55:06,368 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-14 11:55:06,408 INFO - Authorization was successful.
+2019-07-14 11:55:09,300 INFO - 'GetEmployeesAsync' has been invoked
+2019-07-14 11:55:09,350 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , , , , , ) - Validation state: Valid
+2019-07-14 11:55:13,076 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 11:55:13,221 WARN - The Include operation for navigation '[b].IdentificationType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 11:55:13,224 WARN - The Include operation for navigation '[b].Organization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 11:55:13,226 WARN - The Include operation for navigation '[b].EmployeeProffesionType.ProffesionType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 11:55:13,229 WARN - The Include operation for navigation '[b].EmployeeAuthtorization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 11:55:13,231 WARN - The Include operation for navigation '[b].EmployeeTraining' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 11:55:13,233 WARN - The Include operation for navigation '[b].EmployeeWorkPermit' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 11:55:14,145 INFO - Executed DbCommand (95ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [b]
+2019-07-14 11:55:14,214 WARN - Query: '(from Employee b in DbSet<Employee> select EmployeeResponse ToEntity( 
+    request: [b], , 
+    ph...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-07-14 11:55:14,661 INFO - Executed DbCommand (81ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b].[EmployeeID], [b].[Address], [b].[BirthDate], [b].[Citizenship], [b].[dateInsert], [b].[dateUpdate], [b].[FirstName], [b].[FirstNameEN], [b].[GenderID], [b].[IdentificationTypeID], [b].[IdentityNumber], [b].[LastName], [b].[LastNameEN], [b].[OrganizationID], [b].[PassportCountryID], [b].[state], [b].[userInsert], [b].[UserUpdate], [b.Organization].[OrganizationID], [b.Organization].[Comment], [b.Organization].[dateInsert], [b.Organization].[dateUpdate], [b.Organization].[OrganizationName], [b.Organization].[OrganizationNumber], [b.Organization].[OrganizationParentID], [b.Organization].[OrganizationTypeID], [b.Organization].[state], [b.Organization].[userInsert], [b.Organization].[UserUpdate], [b.IdentificationType].[IdentificationTypeID], [b.IdentificationType].[Comment], [b.IdentificationType].[dateInsert], [b.IdentificationType].[dateUpdate], [b.IdentificationType].[IdentificationTypeName], [b.IdentificationType].[state], [b.IdentificationType].[userInsert], [b.IdentificationType].[UserUpdate]
+FROM [BB_HR_Employee] AS [b]
+LEFT JOIN [BB_GEN_Organization] AS [b.Organization] ON [b].[OrganizationID] = [b.Organization].[OrganizationID]
+LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType] ON [b].[IdentificationTypeID] = [b.IdentificationType].[IdentificationTypeID]
+ORDER BY [b].[EmployeeID]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2019-07-14 11:55:14,913 INFO - Executed DbCommand (79ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeProffesionType].[EmployeeAuthorizationID], [b.EmployeeProffesionType].[Comment], [b.EmployeeProffesionType].[dateInsert], [b.EmployeeProffesionType].[dateUpdate], [b.EmployeeProffesionType].[EmployeeID], [b.EmployeeProffesionType].[ProffesionTypeID], [b.EmployeeProffesionType].[state], [b.EmployeeProffesionType].[userInsert], [b.EmployeeProffesionType].[UserUpdate], [e.ProffesionType].[ProffesionTypeID], [e.ProffesionType].[Comment], [e.ProffesionType].[dateInsert], [e.ProffesionType].[dateUpdate], [e.ProffesionType].[ProffesionTypeName], [e.ProffesionType].[state], [e.ProffesionType].[userInsert], [e.ProffesionType].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [b.EmployeeProffesionType]
+LEFT JOIN [BB_HR_ProffesionType] AS [e.ProffesionType] ON [b.EmployeeProffesionType].[ProffesionTypeID] = [e.ProffesionType].[ProffesionTypeID]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT [b0].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b0]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization0] ON [b0].[OrganizationID] = [b.Organization0].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType0] ON [b0].[IdentificationTypeID] = [b.IdentificationType0].[IdentificationTypeID]
+        ORDER BY [b0].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t]
+) AS [t0] ON [b.EmployeeProffesionType].[EmployeeID] = [t0].[EmployeeID]
+ORDER BY [t0].[EmployeeID]
+2019-07-14 11:55:15,028 INFO - Executed DbCommand (79ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeAuthtorization].[EmployeeAuthorizationID], [b.EmployeeAuthtorization].[AuthorizationTypeID], [b.EmployeeAuthtorization].[Comment], [b.EmployeeAuthtorization].[DateFrom], [b.EmployeeAuthtorization].[dateInsert], [b.EmployeeAuthtorization].[DateTo], [b.EmployeeAuthtorization].[dateUpdate], [b.EmployeeAuthtorization].[EmployeeAuthorizationName], [b.EmployeeAuthtorization].[EmployeeID], [b.EmployeeAuthtorization].[SiteId], [b.EmployeeAuthtorization].[state], [b.EmployeeAuthtorization].[userInsert], [b.EmployeeAuthtorization].[UserUpdate]
+FROM [BB_HR_EmployeeAuthtorization] AS [b.EmployeeAuthtorization]
+INNER JOIN (
+    SELECT DISTINCT [t1].*
+    FROM (
+        SELECT [b1].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b1]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization1] ON [b1].[OrganizationID] = [b.Organization1].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType1] ON [b1].[IdentificationTypeID] = [b.IdentificationType1].[IdentificationTypeID]
+        ORDER BY [b1].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t1]
+) AS [t2] ON [b.EmployeeAuthtorization].[EmployeeID] = [t2].[EmployeeID]
+ORDER BY [t2].[EmployeeID]
+2019-07-14 11:55:15,122 INFO - Executed DbCommand (78ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeTraining].[EmployeeTrainingID], [b.EmployeeTraining].[Comment], [b.EmployeeTraining].[DateFrom], [b.EmployeeTraining].[dateInsert], [b.EmployeeTraining].[DateTo], [b.EmployeeTraining].[dateUpdate], [b.EmployeeTraining].[EmployeeID], [b.EmployeeTraining].[EmployeeTrainingName], [b.EmployeeTraining].[SiteID], [b.EmployeeTraining].[state], [b.EmployeeTraining].[TrainingTypeID], [b.EmployeeTraining].[userInsert], [b.EmployeeTraining].[UserUpdate]
+FROM [BB_HR_EmployeeTraining] AS [b.EmployeeTraining]
+INNER JOIN (
+    SELECT DISTINCT [t3].*
+    FROM (
+        SELECT [b2].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b2]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization2] ON [b2].[OrganizationID] = [b.Organization2].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType2] ON [b2].[IdentificationTypeID] = [b.IdentificationType2].[IdentificationTypeID]
+        ORDER BY [b2].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t3]
+) AS [t4] ON [b.EmployeeTraining].[EmployeeID] = [t4].[EmployeeID]
+ORDER BY [t4].[EmployeeID]
+2019-07-14 11:55:15,216 INFO - Executed DbCommand (78ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeWorkPermit].[EmployeeWorkPermitID], [b.EmployeeWorkPermit].[Comment], [b.EmployeeWorkPermit].[DateFrom], [b.EmployeeWorkPermit].[dateInsert], [b.EmployeeWorkPermit].[DateTo], [b.EmployeeWorkPermit].[dateUpdate], [b.EmployeeWorkPermit].[EmployeeID], [b.EmployeeWorkPermit].[EmployeeWorkPermitName], [b.EmployeeWorkPermit].[IsRequired], [b.EmployeeWorkPermit].[SiteID], [b.EmployeeWorkPermit].[state], [b.EmployeeWorkPermit].[userInsert], [b.EmployeeWorkPermit].[UserUpdate]
+FROM [BB_HR_EmployeeWorkPermit] AS [b.EmployeeWorkPermit]
+INNER JOIN (
+    SELECT DISTINCT [t5].*
+    FROM (
+        SELECT [b3].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b3]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization3] ON [b3].[OrganizationID] = [b.Organization3].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType3] ON [b3].[IdentificationTypeID] = [b.IdentificationType3].[IdentificationTypeID]
+        ORDER BY [b3].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t5]
+) AS [t6] ON [b.EmployeeWorkPermit].[EmployeeID] = [t6].[EmployeeID]
+ORDER BY [t6].[EmployeeID]
+2019-07-14 11:55:16,894 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 7540.9778ms.
+2019-07-14 11:55:16,895 INFO - The GetEmployeesAsync have been retrieved successfully.
+2019-07-14 11:55:16,909 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-14 11:55:16,951 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 10575.97ms
+2019-07-14 11:55:16,970 INFO - Request finished in 11512.7067ms 200 application/json; charset=utf-8
+2019-07-14 11:55:43,799 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 11:55:43,801 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 11:55:43,843 INFO - Request finished in 52.1894ms 200 
+2019-07-14 11:55:43,858 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 11:55:43,988 INFO - Request finished in 189.8659ms 200 text/html
+2019-07-14 11:55:44,214 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 11:55:44,221 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 11:55:44,618 INFO - Request finished in 403.7458ms 200 application/json;charset=utf-8
+2019-07-14 11:55:52,789 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1  
+2019-07-14 11:55:53,079 INFO - Successfully validated the token.
+2019-07-14 11:55:53,084 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2019-07-14 11:55:53,166 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-14 11:55:53,190 INFO - Authorization was successful.
+2019-07-14 11:55:58,475 INFO - 'GetEmployeesAsync' has been invoked
+2019-07-14 11:55:58,483 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , , , , , ) - Validation state: Valid
+2019-07-14 11:56:02,317 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 11:56:02,481 WARN - The Include operation for navigation '[b].IdentificationType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 11:56:02,483 WARN - The Include operation for navigation '[b].Organization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 11:56:02,484 WARN - The Include operation for navigation '[b].EmployeeProffesionType.ProffesionType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 11:56:02,485 WARN - The Include operation for navigation '[b].EmployeeAuthtorization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 11:56:02,490 WARN - The Include operation for navigation '[b].EmployeeTraining' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 11:56:02,492 WARN - The Include operation for navigation '[b].EmployeeWorkPermit' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 11:56:03,314 INFO - Executed DbCommand (86ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [b]
+2019-07-14 11:56:03,385 WARN - Query: '(from Employee b in DbSet<Employee> select EmployeeResponse ToEntity( 
+    request: [b], , 
+    ph...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-07-14 11:56:03,852 INFO - Executed DbCommand (78ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b].[EmployeeID], [b].[Address], [b].[BirthDate], [b].[Citizenship], [b].[dateInsert], [b].[dateUpdate], [b].[FirstName], [b].[FirstNameEN], [b].[GenderID], [b].[IdentificationTypeID], [b].[IdentityNumber], [b].[LastName], [b].[LastNameEN], [b].[OrganizationID], [b].[PassportCountryID], [b].[state], [b].[userInsert], [b].[UserUpdate], [b.Organization].[OrganizationID], [b.Organization].[Comment], [b.Organization].[dateInsert], [b.Organization].[dateUpdate], [b.Organization].[OrganizationName], [b.Organization].[OrganizationNumber], [b.Organization].[OrganizationParentID], [b.Organization].[OrganizationTypeID], [b.Organization].[state], [b.Organization].[userInsert], [b.Organization].[UserUpdate], [b.IdentificationType].[IdentificationTypeID], [b.IdentificationType].[Comment], [b.IdentificationType].[dateInsert], [b.IdentificationType].[dateUpdate], [b.IdentificationType].[IdentificationTypeName], [b.IdentificationType].[state], [b.IdentificationType].[userInsert], [b.IdentificationType].[UserUpdate]
+FROM [BB_HR_Employee] AS [b]
+LEFT JOIN [BB_GEN_Organization] AS [b.Organization] ON [b].[OrganizationID] = [b.Organization].[OrganizationID]
+LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType] ON [b].[IdentificationTypeID] = [b.IdentificationType].[IdentificationTypeID]
+ORDER BY [b].[EmployeeID]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2019-07-14 11:56:04,137 INFO - Executed DbCommand (73ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeProffesionType].[EmployeeAuthorizationID], [b.EmployeeProffesionType].[Comment], [b.EmployeeProffesionType].[dateInsert], [b.EmployeeProffesionType].[dateUpdate], [b.EmployeeProffesionType].[EmployeeID], [b.EmployeeProffesionType].[ProffesionTypeID], [b.EmployeeProffesionType].[state], [b.EmployeeProffesionType].[userInsert], [b.EmployeeProffesionType].[UserUpdate], [e.ProffesionType].[ProffesionTypeID], [e.ProffesionType].[Comment], [e.ProffesionType].[dateInsert], [e.ProffesionType].[dateUpdate], [e.ProffesionType].[ProffesionTypeName], [e.ProffesionType].[state], [e.ProffesionType].[userInsert], [e.ProffesionType].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [b.EmployeeProffesionType]
+LEFT JOIN [BB_HR_ProffesionType] AS [e.ProffesionType] ON [b.EmployeeProffesionType].[ProffesionTypeID] = [e.ProffesionType].[ProffesionTypeID]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT [b0].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b0]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization0] ON [b0].[OrganizationID] = [b.Organization0].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType0] ON [b0].[IdentificationTypeID] = [b.IdentificationType0].[IdentificationTypeID]
+        ORDER BY [b0].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t]
+) AS [t0] ON [b.EmployeeProffesionType].[EmployeeID] = [t0].[EmployeeID]
+ORDER BY [t0].[EmployeeID]
+2019-07-14 11:56:04,247 INFO - Executed DbCommand (71ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeAuthtorization].[EmployeeAuthorizationID], [b.EmployeeAuthtorization].[AuthorizationTypeID], [b.EmployeeAuthtorization].[Comment], [b.EmployeeAuthtorization].[DateFrom], [b.EmployeeAuthtorization].[dateInsert], [b.EmployeeAuthtorization].[DateTo], [b.EmployeeAuthtorization].[dateUpdate], [b.EmployeeAuthtorization].[EmployeeAuthorizationName], [b.EmployeeAuthtorization].[EmployeeID], [b.EmployeeAuthtorization].[SiteId], [b.EmployeeAuthtorization].[state], [b.EmployeeAuthtorization].[userInsert], [b.EmployeeAuthtorization].[UserUpdate]
+FROM [BB_HR_EmployeeAuthtorization] AS [b.EmployeeAuthtorization]
+INNER JOIN (
+    SELECT DISTINCT [t1].*
+    FROM (
+        SELECT [b1].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b1]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization1] ON [b1].[OrganizationID] = [b.Organization1].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType1] ON [b1].[IdentificationTypeID] = [b.IdentificationType1].[IdentificationTypeID]
+        ORDER BY [b1].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t1]
+) AS [t2] ON [b.EmployeeAuthtorization].[EmployeeID] = [t2].[EmployeeID]
+ORDER BY [t2].[EmployeeID]
+2019-07-14 11:56:04,336 INFO - Executed DbCommand (72ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeTraining].[EmployeeTrainingID], [b.EmployeeTraining].[Comment], [b.EmployeeTraining].[DateFrom], [b.EmployeeTraining].[dateInsert], [b.EmployeeTraining].[DateTo], [b.EmployeeTraining].[dateUpdate], [b.EmployeeTraining].[EmployeeID], [b.EmployeeTraining].[EmployeeTrainingName], [b.EmployeeTraining].[SiteID], [b.EmployeeTraining].[state], [b.EmployeeTraining].[TrainingTypeID], [b.EmployeeTraining].[userInsert], [b.EmployeeTraining].[UserUpdate]
+FROM [BB_HR_EmployeeTraining] AS [b.EmployeeTraining]
+INNER JOIN (
+    SELECT DISTINCT [t3].*
+    FROM (
+        SELECT [b2].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b2]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization2] ON [b2].[OrganizationID] = [b.Organization2].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType2] ON [b2].[IdentificationTypeID] = [b.IdentificationType2].[IdentificationTypeID]
+        ORDER BY [b2].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t3]
+) AS [t4] ON [b.EmployeeTraining].[EmployeeID] = [t4].[EmployeeID]
+ORDER BY [t4].[EmployeeID]
+2019-07-14 11:56:04,427 INFO - Executed DbCommand (71ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeWorkPermit].[EmployeeWorkPermitID], [b.EmployeeWorkPermit].[Comment], [b.EmployeeWorkPermit].[DateFrom], [b.EmployeeWorkPermit].[dateInsert], [b.EmployeeWorkPermit].[DateTo], [b.EmployeeWorkPermit].[dateUpdate], [b.EmployeeWorkPermit].[EmployeeID], [b.EmployeeWorkPermit].[EmployeeWorkPermitName], [b.EmployeeWorkPermit].[IsRequired], [b.EmployeeWorkPermit].[SiteID], [b.EmployeeWorkPermit].[state], [b.EmployeeWorkPermit].[userInsert], [b.EmployeeWorkPermit].[UserUpdate]
+FROM [BB_HR_EmployeeWorkPermit] AS [b.EmployeeWorkPermit]
+INNER JOIN (
+    SELECT DISTINCT [t5].*
+    FROM (
+        SELECT [b3].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b3]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization3] ON [b3].[OrganizationID] = [b.Organization3].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType3] ON [b3].[IdentificationTypeID] = [b.IdentificationType3].[IdentificationTypeID]
+        ORDER BY [b3].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t5]
+) AS [t6] ON [b.EmployeeWorkPermit].[EmployeeID] = [t6].[EmployeeID]
+ORDER BY [t6].[EmployeeID]
+2019-07-14 11:56:05,825 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 7338.2822ms.
+2019-07-14 11:56:05,827 INFO - The GetEmployeesAsync have been retrieved successfully.
+2019-07-14 11:56:05,837 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-14 11:56:05,879 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 12700.6384ms
+2019-07-14 11:56:05,895 INFO - Request finished in 13109.9645ms 200 application/json; charset=utf-8
+2019-07-14 12:00:18,348 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 12:00:18,348 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 12:00:18,394 INFO - Request finished in 50.0904ms 200 
+2019-07-14 12:00:18,426 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 12:00:18,556 INFO - Request finished in 215.0187ms 200 text/html
+2019-07-14 12:00:18,803 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 12:00:18,809 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 12:00:19,243 INFO - Request finished in 441.9791ms 200 application/json;charset=utf-8
+2019-07-14 12:00:26,859 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1  
+2019-07-14 12:00:27,186 INFO - Successfully validated the token.
+2019-07-14 12:00:27,194 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2019-07-14 12:00:27,283 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-14 12:00:27,293 INFO - Authorization was successful.
+2019-07-14 12:00:27,690 INFO - 'GetEmployeesAsync' has been invoked
+2019-07-14 12:00:27,699 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , , , , , ) - Validation state: Valid
+2019-07-14 12:00:28,734 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 12:00:28,852 WARN - The Include operation for navigation '[b].IdentificationType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 12:00:28,857 WARN - The Include operation for navigation '[b].Organization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 12:00:28,859 WARN - The Include operation for navigation '[b].EmployeeProffesionType.ProffesionType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 12:00:28,860 WARN - The Include operation for navigation '[b].EmployeeAuthtorization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 12:00:28,862 WARN - The Include operation for navigation '[b].EmployeeTraining' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 12:00:28,864 WARN - The Include operation for navigation '[b].EmployeeWorkPermit' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 12:00:29,848 INFO - Executed DbCommand (96ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [b]
+2019-07-14 12:00:29,916 WARN - Query: '(from Employee b in DbSet<Employee> select EmployeeResponse ToEntity( 
+    request: [b], , 
+    ph...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-07-14 12:00:30,365 INFO - Executed DbCommand (80ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b].[EmployeeID], [b].[Address], [b].[BirthDate], [b].[Citizenship], [b].[dateInsert], [b].[dateUpdate], [b].[FirstName], [b].[FirstNameEN], [b].[GenderID], [b].[IdentificationTypeID], [b].[IdentityNumber], [b].[LastName], [b].[LastNameEN], [b].[OrganizationID], [b].[PassportCountryID], [b].[state], [b].[userInsert], [b].[UserUpdate], [b.Organization].[OrganizationID], [b.Organization].[Comment], [b.Organization].[dateInsert], [b.Organization].[dateUpdate], [b.Organization].[OrganizationName], [b.Organization].[OrganizationNumber], [b.Organization].[OrganizationParentID], [b.Organization].[OrganizationTypeID], [b.Organization].[state], [b.Organization].[userInsert], [b.Organization].[UserUpdate], [b.IdentificationType].[IdentificationTypeID], [b.IdentificationType].[Comment], [b.IdentificationType].[dateInsert], [b.IdentificationType].[dateUpdate], [b.IdentificationType].[IdentificationTypeName], [b.IdentificationType].[state], [b.IdentificationType].[userInsert], [b.IdentificationType].[UserUpdate]
+FROM [BB_HR_Employee] AS [b]
+LEFT JOIN [BB_GEN_Organization] AS [b.Organization] ON [b].[OrganizationID] = [b.Organization].[OrganizationID]
+LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType] ON [b].[IdentificationTypeID] = [b.IdentificationType].[IdentificationTypeID]
+ORDER BY [b].[EmployeeID]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2019-07-14 12:00:30,629 INFO - Executed DbCommand (77ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeProffesionType].[EmployeeAuthorizationID], [b.EmployeeProffesionType].[Comment], [b.EmployeeProffesionType].[dateInsert], [b.EmployeeProffesionType].[dateUpdate], [b.EmployeeProffesionType].[EmployeeID], [b.EmployeeProffesionType].[ProffesionTypeID], [b.EmployeeProffesionType].[state], [b.EmployeeProffesionType].[userInsert], [b.EmployeeProffesionType].[UserUpdate], [e.ProffesionType].[ProffesionTypeID], [e.ProffesionType].[Comment], [e.ProffesionType].[dateInsert], [e.ProffesionType].[dateUpdate], [e.ProffesionType].[ProffesionTypeName], [e.ProffesionType].[state], [e.ProffesionType].[userInsert], [e.ProffesionType].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [b.EmployeeProffesionType]
+LEFT JOIN [BB_HR_ProffesionType] AS [e.ProffesionType] ON [b.EmployeeProffesionType].[ProffesionTypeID] = [e.ProffesionType].[ProffesionTypeID]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT [b0].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b0]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization0] ON [b0].[OrganizationID] = [b.Organization0].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType0] ON [b0].[IdentificationTypeID] = [b.IdentificationType0].[IdentificationTypeID]
+        ORDER BY [b0].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t]
+) AS [t0] ON [b.EmployeeProffesionType].[EmployeeID] = [t0].[EmployeeID]
+ORDER BY [t0].[EmployeeID]
+2019-07-14 12:00:30,740 INFO - Executed DbCommand (77ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeAuthtorization].[EmployeeAuthorizationID], [b.EmployeeAuthtorization].[AuthorizationTypeID], [b.EmployeeAuthtorization].[Comment], [b.EmployeeAuthtorization].[DateFrom], [b.EmployeeAuthtorization].[dateInsert], [b.EmployeeAuthtorization].[DateTo], [b.EmployeeAuthtorization].[dateUpdate], [b.EmployeeAuthtorization].[EmployeeAuthorizationName], [b.EmployeeAuthtorization].[EmployeeID], [b.EmployeeAuthtorization].[SiteId], [b.EmployeeAuthtorization].[state], [b.EmployeeAuthtorization].[userInsert], [b.EmployeeAuthtorization].[UserUpdate]
+FROM [BB_HR_EmployeeAuthtorization] AS [b.EmployeeAuthtorization]
+INNER JOIN (
+    SELECT DISTINCT [t1].*
+    FROM (
+        SELECT [b1].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b1]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization1] ON [b1].[OrganizationID] = [b.Organization1].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType1] ON [b1].[IdentificationTypeID] = [b.IdentificationType1].[IdentificationTypeID]
+        ORDER BY [b1].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t1]
+) AS [t2] ON [b.EmployeeAuthtorization].[EmployeeID] = [t2].[EmployeeID]
+ORDER BY [t2].[EmployeeID]
+2019-07-14 12:00:30,833 INFO - Executed DbCommand (77ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeTraining].[EmployeeTrainingID], [b.EmployeeTraining].[Comment], [b.EmployeeTraining].[DateFrom], [b.EmployeeTraining].[dateInsert], [b.EmployeeTraining].[DateTo], [b.EmployeeTraining].[dateUpdate], [b.EmployeeTraining].[EmployeeID], [b.EmployeeTraining].[EmployeeTrainingName], [b.EmployeeTraining].[SiteID], [b.EmployeeTraining].[state], [b.EmployeeTraining].[TrainingTypeID], [b.EmployeeTraining].[userInsert], [b.EmployeeTraining].[UserUpdate]
+FROM [BB_HR_EmployeeTraining] AS [b.EmployeeTraining]
+INNER JOIN (
+    SELECT DISTINCT [t3].*
+    FROM (
+        SELECT [b2].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b2]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization2] ON [b2].[OrganizationID] = [b.Organization2].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType2] ON [b2].[IdentificationTypeID] = [b.IdentificationType2].[IdentificationTypeID]
+        ORDER BY [b2].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t3]
+) AS [t4] ON [b.EmployeeTraining].[EmployeeID] = [t4].[EmployeeID]
+ORDER BY [t4].[EmployeeID]
+2019-07-14 12:00:30,927 INFO - Executed DbCommand (77ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeWorkPermit].[EmployeeWorkPermitID], [b.EmployeeWorkPermit].[Comment], [b.EmployeeWorkPermit].[DateFrom], [b.EmployeeWorkPermit].[dateInsert], [b.EmployeeWorkPermit].[DateTo], [b.EmployeeWorkPermit].[dateUpdate], [b.EmployeeWorkPermit].[EmployeeID], [b.EmployeeWorkPermit].[EmployeeWorkPermitName], [b.EmployeeWorkPermit].[IsRequired], [b.EmployeeWorkPermit].[SiteID], [b.EmployeeWorkPermit].[state], [b.EmployeeWorkPermit].[userInsert], [b.EmployeeWorkPermit].[UserUpdate]
+FROM [BB_HR_EmployeeWorkPermit] AS [b.EmployeeWorkPermit]
+INNER JOIN (
+    SELECT DISTINCT [t5].*
+    FROM (
+        SELECT [b3].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b3]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization3] ON [b3].[OrganizationID] = [b.Organization3].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType3] ON [b3].[IdentificationTypeID] = [b.IdentificationType3].[IdentificationTypeID]
+        ORDER BY [b3].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t5]
+) AS [t6] ON [b.EmployeeWorkPermit].[EmployeeID] = [t6].[EmployeeID]
+ORDER BY [t6].[EmployeeID]
+2019-07-14 12:00:30,963 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 3260.1518ms.
+2019-07-14 12:00:30,964 INFO - The GetEmployeesAsync have been retrieved successfully.
+2019-07-14 12:00:30,977 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-14 12:00:31,017 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 3724.996ms
+2019-07-14 12:00:31,029 INFO - Request finished in 4168.9616ms 200 application/json; charset=utf-8
+2019-07-14 12:08:49,735 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 12:08:49,735 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 12:08:49,813 INFO - Request finished in 139.6772ms 200 
+2019-07-14 12:08:49,857 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 12:08:50,094 INFO - Request finished in 409.5509ms 200 text/html
+2019-07-14 12:08:50,396 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 12:08:50,404 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 12:08:51,062 INFO - Request finished in 658.8171ms 200 application/json;charset=utf-8
+2019-07-14 12:09:15,027 INFO - Request starting HTTP/1.1 GET http://localhost:59821/oauth2-redirect.html  
+2019-07-14 12:09:15,031 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 12:09:15,045 INFO - The file /oauth2-redirect.html was not modified
+2019-07-14 12:09:15,050 INFO - Request finished in 24.0539ms 304 text/html
+2019-07-14 12:09:19,304 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1  
+2019-07-14 12:09:19,689 INFO - Successfully validated the token.
+2019-07-14 12:09:19,702 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2019-07-14 12:09:19,789 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-14 12:09:19,806 INFO - Authorization was successful.
+2019-07-14 12:09:20,231 INFO - 'GetEmployeesAsync' has been invoked
+2019-07-14 12:09:20,239 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , , , , , ) - Validation state: Valid
+2019-07-14 12:09:21,630 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 12:09:21,764 WARN - The Include operation for navigation '[b].IdentificationType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 12:09:21,769 WARN - The Include operation for navigation '[b].Organization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 12:09:21,776 WARN - The Include operation for navigation '[b].EmployeeProffesionType.ProffesionType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 12:09:21,780 WARN - The Include operation for navigation '[b].EmployeeAuthtorization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 12:09:21,787 WARN - The Include operation for navigation '[b].EmployeeTraining' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 12:09:21,788 WARN - The Include operation for navigation '[b].EmployeeWorkPermit' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 12:09:22,888 INFO - Executed DbCommand (106ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [b]
+2019-07-14 12:09:22,991 WARN - Query: '(from Employee b in DbSet<Employee> select EmployeeResponse ToEntity( 
+    request: [b], , 
+    ph...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-07-14 12:09:23,542 INFO - Executed DbCommand (84ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b].[EmployeeID], [b].[Address], [b].[BirthDate], [b].[Citizenship], [b].[dateInsert], [b].[dateUpdate], [b].[FirstName], [b].[FirstNameEN], [b].[GenderID], [b].[IdentificationTypeID], [b].[IdentityNumber], [b].[LastName], [b].[LastNameEN], [b].[OrganizationID], [b].[PassportCountryID], [b].[state], [b].[userInsert], [b].[UserUpdate], [b.Organization].[OrganizationID], [b.Organization].[Comment], [b.Organization].[dateInsert], [b.Organization].[dateUpdate], [b.Organization].[OrganizationName], [b.Organization].[OrganizationNumber], [b.Organization].[OrganizationParentID], [b.Organization].[OrganizationTypeID], [b.Organization].[state], [b.Organization].[userInsert], [b.Organization].[UserUpdate], [b.IdentificationType].[IdentificationTypeID], [b.IdentificationType].[Comment], [b.IdentificationType].[dateInsert], [b.IdentificationType].[dateUpdate], [b.IdentificationType].[IdentificationTypeName], [b.IdentificationType].[state], [b.IdentificationType].[userInsert], [b.IdentificationType].[UserUpdate]
+FROM [BB_HR_Employee] AS [b]
+LEFT JOIN [BB_GEN_Organization] AS [b.Organization] ON [b].[OrganizationID] = [b.Organization].[OrganizationID]
+LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType] ON [b].[IdentificationTypeID] = [b.IdentificationType].[IdentificationTypeID]
+ORDER BY [b].[EmployeeID]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2019-07-14 12:09:23,885 INFO - Executed DbCommand (104ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeProffesionType].[EmployeeAuthorizationID], [b.EmployeeProffesionType].[Comment], [b.EmployeeProffesionType].[dateInsert], [b.EmployeeProffesionType].[dateUpdate], [b.EmployeeProffesionType].[EmployeeID], [b.EmployeeProffesionType].[ProffesionTypeID], [b.EmployeeProffesionType].[state], [b.EmployeeProffesionType].[userInsert], [b.EmployeeProffesionType].[UserUpdate], [e.ProffesionType].[ProffesionTypeID], [e.ProffesionType].[Comment], [e.ProffesionType].[dateInsert], [e.ProffesionType].[dateUpdate], [e.ProffesionType].[ProffesionTypeName], [e.ProffesionType].[state], [e.ProffesionType].[userInsert], [e.ProffesionType].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [b.EmployeeProffesionType]
+LEFT JOIN [BB_HR_ProffesionType] AS [e.ProffesionType] ON [b.EmployeeProffesionType].[ProffesionTypeID] = [e.ProffesionType].[ProffesionTypeID]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT [b0].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b0]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization0] ON [b0].[OrganizationID] = [b.Organization0].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType0] ON [b0].[IdentificationTypeID] = [b.IdentificationType0].[IdentificationTypeID]
+        ORDER BY [b0].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t]
+) AS [t0] ON [b.EmployeeProffesionType].[EmployeeID] = [t0].[EmployeeID]
+ORDER BY [t0].[EmployeeID]
+2019-07-14 12:09:24,012 INFO - Executed DbCommand (80ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeAuthtorization].[EmployeeAuthorizationID], [b.EmployeeAuthtorization].[AuthorizationTypeID], [b.EmployeeAuthtorization].[Comment], [b.EmployeeAuthtorization].[DateFrom], [b.EmployeeAuthtorization].[dateInsert], [b.EmployeeAuthtorization].[DateTo], [b.EmployeeAuthtorization].[dateUpdate], [b.EmployeeAuthtorization].[EmployeeAuthorizationName], [b.EmployeeAuthtorization].[EmployeeID], [b.EmployeeAuthtorization].[SiteId], [b.EmployeeAuthtorization].[state], [b.EmployeeAuthtorization].[userInsert], [b.EmployeeAuthtorization].[UserUpdate]
+FROM [BB_HR_EmployeeAuthtorization] AS [b.EmployeeAuthtorization]
+INNER JOIN (
+    SELECT DISTINCT [t1].*
+    FROM (
+        SELECT [b1].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b1]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization1] ON [b1].[OrganizationID] = [b.Organization1].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType1] ON [b1].[IdentificationTypeID] = [b.IdentificationType1].[IdentificationTypeID]
+        ORDER BY [b1].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t1]
+) AS [t2] ON [b.EmployeeAuthtorization].[EmployeeID] = [t2].[EmployeeID]
+ORDER BY [t2].[EmployeeID]
+2019-07-14 12:09:24,137 INFO - Executed DbCommand (79ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeTraining].[EmployeeTrainingID], [b.EmployeeTraining].[Comment], [b.EmployeeTraining].[DateFrom], [b.EmployeeTraining].[dateInsert], [b.EmployeeTraining].[DateTo], [b.EmployeeTraining].[dateUpdate], [b.EmployeeTraining].[EmployeeID], [b.EmployeeTraining].[EmployeeTrainingName], [b.EmployeeTraining].[SiteID], [b.EmployeeTraining].[state], [b.EmployeeTraining].[TrainingTypeID], [b.EmployeeTraining].[userInsert], [b.EmployeeTraining].[UserUpdate]
+FROM [BB_HR_EmployeeTraining] AS [b.EmployeeTraining]
+INNER JOIN (
+    SELECT DISTINCT [t3].*
+    FROM (
+        SELECT [b2].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b2]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization2] ON [b2].[OrganizationID] = [b.Organization2].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType2] ON [b2].[IdentificationTypeID] = [b.IdentificationType2].[IdentificationTypeID]
+        ORDER BY [b2].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t3]
+) AS [t4] ON [b.EmployeeTraining].[EmployeeID] = [t4].[EmployeeID]
+ORDER BY [t4].[EmployeeID]
+2019-07-14 12:09:24,241 INFO - Executed DbCommand (79ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeWorkPermit].[EmployeeWorkPermitID], [b.EmployeeWorkPermit].[Comment], [b.EmployeeWorkPermit].[DateFrom], [b.EmployeeWorkPermit].[dateInsert], [b.EmployeeWorkPermit].[DateTo], [b.EmployeeWorkPermit].[dateUpdate], [b.EmployeeWorkPermit].[EmployeeID], [b.EmployeeWorkPermit].[EmployeeWorkPermitName], [b.EmployeeWorkPermit].[IsRequired], [b.EmployeeWorkPermit].[SiteID], [b.EmployeeWorkPermit].[state], [b.EmployeeWorkPermit].[userInsert], [b.EmployeeWorkPermit].[UserUpdate]
+FROM [BB_HR_EmployeeWorkPermit] AS [b.EmployeeWorkPermit]
+INNER JOIN (
+    SELECT DISTINCT [t5].*
+    FROM (
+        SELECT [b3].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b3]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization3] ON [b3].[OrganizationID] = [b.Organization3].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType3] ON [b3].[IdentificationTypeID] = [b.IdentificationType3].[IdentificationTypeID]
+        ORDER BY [b3].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t5]
+) AS [t6] ON [b.EmployeeWorkPermit].[EmployeeID] = [t6].[EmployeeID]
+ORDER BY [t6].[EmployeeID]
+2019-07-14 12:09:24,296 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 4051.9801ms.
+2019-07-14 12:09:24,297 INFO - The GetEmployeesAsync have been retrieved successfully.
+2019-07-14 12:09:24,325 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-14 12:09:24,408 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 4602.1085ms
+2019-07-14 12:09:24,475 INFO - Request finished in 5124.6929ms 200 application/json; charset=utf-8
+2019-07-14 12:20:52,216 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 12:20:52,217 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 12:20:52,258 INFO - Request finished in 48.7642ms 200 
+2019-07-14 12:20:52,285 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 12:20:52,412 INFO - Request finished in 202.0794ms 200 text/html
+2019-07-14 12:20:52,657 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 12:20:52,660 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 12:20:53,052 INFO - Request finished in 388.3702ms 200 application/json;charset=utf-8
+2019-07-14 12:22:53,496 INFO - Request starting HTTP/1.1 GET http://localhost:59821/oauth2-redirect.html  
+2019-07-14 12:22:53,498 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 12:22:53,512 INFO - The file /oauth2-redirect.html was not modified
+2019-07-14 12:22:53,517 INFO - Request finished in 19.2431ms 304 text/html
+2019-07-14 12:22:58,722 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1  
+2019-07-14 12:23:01,046 INFO - Successfully validated the token.
+2019-07-14 12:23:01,052 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2019-07-14 12:23:01,124 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-14 12:23:01,135 INFO - Authorization was successful.
+2019-07-14 12:23:01,504 INFO - 'GetEmployeesAsync' has been invoked
+2019-07-14 12:23:01,512 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , , , , , ) - Validation state: Valid
+2019-07-14 12:23:02,593 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 12:23:02,723 WARN - The Include operation for navigation '[b].IdentificationType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 12:23:02,727 WARN - The Include operation for navigation '[b].Organization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 12:23:02,729 WARN - The Include operation for navigation '[b].EmployeeProffesionType.ProffesionType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 12:23:02,731 WARN - The Include operation for navigation '[b].EmployeeAuthtorization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 12:23:02,732 WARN - The Include operation for navigation '[b].EmployeeTraining' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 12:23:02,734 WARN - The Include operation for navigation '[b].EmployeeWorkPermit' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 12:23:03,597 INFO - Executed DbCommand (91ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [b]
+2019-07-14 12:23:03,667 WARN - Query: '(from Employee b in DbSet<Employee> select EmployeeResponse ToEntity( 
+    request: [b], , 
+    ph...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-07-14 12:23:04,111 INFO - Executed DbCommand (83ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b].[EmployeeID], [b].[Address], [b].[BirthDate], [b].[Citizenship], [b].[dateInsert], [b].[dateUpdate], [b].[FirstName], [b].[FirstNameEN], [b].[GenderID], [b].[IdentificationTypeID], [b].[IdentityNumber], [b].[LastName], [b].[LastNameEN], [b].[OrganizationID], [b].[PassportCountryID], [b].[state], [b].[userInsert], [b].[UserUpdate], [b.Organization].[OrganizationID], [b.Organization].[Comment], [b.Organization].[dateInsert], [b.Organization].[dateUpdate], [b.Organization].[OrganizationName], [b.Organization].[OrganizationNumber], [b.Organization].[OrganizationParentID], [b.Organization].[OrganizationTypeID], [b.Organization].[state], [b.Organization].[userInsert], [b.Organization].[UserUpdate], [b.IdentificationType].[IdentificationTypeID], [b.IdentificationType].[Comment], [b.IdentificationType].[dateInsert], [b.IdentificationType].[dateUpdate], [b.IdentificationType].[IdentificationTypeName], [b.IdentificationType].[state], [b.IdentificationType].[userInsert], [b.IdentificationType].[UserUpdate]
+FROM [BB_HR_Employee] AS [b]
+LEFT JOIN [BB_GEN_Organization] AS [b.Organization] ON [b].[OrganizationID] = [b.Organization].[OrganizationID]
+LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType] ON [b].[IdentificationTypeID] = [b.IdentificationType].[IdentificationTypeID]
+ORDER BY [b].[EmployeeID]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2019-07-14 12:23:04,381 INFO - Executed DbCommand (77ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeProffesionType].[EmployeeAuthorizationID], [b.EmployeeProffesionType].[Comment], [b.EmployeeProffesionType].[dateInsert], [b.EmployeeProffesionType].[dateUpdate], [b.EmployeeProffesionType].[EmployeeID], [b.EmployeeProffesionType].[ProffesionTypeID], [b.EmployeeProffesionType].[state], [b.EmployeeProffesionType].[userInsert], [b.EmployeeProffesionType].[UserUpdate], [e.ProffesionType].[ProffesionTypeID], [e.ProffesionType].[Comment], [e.ProffesionType].[dateInsert], [e.ProffesionType].[dateUpdate], [e.ProffesionType].[ProffesionTypeName], [e.ProffesionType].[state], [e.ProffesionType].[userInsert], [e.ProffesionType].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [b.EmployeeProffesionType]
+LEFT JOIN [BB_HR_ProffesionType] AS [e.ProffesionType] ON [b.EmployeeProffesionType].[ProffesionTypeID] = [e.ProffesionType].[ProffesionTypeID]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT [b0].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b0]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization0] ON [b0].[OrganizationID] = [b.Organization0].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType0] ON [b0].[IdentificationTypeID] = [b.IdentificationType0].[IdentificationTypeID]
+        ORDER BY [b0].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t]
+) AS [t0] ON [b.EmployeeProffesionType].[EmployeeID] = [t0].[EmployeeID]
+ORDER BY [t0].[EmployeeID]
+2019-07-14 12:23:04,503 INFO - Executed DbCommand (77ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeAuthtorization].[EmployeeAuthorizationID], [b.EmployeeAuthtorization].[AuthorizationTypeID], [b.EmployeeAuthtorization].[Comment], [b.EmployeeAuthtorization].[DateFrom], [b.EmployeeAuthtorization].[dateInsert], [b.EmployeeAuthtorization].[DateTo], [b.EmployeeAuthtorization].[dateUpdate], [b.EmployeeAuthtorization].[EmployeeAuthorizationName], [b.EmployeeAuthtorization].[EmployeeID], [b.EmployeeAuthtorization].[SiteId], [b.EmployeeAuthtorization].[state], [b.EmployeeAuthtorization].[userInsert], [b.EmployeeAuthtorization].[UserUpdate]
+FROM [BB_HR_EmployeeAuthtorization] AS [b.EmployeeAuthtorization]
+INNER JOIN (
+    SELECT DISTINCT [t1].*
+    FROM (
+        SELECT [b1].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b1]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization1] ON [b1].[OrganizationID] = [b.Organization1].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType1] ON [b1].[IdentificationTypeID] = [b.IdentificationType1].[IdentificationTypeID]
+        ORDER BY [b1].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t1]
+) AS [t2] ON [b.EmployeeAuthtorization].[EmployeeID] = [t2].[EmployeeID]
+ORDER BY [t2].[EmployeeID]
+2019-07-14 12:23:04,598 INFO - Executed DbCommand (75ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeTraining].[EmployeeTrainingID], [b.EmployeeTraining].[Comment], [b.EmployeeTraining].[DateFrom], [b.EmployeeTraining].[dateInsert], [b.EmployeeTraining].[DateTo], [b.EmployeeTraining].[dateUpdate], [b.EmployeeTraining].[EmployeeID], [b.EmployeeTraining].[EmployeeTrainingName], [b.EmployeeTraining].[SiteID], [b.EmployeeTraining].[state], [b.EmployeeTraining].[TrainingTypeID], [b.EmployeeTraining].[userInsert], [b.EmployeeTraining].[UserUpdate]
+FROM [BB_HR_EmployeeTraining] AS [b.EmployeeTraining]
+INNER JOIN (
+    SELECT DISTINCT [t3].*
+    FROM (
+        SELECT [b2].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b2]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization2] ON [b2].[OrganizationID] = [b.Organization2].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType2] ON [b2].[IdentificationTypeID] = [b.IdentificationType2].[IdentificationTypeID]
+        ORDER BY [b2].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t3]
+) AS [t4] ON [b.EmployeeTraining].[EmployeeID] = [t4].[EmployeeID]
+ORDER BY [t4].[EmployeeID]
+2019-07-14 12:23:04,694 INFO - Executed DbCommand (76ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeWorkPermit].[EmployeeWorkPermitID], [b.EmployeeWorkPermit].[Comment], [b.EmployeeWorkPermit].[DateFrom], [b.EmployeeWorkPermit].[dateInsert], [b.EmployeeWorkPermit].[DateTo], [b.EmployeeWorkPermit].[dateUpdate], [b.EmployeeWorkPermit].[EmployeeID], [b.EmployeeWorkPermit].[EmployeeWorkPermitName], [b.EmployeeWorkPermit].[IsRequired], [b.EmployeeWorkPermit].[SiteID], [b.EmployeeWorkPermit].[state], [b.EmployeeWorkPermit].[userInsert], [b.EmployeeWorkPermit].[UserUpdate]
+FROM [BB_HR_EmployeeWorkPermit] AS [b.EmployeeWorkPermit]
+INNER JOIN (
+    SELECT DISTINCT [t5].*
+    FROM (
+        SELECT [b3].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b3]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization3] ON [b3].[OrganizationID] = [b.Organization3].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType3] ON [b3].[IdentificationTypeID] = [b.IdentificationType3].[IdentificationTypeID]
+        ORDER BY [b3].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t5]
+) AS [t6] ON [b.EmployeeWorkPermit].[EmployeeID] = [t6].[EmployeeID]
+ORDER BY [t6].[EmployeeID]
+2019-07-14 12:23:04,734 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 3219.3133ms.
+2019-07-14 12:23:04,735 INFO - The GetEmployeesAsync have been retrieved successfully.
+2019-07-14 12:23:04,747 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-14 12:23:04,779 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 3651.0739ms
+2019-07-14 12:23:04,794 INFO - Request finished in 6070.1247ms 200 application/json; charset=utf-8
+2019-07-14 12:56:40,295 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 12:56:40,295 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 12:56:40,337 INFO - Request finished in 69.6663ms 200 
+2019-07-14 12:56:40,365 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 12:56:40,496 INFO - Request finished in 227.95ms 200 text/html
+2019-07-14 12:56:40,702 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 12:56:40,716 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 12:56:41,102 INFO - Request finished in 399.5585ms 200 application/json;charset=utf-8
+2019-07-14 12:59:14,455 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 12:59:14,455 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 12:59:14,492 INFO - Request finished in 61.0765ms 200 
+2019-07-14 12:59:14,512 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 12:59:14,629 INFO - Request finished in 200.8813ms 200 text/html
+2019-07-14 12:59:14,833 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 12:59:14,844 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 12:59:15,245 INFO - Request finished in 406.7894ms 200 application/json;charset=utf-8
+2019-07-14 13:02:01,370 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 13:02:01,370 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 13:02:01,411 INFO - Request finished in 46.7189ms 200 
+2019-07-14 13:02:01,431 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 13:02:01,571 INFO - Request finished in 206.8199ms 200 text/html
+2019-07-14 13:02:01,792 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 13:02:01,797 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 13:02:02,192 INFO - Request finished in 400.0953ms 200 application/json;charset=utf-8
+2019-07-14 13:02:56,005 INFO - Request starting HTTP/1.1 GET http://localhost:59821/oauth2-redirect.html  
+2019-07-14 13:02:56,014 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 13:02:56,030 INFO - The file /oauth2-redirect.html was not modified
+2019-07-14 13:02:56,033 INFO - Request finished in 30.1167ms 304 text/html
+2019-07-14 13:03:19,152 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1  
+2019-07-14 13:03:22,152 INFO - Successfully validated the token.
+2019-07-14 13:03:22,159 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2019-07-14 13:03:22,240 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2019-07-14 13:03:22,254 INFO - Authorization was successful.
+2019-07-14 13:03:22,659 INFO - 'GetEmployeesAsync' has been invoked
+2019-07-14 13:03:22,668 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , , , , , ) - Validation state: Valid
+2019-07-14 13:03:23,849 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-14 13:03:23,978 WARN - The Include operation for navigation '[b].IdentificationType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 13:03:23,979 WARN - The Include operation for navigation '[b].Organization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 13:03:23,982 WARN - The Include operation for navigation '[b].EmployeeProffesionType.ProffesionType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 13:03:23,984 WARN - The Include operation for navigation '[b].EmployeeAuthtorization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 13:03:23,985 WARN - The Include operation for navigation '[b].EmployeeTraining' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 13:03:23,987 WARN - The Include operation for navigation '[b].EmployeeWorkPermit' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-14 13:03:24,957 INFO - Executed DbCommand (92ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [b]
+2019-07-14 13:03:25,025 WARN - Query: '(from Employee b in DbSet<Employee> select EmployeeResponse ToEntity( 
+    request: [b], , 
+    ph...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-07-14 13:03:25,470 INFO - Executed DbCommand (73ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b].[EmployeeID], [b].[Address], [b].[BirthDate], [b].[Citizenship], [b].[dateInsert], [b].[dateUpdate], [b].[FirstName], [b].[FirstNameEN], [b].[GenderID], [b].[IdentificationTypeID], [b].[IdentityNumber], [b].[LastName], [b].[LastNameEN], [b].[OrganizationID], [b].[PassportCountryID], [b].[state], [b].[userInsert], [b].[UserUpdate], [b.Organization].[OrganizationID], [b.Organization].[Comment], [b.Organization].[dateInsert], [b.Organization].[dateUpdate], [b.Organization].[OrganizationName], [b.Organization].[OrganizationNumber], [b.Organization].[OrganizationParentID], [b.Organization].[OrganizationTypeID], [b.Organization].[state], [b.Organization].[userInsert], [b.Organization].[UserUpdate], [b.IdentificationType].[IdentificationTypeID], [b.IdentificationType].[Comment], [b.IdentificationType].[dateInsert], [b.IdentificationType].[dateUpdate], [b.IdentificationType].[IdentificationTypeName], [b.IdentificationType].[state], [b.IdentificationType].[userInsert], [b.IdentificationType].[UserUpdate]
+FROM [BB_HR_Employee] AS [b]
+LEFT JOIN [BB_GEN_Organization] AS [b.Organization] ON [b].[OrganizationID] = [b.Organization].[OrganizationID]
+LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType] ON [b].[IdentificationTypeID] = [b.IdentificationType].[IdentificationTypeID]
+ORDER BY [b].[EmployeeID]
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2019-07-14 13:03:25,769 INFO - Executed DbCommand (72ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeProffesionType].[EmployeeAuthorizationID], [b.EmployeeProffesionType].[Comment], [b.EmployeeProffesionType].[dateInsert], [b.EmployeeProffesionType].[dateUpdate], [b.EmployeeProffesionType].[EmployeeID], [b.EmployeeProffesionType].[ProffesionTypeID], [b.EmployeeProffesionType].[state], [b.EmployeeProffesionType].[userInsert], [b.EmployeeProffesionType].[UserUpdate], [e.ProffesionType].[ProffesionTypeID], [e.ProffesionType].[Comment], [e.ProffesionType].[dateInsert], [e.ProffesionType].[dateUpdate], [e.ProffesionType].[ProffesionTypeName], [e.ProffesionType].[state], [e.ProffesionType].[userInsert], [e.ProffesionType].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [b.EmployeeProffesionType]
+LEFT JOIN [BB_HR_ProffesionType] AS [e.ProffesionType] ON [b.EmployeeProffesionType].[ProffesionTypeID] = [e.ProffesionType].[ProffesionTypeID]
+INNER JOIN (
+    SELECT DISTINCT [t].*
+    FROM (
+        SELECT [b0].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b0]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization0] ON [b0].[OrganizationID] = [b.Organization0].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType0] ON [b0].[IdentificationTypeID] = [b.IdentificationType0].[IdentificationTypeID]
+        ORDER BY [b0].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t]
+) AS [t0] ON [b.EmployeeProffesionType].[EmployeeID] = [t0].[EmployeeID]
+ORDER BY [t0].[EmployeeID]
+2019-07-14 13:03:25,885 INFO - Executed DbCommand (73ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeAuthtorization].[EmployeeAuthorizationID], [b.EmployeeAuthtorization].[AuthorizationTypeID], [b.EmployeeAuthtorization].[Comment], [b.EmployeeAuthtorization].[DateFrom], [b.EmployeeAuthtorization].[dateInsert], [b.EmployeeAuthtorization].[DateTo], [b.EmployeeAuthtorization].[dateUpdate], [b.EmployeeAuthtorization].[EmployeeAuthorizationName], [b.EmployeeAuthtorization].[EmployeeID], [b.EmployeeAuthtorization].[SiteId], [b.EmployeeAuthtorization].[state], [b.EmployeeAuthtorization].[userInsert], [b.EmployeeAuthtorization].[UserUpdate]
+FROM [BB_HR_EmployeeAuthtorization] AS [b.EmployeeAuthtorization]
+INNER JOIN (
+    SELECT DISTINCT [t1].*
+    FROM (
+        SELECT [b1].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b1]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization1] ON [b1].[OrganizationID] = [b.Organization1].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType1] ON [b1].[IdentificationTypeID] = [b.IdentificationType1].[IdentificationTypeID]
+        ORDER BY [b1].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t1]
+) AS [t2] ON [b.EmployeeAuthtorization].[EmployeeID] = [t2].[EmployeeID]
+ORDER BY [t2].[EmployeeID]
+2019-07-14 13:03:25,973 INFO - Executed DbCommand (71ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeTraining].[EmployeeTrainingID], [b.EmployeeTraining].[Comment], [b.EmployeeTraining].[DateFrom], [b.EmployeeTraining].[dateInsert], [b.EmployeeTraining].[DateTo], [b.EmployeeTraining].[dateUpdate], [b.EmployeeTraining].[EmployeeID], [b.EmployeeTraining].[EmployeeTrainingName], [b.EmployeeTraining].[SiteID], [b.EmployeeTraining].[state], [b.EmployeeTraining].[TrainingTypeID], [b.EmployeeTraining].[userInsert], [b.EmployeeTraining].[UserUpdate]
+FROM [BB_HR_EmployeeTraining] AS [b.EmployeeTraining]
+INNER JOIN (
+    SELECT DISTINCT [t3].*
+    FROM (
+        SELECT [b2].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b2]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization2] ON [b2].[OrganizationID] = [b.Organization2].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType2] ON [b2].[IdentificationTypeID] = [b.IdentificationType2].[IdentificationTypeID]
+        ORDER BY [b2].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t3]
+) AS [t4] ON [b.EmployeeTraining].[EmployeeID] = [t4].[EmployeeID]
+ORDER BY [t4].[EmployeeID]
+2019-07-14 13:03:26,063 INFO - Executed DbCommand (71ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeWorkPermit].[EmployeeWorkPermitID], [b.EmployeeWorkPermit].[Comment], [b.EmployeeWorkPermit].[DateFrom], [b.EmployeeWorkPermit].[dateInsert], [b.EmployeeWorkPermit].[DateTo], [b.EmployeeWorkPermit].[dateUpdate], [b.EmployeeWorkPermit].[EmployeeID], [b.EmployeeWorkPermit].[EmployeeWorkPermitName], [b.EmployeeWorkPermit].[IsRequired], [b.EmployeeWorkPermit].[SiteID], [b.EmployeeWorkPermit].[state], [b.EmployeeWorkPermit].[userInsert], [b.EmployeeWorkPermit].[UserUpdate]
+FROM [BB_HR_EmployeeWorkPermit] AS [b.EmployeeWorkPermit]
+INNER JOIN (
+    SELECT DISTINCT [t5].*
+    FROM (
+        SELECT [b3].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b3]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization3] ON [b3].[OrganizationID] = [b.Organization3].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType3] ON [b3].[IdentificationTypeID] = [b.IdentificationType3].[IdentificationTypeID]
+        ORDER BY [b3].[EmployeeID]
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+    ) AS [t5]
+) AS [t6] ON [b.EmployeeWorkPermit].[EmployeeID] = [t6].[EmployeeID]
+ORDER BY [t6].[EmployeeID]
+2019-07-14 13:03:26,099 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 3426.5899ms.
+2019-07-14 13:03:26,100 INFO - The GetEmployeesAsync have been retrieved successfully.
+2019-07-14 13:03:26,111 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-14 13:03:26,143 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 3898.8484ms
+2019-07-14 13:03:26,157 INFO - Request finished in 7004.6273ms 200 application/json; charset=utf-8
+2019-07-14 13:50:56,832 INFO - Request starting HTTP/1.1 GET http://localhost:59821/  
+2019-07-14 13:50:56,867 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 13:50:56,893 INFO - Request finished in 64.5861ms 301 
+2019-07-14 13:50:56,900 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 13:50:56,900 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 13:50:56,962 INFO - Request finished in 62.789ms 200 text/html
+2019-07-14 13:59:39,339 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-14 13:59:39,339 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 13:59:39,389 INFO - Request finished in 43.8037ms 200 
+2019-07-14 13:59:39,407 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 13:59:39,546 INFO - Request finished in 213.3389ms 200 text/html
+2019-07-14 13:59:39,762 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-14 13:59:39,771 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 13:59:40,219 INFO - Request finished in 454.67ms 200 application/json;charset=utf-8
+2019-07-14 13:59:53,072 INFO - Request starting HTTP/1.1 GET http://localhost:59821/  
+2019-07-14 13:59:53,116 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 13:59:53,148 INFO - Request finished in 185.2672ms 301 
+2019-07-14 13:59:53,184 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 13:59:53,200 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 13:59:53,264 INFO - Request finished in 53.8615ms 200 text/html
+2019-07-14 14:00:54,784 INFO - Request starting HTTP/1.1 GET http://localhost:59821/  
+2019-07-14 14:00:54,787 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 14:00:54,789 INFO - Request finished in 6.8937ms 301 
+2019-07-14 14:00:54,800 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 14:00:54,802 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 14:00:54,805 INFO - Request finished in 3.8516ms 200 text/html
+2019-07-14 14:00:55,259 INFO - Request starting HTTP/1.1 GET http://localhost:59821/  
+2019-07-14 14:00:55,261 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 14:00:55,263 INFO - Request finished in 3.6712ms 301 
+2019-07-14 14:00:55,271 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 14:00:55,275 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 14:00:55,279 INFO - Request finished in 6.3634ms 200 text/html
+2019-07-14 14:32:01,028 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-14 14:32:01,061 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-14 14:32:01,145 INFO - Request finished in 118.2952ms 200 text/html
