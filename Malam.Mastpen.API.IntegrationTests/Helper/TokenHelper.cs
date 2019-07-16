@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using IdentityModel.Client;
 using Malam.Mastpen.API.IntegrationTests.Mock;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using IdentityModel;
 
 namespace Malam.Mastpen.API.IntegrationTests.Helper
 {
@@ -27,7 +28,7 @@ namespace Malam.Mastpen.API.IntegrationTests.Helper
                      ClientSecret = settings.ClientSecret, 
                      UserName = settings.UserName, 
                      Password = settings.Password
-                       });
+                });
 
             }
         }

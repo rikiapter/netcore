@@ -74,9 +74,9 @@ namespace Malam.Mastpen.Core.BL.Services
         }
         
         // POST
-        public async Task<SingleResponse<Core.DAL.Entities.Employee>> CreateEmployeeAsync(Employee employee)
+        public async Task<SingleResponse<EmployeeResponse>> CreateEmployeeAsync(Employee employee)
         {
-            var response = new SingleResponse<Core.DAL.Entities.Employee>();
+            var response = new SingleResponse<EmployeeResponse>();
        
             // Add entity to repository
             DbContext.Add(employee, UserInfo);
@@ -85,7 +85,7 @@ namespace Malam.Mastpen.Core.BL.Services
 
             response.Message = string.Format("Sucsses Post for Employee = {0} ", employee.EmployeeId);
             // Set the entity to response model
-            response.Model = employee;
+            response.Model = employee.ToEntity(null,null,null,null);
 
             return response;
         }

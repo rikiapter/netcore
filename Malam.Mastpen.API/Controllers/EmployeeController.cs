@@ -129,7 +129,7 @@ namespace Malam.Mastpen.API.Controllers
             entity.UserInsert = UserInfo.UserId;
 
             var employeeResponse = await EmployeeService.CreateEmployeeAsync(entity);
-
+            
             PhoneMail phoneMail = new PhoneMail();
             phoneMail.PhoneNumber = request.PhoneNumber;
             phoneMail.EntityTypeId = 1;
@@ -155,7 +155,8 @@ namespace Malam.Mastpen.API.Controllers
                 docs.EntityId= employeeResponse.Model.EmployeeId;
                 docs.EntityTypeId=(int)EntityTypeEnum.Employee;
                 docs.DocumentTypeId = (int)DocumentType.FaceImage;
-                var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee)); 
+                var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee));
+                employeeResponse.Model.picturePath = fileUrl;
             }
 
             //upload IdentityFile to blob
@@ -168,6 +169,7 @@ namespace Malam.Mastpen.API.Controllers
                 docs.EntityTypeId = (int)EntityTypeEnum.Employee;
                 docs.DocumentTypeId= (int)DocumentType.CopyofID;
                 var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee));
+                employeeResponse.Model.IdentityFilePath = fileUrl;
             }
 
             if (request.PassportFile != null)
@@ -179,8 +181,9 @@ namespace Malam.Mastpen.API.Controllers
                 docs.EntityTypeId = (int)EntityTypeEnum.Employee;
                 docs.DocumentTypeId = (int)DocumentType.CopyPassport;
                 var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee));
+                employeeResponse.Model.PassportFilePath = fileUrl;
             }
-
+        
             return employeeResponse.ToHttpResponse();
         }
 
