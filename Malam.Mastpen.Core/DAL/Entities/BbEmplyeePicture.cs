@@ -5,7 +5,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
 {
     public partial class EmplyeePicture:IAuditableEntity
     {
-        public int EmployeePictureId { get; set; }
+        public int? EmployeePictureId { get; set; }
         public int? EmployeeId { get; set; }
         public int? EmployeePicture { get; set; }
         public string EmployeeFacePrintId { get; set; }

@@ -73,6 +73,7 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
         
+
         // POST
         public async Task<SingleResponse<EmployeeResponse>> CreateEmployeeAsync(Employee employee)
         {
@@ -108,15 +109,16 @@ namespace Malam.Mastpen.Core.BL.Services
         }
 
         // PUT
-        public async Task<ResponseBasic> UpdateEmployeeAsync(Employee employee)
+        public async Task<SingleResponse<EmployeeResponse>> UpdateEmployeeAsync(Employee employee)
         {
-            var response = new ResponseBasic();
-        
+            var response = new SingleResponse<EmployeeResponse>();
+
             // Update entity in repository
             DbContext.Update(employee,UserInfo);
 
             response.Message = string.Format("Sucsses Put for Site Employee = {0} ", employee.EmployeeId);
             // Save entity in database
+            response.Model = employee.ToEntity(null, null, null, null);
             await DbContext.SaveChangesAsync();
 
             return response;

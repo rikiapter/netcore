@@ -21,8 +21,6 @@ using Newtonsoft.Json;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Malam.Mastpen.Core.BL.Contracts;
 using Malam.Mastpen.Core.BL.Services;
-using Malam.Mastpen.HR.API.Infrastructure;
-using Malam.Mastpen.HR.API.Clients;
 using System.Collections.Generic;
 using IdentityServer4.AccessTokenValidation;
 using Swashbuckle.AspNetCore.Swagger;

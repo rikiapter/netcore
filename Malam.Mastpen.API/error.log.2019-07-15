@@ -1,0 +1,91 @@
+2019-07-15 08:34:27,686 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-15 08:34:27,686 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-15 08:34:27,861 INFO - Request finished in 182.6243ms 200 
+2019-07-15 08:34:27,875 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 08:34:28,035 INFO - Request finished in 358.1011ms 200 text/html
+2019-07-15 08:34:28,246 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-15 08:34:28,261 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 08:34:28,778 INFO - Request finished in 529.5822ms 200 application/json;charset=utf-8
+2019-07-15 08:38:33,895 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-15 08:38:33,895 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-15 08:38:33,937 INFO - Request finished in 68.1601ms 200 
+2019-07-15 08:38:33,957 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 08:38:34,079 INFO - Request finished in 211.3809ms 200 text/html
+2019-07-15 08:38:34,725 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-15 08:38:34,735 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 08:38:35,081 INFO - Request finished in 355.8179ms 200 application/json;charset=utf-8
+2019-07-15 08:54:10,209 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-15 08:54:10,211 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 08:54:10,214 INFO - Request finished in 4.9769ms 200 text/html
+2019-07-15 08:54:10,484 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-15 08:54:10,486 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 08:54:10,514 INFO - Request finished in 20.9758ms 200 application/json;charset=utf-8
+2019-07-15 09:08:03,418 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-15 09:08:03,421 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 09:08:03,425 INFO - Request finished in 5.4898ms 200 text/html
+2019-07-15 09:08:03,685 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-15 09:08:03,688 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 09:08:03,711 INFO - Request finished in 18.5268ms 200 application/json;charset=utf-8
+2019-07-15 09:13:31,561 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-15 09:13:31,565 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 09:13:31,567 INFO - Request finished in 5.7828ms 200 text/html
+2019-07-15 09:13:31,839 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-15 09:13:31,842 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 09:13:31,865 INFO - Request starting HTTP/1.1 GET http://localhost:59821/favicon-32x32.png  
+2019-07-15 09:13:31,867 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 09:13:31,889 INFO - Request finished in 30.8127ms 200 application/json;charset=utf-8
+2019-07-15 09:13:31,919 INFO - Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2019-07-15 09:13:31,921 INFO - Request finished in 56.2284ms 200 image/png
+2019-07-15 09:13:54,665 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-15 09:13:54,666 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 09:13:54,672 INFO - Request finished in 2.8868ms 200 text/html
+2019-07-15 09:13:54,951 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-15 09:13:54,956 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 09:13:54,973 INFO - Request finished in 19.4661ms 200 application/json;charset=utf-8
+2019-07-15 09:19:59,310 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-15 09:19:59,312 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 09:19:59,317 INFO - Request finished in 5.2686ms 200 text/html
+2019-07-15 09:19:59,585 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-15 09:19:59,587 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 09:19:59,605 INFO - Request finished in 18.4882ms 200 application/json;charset=utf-8
+2019-07-15 09:20:14,979 INFO - Request starting HTTP/1.1 GET http://localhost:59821/oauth2-redirect.html  
+2019-07-15 09:20:14,981 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 09:20:14,984 INFO - The file /oauth2-redirect.html was not modified
+2019-07-15 09:20:14,988 INFO - Request finished in 8.1723ms 304 text/html
+2019-07-15 12:08:49,265 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-15 12:08:49,265 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-15 12:08:49,326 INFO - Request finished in 65.9148ms 200 
+2019-07-15 12:08:49,345 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 12:08:49,493 INFO - Request finished in 233.6149ms 200 text/html
+2019-07-15 12:08:49,812 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-15 12:08:49,817 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 12:08:50,796 INFO - Request finished in 980.3064ms 200 application/json;charset=utf-8
+2019-07-15 13:17:15,039 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-15 13:17:15,039 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-15 13:17:15,098 INFO - Request finished in 65.1485ms 200 
+2019-07-15 13:17:15,119 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 13:17:15,313 INFO - Request finished in 280.2483ms 200 text/html
+2019-07-15 13:17:15,502 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-15 13:17:15,513 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 13:17:16,198 INFO - Request finished in 693.6103ms 200 application/json;charset=utf-8
+2019-07-15 13:17:22,714 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/EmployeeTraining?EmployeeId=1  
+2019-07-15 13:17:22,717 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-15 13:17:22,795 INFO - Route matched with {action = "GetEmployeeTrainingAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeTrainingAsync (Malam.Mastpen.HR.API)
+2019-07-15 13:17:23,248 INFO - 'GetEmployeeTrainingAsync' has been invoked
+2019-07-15 13:17:23,257 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeTrainingAsync (Malam.Mastpen.HR.API) with arguments (1) - Validation state: Valid
+2019-07-15 13:17:24,289 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-15 13:17:25,683 INFO - Executed DbCommand (90ms) [Parameters=[@__tableName_1='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[EmployeeTrainingID], [x].[Comment], [x].[DateFrom], [x].[dateInsert], [x].[DateTo], [x].[dateUpdate], [x].[EmployeeID], [x].[EmployeeTrainingName], [x].[SiteID], [x].[state], [x].[TrainingTypeID], [x].[userInsert], [x].[UserUpdate], [x.Site].[SiteID], [x.Site].[Comment], [x.Site].[dateInsert], [x.Site].[dateUpdate], [x.Site].[OrganizationID], [x.Site].[SiteActivityStartDate], [x.Site].[SiteName], [x.Site].[SiteStatusID], [x.Site].[SiteTypeID], [x.Site].[state], [x.Site].[userInsert], [x.Site].[UserUpdate], [x.TrainingType].[TrainingTypeID], [x.TrainingType].[Comment], [x.TrainingType].[dateInsert], [x.TrainingType].[dateUpdate], [x.TrainingType].[state], [x.TrainingType].[TrainingTypeName], [x.TrainingType].[userInsert], [x.TrainingType].[UserUpdate], [t].[DocumentID], [t].[dateInsert], [t].[dateUpdate], [t].[DocumentDate], [t].[DocumentPath], [t].[DocumentTypeID], [t].[EntityID], [t].[EntityTypeID], [t].[IsDocumentSigned], [t].[LanguageID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t].[ValIdDate]
+FROM [BB_HR_EmployeeTraining] AS [x]
+LEFT JOIN [BB_GEN_Sites] AS [x.Site] ON [x].[SiteID] = [x.Site].[SiteID]
+LEFT JOIN [BB_HR_TrainingType] AS [x.TrainingType] ON [x].[TrainingTypeID] = [x.TrainingType].[TrainingTypeID]
+LEFT JOIN (
+    SELECT [a].[DocumentID], [a].[dateInsert], [a].[dateUpdate], [a].[DocumentDate], [a].[DocumentPath], [a].[DocumentTypeID], [a].[EntityID], [a].[EntityTypeID], [a].[IsDocumentSigned], [a].[LanguageID], [a].[state], [a].[userInsert], [a].[UserUpdate], [a].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_1
+    )) AND ([a].[DocumentTypeID] = 4)
+) AS [t] ON [x].[EmployeeID] = [t].[EntityID]
+WHERE [x].[EmployeeID] = @__entity_EmployeeId_0

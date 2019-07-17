@@ -30,9 +30,10 @@ namespace Malam.Mastpen.Core.DAL
 
         public static IQueryable<EmployeeResponse> GetEmployee(this MastpenBitachonDbContext dbContext, int? EmployeeID = null, string EmployeeName = null, string IdentityNumber = null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null, int? SiteId = null)
         {
+            string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
 
             // Get query from DbSet
-            var query = from emp in dbContext.Employee
+            var query = from Employee in dbContext.Employee
                  .Include(b => b.IdentificationType)
                  .Include(o => o.Organization)
                  .Include(x => x.EmployeeProffesionType)
@@ -43,7 +44,14 @@ namespace Malam.Mastpen.Core.DAL
                  .Include(x => x.EmployeeTraining)
                  .Include(x => x.EmployeeWorkPermit)
                  .AsQueryable()
-                        select emp.ToEntity(null, null,null,null);
+
+                        join docsFaceImage in dbContext.Docs
+                              .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                              .Where(a => a.DocumentTypeId == (int)DocumentType.FaceImage)
+                              on Employee.EmployeeId equals docsFaceImage.EntityId into docsFaceImage
+                        from x_docsFaceImage in docsFaceImage.DefaultIfEmpty()
+
+                        select Employee.ToEntity(null, x_docsFaceImage, null,null);
 
             // Filter by: 'EmployeeID'
             if (EmployeeID.HasValue)
@@ -131,6 +139,9 @@ namespace Malam.Mastpen.Core.DAL
         /// <returns></returns>
         public static async Task<Address> GetAddressAsync(this MastpenBitachonDbContext dbContext, Address entity)
         => await dbContext.Address.FirstOrDefaultAsync(item => item.EntityTypeId == entity.EntityTypeId && item.EntityId == entity.EntityId);
+
+        public static async Task<Docs> GetDocsAsync(this MastpenBitachonDbContext dbContext, Docs entity)
+        => await dbContext.Docs.FirstOrDefaultAsync(item => item.EntityTypeId == entity.EntityTypeId && item.EntityId == entity.EntityId);
 
         public static async Task<Organization> GetOrganizationeByIdAsync(this MastpenBitachonDbContext dbContext, Organization entity)
             => await dbContext.Organization.FirstOrDefaultAsync(item => item.OrganizationId == entity.OrganizationId);

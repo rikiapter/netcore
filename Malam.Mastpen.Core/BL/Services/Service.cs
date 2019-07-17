@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using Malam.Mastpen.Core.BL.Responses;
 using Malam.Mastpen.Core.DAL.Entities;
 using System;
+using Malam.Mastpen.Core.BL.Requests;
+using static Malam.Mastpen.API.Commom.Infrastructure.GeneralConsts;
+using Malam.Mastpen.HR.Core.BL.Requests;
 
 namespace Malam.Mastpen.Core.BL.Services
 {
@@ -12,11 +15,12 @@ namespace Malam.Mastpen.Core.BL.Services
     {
         protected bool Disposed;
         protected IUserInfo UserInfo;
-
-        public Service(IUserInfo userInfo, MastpenBitachonDbContext dbContext)
+        protected readonly BlobStorageService blobStorageService;
+        public Service(IUserInfo userInfo, MastpenBitachonDbContext dbContext, BlobStorageService blobStorageService)
         {
             UserInfo = userInfo;
             DbContext = dbContext;
+            this.blobStorageService = blobStorageService;
         }
 
         public void Dispose()
@@ -62,8 +66,73 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
 
+        public async Task<SingleResponse<PhoneMail>> UpdatePhoneMailAsync(PhoneMail phoneMail, Type type)
+        {
+            var response = new SingleResponse<PhoneMail>();
 
-        public async Task<SingleResponse<Docs>> CreateDocsAsync(Docs docs, Type type)
+            var EntityTypeId = DbContext.GetEntityTypeIdByEntityTypeName(type).Result;
+
+            phoneMail.EntityTypeId = EntityTypeId;
+
+            DbContext.Update(phoneMail, UserInfo);
+
+            await DbContext.SaveChangesAsync();
+
+            response.SetMessageSucssesPost(nameof(CreatePhoneMailAsync), phoneMail.EntityId ?? 0);
+
+            response.Model = phoneMail;
+
+            return response;
+        }
+
+        public async Task<SingleResponse<Docs>> GetDocsAsync(int EntityTypeId, int EntityId)
+        {
+            var response = new SingleResponse<Docs>();
+            // Get the Employee by Id
+            response.Model = await DbContext.GetDocsAsync(new Docs { EntityTypeId = EntityTypeId, EntityId = EntityId });
+
+            response.SetMessageGetById(nameof(GetAddressAsync), EntityTypeId);
+            return response;
+        }
+        public async Task<SingleResponse<Docs>> CreateDocsAsync(Docs docs, Type type, string fileName, FileRequest file, int documentType)
+        {
+            var docExist = GetDocsAsync((int)docs.EntityId, documentType);
+          
+            docs.DocumentTypeId = documentType;
+            if (docExist.Result.Model != null)
+            {
+                //למחוק את הכתובת הקודמת מהבלוב
+                blobStorageService.DeleteBlobData(docExist.Result.Model.DocumentPath);
+                docs.DocumentPath = blobStorageService.UploadFileToBlob(fileName, file);
+
+                return await UpdateDocsAsync(docs,type);
+
+            }
+            else if (file != null)
+                {
+                    var response = new SingleResponse<Docs>();
+
+                    docs.DocumentPath = blobStorageService.UploadFileToBlob(fileName, file);
+
+                     var EntityTypeId = DbContext.GetEntityTypeIdByEntityTypeName(type).Result;
+
+                    docs.EntityTypeId = EntityTypeId;
+
+                    DbContext.Add(docs, UserInfo);
+
+                    await DbContext.SaveChangesAsync();
+
+                    response.SetMessageSucssesPost(nameof(CreateDocsAsync), docs.EntityId ?? 0);
+
+                    response.Model = docs;
+
+                    return response;
+                }
+                else return new SingleResponse<Docs>();
+         
+          
+        }
+        public async Task<SingleResponse<Docs>> UpdateDocsAsync(Docs docs, Type type)
         {
             var response = new SingleResponse<Docs>();
 
@@ -71,11 +140,11 @@ namespace Malam.Mastpen.Core.BL.Services
 
             docs.EntityTypeId = EntityTypeId;
 
-            DbContext.Add(docs, UserInfo);
+            DbContext.Update(docs, UserInfo);
 
             await DbContext.SaveChangesAsync();
 
-            response.SetMessageSucssesPost(nameof(CreatePhoneMailAsync), docs.EntityId ?? 0);
+            response.SetMessageSucssesPost(nameof(UpdateDocsAsync), docs.EntityId ?? 0);
 
             response.Model = docs;
 

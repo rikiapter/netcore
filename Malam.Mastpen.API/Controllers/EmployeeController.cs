@@ -17,7 +17,6 @@ using Malam.Mastpen.API.Security;
 using Malam.Mastpen.API.Clients;
 using Malam.Mastpen.API.Clients.Contracts;
 using Malam.Mastpen.Core.BL.Contracts;
-using Malam.Mastpen.HR.API.Infrastructure;
 using Malam.Mastpen.HR.Core.BL.Requests;
 using Malam.Mastpen.Core.BL.Services;
 using static Malam.Mastpen.API.Commom.Infrastructure.GeneralConsts;
@@ -33,14 +32,14 @@ namespace Malam.Mastpen.API.Controllers
     {
         protected readonly IRothschildHouseIdentityClient RothschildHouseIdentityClient;
         protected readonly EmployeeService EmployeeService;
-        protected readonly BlobStorageService blobStorageService;
+    
         public EmployeeController(
             IRothschildHouseIdentityClient rothschildHouseIdentityClient,
-                 EmployeeService employeeService,BlobStorageService blobStorageService)
+                 EmployeeService employeeService)
         {
             RothschildHouseIdentityClient = rothschildHouseIdentityClient;
             EmployeeService = employeeService;
-            this.blobStorageService = blobStorageService;
+        
         }
 #pragma warning restore CS1591
 
@@ -136,53 +135,22 @@ namespace Malam.Mastpen.API.Controllers
             phoneMail.EntityId = employeeResponse.Model.EmployeeId;
 
             var phoneNumberResponse = await EmployeeService.CreatePhoneMailAsync(phoneMail, typeof(Employee));
-            string fileUrl;
-            
+  
+
+            Docs docs = new Docs();
+            docs.EntityTypeId = (int)EntityTypeEnum.Employee;
+            docs.EntityId = employeeResponse.Model.EmployeeId;
+            var fileName = employeeResponse.Model.IdentityNumber + employeeResponse.Model.FirstNameEn + "_" + employeeResponse.Model.LastNameEn;
             //upload picture to blob
-            if (request.picture != null)
-            {
-                 fileUrl = blobStorageService.UploadFileToBlob(request.IdentityNumber + request.FirstNameEN + "_" + request.LastNameEN, request.picture);
+            var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.picture, (int)DocumentType.FaceImage);
+            employeeResponse.Model.picturePath = DOCSResponse.Model.DocumentPath;
 
-               //get personid from face recognition 
-               //  EmplyeePicture emplyeePicture = new EmplyeePicture();
-               //  emplyeePicture.EmployeeId = employeeResponse.Model.EmployeeId;
+            DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.IdentityFile, (int)DocumentType.CopyofID);
+            employeeResponse.Model.IdentityFilePath = DOCSResponse.Model.DocumentPath;
 
-               //save file path in db
-               // var emplyeePictureResponse = await EmployeeService.CreateEmplyeePictureAsync(emplyeePicture);
+            DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.PassportFile, (int)DocumentType.CopyPassport);
+            employeeResponse.Model.PassportFilePath = DOCSResponse.Model.DocumentPath;
 
-                Docs docs = new Docs();
-                docs.DocumentPath = fileUrl;
-                docs.EntityId= employeeResponse.Model.EmployeeId;
-                docs.EntityTypeId=(int)EntityTypeEnum.Employee;
-                docs.DocumentTypeId = (int)DocumentType.FaceImage;
-                var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee));
-                employeeResponse.Model.picturePath = fileUrl;
-            }
-
-            //upload IdentityFile to blob
-            if (request.IdentityFile != null)
-            {
-                fileUrl = blobStorageService.UploadFileToBlob(request.IdentityNumber + request.FirstNameEN + "_" + request.LastNameEN, request.IdentityFile);
-                Docs docs = new Docs();
-                docs.DocumentPath = fileUrl;
-                docs.EntityId = employeeResponse.Model.EmployeeId;
-                docs.EntityTypeId = (int)EntityTypeEnum.Employee;
-                docs.DocumentTypeId= (int)DocumentType.CopyofID;
-                var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee));
-                employeeResponse.Model.IdentityFilePath = fileUrl;
-            }
-
-            if (request.PassportFile != null)
-            {
-                fileUrl = blobStorageService.UploadFileToBlob(request.IdentityNumber + request.FirstNameEN + "_" + request.LastNameEN, request.IdentityFile);
-                Docs docs = new Docs();
-                docs.DocumentPath = fileUrl;
-                docs.EntityId = employeeResponse.Model.EmployeeId;
-                docs.EntityTypeId = (int)EntityTypeEnum.Employee;
-                docs.DocumentTypeId = (int)DocumentType.CopyPassport;
-                var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee));
-                employeeResponse.Model.PassportFilePath = fileUrl;
-            }
         
             return employeeResponse.ToHttpResponse();
         }
@@ -227,7 +195,8 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
         public async Task<IActionResult> PutEmployeeAsync(int Id, [FromBody]EmployeeRequest request)
-        {   // Get Employee by Id
+        {   
+            // Get Employee by Id
             var entity = await EmployeeService.GetEmployeesAsync(request.EmployeeId ?? 0);
             //// ValIdate if entity exists
             if (entity == null)
@@ -237,12 +206,38 @@ namespace Malam.Mastpen.API.Controllers
 
             employee.UserInsert = UserInfo.UserId;
             employee.EmployeeId = Id;
-            var response = await EmployeeService.UpdateEmployeeAsync(employee);
+            var employeeResponse = await EmployeeService.UpdateEmployeeAsync(employee);
 
-            response.Message = string.Format("Sucsses Put for Site Employee = {0} ", request.EmployeeId);
+            employeeResponse.Message = string.Format("Sucsses Put for Site Employee = {0} ", request.EmployeeId);
 
+            //update phone
+            PhoneMail phoneMail = new PhoneMail();
+            phoneMail.PhoneNumber = request.PhoneNumber;
+            phoneMail.EntityTypeId = 1;
+            phoneMail.EntityId = employeeResponse.Model.EmployeeId;
 
-            return response.ToHttpResponse();
+            var phoneNumberResponse = await EmployeeService.UpdatePhoneMailAsync(phoneMail, typeof(Employee));
+
+            
+            //upload picture to blob
+            Docs docs = new Docs();
+            docs.EntityTypeId = (int)EntityTypeEnum.Employee;
+            docs.EntityId = Id;
+            var fileName = employee.IdentityNumber + employee.FirstNameEn + "_" + employee.LastNameEn;
+
+          
+            var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.picture, (int)DocumentType.FaceImage);
+            employeeResponse.Model.picturePath = DOCSResponse.Model.DocumentPath;
+
+            DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.IdentityFile, (int)DocumentType.CopyofID);
+            employeeResponse.Model.IdentityFilePath = DOCSResponse.Model.DocumentPath;
+
+            DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.PassportFile, (int)DocumentType.CopyPassport);
+            employeeResponse.Model.PassportFilePath = DOCSResponse.Model.DocumentPath;
+
+         
+
+            return employeeResponse.ToHttpResponse();
         }
 
         // DELETE
@@ -305,18 +300,13 @@ namespace Malam.Mastpen.API.Controllers
 
             var response = await EmployeeService.CreateEmployeeTrainingAsync(entity);
 
-            if (request.fileRequest != null)
-            {
-              var  fileUrl = blobStorageService.UploadFileToBlob(request.EmployeeTrainingName , request.fileRequest);
+            Docs docs = new Docs();
+            docs.EntityId = response.Model.EmployeeTrainingId;
+            docs.EntityTypeId = (int)EntityTypeEnum.EmployeeTraining;
 
-                //save in docs
-                Docs docs = new Docs();
-                docs.DocumentPath = fileUrl;
-                docs.EntityId = response.Model.EmployeeTrainingId;
-                docs.EntityTypeId = (int)EntityTypeEnum.EmployeeTraining;
-                docs.DocumentTypeId =(int)DocumentType.Training;
-                var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(EmployeeTraining));
-            }
+            var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(EmployeeTraining), request.EmployeeTrainingName, request.fileRequest,(int)DocumentType.Training);
+            response.Model.Comment = DOCSResponse.Model.DocumentPath;
+
             return response.ToHttpResponse();
         }
 
@@ -346,18 +336,13 @@ namespace Malam.Mastpen.API.Controllers
 
             var response = await EmployeeService.CreateEmployeeWorkPermitAsync(entity);
 
-            if (request.fileRequest != null)
-            {
-                var fileUrl = blobStorageService.UploadFileToBlob(request.EmployeeWorkPermitName, request.fileRequest);
+            Docs docs = new Docs();
+            docs.EntityId = response.Model.EmployeeWorkPermitId;
+            docs.EntityTypeId = (int)EntityTypeEnum.EmployeeWorkPermit;
 
-                //save in docs
-                Docs docs = new Docs();
-                docs.DocumentPath = fileUrl;
-                docs.EntityId = response.Model.EmployeeWorkPermitId;
-                docs.EntityTypeId = (int)EntityTypeEnum.EmployeeWorkPermit;
-                docs.DocumentTypeId = (int)DocumentType.CopyWorkPermit;
-                var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(EmployeeWorkPermit));
-            }
+            var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(EmployeeWorkPermit), request.EmployeeWorkPermitName, request.fileRequest, (int)DocumentType.CopyWorkPermit);
+            response.Model.Comment = DOCSResponse.Model.DocumentPath;
+
             return response.ToHttpResponse();
         }
 
@@ -387,18 +372,13 @@ namespace Malam.Mastpen.API.Controllers
 
             var response = await EmployeeService.CreateEmployeeAuthtorizationAsync(entity);
 
-            if (request.fileRequest != null)
-            {
-                var fileUrl = blobStorageService.UploadFileToBlob(request.EmployeeAuthorizationName, request.fileRequest);
+            Docs docs = new Docs();
+            docs.EntityId = response.Model.EmployeeAuthorizationId;
+            docs.EntityTypeId = (int)EntityTypeEnum.EmployeeAuthtorization;
 
-                //save in docs
-                Docs docs = new Docs();
-                docs.DocumentPath = fileUrl;
-                docs.EntityId = response.Model.EmployeeAuthorizationId;
-                docs.EntityTypeId = (int)EntityTypeEnum.EmployeeAuthtorization;
-                docs.DocumentTypeId = (int)DocumentType.Authtorization;
-                var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(EmployeeAuthtorization));
-            }
+            var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(EmployeeAuthtorization), request.EmployeeAuthorizationName, request.fileRequest, (int)DocumentType.Authtorization);
+            response.Model.Comment = DOCSResponse.Model.DocumentPath;
+
             return response.ToHttpResponse();
         }
 

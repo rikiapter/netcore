@@ -20,15 +20,16 @@ namespace Malam.Mastpen.API.IntegrationTests.Helper
                 var settings = ClientSettingsMocker.GetMastpenIdentityClientSettings(userName, password);
 
                 var disco = await client.GetDiscoveryDocumentAsync(settings.Url);
-
-                return await client.RequestPasswordTokenAsync(new PasswordTokenRequest
-                       {
+                var req = new PasswordTokenRequest
+                {
                     Address = disco.TokenEndpoint,
-                    ClientId = settings.ClientId, 
-                     ClientSecret = settings.ClientSecret, 
-                     UserName = settings.UserName, 
-                     Password = settings.Password
-                });
+                    ClientId = settings.ClientId,
+                    ClientSecret = settings.ClientSecret,
+                    UserName = settings.UserName,
+                    Password = settings.Password
+                };
+var vv=               await client.RequestPasswordTokenAsync(req);
+                return vv;
 
             }
         }

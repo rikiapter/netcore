@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,11 +11,10 @@ using System.Collections.Generic;
 using System.IO;  
 using System.Threading.Tasks;
 using Malam.Mastpen.HR.Core.BL.Requests;
-using Malam.Mastpen.HR.API.Clients;
 using Microsoft.Extensions.Options;
 
-namespace Malam.Mastpen.HR.API.Infrastructure
-{ 
+namespace Malam.Mastpen.Core.BL.Services
+{
     public class BlobStorageService
     {
         string accessKey = string.Empty;
@@ -21,7 +22,7 @@ namespace Malam.Mastpen.HR.API.Infrastructure
         public BlobStorageService(IOptions<BlobConection> blobConection)
         {
             this.accessKey = blobConection.Value.AccessKey;// "DefaultEndpointsProtocol=https;AccountName=mastpenblob;AccountKey=A01qaRxdQ2LIKFs7sFyUXxLrQE+/IwR622H1CEtoI4pYEyFCk5QbOLfwRfmekSORDsuCLFNQOnU1nOqbmDMk2Q==;EndpointSuffix=core.windows.net"; 
-                // AppConfiguration.GetConfiguration("AccessKey");
+                                                           // AppConfiguration.GetConfiguration("AccessKey");
         }
 
         public string UploadFileToBlob(string strFileName, FileRequest fileRequest)// byte[] fileData, string fileMimeType)

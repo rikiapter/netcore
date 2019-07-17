@@ -1,0 +1,8 @@
+2019-07-16 12:25:05,451 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-16 12:25:05,451 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-16 12:25:05,562 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-16 12:25:05,594 INFO - Request finished in 135.64ms 200 
+2019-07-16 12:25:05,780 INFO - Request finished in 339.8806ms 200 text/html
+2019-07-16 12:25:06,211 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-16 12:25:06,221 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-16 12:25:06,738 INFO - Request finished in 527.5127ms 200 application/json;charset=utf-8
