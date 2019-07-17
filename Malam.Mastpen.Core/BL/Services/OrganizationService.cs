@@ -101,16 +101,26 @@ namespace Malam.Mastpen.Core.BL.Services
         }
 
         // PUT
-        public async Task<ResponseBasic> UpdateOrganizationAsync(Organization Organization)
+        public async Task<ResponseBasic> UpdateOrganizationAsync(Organization organization)
         {
             var response = new ResponseBasic();
 
-            // Update entity in repository
-            DbContext.Update(Organization, UserInfo);
 
-            response.Message = string.Format("Sucsses Put for Site Organization = {0} ", Organization.OrganizationId);
-            // Save entity in database
-            await DbContext.SaveChangesAsync();
+            var entity =await DbContext.Organization.FirstOrDefaultAsync(item => item.OrganizationId == organization.OrganizationId);
+            if (entity != null)
+            {
+                entity.Comment = organization.Comment;
+                entity.OrganizationName = organization.OrganizationName;
+                entity.OrganizationNumber = organization.OrganizationNumber;
+                entity.OrganizationParentId = organization.OrganizationParentId;
+                entity.OrganizationTypeId = organization.OrganizationTypeId;
+                
+                DbContext.Update(entity, UserInfo);
+
+                await DbContext.SaveChangesAsync();
+            }
+     
+            response.Message = string.Format("Sucsses Put for Site Organization = {0} ", organization.OrganizationId);
 
             return response;
         }
