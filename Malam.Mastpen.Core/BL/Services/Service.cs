@@ -8,6 +8,7 @@ using System;
 using Malam.Mastpen.Core.BL.Requests;
 using static Malam.Mastpen.API.Commom.Infrastructure.GeneralConsts;
 using Malam.Mastpen.HR.Core.BL.Requests;
+using System.Linq;
 
 namespace Malam.Mastpen.Core.BL.Services
 {
@@ -174,6 +175,43 @@ namespace Malam.Mastpen.Core.BL.Services
             response.SetMessageSucssesPost(nameof(UpdateDocsAsync), docs.EntityId ?? 0);
 
             response.Model = docs;
+
+            return response;
+        }
+
+
+        public async Task<SingleResponse<EmployeeProffesionType>> CreateEmployeeProffesionTypeAsync(EmployeeProffesionType proffesionType, Type type)
+        {
+            var response = new SingleResponse<EmployeeProffesionType>();
+
+            DbContext.Add(proffesionType, UserInfo);
+
+            await DbContext.SaveChangesAsync();
+
+            response.SetMessageSucssesPost(nameof(CreateEmployeeProffesionTypeAsync), proffesionType.EmployeeAuthorizationId );
+
+            response.Model = proffesionType;
+
+            return response;
+        }
+
+        public async Task<SingleResponse<EmployeeProffesionType>> UpdateProffesionTypeAsync(EmployeeProffesionType proffesionType, Type type)
+        {
+            var response = new SingleResponse<EmployeeProffesionType>();
+
+
+            var entity = DbContext.EmployeeProffesionType.FirstOrDefault(item => item.EmployeeId == proffesionType.EmployeeId && item.ProffesionTypeId == proffesionType.ProffesionTypeId);
+            if (entity != null)
+            {
+                entity.ProffesionTypeId = proffesionType.ProffesionTypeId;
+
+                DbContext.Update(entity, UserInfo);
+
+                await DbContext.SaveChangesAsync();
+            }
+            response.SetMessageSucssesPost(nameof(CreatePhoneMailAsync), proffesionType.EmployeeAuthorizationId);
+
+            response.Model = proffesionType;
 
             return response;
         }

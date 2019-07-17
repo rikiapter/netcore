@@ -65,13 +65,16 @@ namespace Malam.Mastpen.API.XUnitTest.UnitTest
                 OrganizationId = 1,
                 BirthDate = new DateTime(2000, 5, 1),
                 GenderId = 1,
-                Citizenship = 1
+                Citizenship = 1,
+                ProffesionTypeId=1,
+                PhoneNumber="4454545"
+              
 
             };
 
             // Act
             var response = await controller.PostEmployeeAsync(request) as ObjectResult;
-            var value = response.Value as ISingleResponse<Employee>;
+            var value = response.Value as ISingleResponse<EmployeeResponse>;
 
             // Assert
             Assert.False(value.DIdError);

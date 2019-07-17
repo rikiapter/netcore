@@ -30,6 +30,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         public int? Citizenship { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
+        public int? ProffesionTypeId { get; set; }
         public FileRequest picture { get; set; }
         public FileRequest IdentityFile { get; set; }
         public FileRequest PassportFile { get; set; }

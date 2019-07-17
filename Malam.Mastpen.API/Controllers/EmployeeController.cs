@@ -131,11 +131,20 @@ namespace Malam.Mastpen.API.Controllers
             
             PhoneMail phoneMail = new PhoneMail();
             phoneMail.PhoneNumber = request.PhoneNumber;
-            phoneMail.EntityTypeId = 1;
+            phoneMail.EntityTypeId =(int)EntityTypeEnum.Employee;
             phoneMail.EntityId = employeeResponse.Model.EmployeeId;
 
-            var phoneNumberResponse = await EmployeeService.CreatePhoneMailAsync(phoneMail, typeof(Employee));
-  
+            EmployeeService.CreatePhoneMailAsync(phoneMail, typeof(Employee));
+
+
+
+            EmployeeProffesionType proffesionType = new EmployeeProffesionType();
+            proffesionType.ProffesionTypeId = request.ProffesionTypeId;
+            proffesionType.EmployeeId = employeeResponse.Model.EmployeeId;
+
+            EmployeeService.CreateEmployeeProffesionTypeAsync(proffesionType, typeof(Employee));
+
+
 
             Docs docs = new Docs();
             docs.EntityTypeId = (int)EntityTypeEnum.Employee;
@@ -214,12 +223,19 @@ namespace Malam.Mastpen.API.Controllers
             //update phone
             PhoneMail phoneMail = new PhoneMail();
             phoneMail.PhoneNumber = request.PhoneNumber;
-            phoneMail.EntityTypeId = 1;
+            phoneMail.EntityTypeId = (int)EntityTypeEnum.Employee;
             phoneMail.EntityId = employeeResponse.Model.EmployeeId;
 
-            var phoneNumberResponse = await EmployeeService.UpdatePhoneMailAsync(phoneMail, typeof(Employee));
+            EmployeeService.UpdatePhoneMailAsync(phoneMail, typeof(Employee));
 
-            
+            EmployeeProffesionType proffesionType = new EmployeeProffesionType();
+            proffesionType.ProffesionTypeId = request.ProffesionTypeId;
+            proffesionType.EmployeeId = employeeResponse.Model.EmployeeId;
+
+             EmployeeService.UpdateProffesionTypeAsync(proffesionType, typeof(Employee));
+     
+
+
             //upload picture to blob
             Docs docs = new Docs();
             docs.EntityTypeId = (int)EntityTypeEnum.Employee;

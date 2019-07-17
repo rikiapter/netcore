@@ -81,7 +81,7 @@ namespace Malam.Mastpen.Core.BL.Services
        
             // Add entity to repository
             DbContext.Add(employee, UserInfo);
-            // Save entity in database
+
             await DbContext.SaveChangesAsync();
 
             response.Message = string.Format("Sucsses Post for Employee = {0} ", employee.EmployeeId);
