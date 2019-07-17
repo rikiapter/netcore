@@ -56,10 +56,10 @@ namespace Malam.Mastpen.API
             .AddJsonOptions(options =>
             {
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-            });    
-           
+            });
 
- 
+
+
 
             /* Setting dependency injection */
             // For DbContext

@@ -135,7 +135,7 @@ namespace Malam.Mastpen.API.Controllers
                 phoneMail.EntityTypeId = (int)EntityTypeEnum.Employee;
                 phoneMail.EntityId = employeeResponse.Model.EmployeeId;
 
-                EmployeeService.CreatePhoneMailAsync(phoneMail, typeof(Employee));
+             await  EmployeeService.CreatePhoneMailAsync(phoneMail, typeof(Employee));
             }
 
             if (request.ProffesionTypeId != null)
@@ -144,7 +144,7 @@ namespace Malam.Mastpen.API.Controllers
                 proffesionType.ProffesionTypeId = request.ProffesionTypeId;
                 proffesionType.EmployeeId = employeeResponse.Model.EmployeeId;
 
-                EmployeeService.CreateEmployeeProffesionTypeAsync(proffesionType, typeof(Employee));
+            await EmployeeService.CreateEmployeeProffesionTypeAsync(proffesionType, typeof(Employee));
             }
 
             Docs docs = new Docs();
@@ -230,7 +230,7 @@ namespace Malam.Mastpen.API.Controllers
                 phoneMail.EntityTypeId = (int)EntityTypeEnum.Employee;
                 phoneMail.EntityId = employeeResponse.Model.EmployeeId;
 
-                EmployeeService.UpdatePhoneMailAsync(phoneMail, typeof(Employee));
+              await  EmployeeService.UpdatePhoneMailAsync(phoneMail, typeof(Employee));
             }
 
             if (request.ProffesionTypeId != null)
@@ -239,7 +239,7 @@ namespace Malam.Mastpen.API.Controllers
                 proffesionType.ProffesionTypeId = request.ProffesionTypeId;
                 proffesionType.EmployeeId = employeeResponse.Model.EmployeeId;
 
-                EmployeeService.UpdateProffesionTypeAsync(proffesionType, typeof(Employee));
+              await  EmployeeService.UpdateProffesionTypeAsync(proffesionType, typeof(Employee));
 
             }
 

@@ -107,32 +107,35 @@ namespace Malam.Mastpen.Core.BL.Services
         {
             var response = new SingleResponse<Docs>();
             // Get the Employee by Id
-            response.Model = await DbContext.GetDocsAsync(new Docs { EntityTypeId = EntityTypeId, EntityId = EntityId ,DocumentTypeId=documentType});
-
+             var res= await  DbContext.GetDocsAsync(new Docs { EntityTypeId = EntityTypeId, EntityId = EntityId ,DocumentTypeId=documentType});
+            response.Model =  res;
             response.SetMessageGetById(nameof(GetAddressAsync), EntityTypeId);
             return response;
         }
         public async Task<SingleResponse<Docs>> CreateDocsAsync(Docs docs, Type type, string fileName, FileRequest file, int documentType)
         {
-            var docExist = GetDocsAsync((int)docs.EntityTypeId,(int)docs.EntityId, documentType);
-          
+            var query =  DbContext.GetDocsAsync(new Docs { EntityTypeId = (int)docs.EntityTypeId, EntityId = (int)docs.EntityId, DocumentTypeId = documentType });
+
+            var docExist = await query;
             docs.DocumentTypeId = documentType;
-            if (docExist.Result.Model != null)
+            if (docExist!= null)
             {
                 //למחוק את הכתובת הקודמת מהבלוב
-              //  blobStorageService.DeleteBlobData(docExist.Result.Model.DocumentPath);
+                //  blobStorageService.DeleteBlobData(docExist.Result.Model.DocumentPath);
                 docs.DocumentPath = blobStorageService.UploadFileToBlob(fileName, file);
 
-                return await UpdateDocsAsync(docs,type);
+                return await UpdateDocsAsync(docs, type);
 
             }
             else if (file != null)
+            {
+                if (!string.IsNullOrEmpty(file.ContentType) || !string.IsNullOrEmpty(file.ContentType))
                 {
                     var response = new SingleResponse<Docs>();
 
                     docs.DocumentPath = blobStorageService.UploadFileToBlob(fileName, file);
 
-                     var EntityTypeId = DbContext.GetEntityTypeIdByEntityTypeName(type).Result;
+                    var EntityTypeId = DbContext.GetEntityTypeIdByEntityTypeName(type).Result;
 
                     docs.EntityTypeId = EntityTypeId;
 
@@ -147,6 +150,8 @@ namespace Malam.Mastpen.Core.BL.Services
                     return response;
                 }
                 else return new SingleResponse<Docs>();
+            }
+            else return new SingleResponse<Docs>();
          
           
         }
