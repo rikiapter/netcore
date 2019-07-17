@@ -134,7 +134,35 @@ namespace Malam.Mastpen.Core.BL.Requests
             Citizenship = request.Citizenship,
 
         };
+        public static Employee ToEntity(this Employee request)
+       => new Employee
+       {
+           EmployeeId = request.EmployeeId,
 
+           IdentificationTypeId = request.IdentificationTypeId,
+           IdentityNumber = request.IdentityNumber,
+           PassportCountryId = request.PassportCountryId,
+           FirstName = request.FirstName,
+           LastName = request.LastName,
+           FirstNameEn = request.FirstNameEn,
+           LastNameEn = request.LastNameEn,
+           OrganizationId = request.OrganizationId,
+           BirthDate = request.BirthDate,
+           GenderId = request.GenderId,
+           Citizenship = request.Citizenship,
+           UserInsert = request.UserInsert,
+           DateInsert = request.DateInsert,
+           UserUpdate = request.UserUpdate,
+           DateUpdate = request.DateUpdate,
+           State = request.State,
+           Address = request.Address,
+           Gender = request.Gender,
+           IdentificationType = request.IdentificationType,
+           Organization = request.Organization,
+           PassportCountry = request.PassportCountry
+         
+
+       };
         public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone, Docs docsFaceImage, Docs docsCopyPassport,Docs docsCopyofID)
             => new EmployeeResponse
             {

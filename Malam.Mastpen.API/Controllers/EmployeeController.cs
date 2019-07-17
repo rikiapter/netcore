@@ -201,11 +201,12 @@ namespace Malam.Mastpen.API.Controllers
             //// ValIdate if entity exists
             if (entity == null)
                 return NotFound();
-
+            
             var employee = request.ToEntity();
 
             employee.UserInsert = UserInfo.UserId;
             employee.EmployeeId = Id;
+      
             var employeeResponse = await EmployeeService.UpdateEmployeeAsync(employee);
 
             employeeResponse.Message = string.Format("Sucsses Put for Site Employee = {0} ", request.EmployeeId);

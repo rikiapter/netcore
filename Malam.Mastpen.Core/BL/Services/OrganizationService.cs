@@ -15,8 +15,8 @@ namespace Malam.Mastpen.Core.BL.Services
 
     public class OrganizationService : Service
     {
-        public OrganizationService(IUserInfo userInfo, MastpenBitachonDbContext dbContext)
-            : base(userInfo, dbContext)
+        public OrganizationService(IUserInfo userInfo, MastpenBitachonDbContext dbContext, BlobStorageService blobStorageService)
+            : base(userInfo, dbContext, blobStorageService)
         {
         }
 

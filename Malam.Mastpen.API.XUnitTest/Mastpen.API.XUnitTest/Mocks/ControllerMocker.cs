@@ -17,7 +17,7 @@ namespace Malam.Mastpen.API.XUnitTest.Mocks
             var userInfo = IdentityMocker.GetCustomerIdentity().GetUserInfo();
             var service = ServiceMocker.GetEmployeeService(userInfo, name);
 
-            return new EmployeeController( identityClient, service,null);
+            return new EmployeeController( identityClient, service);
         }
         public static OrganizationController GetOrganizationController(string name)
         {

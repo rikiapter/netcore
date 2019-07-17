@@ -18,8 +18,8 @@ namespace Malam.Mastpen.Core.BL.Services
 {
     public class EmployeeService : Service
     {
-        public EmployeeService(IUserInfo userInfo, MastpenBitachonDbContext dbContext)
-            : base( userInfo, dbContext)
+        public EmployeeService(IUserInfo userInfo, MastpenBitachonDbContext dbContext, BlobStorageService blobStorageService)
+            : base( userInfo, dbContext, blobStorageService)
         {
         }
 
@@ -113,8 +113,39 @@ namespace Malam.Mastpen.Core.BL.Services
         {
             var response = new SingleResponse<EmployeeResponse>();
 
-            // Update entity in repository
-            DbContext.Update(employee,UserInfo);
+            // Retrieve entity by id
+            // Answer for question #1
+            Employee entity = DbContext.Employee.FirstOrDefault(item => item.EmployeeId == employee.EmployeeId);
+
+            // Validate entity is not null
+            if (entity != null)
+            {
+                //entity = employee.ToEntity();
+                entity.IdentificationTypeId = employee.IdentificationTypeId;
+                entity.IdentityNumber = employee.IdentityNumber;
+                entity.PassportCountryId = employee.PassportCountryId;
+                entity.FirstName = employee.FirstName;
+                entity.LastName = employee.LastName;
+                entity.FirstNameEn = employee.FirstNameEn;
+                entity.LastNameEn = employee.LastNameEn;
+                entity.OrganizationId = employee.OrganizationId;
+                entity.BirthDate = employee.BirthDate;
+                entity.GenderId = employee.GenderId;
+                entity.Citizenship = employee.Citizenship;
+                entity.UserInsert = employee.UserInsert;
+                entity.DateInsert = employee.DateInsert;
+                entity.UserUpdate = employee.UserUpdate;
+                entity.DateUpdate = employee.DateUpdate;
+                entity.State = employee.State;
+                entity.Address = employee.Address;
+                entity.Gender = employee.Gender;
+                entity.IdentificationType = employee.IdentificationType;
+                entity.Organization = employee.Organization;
+                entity.PassportCountry = employee.PassportCountry;
+              
+                DbContext.Update(entity, UserInfo);
+
+            }
 
             response.Message = string.Format("Sucsses Put for Site Employee = {0} ", employee.EmployeeId);
             // Save entity in database

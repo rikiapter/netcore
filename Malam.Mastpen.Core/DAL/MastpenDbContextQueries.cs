@@ -141,7 +141,12 @@ namespace Malam.Mastpen.Core.DAL
         => await dbContext.Address.FirstOrDefaultAsync(item => item.EntityTypeId == entity.EntityTypeId && item.EntityId == entity.EntityId);
 
         public static async Task<Docs> GetDocsAsync(this MastpenBitachonDbContext dbContext, Docs entity)
-        => await dbContext.Docs.FirstOrDefaultAsync(item => item.EntityTypeId == entity.EntityTypeId && item.EntityId == entity.EntityId);
+        => await dbContext.Docs.FirstOrDefaultAsync(item => item.EntityTypeId == entity.EntityTypeId 
+                                                    && item.EntityId == entity.EntityId 
+                                                    && item.DocumentTypeId==entity.DocumentTypeId);
+
+        public static async Task<PhoneMail> GetPhoneMailAsync(this MastpenBitachonDbContext dbContext, PhoneMail entity)
+=> await dbContext.PhoneMail.FirstOrDefaultAsync(item => item.EntityTypeId == entity.EntityTypeId && item.EntityId == entity.EntityId);
 
         public static async Task<Organization> GetOrganizationeByIdAsync(this MastpenBitachonDbContext dbContext, Organization entity)
             => await dbContext.Organization.FirstOrDefaultAsync(item => item.OrganizationId == entity.OrganizationId);
