@@ -128,28 +128,30 @@ namespace Malam.Mastpen.API.Controllers
             entity.UserInsert = UserInfo.UserId;
 
             var employeeResponse = await EmployeeService.CreateEmployeeAsync(entity);
-            
-            PhoneMail phoneMail = new PhoneMail();
-            phoneMail.PhoneNumber = request.PhoneNumber;
-            phoneMail.EntityTypeId =(int)EntityTypeEnum.Employee;
-            phoneMail.EntityId = employeeResponse.Model.EmployeeId;
+            if (request.PhoneNumber != null)
+            {
+                PhoneMail phoneMail = new PhoneMail();
+                phoneMail.PhoneNumber = request.PhoneNumber;
+                phoneMail.EntityTypeId = (int)EntityTypeEnum.Employee;
+                phoneMail.EntityId = employeeResponse.Model.EmployeeId;
 
-            EmployeeService.CreatePhoneMailAsync(phoneMail, typeof(Employee));
+                EmployeeService.CreatePhoneMailAsync(phoneMail, typeof(Employee));
+            }
 
+            if (request.ProffesionTypeId != null)
+            {
+                EmployeeProffesionType proffesionType = new EmployeeProffesionType();
+                proffesionType.ProffesionTypeId = request.ProffesionTypeId;
+                proffesionType.EmployeeId = employeeResponse.Model.EmployeeId;
 
-
-            EmployeeProffesionType proffesionType = new EmployeeProffesionType();
-            proffesionType.ProffesionTypeId = request.ProffesionTypeId;
-            proffesionType.EmployeeId = employeeResponse.Model.EmployeeId;
-
-            EmployeeService.CreateEmployeeProffesionTypeAsync(proffesionType, typeof(Employee));
-
-
+                EmployeeService.CreateEmployeeProffesionTypeAsync(proffesionType, typeof(Employee));
+            }
 
             Docs docs = new Docs();
             docs.EntityTypeId = (int)EntityTypeEnum.Employee;
             docs.EntityId = employeeResponse.Model.EmployeeId;
             var fileName = employeeResponse.Model.IdentityNumber + employeeResponse.Model.FirstNameEn + "_" + employeeResponse.Model.LastNameEn;
+            
             //upload picture to blob
             var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.picture, (int)DocumentType.FaceImage);
             employeeResponse.Model.picturePath = DOCSResponse.Model.DocumentPath;
@@ -204,37 +206,42 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
         public async Task<IActionResult> PutEmployeeAsync(int Id, [FromBody]EmployeeRequest request)
-        {   
+        {
             // Get Employee by Id
             var entity = await EmployeeService.GetEmployeesAsync(request.EmployeeId ?? 0);
             //// ValIdate if entity exists
             if (entity == null)
                 return NotFound();
-            
+
             var employee = request.ToEntity();
 
             employee.UserInsert = UserInfo.UserId;
             employee.EmployeeId = Id;
-      
+
             var employeeResponse = await EmployeeService.UpdateEmployeeAsync(employee);
 
             employeeResponse.Message = string.Format("Sucsses Put for Site Employee = {0} ", request.EmployeeId);
 
-            //update phone
-            PhoneMail phoneMail = new PhoneMail();
-            phoneMail.PhoneNumber = request.PhoneNumber;
-            phoneMail.EntityTypeId = (int)EntityTypeEnum.Employee;
-            phoneMail.EntityId = employeeResponse.Model.EmployeeId;
+            if (request.PhoneNumber != null)
+            {
+                //update phone
+                PhoneMail phoneMail = new PhoneMail();
+                phoneMail.PhoneNumber = request.PhoneNumber;
+                phoneMail.EntityTypeId = (int)EntityTypeEnum.Employee;
+                phoneMail.EntityId = employeeResponse.Model.EmployeeId;
 
-            EmployeeService.UpdatePhoneMailAsync(phoneMail, typeof(Employee));
+                EmployeeService.UpdatePhoneMailAsync(phoneMail, typeof(Employee));
+            }
 
-            EmployeeProffesionType proffesionType = new EmployeeProffesionType();
-            proffesionType.ProffesionTypeId = request.ProffesionTypeId;
-            proffesionType.EmployeeId = employeeResponse.Model.EmployeeId;
+            if (request.ProffesionTypeId != null)
+            {
+                EmployeeProffesionType proffesionType = new EmployeeProffesionType();
+                proffesionType.ProffesionTypeId = request.ProffesionTypeId;
+                proffesionType.EmployeeId = employeeResponse.Model.EmployeeId;
 
-             EmployeeService.UpdateProffesionTypeAsync(proffesionType, typeof(Employee));
-     
+                EmployeeService.UpdateProffesionTypeAsync(proffesionType, typeof(Employee));
 
+            }
 
             //upload picture to blob
             Docs docs = new Docs();
@@ -242,7 +249,7 @@ namespace Malam.Mastpen.API.Controllers
             docs.EntityId = Id;
             var fileName = employee.IdentityNumber + employee.FirstNameEn + "_" + employee.LastNameEn;
 
-          
+
             var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.picture, (int)DocumentType.FaceImage);
             employeeResponse.Model.picturePath = DOCSResponse.Model.DocumentPath;
 
@@ -252,7 +259,7 @@ namespace Malam.Mastpen.API.Controllers
             DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.PassportFile, (int)DocumentType.CopyPassport);
             employeeResponse.Model.PassportFilePath = DOCSResponse.Model.DocumentPath;
 
-         
+
 
             return employeeResponse.ToHttpResponse();
         }
