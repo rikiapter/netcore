@@ -47,6 +47,21 @@ namespace Malam.Mastpen.API.XUnitTest.UnitTest
         }
 
         [Fact]
+        public async Task TestGetEmployeeByUserIdAsync()
+        {
+            // Arrange
+            var controller = ControllerMocker.GetEmployeeController(nameof(TestGetEmployeeAsync));
+
+            var id = 1;
+
+            // Act
+            var response = await controller.GetEmployeeByUserIdAsync(id) as ObjectResult;
+            var value = response.Value as ISingleResponse<EmployeeResponse>;
+
+            // Assert
+            Assert.False(value.DIdError);
+        }
+        [Fact]
         public async Task TestPostEmployeeAsync()
         {
             // Arrange

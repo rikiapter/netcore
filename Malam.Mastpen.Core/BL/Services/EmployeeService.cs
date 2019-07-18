@@ -51,21 +51,29 @@ namespace Malam.Mastpen.Core.BL.Services
         public async Task<SingleResponse<EmployeeResponse>> GetEmployeeAsync(int Id)
         {
             var response = new SingleResponse<EmployeeResponse>();
-            // Get the Employee by Id
 
-            // Get query
             var query = DbContext.GetEmployeesAsync(new Employee { EmployeeId = Id });
 
-            // Retrieve items, set model for response
             response.Model = await query.FirstOrDefaultAsync();
-           // response.Model.ProffesionType.EmployeeProffesionType = null;
 
             response.SetMessageGetById(nameof(GetEmployeeAsync), Id);
             return response;
         }
 
-   
-        
+        public async Task<SingleResponse<EmployeeResponse>> GetEmployeeByUserIdAsync(int userId)
+        {
+            var response = new SingleResponse<EmployeeResponse>();
+
+            var query = DbContext.GetEmployeeByUserIdAsync(new Employee { EmployeeId = userId });
+
+            response.Model = await query.FirstOrDefaultAsync();
+
+            response.SetMessageGetById(nameof(GetEmployeeByUserIdAsync), userId);
+            return response;
+        }
+
+
+
 
         // POST
         public async Task<SingleResponse<EmployeeResponse>> CreateEmployeeAsync(Employee employee)

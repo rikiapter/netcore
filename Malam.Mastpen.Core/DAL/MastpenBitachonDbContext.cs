@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Malam.Mastpen.Core.DAL.Configurations;
 using Malam.Mastpen.Core.DAL.Dbo;
 using Malam.Mastpen.Core.DAL.Entities;
-
+using Malam.Mastpen.HR.Core.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -46,7 +46,8 @@ namespace Malam.Mastpen.Core.DAL
                 .ApplyConfiguration(new EmployeeWorkPermitConfiguration())
                 .ApplyConfiguration(new EmployeeAuthtorizationConfiguration())
                 .ApplyConfiguration(new EmployeeEntryConfiguration())
-                .ApplyConfiguration(new EmployeeProffesionTypeConfiguration());
+                .ApplyConfiguration(new EmployeeProffesionTypeConfiguration())
+                 .ApplyConfiguration(new UsersConfiguration());
 
             modelBuilder
                  .ApplyConfiguration(new EquipmenAtSiteConfiguration())
@@ -132,5 +133,6 @@ namespace Malam.Mastpen.Core.DAL
         public virtual DbSet<SearchTypeAdvanced> SearchTypeAdvanced { get; set; }
         public virtual DbSet<SearchTypeSimple> SearchTypeSimple { get; set; }
         public virtual DbSet<TrainingType> TrainingType { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿
 
 using Malam.Mastpen.Core.DAL.Entities;
+using Malam.Mastpen.HR.Core.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -429,6 +430,47 @@ namespace Malam.Mastpen.Core.DAL.Configurations
             //    .WithMany(p => p.EmployeeProffesionType)
             //    .HasForeignKey(d => d.ProffesionTypeId)
             //    .HasConstraintName("FK_BB_HR_EmployeeProffesionType_ProffesionTypeID");
+
+        }
+    }
+
+    public class UsersConfiguration : IEntityTypeConfiguration<Users>
+    {
+        public void Configure(EntityTypeBuilder<Users> builder)
+        {
+            builder.HasKey(e => e.UserID);
+
+            builder.ToTable("BB_Users");
+
+            builder.Property(e => e.UserID).HasColumnName("UserID");
+
+            builder.Property(e => e.Comment).HasMaxLength(50);
+
+            builder.Property(e => e.DateInsert)
+                .HasColumnName("dateInsert")
+                .HasColumnType("datetime")
+                .HasDefaultValueSql("(getdate())");
+
+            builder.Property(e => e.DateUpdate)
+                .HasColumnName("dateUpdate")
+                .HasColumnType("datetime");
+
+            builder.Property(e => e.UserName).HasMaxLength(50);
+            builder.Property(e => e.Password).HasMaxLength(50);
+
+            builder.Property(e => e.EmployeeId).HasColumnName("EmployeeId");
+
+            builder.Property(e => e.OrganizationID).HasColumnName("OrganizationID");
+
+            builder.Property(e => e.State)
+                .HasColumnName("state")
+                .HasDefaultValueSql("((1))");
+
+            builder.Property(e => e.UserInsert)
+                .HasColumnName("userInsert")
+                .HasDefaultValueSql("((1))");
+
+
 
         }
     }

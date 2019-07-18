@@ -82,7 +82,6 @@ namespace Malam.Mastpen.Core.DAL
         {
             string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
 
-
             var query = from Employee in dbContext.Employee
                         .Where(item => item.EmployeeId == entity.EmployeeId)
 
@@ -115,6 +114,22 @@ namespace Malam.Mastpen.Core.DAL
                         from x_docsCopyPassport in docsCopyPassport.DefaultIfEmpty()
 
                         select Employee.ToEntity(x_phonMail, x_docsFaceImage, x_docsCopyPassport, x_docsCopyofID);
+
+
+            return query;
+        }
+
+        public static IQueryable<EmployeeResponse> GetEmployeeByUserIdAsync(this MastpenBitachonDbContext dbContext, Employee entity)
+        { 
+                 var query = from Employee in dbContext.Employee
+                        .Where(item => item.EmployeeId == entity.EmployeeId)
+                        .Include(x => x.Organization)
+                        
+        
+                        join user in dbContext.Users
+                        on Employee.EmployeeId equals user.EmployeeId
+
+                        select Employee.ToEntity(null,null,null,null);
 
 
             return query;

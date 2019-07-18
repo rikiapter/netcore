@@ -14,10 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DAL\Entities\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Malam.Mastpen.API.Commom\Malam.Mastpen.HR.Commom.csproj" />
   </ItemGroup>
 

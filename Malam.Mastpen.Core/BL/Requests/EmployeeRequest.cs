@@ -72,10 +72,11 @@ namespace Malam.Mastpen.Core.BL.Requests
         public string picturePath { get; set; }
         public string IdentityFilePath { get; set; }
         public string PassportFilePath { get; set; }
+       
         //public Docs docs { get; set; }       
 
         //public ICollection<EmployeeEntry> EmployeeEntry { get; set; }
-        //public ICollection<SiteEmployee> SiteEmployeeEmployee { get; set; }
+        // public ICollection<SiteEmployee> SiteEmployeeEmployee { get; set; }
         public ICollection<SiteEmployee> SiteEmployeeSite { get; set; }
         //public ICollection<EmplyeePicture> EmplyeePicture { get; set; }
         //public ICollection<SiteRole> SiteRole { get; set; }
@@ -197,8 +198,7 @@ namespace Malam.Mastpen.Core.BL.Requests
                 ProffesionType = request.EmployeeProffesionType.Count>0? request.EmployeeProffesionType.First().ProffesionType:null,
                 picturePath= docsFaceImage ==null ? null: docsFaceImage.DocumentPath,
                 IdentityFilePath = docsCopyofID == null ? null : docsCopyofID.DocumentPath,
-                PassportFilePath = docsCopyPassport == null ? null : docsCopyPassport.DocumentPath
-
+                PassportFilePath = docsCopyPassport == null ? null : docsCopyPassport.DocumentPath,
 
             };
 
