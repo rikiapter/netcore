@@ -47,14 +47,15 @@ namespace Malam.Mastpen.API.Filters
 
                 response.ErrorMessage = string.Format("There was an error on '{0}': {1} ,Massage {2}", actionName, context.Exception.Message, context.Exception);
             }
-     
             else
             {
-                logger.ErrorFormat("There was a critical error on '{0}': {1}", actionName, context.Exception);
-
-                response.ErrorMessage = string.Format("There was an internal error on '{0}': {1}, please contact to technical support.", actionName, context.Exception);
-            }  
-            
+                var message = "";
+                if (!context.ModelState.IsValid)
+                    message = context.ModelState.Values.Select(v => v.Errors).FirstOrDefault()[0].ErrorMessage;
+                logger.ErrorFormat("There was a critical error on '{0}': {1}", actionName, message + "  " + context.Exception);
+                response.Message = message;
+                response.ErrorMessage = string.Format("There was an internal error on '{0}': {1}, please contact to technical support.", actionName, message + "  " + context.Exception);
+            }
             //if (exceptionType is MastpenException)
             //{
             //    logger.ErrorFormat( "There was an error on '{0}': {1}", actionName, context.Exception);

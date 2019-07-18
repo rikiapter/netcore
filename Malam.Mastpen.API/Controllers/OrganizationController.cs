@@ -65,7 +65,7 @@ namespace Malam.Mastpen.API.Controllers
                 ModelState.AddModelError("OrganizationName", "Organization name already exists");
 
             if (!ModelState.IsValid)
-                return BadRequest();
+                throw new Exception();
 
             var entity = request;//.ToEntity();
 

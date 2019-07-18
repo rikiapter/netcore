@@ -121,7 +121,7 @@ namespace Malam.Mastpen.API.Controllers
                 ModelState.AddModelError("EmployeeName", "Employee name already exists");
 
             if (!ModelState.IsValid)
-                return BadRequest();
+                throw new Exception();
 
             var entity = request.ToEntity();
 
