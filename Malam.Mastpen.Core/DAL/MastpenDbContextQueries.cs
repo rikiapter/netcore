@@ -121,8 +121,8 @@ namespace Malam.Mastpen.Core.DAL
         }
         public static async Task<Employee> GetEmployeeByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, Employee entity)
     => await dbContext.Employee.FirstOrDefaultAsync(item => item.EmployeeId == entity.EmployeeId);
-        public static async Task<Employee> GetEmployeeByEmployeeNameAsync(this MastpenBitachonDbContext dbContext, Employee entity)
-            => await dbContext.Employee.FirstOrDefaultAsync(item => item.EmployeeId == entity.EmployeeId);
+        public static async Task<Employee> GetEmployeeByIdentityNumberAsync(this MastpenBitachonDbContext dbContext, Employee entity)
+            => await dbContext.Employee.FirstOrDefaultAsync(item => item.IdentityNumber == entity.IdentityNumber);
 
         public static async Task<SiteEmployee> GetSitesByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, SiteEmployee entity)
         => await dbContext.SiteEmployee.Include(b => b.Site)

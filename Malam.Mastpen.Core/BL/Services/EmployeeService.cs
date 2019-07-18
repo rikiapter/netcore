@@ -64,14 +64,7 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
 
-        public async Task<SingleResponse<Employee>> GetEmployeeByEmployeeNameAsync(int Id)
-        {
-            var response = new SingleResponse<Core.DAL.Entities.Employee>();
-            // Get the Employee by Id
-            response.Model = await DbContext.GetEmployeeByEmployeeNameAsync(new Core.DAL.Entities.Employee { EmployeeId = Id });
-
-            return response;
-        }
+   
         
 
         // POST
@@ -91,18 +84,34 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
 
-        // POST
+        //get
+        public async Task<SingleResponse<Employee>> GetEmployeeByIdentityNumberAsync(string identityNumber)
+        {
+            var response = new SingleResponse<Core.DAL.Entities.Employee>();
+            // Get the Employee by Id
+            response.Model = await DbContext.GetEmployeeByIdentityNumberAsync(new Core.DAL.Entities.Employee { IdentityNumber = identityNumber });
+
+            return response;
+        }
+        // POST or update
         public async Task<SingleResponse<EmplyeePicture>> CreateEmplyeePictureAsync(EmplyeePicture emplyeePicture)
         {
             var response = new SingleResponse<EmplyeePicture>();
 
-            // Add entity to repository
-            DbContext.Add(emplyeePicture, UserInfo);
-            // Save entity in database
+            EmplyeePicture entity = DbContext.EmplyeePicture.FirstOrDefault(item => item.EmployeeId == emplyeePicture.EmployeeId);
+
+            if (entity != null)
+            {
+                entity.EmployeeFacePrintId = emplyeePicture.EmployeeFacePrintId;
+                DbContext.Update(entity, UserInfo);
+            }
+            else 
+                DbContext.Add(emplyeePicture, UserInfo);
+
             await DbContext.SaveChangesAsync();
 
             response.Message = string.Format("Sucsses Post for  emplyeePicture = {0} ", emplyeePicture);
-            // Set the entity to response model
+
             response.Model = emplyeePicture;
 
             return response;

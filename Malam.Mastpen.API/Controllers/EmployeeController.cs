@@ -115,10 +115,10 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> PostEmployeeAsync([FromBody]EmployeeRequest request)
         {
-            var existingEntity = await EmployeeService.GetEmployeeByEmployeeNameAsync(request.EmployeeId ?? 0);
+            var existingEntity = await EmployeeService.GetEmployeeByIdentityNumberAsync(request.IdentityNumber);
 
             if (existingEntity.Model != null)
-                ModelState.AddModelError("EmployeeName", "Employee name already exists");
+                ModelState.AddModelError("EmployeeIdentityNumber", "Employee IdentityNumber already exists");
 
             if (!ModelState.IsValid)
                 throw new Exception();
@@ -186,7 +186,9 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> PostEmplyeePictureAsync([FromBody]EmplyeePicture request)
         {
-           var Response = await EmployeeService.CreateEmplyeePictureAsync(request);
+
+
+            var Response = await EmployeeService.CreateEmplyeePictureAsync(request);
             return Response.ToHttpResponse();
         }
         // PUT
