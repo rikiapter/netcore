@@ -7,7 +7,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
     {
         public OrganizationType()
         {
-            Organization = new HashSet<Organization>();
+            //Organization = new HashSet<Organization>();
         }
 
         public int OrganizationTypeId { get; set; }
@@ -18,6 +18,6 @@ namespace Malam.Mastpen.Core.DAL.Entities
         public DateTime? DateUpdate { get; set; }
         public bool? State { get; set; }
 
-        public ICollection<Organization> Organization { get; set; }
+        //public ICollection<Organization> Organization { get; set; }
     }
 }

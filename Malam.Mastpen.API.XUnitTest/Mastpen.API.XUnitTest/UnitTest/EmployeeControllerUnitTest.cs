@@ -55,7 +55,7 @@ namespace Malam.Mastpen.API.XUnitTest.UnitTest
             var id = 1;
 
             // Act
-            var response = await controller.GetEmployeeByUserIdAsync(id) as ObjectResult;
+            var response = await controller.GetEmployeeByUserNameAsync("riki") as ObjectResult;
             var value = response.Value as ISingleResponse<EmployeeResponse>;
 
             // Assert
@@ -82,7 +82,7 @@ namespace Malam.Mastpen.API.XUnitTest.UnitTest
                 GenderId = 1,
                 Citizenship = 1,
                 ProffesionTypeId=1,
-                PhoneNumber="4454545"
+                PhoneNumber="787545"
               
 
             };

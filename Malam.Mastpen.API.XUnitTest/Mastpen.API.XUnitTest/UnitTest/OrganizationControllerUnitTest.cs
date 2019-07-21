@@ -24,7 +24,10 @@ namespace Malam.Mastpen.HR.XUnitTest.UnitTest
 
             var request = new Organization
             {
-                 OrganizationId=3
+                 OrganizationId=3,
+                 OrganizationName="קבלן אא",
+                 OrganizationExpertiseTypeId=1,
+                 OrganizationTypeId=1
             };
 
             // Act

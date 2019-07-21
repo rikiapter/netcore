@@ -14,6 +14,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
 
         public int OrganizationId { get; set; }
         public int? OrganizationTypeId { get; set; }
+        public int? OrganizationExpertiseTypeId { get; set; }
         public string OrganizationName { get; set; }
         public int? OrganizationNumber { get; set; }
         public int? OrganizationParentId { get; set; }
@@ -25,6 +26,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
         public bool? State { get; set; }
 
         public OrganizationType OrganizationType { get; set; }
+        public OrganizationExpertiseType OrganizationExpertiseType { get; set; }
         //public ICollection<Equipment> Equipment { get; set; }
         //public ICollection<Sites> Sites { get; set; }
         //public ICollection<Employee> Employee { get; set; }

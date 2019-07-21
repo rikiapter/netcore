@@ -440,6 +440,8 @@ namespace Malam.Mastpen.Core.DAL.Configurations
 
             builder.Property(e => e.OrganizationTypeId).HasColumnName("OrganizationTypeID");
 
+            builder.Property(e => e.OrganizationExpertiseTypeId).HasColumnName("OrganizationExpertiseTypeID");
+
             builder.Property(e => e.State)
                 .HasColumnName("state")
                 .HasDefaultValueSql("((1))");
@@ -448,10 +450,16 @@ namespace Malam.Mastpen.Core.DAL.Configurations
                 .HasColumnName("userInsert")
                 .HasDefaultValueSql("((1))");
 
-            builder.HasOne(d => d.OrganizationType)
-                .WithMany(p => p.Organization)
-                .HasForeignKey(d => d.OrganizationTypeId)
-                .HasConstraintName("FK_BB_GEN_Organization_OrganizationTypeID");
+            //builder.HasOne(d => d.OrganizationType)
+            //    .WithMany(p => p.Organization)
+            //    .HasForeignKey(d => d.OrganizationTypeId)
+            //    .HasConstraintName("FK_BB_GEN_Organization_OrganizationTypeID");
+
+
+            //builder.HasOne(d => d.OrganizationExpertiseType)
+            //    .WithMany(p => p.Organization)
+            //    .HasForeignKey(d => d.OrganizationExpertiseTypeId)
+            //    .HasConstraintName("FK_BB_GEN_Organization_OrganizationTypeID");
 
         }
     }

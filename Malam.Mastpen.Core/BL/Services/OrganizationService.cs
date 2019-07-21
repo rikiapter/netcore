@@ -31,7 +31,21 @@ namespace Malam.Mastpen.Core.BL.Services
             // Retrieve items, set model for response
             response.Model =  query.Result;
 
-            response.SetMessageGetById(nameof(GetOrganizationIdAsync), Id);
+          //  response.SetMessageGetById(nameof(GetOrganizationIdAsync), Id);
+            return response;
+        }
+
+        public async Task<SingleResponse<Organization>> GetOrganizationByNameAsync(string Name)
+        {
+            var response = new SingleResponse<Organization>();
+
+            // Get query
+            var query = DbContext.GetOrganizationeByNameAsync(new Organization { OrganizationName = Name });
+
+            // Retrieve items, set model for response
+            response.Model = query.Result;
+
+           // response.SetMessageGetById(nameof(GetOrganizationIdAsync), response.Model.OrganizationId);
             return response;
         }
 

@@ -59,7 +59,7 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> PostOrganizationAsync([FromBody]Organization request)
         {
-            var existingEntity = await OrganizationService.GetOrganizationIdAsync(request.OrganizationId);
+            var existingEntity = await OrganizationService.GetOrganizationByNameAsync(request.OrganizationName);
 
             if (existingEntity.Model != null)
                 ModelState.AddModelError("OrganizationName", "Organization name already exists");
