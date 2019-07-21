@@ -119,14 +119,14 @@ namespace Malam.Mastpen.Core.DAL
             return query;
         }
 
-        public static IQueryable<EmployeeResponse> GetEmployeeByUserIdAsync(this MastpenBitachonDbContext dbContext, Employee entity)
+        public static IQueryable<EmployeeResponse> GetEmployeeByUserIdAsync(this MastpenBitachonDbContext dbContext, Users entity)
         { 
                  var query = from Employee in dbContext.Employee
-                        .Where(item => item.EmployeeId == entity.EmployeeId)
                         .Include(x => x.Organization)
                         
         
-                        join user in dbContext.Users
+                        join user in dbContext.Users 
+                        .Where(item => item.UserName == entity.UserName)
                         on Employee.EmployeeId equals user.EmployeeId
 
                         select Employee.ToEntity(null,null,null,null);

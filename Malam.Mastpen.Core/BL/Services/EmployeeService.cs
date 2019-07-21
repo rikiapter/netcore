@@ -60,15 +60,15 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
 
-        public async Task<SingleResponse<EmployeeResponse>> GetEmployeeByUserIdAsync(int userId)
+        public async Task<SingleResponse<EmployeeResponse>> GetEmployeeByUserIdAsync(string userName)
         {
             var response = new SingleResponse<EmployeeResponse>();
 
-            var query = DbContext.GetEmployeeByUserIdAsync(new Employee { EmployeeId = userId });
+            var query = DbContext.GetEmployeeByUserIdAsync(new Users { UserName = userName });
 
             response.Model = await query.FirstOrDefaultAsync();
 
-            response.SetMessageGetById(nameof(GetEmployeeByUserIdAsync), userId);
+            response.SetMessageGetById(nameof(GetEmployeeByUserIdAsync), response.Model.EmployeeId);
             return response;
         }
 

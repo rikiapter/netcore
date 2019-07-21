@@ -97,26 +97,26 @@ namespace Malam.Mastpen.API.Controllers
         }
 
         // GET
-        // api/v1/Employee/EmployeeByUserId/5
+        // api/v1/Employee/EmployeeByUserName/riki
 
         /// <summary>
-        /// Retrieves a Employee by UserId
+        /// Retrieves a Employee by UserName
         /// </summary>
-        /// <param name="Id">UserId</param>
+        /// <param name="UserName">UserName</param>
         /// <returns>A response with Employee</returns>
-        /// <response code="200">Returns the  Employee list</response>
+        /// <response code="200">Returns the  Employee </response>
         /// <response code="404">If Employee is not exists</response>
         /// <response code="500">If there was an internal server error</response>
-        [HttpGet("EmployeeByUserId/{Id}")]
+        [HttpGet("EmployeeByUserUserName/{UserName}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
         //יש להעלות את הפרויקט 
         //identity server
         //   [Authorize]//(Policy = Policies.CustomerPolicy)]
-        public async Task<IActionResult> GetEmployeeByUserIdAsync(int Id)
+        public async Task<IActionResult> GetEmployeeByUserNameAsync(string UserName)
         {
-            var response = await EmployeeService.GetEmployeeByUserIdAsync(Id);
+            var response = await EmployeeService.GetEmployeeByUserIdAsync(UserName);
             return response.ToHttpResponse();
         }
         // POST

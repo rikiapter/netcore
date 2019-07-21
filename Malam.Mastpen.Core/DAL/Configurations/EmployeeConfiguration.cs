@@ -1,7 +1,6 @@
 ﻿
 
 using Malam.Mastpen.Core.DAL.Entities;
-using Malam.Mastpen.HR.Core.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -438,41 +437,39 @@ namespace Malam.Mastpen.Core.DAL.Configurations
     {
         public void Configure(EntityTypeBuilder<Users> builder)
         {
-            builder.HasKey(e => e.UserID);
+        
+                builder.HasKey(e => e.UserId);
 
-            builder.ToTable("BB_Users");
+                builder.ToTable("BB_HR_Users");
 
-            builder.Property(e => e.UserID).HasColumnName("UserID");
+                builder.Property(e => e.UserId).HasColumnName("UserID");
 
-            builder.Property(e => e.Comment).HasMaxLength(50);
+                builder.Property(e => e.Comment).HasMaxLength(50);
 
-            builder.Property(e => e.DateInsert)
-                .HasColumnName("dateInsert")
-                .HasColumnType("datetime")
-                .HasDefaultValueSql("(getdate())");
+                builder.Property(e => e.DateInsert)
+                    .HasColumnName("dateInsert")
+                    .HasColumnType("datetime");
 
-            builder.Property(e => e.DateUpdate)
-                .HasColumnName("dateUpdate")
-                .HasColumnType("datetime");
+                builder.Property(e => e.DateUpdate)
+                    .HasColumnName("dateUpdate")
+                    .HasColumnType("datetime");
 
-            builder.Property(e => e.UserName).HasMaxLength(50);
-            builder.Property(e => e.Password).HasMaxLength(50);
+                builder.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 
-            builder.Property(e => e.EmployeeId).HasColumnName("EmployeeId");
+                builder.Property(e => e.OrganizationId).HasColumnName("OrganizationID");
 
-            builder.Property(e => e.OrganizationID).HasColumnName("OrganizationID");
+                builder.Property(e => e.Password).HasMaxLength(50);
 
-            builder.Property(e => e.State)
-                .HasColumnName("state")
-                .HasDefaultValueSql("((1))");
+                builder.Property(e => e.PasswordChangeDate).HasColumnType("datetime");
 
-            builder.Property(e => e.UserInsert)
-                .HasColumnName("userInsert")
-                .HasDefaultValueSql("((1))");
+                builder.Property(e => e.State).HasColumnName("state");
 
+                builder.Property(e => e.UserInsert).HasColumnName("userInsert");
+
+                builder.Property(e => e.UserName).HasMaxLength(50);
 
 
-        }
+            }
     }
 
 }

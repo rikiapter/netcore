@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Malam.Mastpen.Core.DAL.Configurations;
 using Malam.Mastpen.Core.DAL.Dbo;
 using Malam.Mastpen.Core.DAL.Entities;
-using Malam.Mastpen.HR.Core.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -18,7 +17,7 @@ namespace Malam.Mastpen.Core.DAL
 
         /// <summary>
         ///ניתן ליצור אוטמטית עי הפקודה
-        ///Scaffold-DbContext "server=10.216.82.2;database=MastpenB;User Id=riki_apter; Password=Aa123456;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+        ///Scaffold-DbContext "server=malam-dev01.database.windows.net;database=MastpenDb;User Id=dbadmin; Password=!1qaz@2wsx;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
         ///בפרויקט נפרד MVC core
         /// </summary>
         /// <param name="options"></param>
