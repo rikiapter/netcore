@@ -196,13 +196,11 @@ namespace Malam.Mastpen.Core.BL.Services
         {
             var response = new SingleResponse<EmployeeTraining>();
 
-            // Add entity to repository
+
             DbContext.Add(employeeTraining, UserInfo);
-            // Save entity in database
+
             await DbContext.SaveChangesAsync();
 
-            response.SetMessageSucssesPost(nameof(GetEmployeeAsync), employeeTraining.EmployeeTrainingId);
-            // Set the entity to response model
             response.Model = employeeTraining;
 
             return response;
@@ -214,13 +212,9 @@ namespace Malam.Mastpen.Core.BL.Services
         {
             var response = new SingleResponse<EmployeeWorkPermit>();
 
-            // Add entity to repository
             DbContext.Add(employeeWorkPermit, UserInfo);
-            // Save entity in database
             await DbContext.SaveChangesAsync();
 
-            response.SetMessageSucssesPost(nameof(GetEmployeeAsync), employeeWorkPermit.EmployeeWorkPermitId);
-            // Set the entity to response model
             response.Model = employeeWorkPermit;
 
             return response;
@@ -232,13 +226,10 @@ namespace Malam.Mastpen.Core.BL.Services
         {
             var response = new SingleResponse<EmployeeAuthtorization>();
 
-            // Add entity to repository
             DbContext.Add(employeeAuthtorization, UserInfo);
-            // Save entity in database
+
             await DbContext.SaveChangesAsync();
 
-            response.SetMessageSucssesPost(nameof(GetEmployeeAsync), employeeAuthtorization.EmployeeAuthorizationId);
-            // Set the entity to response model
             response.Model = employeeAuthtorization;
 
             return response;
@@ -254,8 +245,6 @@ namespace Malam.Mastpen.Core.BL.Services
             // Save entity in database
             await DbContext.SaveChangesAsync();
 
-            response.SetMessageSucssesPost(nameof(GetEmployeeAsync), note.NoteId);
-            // Set the entity to response model
             response.Model = note;
 
             return response;

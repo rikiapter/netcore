@@ -69,8 +69,6 @@ namespace Malam.Mastpen.API.Controllers
 
             var entity = request;//.ToEntity();
 
-            entity.UserInsert = UserInfo.UserId;
-
             var response = await OrganizationService.CreateOrganizationAsync(entity);
 
             return response.ToHttpResponse();
@@ -94,9 +92,9 @@ namespace Malam.Mastpen.API.Controllers
         /// <response code="500">If there was an internal server error</response>
         [HttpGet("Organization")]
         //  [Authorize(Policy = Policies.CustomerPolicy)]
-        public async Task<IActionResult> GetOrganizationsAsync(int pageSize = 10, int pageNumber = 1, int? OrganizationId = null, string OrganizationName = null)
+        public async Task<IActionResult> GetOrganizationsAsync(int pageSize = 10, int pageNumber = 1, int? OrganizationId = null, string OrganizationName = null,int? OrganizationNumber=null,int? OrganizationExpertiseTypeId=null)
         {
-            var response = await OrganizationService.GetOrganizationsAsync(pageSize, pageNumber, OrganizationId, OrganizationName);
+            var response = await OrganizationService.GetOrganizationsAsync(pageSize, pageNumber, OrganizationId, OrganizationName,  OrganizationNumber,  OrganizationExpertiseTypeId );
 
             // Return as http response
             return response.ToHttpResponse();

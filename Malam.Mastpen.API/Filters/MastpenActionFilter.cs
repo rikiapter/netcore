@@ -7,6 +7,7 @@ using System.Linq;
 using IdentityModel;
 using Malam.Mastpen.API.Controllers;
 using Malam.Mastpen.API.Commom.Infrastructure;
+using System.Security.Claims;
 
 namespace Malam.Mastpen.API.Filters
 {
@@ -26,13 +27,16 @@ namespace Malam.Mastpen.API.Filters
         {
             string actionName = context.ActionDescriptor.RouteValues.First().Value;
       
-        logger.InfoFormat(GeneralConsts.LOG_INVOKE, actionName);
+            logger.InfoFormat(GeneralConsts.LOG_INVOKE, actionName);
 
             var controller = context.Controller as MastpenController;
 
             foreach (var claim in controller.User.Claims)
             {
-                if (claim.Type == JwtClaimTypes.Email)
+
+                if (claim.Type == JwtClaimTypes.Subject)
+                    controller.UserInfo.UserId = Int32.Parse(claim.Value);  
+                else if (claim.Type == JwtClaimTypes.Email)
                     controller.UserInfo.Email = claim.Value;
                 else if (claim.Type == JwtClaimTypes.PreferredUserName)
                     controller.UserInfo.UserName = claim.Value;

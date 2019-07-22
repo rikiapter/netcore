@@ -147,7 +147,7 @@ namespace Malam.Mastpen.API
                  new OAuth2Scheme
                 {
                     Flow = "implicit", // just get token via browser (suitable for swagger SPA)
-                    AuthorizationUrl = settings.Url,// "https://malammastpenapiidentityserver.azurewebsites.net/connect/authorize",
+                    AuthorizationUrl = settings.Url,
                     Scopes = new Dictionary<string, string> { { settings.ClientSecret, settings.ClientSecret+" API - full access" } }
                 });
 

@@ -184,11 +184,15 @@ namespace Malam.Mastpen.Core.DAL
             return query;
         }
 
-        public static IQueryable<Organization> GetOrganization(this MastpenBitachonDbContext dbContext, int? OrganizationID = null, string OrganizationName = null)
+        public static IQueryable<Organization> GetOrganization(this MastpenBitachonDbContext dbContext, int? OrganizationID = null, string OrganizationName = null, int? OrganizationNumber = null, int? OrganizationExpertiseTypeId = null)
         {
 
             // Get query from DbSet
-            var query = dbContext.Organization.AsQueryable();
+            var query = dbContext.Organization
+                .Include(x=>x.OrganizationExpertiseType)
+                .Include(x => x.OrganizationType)
+                .AsQueryable();
+
 
             // Filter by: 'EmployeeID'
             if (OrganizationID.HasValue)
@@ -197,6 +201,12 @@ namespace Malam.Mastpen.Core.DAL
             if (OrganizationName != null)
                 query = query.Where(item => item.OrganizationName == OrganizationName);
 
+            if (OrganizationNumber != null)
+                query = query.Where(item => item.OrganizationNumber == OrganizationNumber);
+
+            if (OrganizationExpertiseTypeId != null)
+                query = query.Where(item => item.OrganizationExpertiseTypeId == OrganizationExpertiseTypeId);
+        
             return query;
 
 

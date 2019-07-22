@@ -25,7 +25,7 @@ namespace Malam.Mastpen.API.Controllers
 {
 
 #pragma warning disable CS1591
-  //  [Authorize]
+   // [Authorize]
     [ApiController]
     [Route("api/v1/[controller]")]
     public class EmployeeController : MastpenController
@@ -116,6 +116,7 @@ namespace Malam.Mastpen.API.Controllers
         //   [Authorize]//(Policy = Policies.CustomerPolicy)]
         public async Task<IActionResult> GetEmployeeByUserNameAsync(string UserName)
         {
+
             var response = await EmployeeService.GetEmployeeByUserIdAsync(UserName);
             return response.ToHttpResponse();
         }
@@ -155,6 +156,7 @@ namespace Malam.Mastpen.API.Controllers
             {
                 PhoneMail phoneMail = new PhoneMail();
                 phoneMail.PhoneNumber = request.PhoneNumber;
+                phoneMail.Email = request.Email;
                 phoneMail.EntityTypeId = (int)EntityTypeEnum.Employee;
                 phoneMail.EntityId = employeeResponse.Model.EmployeeId;
 
@@ -175,6 +177,7 @@ namespace Malam.Mastpen.API.Controllers
             docs.EntityId = employeeResponse.Model.EmployeeId;
             var fileName = employeeResponse.Model.IdentityNumber + employeeResponse.Model.FirstNameEn + "_" + employeeResponse.Model.LastNameEn;
             
+            //יש לבדוק אם אכן זה עובד
             //upload picture to blob
             var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.picture, (int)DocumentType.FaceImage);
             employeeResponse.Model.picturePath = DOCSResponse.Model.DocumentPath;
@@ -252,6 +255,7 @@ namespace Malam.Mastpen.API.Controllers
                 //update phone
                 PhoneMail phoneMail = new PhoneMail();
                 phoneMail.PhoneNumber = request.PhoneNumber;
+                phoneMail.Email = request.Email;
                 phoneMail.EntityTypeId = (int)EntityTypeEnum.Employee;
                 phoneMail.EntityId = employeeResponse.Model.EmployeeId;
 
@@ -380,8 +384,6 @@ namespace Malam.Mastpen.API.Controllers
         {
 
             var entity = request;
-
-            entity.UserInsert = UserInfo.UserId;
 
             var response = await EmployeeService.CreateEmployeeWorkPermitAsync(entity);
 

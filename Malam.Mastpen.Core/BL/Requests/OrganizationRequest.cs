@@ -7,6 +7,7 @@ namespace Malam.Mastpen.HR.Core.BL.Requests
 {
    public class OrganizationRequest : Organization
     {
+
     }
     public class OrganizationResponse : Organization
     { public PhoneMail phonMail { get; set; }
