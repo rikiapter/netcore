@@ -5,7 +5,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
 {
     public partial class EmployeeWorkPermit:IAuditableEntity
     {
-        public int EmployeeWorkPermitId { get; set; }
+        public int? EmployeeWorkPermitId { get; set; }
         public string EmployeeWorkPermitName { get; set; }
         public int? EmployeeId { get; set; }
         public int? SiteId { get; set; }
