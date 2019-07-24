@@ -59,7 +59,7 @@ namespace Malam.Mastpen.Core.BL.Services
             // Save entity in database
             await DbContext.SaveChangesAsync();
 
-            response.SetMessageSucssesPost(nameof(CreateOrganizationAsync), organization.OrganizationId);
+            response.SetMessageSucssesPost(nameof(CreateOrganizationAsync), organization.OrganizationId??0);
             // Set the entity to response model
             response.Model = organization;
 

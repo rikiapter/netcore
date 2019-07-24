@@ -238,7 +238,7 @@ namespace Malam.Mastpen.Core.DAL
         public static IQueryable<EmployeeAuthtorization> GetEmployeeAuthtorizationByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeAuthtorization entity)
 => dbContext.EmployeeAuthtorization.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId).Include(x => x.Site);
 
-        public static IQueryable<NoteResponse> GetEmployeeNoteByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, int EmployeeId)
+        public static IQueryable<NoteRequest> GetEmployeeNoteByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, int EmployeeId)
         {
             string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
 

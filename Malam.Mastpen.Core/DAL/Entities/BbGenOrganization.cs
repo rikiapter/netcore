@@ -12,7 +12,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
             //Employee = new HashSet<Employee>();
         }
 
-        public int OrganizationId { get; set; }
+        public int? OrganizationId { get; set; }
         public int? OrganizationTypeId { get; set; }
         public int? OrganizationExpertiseTypeId { get; set; }
         public string OrganizationName { get; set; }

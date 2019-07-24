@@ -283,9 +283,9 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
         //Get List
-        public async Task<ListResponse<NoteResponse>> GetEmployeeNoteByEmployeeIdAsync(int EmployeeId)
+        public async Task<ListResponse<NoteRequest>> GetEmployeeNoteByEmployeeIdAsync(int EmployeeId)
         {
-            var response = new ListResponse<NoteResponse>();
+            var response = new ListResponse<NoteRequest>();
             // Get the Employee by Id
             var query = DbContext.GetEmployeeNoteByEmployeeIdAsync(EmployeeId);
             response.Model = await query.ToListAsync();

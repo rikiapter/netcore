@@ -5,7 +5,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
 {
     public partial class Notes:IAuditableEntity
     {
-        public int NoteId { get; set; }
+        public int? NoteId { get; set; }
         public int? EntityTypeId { get; set; }
         public int? EntityId { get; set; }
         public int? NoteTypeId { get; set; }

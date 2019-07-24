@@ -83,7 +83,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         //public ICollection<SiteRole> SiteRole { get; set; }
     }
 
-    public class NoteResponse:Notes
+    public class NoteRequest:Notes
     {
         public Employee employee { get; set; }
     }
@@ -206,8 +206,8 @@ namespace Malam.Mastpen.Core.BL.Requests
 
 
 
-        public static NoteResponse ToEntity(this Notes request, Employee employee)
-              => new NoteResponse
+        public static NoteRequest ToEntity(this Notes request, Employee employee)
+              => new NoteRequest
               {
                   employee = employee,
                   NoteId = request.NoteId,

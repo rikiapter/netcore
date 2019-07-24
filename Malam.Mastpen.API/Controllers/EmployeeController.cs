@@ -25,7 +25,7 @@ namespace Malam.Mastpen.API.Controllers
 {
 
 #pragma warning disable CS1591
-   // [Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/v1/[controller]")]
     public class EmployeeController : MastpenController
@@ -473,13 +473,13 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> PostEmployeeNoteAsync([FromBody]Notes request)
+        public async Task<IActionResult> PostEmployeeNoteAsync([FromBody]NoteRequest request)
         {
 
             var entity = request;
 
-            entity.UserInsert = UserInfo.UserId;
-
+            entity.EntityTypeId = (int)EntityTypeEnum.Employee;
+            entity.EntityId = request.employee.EmployeeId;
             var response = await EmployeeService.CreateEmployeeNoteAsync(entity);
 
             return response.ToHttpResponse();

@@ -143,7 +143,7 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> PutOrganizationAsync(int Id, [FromBody]OrganizationRequest request)
         {   // Get Organization by Id
-            var entity = await OrganizationService.GetOrganizationsAsync(request.OrganizationId);
+            var entity = await OrganizationService.GetOrganizationsAsync(request.OrganizationId??0);
             //// ValIdate if entity exists
             if (entity == null)
                 return NotFound();
