@@ -72,7 +72,7 @@ namespace Malam.Mastpen.API
             // User info
             services.AddScoped<IUserInfo, UserInfo>();
 
-           //ADD SERVICES
+            //ADD SERVICES
             services.AddScoped<EmployeeService>();
             services.AddScoped<OrganizationService>();
 

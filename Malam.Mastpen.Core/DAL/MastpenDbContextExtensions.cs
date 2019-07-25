@@ -33,11 +33,11 @@ namespace Malam.Mastpen.Core.DAL
 
                 //if (!cast.CreationDateTime.HasValue)
                 //    cast.CreationDateTime = DateTime.Now;
-                if (cast.UserInsert==null)
-                    cast.UserInsert = userInfo.UserId;
 
-               // if (!cast.DateInsert.HasValue)
-                    cast.DateInsert = DateTime.Now;
+                if (cast.UserUpdate == null || cast.UserUpdate == 0)
+                    entity.UserInsert = userInfo.UserId;
+
+                entity.DateInsert = DateTime.Now;
             }
 
             dbContext.Set<TEntity>().Add(entity);
@@ -47,11 +47,10 @@ namespace Malam.Mastpen.Core.DAL
         {
             if (entity is IAuditableEntity cast)
             {
-                if (cast.UserUpdate==null)
-                    cast.UserUpdate = userInfo.UserId;
+                if (cast.UserUpdate==null || cast.UserUpdate == 0)
+                    entity.UserUpdate = userInfo.UserId;
 
-                //if (!cast.DateUpdate.HasValue)
-                    cast.DateUpdate = DateTime.Now;
+                entity.DateUpdate = DateTime.Now;
             }
 
             dbContext.Set<TEntity>().Update(entity);

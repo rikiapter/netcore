@@ -1,0 +1,431 @@
+2019-07-23 08:31:14,532 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-23 08:31:14,532 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-23 08:31:14,952 INFO - Request finished in 426.8405ms 200 
+2019-07-23 08:31:14,971 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-23 08:31:15,102 INFO - Request finished in 578.472ms 200 text/html
+2019-07-23 08:31:15,416 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-23 08:31:15,423 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-23 08:31:15,839 INFO - Request finished in 417.9919ms 200 application/json;charset=utf-8
+2019-07-23 08:33:27,921 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 163120
+2019-07-23 08:33:27,925 INFO - CORS policy execution failed.
+2019-07-23 08:33:27,927 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-23 08:33:27,936 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-23 08:33:28,059 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-23 08:33:33,503 INFO - 'PostEmployeeAsync' has been invoked
+2019-07-23 08:33:33,513 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.EmployeeRequest) - Validation state: Valid
+2019-07-23 08:33:36,484 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-23 08:33:39,848 INFO - Executed DbCommand (120ms) [Parameters=[@__entity_IdentityNumber_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[IdentityNumber] = @__entity_IdentityNumber_0
+2019-07-23 08:33:46,921 INFO - Executed DbCommand (75ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (Size = 50), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 50), @p11='?' (Size = 50), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_Employee] ([Address], [BirthDate], [Citizenship], [dateInsert], [dateUpdate], [FirstName], [FirstNameEN], [GenderID], [IdentificationTypeID], [IdentityNumber], [LastName], [LastNameEN], [OrganizationID], [PassportCountryID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+SELECT [EmployeeID], [state]
+FROM [BB_HR_Employee]
+WHERE @@ROWCOUNT = 1 AND [EmployeeID] = scope_identity();
+2019-07-23 08:33:53,271 INFO - Executed DbCommand (74ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-23 08:33:53,481 INFO - Executed DbCommand (74ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (Size = 50), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Size = 50), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_PhoneMail] ([dateInsert], [dateUpdate], [EMail], [EntityID], [EntityTypeID], [PhoneNumber], [PhoneTypeID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [ContactID], [state]
+FROM [BB_GEN_PhoneMail]
+WHERE @@ROWCOUNT = 1 AND [ContactID] = scope_identity();
+2019-07-23 08:33:59,627 INFO - Executed DbCommand (75ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_EmployeeProffesionType] ([Comment], [dateInsert], [dateUpdate], [EmployeeID], [ProffesionTypeID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT [EmployeeAuthorizationID], [state]
+FROM [BB_HR_EmployeeProffesionType]
+WHERE @@ROWCOUNT = 1 AND [EmployeeAuthorizationID] = scope_identity();
+2019-07-23 08:34:04,215 INFO - Executed DbCommand (74ms) [Parameters=[@__entity_EntityTypeId_0='?' (DbType = Int32), @__entity_EntityId_1='?' (DbType = Int32), @__entity_DocumentTypeId_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[DocumentID], [item].[dateInsert], [item].[dateUpdate], [item].[DocumentDate], [item].[DocumentPath], [item].[DocumentTypeID], [item].[EntityID], [item].[EntityTypeID], [item].[IsDocumentSigned], [item].[LanguageID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item].[ValIdDate]
+FROM [BB_GEN_Docs] AS [item]
+WHERE (([item].[EntityTypeID] = @__entity_EntityTypeId_0) AND ([item].[EntityID] = @__entity_EntityId_1)) AND ([item].[DocumentTypeID] = @__entity_DocumentTypeId_2)
+2019-07-23 08:34:06,083 INFO - Executed DbCommand (74ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-23 08:34:06,379 INFO - Executed DbCommand (178ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (Size = 250), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?', @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_Docs] ([dateInsert], [dateUpdate], [DocumentDate], [DocumentPath], [DocumentTypeID], [EntityID], [EntityTypeID], [IsDocumentSigned], [LanguageID], [userInsert], [UserUpdate], [ValIdDate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+SELECT [DocumentID], [state]
+FROM [BB_GEN_Docs]
+WHERE @@ROWCOUNT = 1 AND [DocumentID] = scope_identity();
+2019-07-23 08:34:23,528 INFO - Executed DbCommand (77ms) [Parameters=[@__entity_EntityTypeId_0='?' (DbType = Int32), @__entity_EntityId_1='?' (DbType = Int32), @__entity_DocumentTypeId_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[DocumentID], [item].[dateInsert], [item].[dateUpdate], [item].[DocumentDate], [item].[DocumentPath], [item].[DocumentTypeID], [item].[EntityID], [item].[EntityTypeID], [item].[IsDocumentSigned], [item].[LanguageID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item].[ValIdDate]
+FROM [BB_GEN_Docs] AS [item]
+WHERE (([item].[EntityTypeID] = @__entity_EntityTypeId_0) AND ([item].[EntityID] = @__entity_EntityId_1)) AND ([item].[DocumentTypeID] = @__entity_DocumentTypeId_2)
+2019-07-23 08:34:23,750 INFO - The PostEmployeeAsync have been retrieved successfully.
+2019-07-23 08:34:23,754 INFO - test log
+2019-07-23 08:34:23,793 ERROR - There was a critical error on 'PostEmployeeAsync':   System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at Malam.Mastpen.Core.BL.Services.BlobStorageService.UploadFileToBlob(String strFileName, FileRequest fileRequest) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\BlobStorageService.cs:line 40
+   at Malam.Mastpen.Core.BL.Services.Service.CreateDocsAsync(Docs docs, Type type, String fileName, FileRequest file, Int32 documentType) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\Service.cs:line 136
+   at Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync(EmployeeRequest request) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeController.cs:line 185
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2019-07-23 08:34:23,802 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-23 08:34:23,815 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) in 55817.1234ms
+2019-07-23 08:34:23,834 INFO - Request finished in 55977.4942ms 200 application/json; charset=utf-8
+2019-07-23 08:34:54,351 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 162962
+2019-07-23 08:34:54,360 INFO - CORS policy execution failed.
+2019-07-23 08:34:54,373 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-23 08:34:54,376 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-23 08:34:54,383 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-23 08:34:55,837 INFO - 'PostEmployeeAsync' has been invoked
+2019-07-23 08:34:55,840 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.EmployeeRequest) - Validation state: Valid
+2019-07-23 08:34:56,859 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-23 08:34:56,936 INFO - Executed DbCommand (74ms) [Parameters=[@__entity_IdentityNumber_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[IdentityNumber] = @__entity_IdentityNumber_0
+2019-07-23 08:34:56,977 INFO - The PostEmployeeAsync have been retrieved successfully.
+2019-07-23 08:34:56,977 INFO - test log
+2019-07-23 08:34:56,979 ERROR - There was a critical error on 'PostEmployeeAsync': Employee IdentityNumber already exists  System.Exception: Exception of type 'System.Exception' was thrown.
+   at Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync(EmployeeRequest request) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeController.cs:line 150
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2019-07-23 08:34:56,981 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-23 08:34:56,984 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) in 2601.0896ms
+2019-07-23 08:34:56,996 INFO - Request finished in 2649.0616ms 200 application/json; charset=utf-8
+2019-07-23 08:35:13,699 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/Employee application/json-patch+json 162963
+2019-07-23 08:35:13,724 INFO - CORS policy execution failed.
+2019-07-23 08:35:13,728 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-23 08:35:13,730 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-23 08:35:13,732 INFO - Route matched with {action = "PostEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-23 08:35:15,475 INFO - 'PostEmployeeAsync' has been invoked
+2019-07-23 08:35:15,477 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.EmployeeRequest) - Validation state: Valid
+2019-07-23 08:35:16,733 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-23 08:35:16,809 INFO - Executed DbCommand (75ms) [Parameters=[@__entity_IdentityNumber_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[IdentityNumber] = @__entity_IdentityNumber_0
+2019-07-23 08:35:18,833 INFO - Executed DbCommand (74ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (Size = 50), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 50), @p11='?' (Size = 50), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_Employee] ([Address], [BirthDate], [Citizenship], [dateInsert], [dateUpdate], [FirstName], [FirstNameEN], [GenderID], [IdentificationTypeID], [IdentityNumber], [LastName], [LastNameEN], [OrganizationID], [PassportCountryID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+SELECT [EmployeeID], [state]
+FROM [BB_HR_Employee]
+WHERE @@ROWCOUNT = 1 AND [EmployeeID] = scope_identity();
+2019-07-23 08:35:21,424 INFO - Executed DbCommand (74ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-23 08:35:21,575 INFO - Executed DbCommand (74ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (Size = 50), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Size = 50), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_PhoneMail] ([dateInsert], [dateUpdate], [EMail], [EntityID], [EntityTypeID], [PhoneNumber], [PhoneTypeID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT [ContactID], [state]
+FROM [BB_GEN_PhoneMail]
+WHERE @@ROWCOUNT = 1 AND [ContactID] = scope_identity();
+2019-07-23 08:35:24,178 INFO - Executed DbCommand (86ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_EmployeeProffesionType] ([Comment], [dateInsert], [dateUpdate], [EmployeeID], [ProffesionTypeID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT [EmployeeAuthorizationID], [state]
+FROM [BB_HR_EmployeeProffesionType]
+WHERE @@ROWCOUNT = 1 AND [EmployeeAuthorizationID] = scope_identity();
+2019-07-23 08:35:27,568 INFO - Executed DbCommand (74ms) [Parameters=[@__entity_EntityTypeId_0='?' (DbType = Int32), @__entity_EntityId_1='?' (DbType = Int32), @__entity_DocumentTypeId_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[DocumentID], [item].[dateInsert], [item].[dateUpdate], [item].[DocumentDate], [item].[DocumentPath], [item].[DocumentTypeID], [item].[EntityID], [item].[EntityTypeID], [item].[IsDocumentSigned], [item].[LanguageID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item].[ValIdDate]
+FROM [BB_GEN_Docs] AS [item]
+WHERE (([item].[EntityTypeID] = @__entity_EntityTypeId_0) AND ([item].[EntityID] = @__entity_EntityId_1)) AND ([item].[DocumentTypeID] = @__entity_DocumentTypeId_2)
+2019-07-23 08:35:28,130 INFO - Executed DbCommand (85ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-23 08:35:28,286 INFO - Executed DbCommand (74ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (Size = 250), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?', @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_Docs] ([dateInsert], [dateUpdate], [DocumentDate], [DocumentPath], [DocumentTypeID], [EntityID], [EntityTypeID], [IsDocumentSigned], [LanguageID], [userInsert], [UserUpdate], [ValIdDate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+SELECT [DocumentID], [state]
+FROM [BB_GEN_Docs]
+WHERE @@ROWCOUNT = 1 AND [DocumentID] = scope_identity();
+2019-07-23 08:35:34,353 INFO - Executed DbCommand (74ms) [Parameters=[@__entity_EntityTypeId_0='?' (DbType = Int32), @__entity_EntityId_1='?' (DbType = Int32), @__entity_DocumentTypeId_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[DocumentID], [item].[dateInsert], [item].[dateUpdate], [item].[DocumentDate], [item].[DocumentPath], [item].[DocumentTypeID], [item].[EntityID], [item].[EntityTypeID], [item].[IsDocumentSigned], [item].[LanguageID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item].[ValIdDate]
+FROM [BB_GEN_Docs] AS [item]
+WHERE (([item].[EntityTypeID] = @__entity_EntityTypeId_0) AND ([item].[EntityID] = @__entity_EntityId_1)) AND ([item].[DocumentTypeID] = @__entity_DocumentTypeId_2)
+2019-07-23 08:35:35,916 INFO - Executed DbCommand (74ms) [Parameters=[@__entity_EntityTypeId_0='?' (DbType = Int32), @__entity_EntityId_1='?' (DbType = Int32), @__entity_DocumentTypeId_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[DocumentID], [item].[dateInsert], [item].[dateUpdate], [item].[DocumentDate], [item].[DocumentPath], [item].[DocumentTypeID], [item].[EntityID], [item].[EntityTypeID], [item].[IsDocumentSigned], [item].[LanguageID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item].[ValIdDate]
+FROM [BB_GEN_Docs] AS [item]
+WHERE (([item].[EntityTypeID] = @__entity_EntityTypeId_0) AND ([item].[EntityID] = @__entity_EntityId_1)) AND ([item].[DocumentTypeID] = @__entity_DocumentTypeId_2)
+2019-07-23 08:35:48,056 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 32613.4203ms.
+2019-07-23 08:35:48,056 INFO - The PostEmployeeAsync have been retrieved successfully.
+2019-07-23 08:35:48,060 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-23 08:35:48,077 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeAsync (Malam.Mastpen.HR.API) in 34383.2576ms
+2019-07-23 08:35:48,081 INFO - Request finished in 34425.5877ms 200 application/json; charset=utf-8
+2019-07-23 08:36:32,888 INFO - Request starting HTTP/1.1 PUT http://localhost:59821/api/v1/Employee/Employee/135 application/json-patch+json 162980
+2019-07-23 08:36:32,892 INFO - CORS policy execution failed.
+2019-07-23 08:36:32,898 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-23 08:36:32,901 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-23 08:36:32,917 INFO - Route matched with {action = "PutEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PutEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-23 08:36:32,934 INFO - Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.SerializableError'.
+2019-07-23 08:36:32,937 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PutEmployeeAsync (Malam.Mastpen.HR.API) in 15.3743ms
+2019-07-23 08:36:32,942 INFO - Request finished in 56.9729ms 400 application/json; charset=utf-8
+2019-07-23 08:37:08,774 INFO - Request starting HTTP/1.1 PUT http://localhost:59821/api/v1/Employee/Employee/135 application/json-patch+json 162980
+2019-07-23 08:37:08,781 INFO - CORS policy execution failed.
+2019-07-23 08:37:08,785 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-23 08:37:08,789 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-23 08:37:08,794 INFO - Route matched with {action = "PutEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PutEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-23 08:37:08,808 INFO - Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.SerializableError'.
+2019-07-23 08:37:08,811 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PutEmployeeAsync (Malam.Mastpen.HR.API) in 13.8161ms
+2019-07-23 08:37:08,815 INFO - Request finished in 44.2714ms 400 application/json; charset=utf-8
+2019-07-23 08:37:20,811 INFO - Request starting HTTP/1.1 PUT http://localhost:59821/api/v1/Employee/Employee/135 application/json-patch+json 162981
+2019-07-23 08:37:20,815 INFO - CORS policy execution failed.
+2019-07-23 08:37:20,818 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-23 08:37:20,821 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-23 08:37:20,823 INFO - Route matched with {action = "PutEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PutEmployeeAsync (Malam.Mastpen.HR.API)
+2019-07-23 08:37:22,478 INFO - 'PutEmployeeAsync' has been invoked
+2019-07-23 08:37:22,480 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PutEmployeeAsync (Malam.Mastpen.HR.API) with arguments (135, Malam.Mastpen.Core.BL.Requests.EmployeeRequest) - Validation state: Valid
+2019-07-23 08:37:24,240 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-23 08:37:24,301 WARN - The Include operation for navigation '[b].IdentificationType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-23 08:37:24,303 WARN - The Include operation for navigation '[b].Organization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-23 08:37:24,304 WARN - The Include operation for navigation '[b].EmployeeProffesionType.ProffesionType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-23 08:37:24,306 WARN - The Include operation for navigation '[b].EmployeeAuthtorization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-23 08:37:24,307 WARN - The Include operation for navigation '[b].EmployeeTraining' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-23 08:37:24,309 WARN - The Include operation for navigation '[b].EmployeeWorkPermit' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-07-23 08:37:24,509 INFO - Executed DbCommand (75ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [b]
+LEFT JOIN (
+    SELECT [a].[DocumentID], [a].[dateInsert], [a].[dateUpdate], [a].[DocumentDate], [a].[DocumentPath], [a].[DocumentTypeID], [a].[EntityID], [a].[EntityTypeID], [a].[IsDocumentSigned], [a].[LanguageID], [a].[state], [a].[userInsert], [a].[UserUpdate], [a].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_0
+    )) AND ([a].[DocumentTypeID] = 7)
+) AS [t] ON [b].[EmployeeID] = [t].[EntityID]
+2019-07-23 08:37:24,538 WARN - Query: '(from Employee b in DbSet<Employee> join Docs docsFaceImage in  from Docs a in DbSet<Docs> where [a]...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-07-23 08:37:24,823 INFO - Executed DbCommand (78ms) [Parameters=[@__tableName_0='?' (Size = 50), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b].[EmployeeID], [b].[Address], [b].[BirthDate], [b].[Citizenship], [b].[dateInsert], [b].[dateUpdate], [b].[FirstName], [b].[FirstNameEN], [b].[GenderID], [b].[IdentificationTypeID], [b].[IdentityNumber], [b].[LastName], [b].[LastNameEN], [b].[OrganizationID], [b].[PassportCountryID], [b].[state], [b].[userInsert], [b].[UserUpdate], [b.Organization].[OrganizationID], [b.Organization].[Comment], [b.Organization].[dateInsert], [b.Organization].[dateUpdate], [b.Organization].[OrganizationExpertiseTypeID], [b.Organization].[OrganizationName], [b.Organization].[OrganizationNumber], [b.Organization].[OrganizationParentID], [b.Organization].[OrganizationTypeID], [b.Organization].[state], [b.Organization].[userInsert], [b.Organization].[UserUpdate], [b.IdentificationType].[IdentificationTypeID], [b.IdentificationType].[Comment], [b.IdentificationType].[dateInsert], [b.IdentificationType].[dateUpdate], [b.IdentificationType].[IdentificationTypeName], [b.IdentificationType].[state], [b.IdentificationType].[userInsert], [b.IdentificationType].[UserUpdate], [t].[DocumentID], [t].[dateInsert], [t].[dateUpdate], [t].[DocumentDate], [t].[DocumentPath], [t].[DocumentTypeID], [t].[EntityID], [t].[EntityTypeID], [t].[IsDocumentSigned], [t].[LanguageID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t].[ValIdDate]
+FROM [BB_HR_Employee] AS [b]
+LEFT JOIN [BB_GEN_Organization] AS [b.Organization] ON [b].[OrganizationID] = [b.Organization].[OrganizationID]
+LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType] ON [b].[IdentificationTypeID] = [b.IdentificationType].[IdentificationTypeID]
+LEFT JOIN (
+    SELECT [a].[DocumentID], [a].[dateInsert], [a].[dateUpdate], [a].[DocumentDate], [a].[DocumentPath], [a].[DocumentTypeID], [a].[EntityID], [a].[EntityTypeID], [a].[IsDocumentSigned], [a].[LanguageID], [a].[state], [a].[userInsert], [a].[UserUpdate], [a].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_0
+    )) AND ([a].[DocumentTypeID] = 7)
+) AS [t] ON [b].[EmployeeID] = [t].[EntityID]
+ORDER BY [b].[EmployeeID]
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2019-07-23 08:37:24,990 INFO - Executed DbCommand (88ms) [Parameters=[@__tableName_0='?' (Size = 50), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeProffesionType].[EmployeeAuthorizationID], [b.EmployeeProffesionType].[Comment], [b.EmployeeProffesionType].[dateInsert], [b.EmployeeProffesionType].[dateUpdate], [b.EmployeeProffesionType].[EmployeeID], [b.EmployeeProffesionType].[ProffesionTypeID], [b.EmployeeProffesionType].[state], [b.EmployeeProffesionType].[userInsert], [b.EmployeeProffesionType].[UserUpdate], [e.ProffesionType].[ProffesionTypeID], [e.ProffesionType].[Comment], [e.ProffesionType].[dateInsert], [e.ProffesionType].[dateUpdate], [e.ProffesionType].[ProffesionTypeName], [e.ProffesionType].[state], [e.ProffesionType].[userInsert], [e.ProffesionType].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [b.EmployeeProffesionType]
+LEFT JOIN [BB_HR_ProffesionType] AS [e.ProffesionType] ON [b.EmployeeProffesionType].[ProffesionTypeID] = [e.ProffesionType].[ProffesionTypeID]
+INNER JOIN (
+    SELECT DISTINCT [t1].*
+    FROM (
+        SELECT [b0].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b0]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization0] ON [b0].[OrganizationID] = [b.Organization0].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType0] ON [b0].[IdentificationTypeID] = [b.IdentificationType0].[IdentificationTypeID]
+        LEFT JOIN (
+            SELECT [a0].*
+            FROM [BB_GEN_Docs] AS [a0]
+            WHERE ([a0].[EntityTypeID] = (
+                SELECT TOP(1) [item0].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item0]
+                WHERE [item0].[EntityTypeName] = @__tableName_0
+            )) AND ([a0].[DocumentTypeID] = 7)
+        ) AS [t0] ON [b0].[EmployeeID] = [t0].[EntityID]
+        ORDER BY [b0].[EmployeeID]
+        OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+    ) AS [t1]
+) AS [t2] ON [b.EmployeeProffesionType].[EmployeeID] = [t2].[EmployeeID]
+ORDER BY [t2].[EmployeeID]
+2019-07-23 08:37:25,097 INFO - Executed DbCommand (81ms) [Parameters=[@__tableName_0='?' (Size = 50), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeAuthtorization].[EmployeeAuthorizationID], [b.EmployeeAuthtorization].[AuthorizationTypeID], [b.EmployeeAuthtorization].[Comment], [b.EmployeeAuthtorization].[DateFrom], [b.EmployeeAuthtorization].[dateInsert], [b.EmployeeAuthtorization].[DateTo], [b.EmployeeAuthtorization].[dateUpdate], [b.EmployeeAuthtorization].[EmployeeAuthorizationName], [b.EmployeeAuthtorization].[EmployeeID], [b.EmployeeAuthtorization].[SiteId], [b.EmployeeAuthtorization].[state], [b.EmployeeAuthtorization].[userInsert], [b.EmployeeAuthtorization].[UserUpdate]
+FROM [BB_HR_EmployeeAuthtorization] AS [b.EmployeeAuthtorization]
+INNER JOIN (
+    SELECT DISTINCT [t4].*
+    FROM (
+        SELECT [b1].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b1]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization1] ON [b1].[OrganizationID] = [b.Organization1].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType1] ON [b1].[IdentificationTypeID] = [b.IdentificationType1].[IdentificationTypeID]
+        LEFT JOIN (
+            SELECT [a1].*
+            FROM [BB_GEN_Docs] AS [a1]
+            WHERE ([a1].[EntityTypeID] = (
+                SELECT TOP(1) [item1].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item1]
+                WHERE [item1].[EntityTypeName] = @__tableName_0
+            )) AND ([a1].[DocumentTypeID] = 7)
+        ) AS [t3] ON [b1].[EmployeeID] = [t3].[EntityID]
+        ORDER BY [b1].[EmployeeID]
+        OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+    ) AS [t4]
+) AS [t5] ON [b.EmployeeAuthtorization].[EmployeeID] = [t5].[EmployeeID]
+ORDER BY [t5].[EmployeeID]
+2019-07-23 08:37:25,208 INFO - Executed DbCommand (82ms) [Parameters=[@__tableName_0='?' (Size = 50), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeTraining].[EmployeeTrainingID], [b.EmployeeTraining].[Comment], [b.EmployeeTraining].[DateFrom], [b.EmployeeTraining].[dateInsert], [b.EmployeeTraining].[DateTo], [b.EmployeeTraining].[dateUpdate], [b.EmployeeTraining].[EmployeeID], [b.EmployeeTraining].[EmployeeTrainingName], [b.EmployeeTraining].[SiteID], [b.EmployeeTraining].[state], [b.EmployeeTraining].[TrainingTypeID], [b.EmployeeTraining].[userInsert], [b.EmployeeTraining].[UserUpdate]
+FROM [BB_HR_EmployeeTraining] AS [b.EmployeeTraining]
+INNER JOIN (
+    SELECT DISTINCT [t7].*
+    FROM (
+        SELECT [b2].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b2]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization2] ON [b2].[OrganizationID] = [b.Organization2].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType2] ON [b2].[IdentificationTypeID] = [b.IdentificationType2].[IdentificationTypeID]
+        LEFT JOIN (
+            SELECT [a2].*
+            FROM [BB_GEN_Docs] AS [a2]
+            WHERE ([a2].[EntityTypeID] = (
+                SELECT TOP(1) [item2].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item2]
+                WHERE [item2].[EntityTypeName] = @__tableName_0
+            )) AND ([a2].[DocumentTypeID] = 7)
+        ) AS [t6] ON [b2].[EmployeeID] = [t6].[EntityID]
+        ORDER BY [b2].[EmployeeID]
+        OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+    ) AS [t7]
+) AS [t8] ON [b.EmployeeTraining].[EmployeeID] = [t8].[EmployeeID]
+ORDER BY [t8].[EmployeeID]
+2019-07-23 08:37:25,306 INFO - Executed DbCommand (75ms) [Parameters=[@__tableName_0='?' (Size = 50), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeWorkPermit].[EmployeeWorkPermitID], [b.EmployeeWorkPermit].[Comment], [b.EmployeeWorkPermit].[DateFrom], [b.EmployeeWorkPermit].[dateInsert], [b.EmployeeWorkPermit].[DateTo], [b.EmployeeWorkPermit].[dateUpdate], [b.EmployeeWorkPermit].[EmployeeID], [b.EmployeeWorkPermit].[EmployeeWorkPermitName], [b.EmployeeWorkPermit].[IsRequired], [b.EmployeeWorkPermit].[SiteID], [b.EmployeeWorkPermit].[state], [b.EmployeeWorkPermit].[userInsert], [b.EmployeeWorkPermit].[UserUpdate]
+FROM [BB_HR_EmployeeWorkPermit] AS [b.EmployeeWorkPermit]
+INNER JOIN (
+    SELECT DISTINCT [t10].*
+    FROM (
+        SELECT [b3].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b3]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization3] ON [b3].[OrganizationID] = [b.Organization3].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType3] ON [b3].[IdentificationTypeID] = [b.IdentificationType3].[IdentificationTypeID]
+        LEFT JOIN (
+            SELECT [a3].*
+            FROM [BB_GEN_Docs] AS [a3]
+            WHERE ([a3].[EntityTypeID] = (
+                SELECT TOP(1) [item3].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item3]
+                WHERE [item3].[EntityTypeName] = @__tableName_0
+            )) AND ([a3].[DocumentTypeID] = 7)
+        ) AS [t9] ON [b3].[EmployeeID] = [t9].[EntityID]
+        ORDER BY [b3].[EmployeeID]
+        OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+    ) AS [t10]
+) AS [t11] ON [b.EmployeeWorkPermit].[EmployeeID] = [t11].[EmployeeID]
+ORDER BY [t11].[EmployeeID]
+2019-07-23 08:37:33,322 INFO - Executed DbCommand (75ms) [Parameters=[@__employee_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[EmployeeID] = @__employee_EmployeeId_0
+2019-07-23 08:37:51,716 INFO - Executed DbCommand (75ms) [Parameters=[@p17='?' (DbType = Int32), @p0='?' (Size = 50), @p1='?' (DbType = DateTime), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (Size = 50), @p6='?' (Size = 50), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (Size = 4000), @p10='?' (Size = 50), @p11='?' (Size = 50), @p12='?' (DbType = Int32), @p13='?' (DbType = Int32), @p14='?', @p15='?' (DbType = Int32), @p16='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [BB_HR_Employee] SET [Address] = @p0, [BirthDate] = @p1, [Citizenship] = @p2, [dateInsert] = @p3, [dateUpdate] = @p4, [FirstName] = @p5, [FirstNameEN] = @p6, [GenderID] = @p7, [IdentificationTypeID] = @p8, [IdentityNumber] = @p9, [LastName] = @p10, [LastNameEN] = @p11, [OrganizationID] = @p12, [PassportCountryID] = @p13, [state] = @p14, [userInsert] = @p15, [UserUpdate] = @p16
+WHERE [EmployeeID] = @p17;
+SELECT @@ROWCOUNT;
+2019-07-23 08:38:00,312 INFO - Executed DbCommand (74ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-23 08:38:01,120 INFO - Executed DbCommand (204ms) [Parameters=[@__entity_EntityTypeId_0='?' (DbType = Int32), @__entity_EntityId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[ContactID], [item].[dateInsert], [item].[dateUpdate], [item].[EMail], [item].[EntityID], [item].[EntityTypeID], [item].[PhoneNumber], [item].[PhoneTypeID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_PhoneMail] AS [item]
+WHERE ([item].[EntityTypeID] = @__entity_EntityTypeId_0) AND ([item].[EntityID] = @__entity_EntityId_1)
+2019-07-23 08:38:03,138 INFO - Executed DbCommand (82ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (Size = 50), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Size = 50), @p6='?' (DbType = Int32), @p7='?' (DbType = Boolean), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [BB_GEN_PhoneMail] SET [dateInsert] = @p0, [dateUpdate] = @p1, [EMail] = @p2, [EntityID] = @p3, [EntityTypeID] = @p4, [PhoneNumber] = @p5, [PhoneTypeID] = @p6, [state] = @p7, [userInsert] = @p8, [UserUpdate] = @p9
+WHERE [ContactID] = @p10;
+SELECT @@ROWCOUNT;
+2019-07-23 08:38:09,131 INFO - Executed DbCommand (89ms) [Parameters=[@__proffesionType_EmployeeId_0='?' (DbType = Int32), @__proffesionType_ProffesionTypeId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeAuthorizationID], [item].[Comment], [item].[dateInsert], [item].[dateUpdate], [item].[EmployeeID], [item].[ProffesionTypeID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [item]
+WHERE ([item].[EmployeeID] = @__proffesionType_EmployeeId_0) AND ([item].[ProffesionTypeID] = @__proffesionType_ProffesionTypeId_1)
+2019-07-23 08:38:12,050 INFO - Executed DbCommand (74ms) [Parameters=[@__entity_EntityTypeId_0='?' (DbType = Int32), @__entity_EntityId_1='?' (DbType = Int32), @__entity_DocumentTypeId_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[DocumentID], [item].[dateInsert], [item].[dateUpdate], [item].[DocumentDate], [item].[DocumentPath], [item].[DocumentTypeID], [item].[EntityID], [item].[EntityTypeID], [item].[IsDocumentSigned], [item].[LanguageID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item].[ValIdDate]
+FROM [BB_GEN_Docs] AS [item]
+WHERE (([item].[EntityTypeID] = @__entity_EntityTypeId_0) AND ([item].[EntityID] = @__entity_EntityId_1)) AND ([item].[DocumentTypeID] = @__entity_DocumentTypeId_2)
+2019-07-23 08:38:13,158 INFO - Executed DbCommand (73ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EntityTypeID], [item].[dateInsert], [item].[dateUpdate], [item].[EntityTypeName], [item].[state], [item].[TableName], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_GEN_EntityType] AS [item]
+WHERE [item].[EntityTypeName] = @__tableName_0
+2019-07-23 08:38:13,312 INFO - Executed DbCommand (74ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (Size = 250), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?', @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32), @p11='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_GEN_Docs] ([dateInsert], [dateUpdate], [DocumentDate], [DocumentPath], [DocumentTypeID], [EntityID], [EntityTypeID], [IsDocumentSigned], [LanguageID], [userInsert], [UserUpdate], [ValIdDate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+SELECT [DocumentID], [state]
+FROM [BB_GEN_Docs]
+WHERE @@ROWCOUNT = 1 AND [DocumentID] = scope_identity();
+2019-07-23 08:38:14,965 INFO - Executed DbCommand (74ms) [Parameters=[@__entity_EntityTypeId_0='?' (DbType = Int32), @__entity_EntityId_1='?' (DbType = Int32), @__entity_DocumentTypeId_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[DocumentID], [item].[dateInsert], [item].[dateUpdate], [item].[DocumentDate], [item].[DocumentPath], [item].[DocumentTypeID], [item].[EntityID], [item].[EntityTypeID], [item].[IsDocumentSigned], [item].[LanguageID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item].[ValIdDate]
+FROM [BB_GEN_Docs] AS [item]
+WHERE (([item].[EntityTypeID] = @__entity_EntityTypeId_0) AND ([item].[EntityID] = @__entity_EntityId_1)) AND ([item].[DocumentTypeID] = @__entity_DocumentTypeId_2)
+2019-07-23 08:38:16,169 INFO - Executed DbCommand (75ms) [Parameters=[@__entity_EntityTypeId_0='?' (DbType = Int32), @__entity_EntityId_1='?' (DbType = Int32), @__entity_DocumentTypeId_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[DocumentID], [item].[dateInsert], [item].[dateUpdate], [item].[DocumentDate], [item].[DocumentPath], [item].[DocumentTypeID], [item].[EntityID], [item].[EntityTypeID], [item].[IsDocumentSigned], [item].[LanguageID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item].[ValIdDate]
+FROM [BB_GEN_Docs] AS [item]
+WHERE (([item].[EntityTypeID] = @__entity_EntityTypeId_0) AND ([item].[EntityID] = @__entity_EntityId_1)) AND ([item].[DocumentTypeID] = @__entity_DocumentTypeId_2)
+2019-07-23 08:38:18,029 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.PutEmployeeAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 55548.2673ms.
+2019-07-23 08:38:19,729 INFO - The PutEmployeeAsync have been retrieved successfully.
+2019-07-23 08:38:20,175 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-23 08:38:23,850 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PutEmployeeAsync (Malam.Mastpen.HR.API) in 63024.8862ms
+2019-07-23 08:38:23,857 INFO - Request finished in 63047.3652ms 200 application/json; charset=utf-8
+2019-07-23 08:50:02,345 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-23 08:50:02,345 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-23 08:50:02,393 INFO - Request finished in 47.8858ms 200 
+2019-07-23 08:50:02,412 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-23 08:50:02,579 INFO - Request finished in 234.6784ms 200 text/html
+2019-07-23 08:50:02,785 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-23 08:50:02,795 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-23 08:50:03,183 INFO - Request finished in 399.7709ms 200 application/json;charset=utf-8
+2019-07-23 08:51:26,624 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/EmployeeWorkPermit application/json-patch+json 222
+2019-07-23 08:51:26,635 INFO - CORS policy execution failed.
+2019-07-23 08:51:26,639 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-23 08:51:26,641 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-23 08:51:26,718 INFO - Route matched with {action = "PostEmployeeWorkPermitAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeWorkPermitAsync (Malam.Mastpen.HR.API)
+2019-07-23 08:51:27,156 INFO - Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.SerializableError'.
+2019-07-23 08:51:27,164 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeWorkPermitAsync (Malam.Mastpen.HR.API) in 441.9535ms
+2019-07-23 08:51:27,168 INFO - Request finished in 565.9441ms 400 application/json; charset=utf-8
+2019-07-23 08:53:44,799 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-07-23 08:53:44,799 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-07-23 08:53:44,860 INFO - Request finished in 64.0616ms 200 
+2019-07-23 08:53:44,884 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-23 08:53:45,069 INFO - Request finished in 274.7903ms 200 text/html
+2019-07-23 08:53:45,305 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-07-23 08:53:45,312 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-23 08:53:45,749 INFO - Request finished in 438.9802ms 200 application/json;charset=utf-8
+2019-07-23 08:54:10,765 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/EmployeeWorkPermit application/json-patch+json 222
+2019-07-23 08:54:10,776 INFO - CORS policy execution failed.
+2019-07-23 08:54:10,778 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2019-07-23 08:54:10,781 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-07-23 08:54:10,873 INFO - Route matched with {action = "PostEmployeeWorkPermitAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeWorkPermitAsync (Malam.Mastpen.HR.API)
+2019-07-23 08:54:13,333 INFO - 'PostEmployeeWorkPermitAsync' has been invoked
+2019-07-23 08:54:13,341 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeWorkPermitAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.EmployeeWorkPermitRequest) - Validation state: Valid
+2019-07-23 08:54:16,782 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-07-23 08:54:17,919 INFO - Executed DbCommand (99ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (DbType = Int32), @p6='?' (Size = 50), @p7='?', @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_EmployeeWorkPermit] ([Comment], [DateFrom], [dateInsert], [DateTo], [dateUpdate], [EmployeeID], [EmployeeWorkPermitName], [IsRequired], [SiteID], [userInsert], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+SELECT [EmployeeWorkPermitID], [state]
+FROM [BB_HR_EmployeeWorkPermit]
+WHERE @@ROWCOUNT = 1 AND [EmployeeWorkPermitID] = scope_identity();
+2019-07-23 08:54:21,925 INFO - Executed DbCommand (78ms) [Parameters=[@__entity_EntityTypeId_0='?' (DbType = Int32), @__entity_EntityId_1='?' (DbType = Int32), @__entity_DocumentTypeId_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[DocumentID], [item].[dateInsert], [item].[dateUpdate], [item].[DocumentDate], [item].[DocumentPath], [item].[DocumentTypeID], [item].[EntityID], [item].[EntityTypeID], [item].[IsDocumentSigned], [item].[LanguageID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item].[ValIdDate]
+FROM [BB_GEN_Docs] AS [item]
+WHERE (([item].[EntityTypeID] = @__entity_EntityTypeId_0) AND ([item].[EntityID] = @__entity_EntityId_1)) AND ([item].[DocumentTypeID] = @__entity_DocumentTypeId_2)
+2019-07-23 08:54:26,667 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeWorkPermitAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 13323.0886ms.
+2019-07-23 08:54:28,548 INFO - The PostEmployeeWorkPermitAsync have been retrieved successfully.
+2019-07-23 08:54:28,560 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.DAL.Entities.EmployeeWorkPermit, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-07-23 08:54:28,577 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostEmployeeWorkPermitAsync (Malam.Mastpen.HR.API) in 17700.1352ms
+2019-07-23 08:54:28,588 INFO - Request finished in 17824.6258ms 200 application/json; charset=utf-8

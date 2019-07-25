@@ -6,9 +6,9 @@
         {
         }
 
-        public UserInfo(string userName)
+        public UserInfo(int userId)
         {
-            UserName = userName;
+            UserId = userId;
         }
         public int UserId { get; set; }
         public string UserName { get; set; }

@@ -18,9 +18,11 @@ namespace Malam.Mastpen.Core.BL.Services
 {
     public class EmployeeService : Service
     {
+
         public EmployeeService(IUserInfo userInfo, MastpenBitachonDbContext dbContext, BlobStorageService blobStorageService)
             : base( userInfo, dbContext, blobStorageService)
         {
+           
         }
 
 
@@ -149,10 +151,8 @@ namespace Malam.Mastpen.Core.BL.Services
                 entity.BirthDate = employee.BirthDate;
                 entity.GenderId = employee.GenderId;
                 entity.Citizenship = employee.Citizenship;
-                entity.UserInsert = employee.UserInsert;
-                entity.DateInsert = employee.DateInsert;
-                entity.UserUpdate = employee.UserUpdate;
-                entity.DateUpdate = employee.DateUpdate;
+              //  entity.UserInsert = employee.UserInsert;
+              //  entity.DateInsert = employee.DateInsert;
                 entity.State = employee.State;
                 entity.Address = employee.Address;
                 entity.Gender = employee.Gender;

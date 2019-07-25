@@ -8,6 +8,7 @@ using IdentityModel;
 using Malam.Mastpen.API.Controllers;
 using Malam.Mastpen.API.Commom.Infrastructure;
 using System.Security.Claims;
+using Malam.Mastpen.Core.BL.Services;
 
 namespace Malam.Mastpen.API.Filters
 {
@@ -30,12 +31,16 @@ namespace Malam.Mastpen.API.Filters
             logger.InfoFormat(GeneralConsts.LOG_INVOKE, actionName);
 
             var controller = context.Controller as MastpenController;
+         //   var service = context.Controller as EmployeeService;
 
             foreach (var claim in controller.User.Claims)
             {
 
                 if (claim.Type == JwtClaimTypes.Subject)
-                    controller.UserInfo.UserId = Int32.Parse(claim.Value);  
+                {
+                    controller.UserInfo.UserId = Int32.Parse(claim.Value);
+                  //  service.UserInfo.UserId = Int32.Parse(claim.Value);
+                }
                 else if (claim.Type == JwtClaimTypes.Email)
                     controller.UserInfo.Email = claim.Value;
                 else if (claim.Type == JwtClaimTypes.PreferredUserName)

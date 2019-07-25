@@ -24,6 +24,7 @@ namespace Malam.Mastpen.API.Controllers
 {
 
 #pragma warning disable CS1591
+    [Authorize]
     [ApiController]
     [Route("api/v1/[controller]")]
     public class OrganizationController : MastpenController
@@ -36,6 +37,7 @@ namespace Malam.Mastpen.API.Controllers
         {
             RothschildHouseIdentityClient = rothschildHouseIdentityClient;
             OrganizationService = organizationService;
+            OrganizationService.UserInfo = UserInfo;
         }
 
 
@@ -148,9 +150,9 @@ namespace Malam.Mastpen.API.Controllers
             if (entity == null)
                 return NotFound();
 
-            var Organization = request.ToEntity();
+            var Organization = request;//.ToEntity();
 
-            Organization.UserInsert = UserInfo.UserId;
+
             Organization.OrganizationId = Id;
             var response = await OrganizationService.UpdateOrganizationAsync(Organization);
 

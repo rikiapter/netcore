@@ -15,7 +15,7 @@ namespace Malam.Mastpen.Core.BL.Services
     public abstract class Service : IService
     {
         protected bool Disposed;
-        protected IUserInfo UserInfo;
+        public IUserInfo UserInfo;
         protected readonly BlobStorageService blobStorageService;
         public Service(IUserInfo userInfo, MastpenBitachonDbContext dbContext, BlobStorageService blobStorageService)
         {
@@ -32,7 +32,19 @@ namespace Malam.Mastpen.Core.BL.Services
                 Disposed = true;
             }
         }
+        //private IUserInfo m_userInfo;
 
+        //public IUserInfo UserInfo
+        //{
+        //    get
+        //    {
+        //        return m_userInfo ?? (m_userInfo = new UserInfo());
+        //    }
+        //    set
+        //    {
+        //        m_userInfo = value;
+        //    }
+        //}
         public MastpenBitachonDbContext DbContext { get; }
 
 

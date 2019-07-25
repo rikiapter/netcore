@@ -18,30 +18,40 @@ namespace Malam.Mastpen.HR.Core.BL.Requests
     {
 
 
-        public static OrganizationRequest ToEntity(this Organization request)
-            => new OrganizationRequest
-            {
+        //public static OrganizationRequest ToEntity(this Organization request)
+        //    => new OrganizationRequest
+        //    {
 
-                OrganizationId = request.OrganizationId,
-                UserInsert = request.UserInsert,
-                DateInsert = request.DateInsert,
-                UserUpdate = request.UserUpdate,
-                DateUpdate = request.DateUpdate,
-                State = request.State,
+        //        OrganizationId = request.OrganizationId,
+        //        //UserInsert = request.UserInsert,
+        //        //DateInsert = request.DateInsert,
+        //        //UserUpdate = request.UserUpdate,
+        //        //DateUpdate = request.DateUpdate,
+        //        //State = request.State,
      
 
 
-            };
+        //    };
 
         public static OrganizationResponse ToEntity(this Organization request, PhoneMail phone)
             => new OrganizationResponse
             {
         
                 OrganizationId = request.OrganizationId,
-                UserInsert = request.UserInsert,
-                DateInsert = request.DateInsert,
-                UserUpdate = request.UserUpdate,
-                DateUpdate = request.DateUpdate,
+                OrganizationName=request.OrganizationName,
+                OrganizationExpertiseType=request.OrganizationExpertiseType,
+                OrganizationExpertiseTypeId=request.OrganizationExpertiseTypeId,
+                OrganizationParentId=request.OrganizationParentId,
+                OrganizationNumber=request.OrganizationNumber,
+                OrganizationType=request.OrganizationType,
+                OrganizationTypeId=request.OrganizationTypeId,
+                Comment=request.Comment,
+
+                
+                //UserInsert = request.UserInsert,
+                //DateInsert = request.DateInsert,
+                //UserUpdate = request.UserUpdate,
+                //DateUpdate = request.DateUpdate,
                 State = request.State,
                 phonMail = phone,
       

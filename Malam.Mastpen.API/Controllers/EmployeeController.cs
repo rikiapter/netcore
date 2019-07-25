@@ -39,7 +39,9 @@ namespace Malam.Mastpen.API.Controllers
         {
             RothschildHouseIdentityClient = rothschildHouseIdentityClient;
             EmployeeService = employeeService;
-        
+            EmployeeService.UserInfo = UserInfo;
+
+
         }
 #pragma warning restore CS1591
 
@@ -250,7 +252,7 @@ namespace Malam.Mastpen.API.Controllers
 
             var employee = request.ToEntity();
 
-            employee.UserInsert = UserInfo.UserId;
+          //  employee.UserInsert = UserInfo.UserId;
             employee.EmployeeId = Id;
 
             var employeeResponse = await EmployeeService.UpdateEmployeeAsync(employee);
