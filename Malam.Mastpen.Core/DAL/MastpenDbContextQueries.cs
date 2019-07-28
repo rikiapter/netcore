@@ -175,11 +175,14 @@ namespace Malam.Mastpen.Core.DAL
 
             var query = from organization in dbContext.Organization.Where(item => item.OrganizationId == entity.OrganizationId)
 
-                        join phonMail in dbContext.PhoneMail.Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
-                        on organization.OrganizationId equals phonMail.EntityId
+                        join phonMail in dbContext.PhoneMail
+                          .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                          on organization.OrganizationId equals phonMail.EntityId into phonMail
+                        from x_phonMail in phonMail.DefaultIfEmpty()
 
 
-                        select organization.ToEntity(phonMail);
+
+                        select organization.ToEntity(x_phonMail);
 
             return query;
         }
@@ -247,11 +250,12 @@ namespace Malam.Mastpen.Core.DAL
                 .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
                 .Where(item => item.EntityId == EmployeeId).Include(x => x.Site).AsQueryable()
 
+             
                         join employee in dbContext.Employee
-                        on note.UserInsert equals employee.EmployeeId
-
-
-                        select note.ToEntity(employee);
+                        on note.UserInsert equals employee.EmployeeId into employee
+                        from x_employee in employee.DefaultIfEmpty()
+                        
+                        select note.ToEntity(x_employee);
 
             return query;
         }

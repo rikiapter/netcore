@@ -18,7 +18,8 @@ namespace Malam.Mastpen.Core.DAL.Entities
         public string OrganizationName { get; set; }
         public int? OrganizationNumber { get; set; }
         public int? OrganizationParentId { get; set; }
-        public string Comment { get; set; }
+        public string OrganizationFaceGroup{ get; set; }
+    public string Comment { get; set; }
         public int? UserInsert { get; set; }
         public DateTime? DateInsert { get; set; }
         public int? UserUpdate { get; set; }

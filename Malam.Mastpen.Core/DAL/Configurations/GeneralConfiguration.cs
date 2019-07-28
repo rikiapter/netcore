@@ -442,6 +442,8 @@ namespace Malam.Mastpen.Core.DAL.Configurations
 
             builder.Property(e => e.OrganizationExpertiseTypeId).HasColumnName("OrganizationExpertiseTypeID");
 
+            builder.Property(e => e.OrganizationFaceGroup).HasMaxLength(50);
+
             builder.Property(e => e.State)
                 .HasColumnName("state")
                 .HasDefaultValueSql("((1))");

@@ -128,7 +128,8 @@ namespace Malam.Mastpen.Core.BL.Services
                 entity.OrganizationNumber = organization.OrganizationNumber;
                 entity.OrganizationParentId = organization.OrganizationParentId;
                 entity.OrganizationTypeId = organization.OrganizationTypeId;
-                
+                entity.OrganizationFaceGroup = organization.OrganizationFaceGroup;
+
                 DbContext.Update(entity, UserInfo);
 
                 await DbContext.SaveChangesAsync();

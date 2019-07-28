@@ -70,8 +70,12 @@ namespace Malam.Mastpen.API.Controllers
                 throw new Exception();
 
             var entity = request;//.ToEntity();
+         
 
             var response = await OrganizationService.CreateOrganizationAsync(entity);
+
+            entity.OrganizationFaceGroup = "facegroup" + response.Model.OrganizationId; 
+            var response2 = await OrganizationService.UpdateOrganizationAsync(entity);
 
             return response.ToHttpResponse();
         }
@@ -119,7 +123,7 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        [Authorize(Policy = Policies.CustomerPolicy)]
+        //[Authorize(Policy = Policies.CustomerPolicy)]
         public async Task<IActionResult> GetOrganizationAsync(int Id)
         {
             var response = await OrganizationService.GetOrganizationAsync(Id);
