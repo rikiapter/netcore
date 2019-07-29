@@ -200,6 +200,11 @@ namespace Malam.Mastpen.API.Controllers
             if (DOCSResponse.DIdError)
                 employeeResponse.Message = "Error in update CopyPassport" + employeeResponse.Message;
 
+            SiteEmployee siteEmployee = new SiteEmployee();
+            siteEmployee.EmployeeId= employeeResponse.Model.EmployeeId;
+            siteEmployee.SiteId = request.SiteId;
+            var response = await EmployeeService.CreateSiteEmployeeAsync(siteEmployee);
+
             return employeeResponse.ToHttpResponse();
         }
 

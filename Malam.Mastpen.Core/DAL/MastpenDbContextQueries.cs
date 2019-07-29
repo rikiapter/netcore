@@ -43,6 +43,7 @@ namespace Malam.Mastpen.Core.DAL
                  .Include(x => x.EmployeeAuthtorization)
                  .Include(x => x.EmployeeTraining)
                  .Include(x => x.EmployeeWorkPermit)
+              //   .Include(x=>x.SiteEmployeeSite)
                  .AsQueryable()
 
                         join docsFaceImage in dbContext.Docs
@@ -51,7 +52,11 @@ namespace Malam.Mastpen.Core.DAL
                               on Employee.EmployeeId equals docsFaceImage.EntityId into docsFaceImage
                         from x_docsFaceImage in docsFaceImage.DefaultIfEmpty()
 
-                        select Employee.ToEntity(null, x_docsFaceImage, null,null);
+                        join sites in dbContext.SiteEmployee
+                        .Where(a => a.SiteId == SiteId || SiteId ==null)
+                        on Employee.EmployeeId equals sites.EmployeeId 
+
+            select Employee.ToEntity(null, x_docsFaceImage, null,null);
 
             // Filter by: 'EmployeeID'
             if (EmployeeID.HasValue)
@@ -69,8 +74,8 @@ namespace Malam.Mastpen.Core.DAL
             if (PassportCountryId.HasValue)
                 query = query.Where(item => item.PassportCountryId == PassportCountryId);
 
-            if (SiteId.HasValue)
-                query = query.Where(item => item.SiteEmployeeSite.Any(siteid => siteid.SiteId == SiteId));
+            //if (SiteId.HasValue)
+            //   query = query.Where(item => item.SiteEmployeeSite.Any(siteid => siteid.SiteId == SiteId));
 
 
             return query;

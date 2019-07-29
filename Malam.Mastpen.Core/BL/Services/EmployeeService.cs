@@ -157,7 +157,7 @@ namespace Malam.Mastpen.Core.BL.Services
                 entity.Address = employee.Address;
                 entity.Gender = employee.Gender;
                 entity.IdentificationType = employee.IdentificationType;
-                entity.Organization = employee.Organization;
+               // entity.Organization = employee.Organization;
                 entity.PassportCountry = employee.PassportCountry;
               
                 DbContext.Update(entity, UserInfo);

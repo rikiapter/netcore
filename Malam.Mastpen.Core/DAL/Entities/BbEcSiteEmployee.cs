@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Malam.Mastpen.Core.DAL.Entities
 {
-    public partial class SiteEmployee
+    public partial class SiteEmployee:IAuditableEntity
     {
         public int SiteEmployeeId { get; set; }
         public int? EmployeeId { get; set; }

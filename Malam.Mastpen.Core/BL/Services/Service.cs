@@ -195,7 +195,23 @@ namespace Malam.Mastpen.Core.BL.Services
 
             return response;
         }
+        // POST
+        public async Task<SingleResponse<SiteEmployee>> CreateSiteEmployeeAsync(SiteEmployee siteEmployee)
+        {
+            var response = new SingleResponse<SiteEmployee>();
 
+            // Add entity to repository
+            DbContext.Add(siteEmployee, UserInfo);
+            // Save entity in database
+            await DbContext.SaveChangesAsync();
+
+
+            response.SetMessageSucssesPost(nameof(SiteEmployee), siteEmployee.SiteEmployeeId);
+            // Set the entity to response model
+            response.Model = siteEmployee;
+
+            return response;
+        }
 
         public async Task<SingleResponse<EmployeeProffesionType>> CreateEmployeeProffesionTypeAsync(EmployeeProffesionType proffesionType, Type type)
         {

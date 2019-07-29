@@ -31,6 +31,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+        public int? SiteId { get; set; }
         public int? ProffesionTypeId { get; set; }
         public FileRequest picture { get; set; }
         public FileRequest IdentityFile { get; set; }
@@ -201,6 +202,7 @@ namespace Malam.Mastpen.Core.BL.Requests
                 picturePath= docsFaceImage ==null ? null: docsFaceImage.DocumentPath,
                 IdentityFilePath = docsCopyofID == null ? null : docsCopyofID.DocumentPath,
                 PassportFilePath = docsCopyPassport == null ? null : docsCopyPassport.DocumentPath,
+            //    SiteEmployeeSite=request.SiteEmployeeSite
 
             };
 
