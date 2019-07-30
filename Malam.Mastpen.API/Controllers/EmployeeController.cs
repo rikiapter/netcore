@@ -486,7 +486,7 @@ namespace Malam.Mastpen.API.Controllers
             var entity = request;
 
             entity.EntityTypeId = (int)EntityTypeEnum.Employee;
-            entity.EntityId = request.employee.EmployeeId;
+            entity.EntityId = request.EmployeeId;
             var response = await EmployeeService.CreateEmployeeNoteAsync(entity);
 
             return response.ToHttpResponse();
