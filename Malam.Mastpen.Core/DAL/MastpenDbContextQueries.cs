@@ -52,11 +52,19 @@ namespace Malam.Mastpen.Core.DAL
                               on Employee.EmployeeId equals docsFaceImage.EntityId into docsFaceImage
                         from x_docsFaceImage in docsFaceImage.DefaultIfEmpty()
 
-                        join sites in dbContext.SiteEmployee
-                        .Where(a => a.SiteId == SiteId || SiteId ==null)
-                        on Employee.EmployeeId equals sites.EmployeeId 
+                      //  join sites in dbContext.SiteEmployee
+                      //  .Where(a => a.SiteId == SiteId  || SiteId ==null || a.SiteId == null)
+                      //  on Employee.EmployeeId equals sites.EmployeeId 
 
             select Employee.ToEntity(null, x_docsFaceImage, null,null);
+
+            if (SiteId.HasValue)
+                query = query.Join(
+                    dbContext.SiteEmployee.Where(a => a.SiteId == SiteId),
+                    siteemployee => siteemployee.EmployeeId,
+                    employee => employee.EmployeeId,
+
+                    (employee, siteemployee) => employee);
 
             // Filter by: 'EmployeeID'
             if (EmployeeID.HasValue)

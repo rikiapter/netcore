@@ -126,42 +126,49 @@ namespace Malam.Mastpen.Core.BL.Services
         }
         public async Task<SingleResponse<Docs>> CreateDocsAsync(Docs docs, Type type, string fileName, FileRequest file, int documentType)
         {
-            var query =  DbContext.GetDocsAsync(new Docs { EntityTypeId = (int)docs.EntityTypeId, EntityId = (int)docs.EntityId, DocumentTypeId = documentType });
-
-            var docExist = await query;
-            docs.DocumentTypeId = documentType;
-            if (docExist!= null)
+            if (file != null)
             {
-                //למחוק את הכתובת הקודמת מהבלוב
-                //  blobStorageService.DeleteBlobData(docExist.Result.Model.DocumentPath);
-                docs.DocumentPath = blobStorageService.UploadFileToBlob(fileName, file);
+                //אם יש כבר תמונה אז יש צורך לעדכן את מה שיש
+                var query = DbContext.GetDocsAsync(new Docs { EntityTypeId = (int)docs.EntityTypeId, EntityId = (int)docs.EntityId, DocumentTypeId = documentType });
 
-                return await UpdateDocsAsync(docs, type);
-
-            }
-            else if (file != null)
-            {
-                if (!string.IsNullOrEmpty(file.ContentType) || !string.IsNullOrEmpty(file.ContentType))
+                var docExist = await query;
+                docs.DocumentTypeId = documentType;
+                if (docExist != null)
                 {
-                    var response = new SingleResponse<Docs>();
+                    //למחוק את הכתובת הקודמת מהבלוב
+                    //  blobStorageService.DeleteBlobData(docExist.Result.Model.DocumentPath);
 
                     docs.DocumentPath = blobStorageService.UploadFileToBlob(fileName, file);
 
-                    var EntityTypeId = DbContext.GetEntityTypeIdByEntityTypeName(type).Result;
+                    return await UpdateDocsAsync(docs, type);
 
-                    docs.EntityTypeId = EntityTypeId;
-
-                    DbContext.Add(docs, UserInfo);
-
-                    await DbContext.SaveChangesAsync();
-
-                    response.SetMessageSucssesPost(nameof(CreateDocsAsync), docs.EntityId ?? 0);
-
-                    response.Model = docs;
-
-                    return response;
                 }
-                else return new SingleResponse<Docs>();
+                else //if (file != null)
+                {
+                    //אם אין תמונה יוצרים חדש
+                    if (!string.IsNullOrEmpty(file.ContentType) || !string.IsNullOrEmpty(file.ContentType))
+                    {
+                        var response = new SingleResponse<Docs>();
+
+                        docs.DocumentPath = blobStorageService.UploadFileToBlob(fileName, file);
+
+                        var EntityTypeId = DbContext.GetEntityTypeIdByEntityTypeName(type).Result;
+
+                        docs.EntityTypeId = EntityTypeId;
+
+                        DbContext.Add(docs, UserInfo);
+
+                        await DbContext.SaveChangesAsync();
+
+                        response.SetMessageSucssesPost(nameof(CreateDocsAsync), docs.EntityId ?? 0);
+
+                        response.Model = docs;
+
+                        return response;
+                    }
+                    else return new SingleResponse<Docs>();
+                }
+        
             }
             else return new SingleResponse<Docs>();
          
