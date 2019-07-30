@@ -87,6 +87,7 @@ namespace Malam.Mastpen.Core.BL.Requests
     public class NoteRequest:Notes
     {
         public int EmployeeId { get; set; }
+        public Employee userEmployee { get; set; }
     }
     public class TrainingResponse
     {
@@ -208,19 +209,20 @@ namespace Malam.Mastpen.Core.BL.Requests
 
 
 
-        public static NoteRequest ToEntity(this Notes request, Employee employee)
+        public static NoteRequest ToEntity(this Notes request, Employee employee,int EmployeeId)
               => new NoteRequest
               {
-                  EmployeeId= employee.EmployeeId,
+                  userEmployee=employee,
+                  EmployeeId= EmployeeId,
                   NoteId = request.NoteId,
                   NoteTypeId = request.NoteTypeId,
                   Site = request.Site,
                   NoteContent = request.NoteContent,
-                  UserInsert = request.UserInsert,
-                  DateInsert = request.DateInsert,
-                  UserUpdate = request.UserUpdate,
-                  DateUpdate = request.DateUpdate,
-                  State = request.State,
+                  //UserInsert = request.UserInsert,
+                  //DateInsert = request.DateInsert,
+                  //UserUpdate = request.UserUpdate,
+                  //DateUpdate = request.DateUpdate,
+                  //State = request.State,
 
               };
 

@@ -268,7 +268,7 @@ namespace Malam.Mastpen.Core.DAL
                         on note.UserInsert equals employee.EmployeeId into employee
                         from x_employee in employee.DefaultIfEmpty()
                         
-                        select note.ToEntity(x_employee);
+                        select note.ToEntity(x_employee, EmployeeId);
 
             return query;
         }
