@@ -64,9 +64,25 @@ namespace Malam.Mastpen.API.Controllers
         /// <response code="500">If there was an internal server error</response>
         [HttpGet("Employee")]
      
-        public async Task<IActionResult> GetEmployeesAsync(int pageSize = 10, int pageNumber = 1, int? EmployeeId = null, string EmployeeName = null, string IdentityNumber = null,int? OrganizationId=null,int? PassportCountryId=null,int? ProffesionType=null, int? SiteId=null)//, int? SiteId = null, DateTime? DateFrom = null, DateTime? DateTo = null)
-        {
-            var response = await EmployeeService.GetEmployeesAsync(pageSize, pageNumber, EmployeeId, EmployeeName ,  IdentityNumber, OrganizationId,PassportCountryId, ProffesionType, SiteId);
+        public async Task<IActionResult> GetEmployeesAsync(
+            int pageSize = 10,
+            int pageNumber = 1,
+            int? EmployeeId = null,
+            string EmployeeName = null,
+            string IdentityNumber = null,
+            int? OrganizationId=null,
+            int? PassportCountryId=null,
+            int? ProffesionType=null,
+            int? SiteId=null,
+            bool isEmployeeEntry=false,
+            bool sortByAuthtorization=false,
+            bool sortByTraining=false,
+            bool sortByWorkPermit=false)
+        { 
+            var response = await EmployeeService.GetEmployeesAsync(pageSize, pageNumber, EmployeeId, EmployeeName ,  IdentityNumber, OrganizationId,PassportCountryId, ProffesionType, SiteId, isEmployeeEntry ,
+                sortByAuthtorization ,
+             sortByTraining ,
+             sortByWorkPermit );
 
             // Return as http response
             return response.ToHttpResponse();

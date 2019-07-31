@@ -59,7 +59,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         public int? UserUpdate { get; set; }
         public DateTime? DateUpdate { get; set; }
         public bool? State { get; set; }
-
+        public bool isEmployeeEntry { get; set; }
         public Gender Gender { get; set; }
         public IdentificationType IdentificationType { get; set; }
         public Organization Organization { get; set; }

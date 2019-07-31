@@ -28,7 +28,18 @@ namespace Malam.Mastpen.Core.DAL
 
         }
 
-        public static IQueryable<EmployeeResponse> GetEmployee(this MastpenBitachonDbContext dbContext, int? EmployeeID = null, string EmployeeName = null, string IdentityNumber = null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null, int? SiteId = null)
+        public static IQueryable<EmployeeResponse> GetEmployee(this MastpenBitachonDbContext dbContext, 
+            int? EmployeeID = null, 
+            string EmployeeName = null, 
+            string IdentityNumber = null, 
+            int? OrganizationId = null, 
+            int? PassportCountryId = null, 
+            int? ProffesionType = null, 
+            int? SiteId = null, 
+            bool isEmployeeEntry=false, 
+            bool sortByAuthtorization = false,
+            bool sortByTraining = false,
+            bool sortByWorkPermit = false)
         {
             string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
 
@@ -82,8 +93,37 @@ namespace Malam.Mastpen.Core.DAL
             if (PassportCountryId.HasValue)
                 query = query.Where(item => item.PassportCountryId == PassportCountryId);
 
-            //if (SiteId.HasValue)
-            //   query = query.Where(item => item.SiteEmployeeSite.Any(siteid => siteid.SiteId == SiteId));
+
+       
+           //מי נמצא כרגע באתר
+           // איך אני מכניסה את הערך לאוביקט שחוזר??
+            if (isEmployeeEntry && SiteId .HasValue)
+                query = query.Join(dbContext.EmployeeEntry
+                                    .Where(item => item.Date.Value.Date == DateTime.Now.Date)
+                                    .Join
+                                     (dbContext.EquipmenAtSite.Where(a => a.SiteId == SiteId),
+                                      employeeentry => employeeentry.EquipmentId,
+                                      AtSite => AtSite.EquipmentId,
+
+                                     (AtSite, employeeentry) => AtSite),
+                 
+                          employeeentry1 => employeeentry1.EmployeeId,
+                          employee => employee.EmployeeId,
+
+                          (employee, employeeentry1) => employee) ;
+
+            if (sortByAuthtorization)
+            {
+                query = query.OrderBy(x => x.EmployeeAuthtorization.regular);
+            }
+            if (sortByWorkPermit)
+            {
+                query = query.OrderBy(x => x.EmployeeWorkPermit.regular);
+            }
+            if (sortByTraining)
+            {
+                query = query.OrderBy(x => x.EmployeeTraining.regular);
+            }
 
 
             return query;
