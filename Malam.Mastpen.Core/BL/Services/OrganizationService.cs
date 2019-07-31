@@ -66,13 +66,13 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
 
-        public async Task<IPagedResponse<Organization>> GetOrganizationsAsync(int pageSize = 10, int pageNumber = 1, int? OrganizationId = null, string OrganizationName = null, int? OrganizationNumber = null, int? OrganizationExpertiseTypeId = null)
+        public async Task<IPagedResponse<Organization>> GetOrganizationsAsync(int pageSize = 10, int pageNumber = 1, int? OrganizationId = null, string OrganizationName = null, int? OrganizationNumber = null, int? OrganizationExpertiseTypeId = null,int? OrganizationParentId=null)
         {
 
             var response = new PagedResponse<Organization>();
 
             // Get the "proposed" query from repository
-            var query = DbContext.GetOrganization(OrganizationId, OrganizationName,  OrganizationNumber,OrganizationExpertiseTypeId );// אם רוצים לפי סינונים מסוימים אז יש להשתמש בפונקציה
+            var query = DbContext.GetOrganization(OrganizationId, OrganizationName,  OrganizationNumber,OrganizationExpertiseTypeId , OrganizationParentId);// אם רוצים לפי סינונים מסוימים אז יש להשתמש בפונקציה
 
             // Set paging values
             response.PageSize = pageSize;

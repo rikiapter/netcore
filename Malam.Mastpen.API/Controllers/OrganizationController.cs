@@ -98,9 +98,9 @@ namespace Malam.Mastpen.API.Controllers
         /// <response code="500">If there was an internal server error</response>
         [HttpGet("Organization")]
         //  [Authorize(Policy = Policies.CustomerPolicy)]
-        public async Task<IActionResult> GetOrganizationsAsync(int pageSize = 10, int pageNumber = 1, int? OrganizationId = null, string OrganizationName = null,int? OrganizationNumber=null,int? OrganizationExpertiseTypeId=null)
+        public async Task<IActionResult> GetOrganizationsAsync(int pageSize = 10, int pageNumber = 1, int? OrganizationId = null, string OrganizationName = null,int? OrganizationNumber=null,int? OrganizationExpertiseTypeId= null,int ? OrganizationParentId = null)
         {
-            var response = await OrganizationService.GetOrganizationsAsync(pageSize, pageNumber, OrganizationId, OrganizationName,  OrganizationNumber,  OrganizationExpertiseTypeId );
+            var response = await OrganizationService.GetOrganizationsAsync(pageSize, pageNumber, OrganizationId, OrganizationName,  OrganizationNumber,  OrganizationExpertiseTypeId , OrganizationParentId);
 
             // Return as http response
             return response.ToHttpResponse();
