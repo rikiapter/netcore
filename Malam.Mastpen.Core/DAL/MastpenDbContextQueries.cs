@@ -112,18 +112,7 @@ namespace Malam.Mastpen.Core.DAL
 
                           (employee, employeeentry1) => employee) ;
 
-            if (sortByAuthtorization)
-            {
-                query = query.OrderBy(x => x.EmployeeAuthtorization.regular);
-            }
-            if (sortByWorkPermit)
-            {
-                query = query.OrderBy(x => x.EmployeeWorkPermit.regular);
-            }
-            if (sortByTraining)
-            {
-                query = query.OrderBy(x => x.EmployeeTraining.regular);
-            }
+   
 
 
             return query;

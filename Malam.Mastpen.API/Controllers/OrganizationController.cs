@@ -19,6 +19,7 @@ using Malam.Mastpen.API.Clients.Contracts;
 using Malam.Mastpen.Core.BL.Contracts;
 using Malam.Mastpen.HR.Core.BL.Requests;
 using Malam.Mastpen.Core.BL.Services;
+using static Malam.Mastpen.API.Commom.Infrastructure.GeneralConsts;
 
 namespace Malam.Mastpen.API.Controllers
 {
@@ -69,8 +70,11 @@ namespace Malam.Mastpen.API.Controllers
             if (!ModelState.IsValid)
                 throw new Exception();
 
+           
+
             var entity = request;//.ToEntity();
-         
+            if (request.OrganizationParentId != null)
+                entity.OrganizationTypeId = (int)OrganizationTypeEnum.SecondaryOrganization;
 
             var response = await OrganizationService.CreateOrganizationAsync(entity);
 

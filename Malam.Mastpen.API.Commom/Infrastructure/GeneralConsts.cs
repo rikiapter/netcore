@@ -36,6 +36,13 @@ namespace Malam.Mastpen.API.Commom.Infrastructure
             EmployeeTraining,
             EmployeeWorkPermit
         }
+
+        public enum OrganizationTypeEnum
+        {
+            MainOrganization = 1,
+            SecondaryOrganization
+
+        }
     }
 
 }

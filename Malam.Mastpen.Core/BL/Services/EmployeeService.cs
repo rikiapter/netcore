@@ -46,7 +46,12 @@ namespace Malam.Mastpen.Core.BL.Services
             .Paging(pageSize, pageNumber)
             .ToListAsync();
 
-            
+
+            response.Model= sortByAuthtorization ? response.Model.OrderBy(x => x.EmployeeAuthtorization.regular): response.Model;
+            response.Model = sortByWorkPermit ? response.Model.OrderBy(x => x.EmployeeWorkPermit.regular) : response.Model;
+            response.Model = sortByTraining ? response.Model.OrderBy(x => x.EmployeeTraining.regular) : response.Model;
+       
+
             // throw new NotImplementedException();
             return response;
         }
