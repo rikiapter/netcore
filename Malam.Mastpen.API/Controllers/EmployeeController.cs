@@ -180,7 +180,7 @@ namespace Malam.Mastpen.API.Controllers
 
           var res=   await  EmployeeService.CreatePhoneMailAsync(phoneMail, typeof(Employee));
                 if (res.DIdError)
-                    employeeResponse.Message = "Error in create PhoneMail" + employeeResponse.Message;
+                    employeeResponse.SetMessageErrorCreate(nameof(PhoneMail), res.Message);
             }
 
             if (request.ProffesionTypeId != null)
@@ -191,30 +191,30 @@ namespace Malam.Mastpen.API.Controllers
 
           var res=  await EmployeeService.CreateEmployeeProffesionTypeAsync(proffesionType, typeof(Employee));
                 if (res.DIdError)
-                    employeeResponse.Message = "Error in create ProffesionType" + employeeResponse.Message;
+                    employeeResponse.SetMessageErrorCreate(nameof(ProffesionType), res.Message);
             }
 
             Docs docs = new Docs();
             docs.EntityTypeId = (int)EntityTypeEnum.Employee;
             docs.EntityId = employeeResponse.Model.EmployeeId;
-            var fileName = employeeResponse.Model.IdentityNumber + employeeResponse.Model.FirstNameEn + "_" + employeeResponse.Model.LastNameEn;
+            var fileName = employeeResponse.Model.IdentityNumber;
             
             //יש לבדוק אם אכן זה עובד
             //upload picture to blob
             var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.picture, (int)DocumentType.FaceImage);
             employeeResponse.Model.picturePath = DOCSResponse.Model.DocumentPath;
             if (DOCSResponse.DIdError)
-                employeeResponse.Message = "Error in update FaceImage" + employeeResponse.Message;
+                employeeResponse.SetMessageErrorUpdate("FaceImage", DOCSResponse.Message); 
 
             DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.IdentityFile, (int)DocumentType.CopyofID);
             employeeResponse.Model.IdentityFilePath = DOCSResponse.Model.DocumentPath;
             if (DOCSResponse.DIdError)
-                employeeResponse.Message = "Error in update CopyofID" + employeeResponse.Message;
+                employeeResponse.SetMessageErrorUpdate("CopyofID", DOCSResponse.Message); 
 
             DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.PassportFile, (int)DocumentType.CopyPassport);
             employeeResponse.Model.PassportFilePath = DOCSResponse.Model.DocumentPath;
             if (DOCSResponse.DIdError)
-                employeeResponse.Message = "Error in update CopyPassport" + employeeResponse.Message;
+                employeeResponse.SetMessageErrorUpdate("CopyPassport", DOCSResponse.Message); 
 
             SiteEmployee siteEmployee = new SiteEmployee();
             siteEmployee.EmployeeId= employeeResponse.Model.EmployeeId;
@@ -291,7 +291,7 @@ namespace Malam.Mastpen.API.Controllers
 
            var res=   await  EmployeeService.UpdatePhoneMailAsync(phoneMail, typeof(Employee));
                 if (res.DIdError)
-                    employeeResponse.Message = "Error in update PhoneMail" + employeeResponse.Message;
+                    employeeResponse.SetMessageErrorUpdate(nameof(PhoneMail), res.Message);
 
             }
 
@@ -303,7 +303,7 @@ namespace Malam.Mastpen.API.Controllers
 
             var res=  await  EmployeeService.UpdateProffesionTypeAsync(proffesionType, typeof(Employee));
                 if (res.DIdError)
-                    employeeResponse.Message = "Error in update ProffesionType" + employeeResponse.Message;
+                    employeeResponse.SetMessageErrorUpdate(nameof(ProffesionType), res.Message);
             }
 
             //upload picture to blob
@@ -316,17 +316,17 @@ namespace Malam.Mastpen.API.Controllers
             var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.picture, (int)DocumentType.FaceImage);
             employeeResponse.Model.picturePath = DOCSResponse.Model.DocumentPath;
             if (DOCSResponse.DIdError)
-                employeeResponse.Message = "Error in update FaceImage" + employeeResponse.Message;
+                employeeResponse.SetMessageErrorUpdate("FaceImage", DOCSResponse.Message); 
 
             DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.IdentityFile, (int)DocumentType.CopyofID);
             employeeResponse.Model.IdentityFilePath = DOCSResponse.Model.DocumentPath;
             if (DOCSResponse.DIdError)
-                employeeResponse.Message = "Error in update CopyofID" + employeeResponse.Message;
+                employeeResponse.SetMessageErrorUpdate("CopyofID", DOCSResponse.Message); 
 
             DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.PassportFile, (int)DocumentType.CopyPassport);
             employeeResponse.Model.PassportFilePath = DOCSResponse.Model.DocumentPath;
             if (DOCSResponse.DIdError)
-                employeeResponse.Message = "Error in update CopyPassport" + employeeResponse.Message;
+                employeeResponse.SetMessageErrorUpdate("CopyPassport", DOCSResponse.Message); 
 
 
             return employeeResponse.ToHttpResponse();
@@ -348,21 +348,13 @@ namespace Malam.Mastpen.API.Controllers
         public async Task<IActionResult> DeleteEmployeeAsync(int Id)
         {
 
-            //// Get Employee by Id
             var entity = await EmployeeService.GetEmployeesAsync(Id);
 
-            //// ValIdate if entity exists
             if (entity == null)
                 return NotFound();
 
-            //// Remove entity from repository
             var response = await EmployeeService.DeleteEmployeeAsync(Id);
-            //DbContext.Remove(entity);
-
-            //response.Message = string.Format("Sucsses Delete Site Employee = {0} ", Id);
-
-            //// Delete entity in database
-            //await DbContext.SaveChangesAsync();
+            response.SetMessageSucssesDelete(nameof(Employee), Id);
 
             return response.ToHttpResponse();
         }
@@ -498,7 +490,6 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> PostEmployeeNoteAsync([FromBody]NoteRequest request)
         {
-
             var entity = request;
 
             entity.EntityTypeId = (int)EntityTypeEnum.Employee;

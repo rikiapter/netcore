@@ -78,5 +78,24 @@ namespace Malam.Mastpen.Core.BL.Responses
 
         }
 
+        public static void SetMessageErrorCreate(this IResponse response, string actionName, string message)
+        {
+            // todo: Save error in log file
+
+            response.DIdError = true;
+
+            response.Message = string.Format("Error Create in {0} = {1} ", actionName, message);
+
+        }
+        public static void SetMessageErrorUpdate(this IResponse response, string actionName, string message)
+        {
+            // todo: Save error in log file
+
+            response.DIdError = true;
+
+            response.Message = string.Format("Error Update in {0} = {1} ", actionName, message);
+
+        }
+
     }
 }
