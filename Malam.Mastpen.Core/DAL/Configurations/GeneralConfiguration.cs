@@ -106,6 +106,7 @@ namespace Malam.Mastpen.Core.DAL.Configurations
             builder.ToTable("BB_GEN_Country");
 
             builder.Property(e => e.CountryId).HasColumnName("CountryID");
+            builder.Property(e => e.LanguageId).HasColumnName("LanguageID");
 
             builder.Property(e => e.CountryName).HasMaxLength(50);
 

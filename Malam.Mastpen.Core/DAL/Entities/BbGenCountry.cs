@@ -12,6 +12,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
 
         public int CountryId { get; set; }
         public string CountryName { get; set; }
+        public int? LanguageId { get; set; }
         public int? UserInsert { get; set; }
         public DateTime? DateInsert { get; set; }
         public int? UserUpdate { get; set; }
