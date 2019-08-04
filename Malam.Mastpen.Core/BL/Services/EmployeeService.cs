@@ -26,14 +26,14 @@ namespace Malam.Mastpen.Core.BL.Services
         }
 
 
-        public async Task<IPagedResponse<EmployeeResponse>> GetEmployeesAsync(int pageSize = 10, int pageNumber = 1, int? EmployeeId = null ,string EmployeeName = null,string IdentityNumber=null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null, int? SiteId=null, bool isEmployeeEntry= false    ,  bool sortByAuthtorization = false,
+        public async Task<IPagedResponse<EmployeeResponse>> GetEmployeesAsync(int pageSize = 10, int pageNumber = 1, int? EmployeeId = null ,string EmployeeName = null,string IdentityNumber=null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null, int? SiteId=null,int? EmployeeIsNotInSiteId=null, bool isEmployeeEntry= false    ,  bool sortByAuthtorization = false,
             bool sortByTraining = false,
             bool sortByWorkPermit = false)//, int? SiteId = null, DateTime? DateFrom = null, DateTime? DateTo = null)
         {
             var response = new PagedResponse<EmployeeResponse>();
 
             // Get the "proposed" query from repository
-            var query =DbContext.GetEmployee(EmployeeId,  EmployeeName , IdentityNumber,OrganizationId , PassportCountryId ,ProffesionType, SiteId, isEmployeeEntry      , sortByAuthtorization , sortByTraining ,  sortByWorkPermit );// אם רוצים לפי סינונים מסוימים אז יש להשתמש בפונקציה
+            var query =DbContext.GetEmployee(EmployeeId,  EmployeeName , IdentityNumber,OrganizationId , PassportCountryId ,ProffesionType, SiteId, EmployeeIsNotInSiteId, isEmployeeEntry      , sortByAuthtorization , sortByTraining ,  sortByWorkPermit );// אם רוצים לפי סינונים מסוימים אז יש להשתמש בפונקציה
 
             // Set paging values
             response.PageSize = pageSize;
@@ -50,7 +50,8 @@ namespace Malam.Mastpen.Core.BL.Services
             response.Model= sortByAuthtorization ? response.Model.OrderBy(x => x.EmployeeAuthtorization.regular): response.Model;
             response.Model = sortByWorkPermit ? response.Model.OrderBy(x => x.EmployeeWorkPermit.regular) : response.Model;
             response.Model = sortByTraining ? response.Model.OrderBy(x => x.EmployeeTraining.regular) : response.Model;
-       
+            //מי נמצא כרגע באתר
+            response.Model = isEmployeeEntry && SiteId.HasValue ? response.Model.OrderByDescending(x => x.isEmployeeEntry) : response.Model;
 
             // throw new NotImplementedException();
             return response;
@@ -96,7 +97,7 @@ namespace Malam.Mastpen.Core.BL.Services
 
             response.Message = string.Format("Sucsses Post for Employee = {0} ", employee.EmployeeId);
             // Set the entity to response model
-            response.Model = employee.ToEntity(null,null,null,null);
+            response.Model = employee.ToEntity(null,null,null,null,null);
 
             return response;
         }
@@ -173,7 +174,7 @@ namespace Malam.Mastpen.Core.BL.Services
 
             response.Message = string.Format("Sucsses Put for Site Employee = {0} ", employee.EmployeeId);
             // Save entity in database
-            response.Model = employee.ToEntity(null, null, null, null);
+            response.Model = employee.ToEntity(null, null, null, null,null);
             await DbContext.SaveChangesAsync();
 
             return response;

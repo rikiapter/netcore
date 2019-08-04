@@ -35,11 +35,14 @@ namespace Malam.Mastpen.Core.DAL
             int? OrganizationId = null, 
             int? PassportCountryId = null, 
             int? ProffesionType = null, 
-            int? SiteId = null, 
+            int? SiteId = null,
+            int? EmployeeIsNotInSiteId = null,
             bool isEmployeeEntry=false, 
             bool sortByAuthtorization = false,
             bool sortByTraining = false,
-            bool sortByWorkPermit = false)
+            bool sortByWorkPermit = false
+          
+            )
         {
             string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
 
@@ -54,7 +57,7 @@ namespace Malam.Mastpen.Core.DAL
                  .Include(x => x.EmployeeAuthtorization)
                  .Include(x => x.EmployeeTraining)
                  .Include(x => x.EmployeeWorkPermit)
-              //   .Include(x=>x.SiteEmployeeSite)
+
                  .AsQueryable()
 
                         join docsFaceImage in dbContext.Docs
@@ -63,11 +66,16 @@ namespace Malam.Mastpen.Core.DAL
                               on Employee.EmployeeId equals docsFaceImage.EntityId into docsFaceImage
                         from x_docsFaceImage in docsFaceImage.DefaultIfEmpty()
 
-                      //  join sites in dbContext.SiteEmployee
-                      //  .Where(a => a.SiteId == SiteId  || SiteId ==null || a.SiteId == null)
-                      //  on Employee.EmployeeId equals sites.EmployeeId 
+                        //מי שנמצא כרגע  באתר
+                        join employeeEntry in dbContext.EmployeeEntry.Where(item => item.Date.Value.Date == DateTime.Now.Date)
+                         on Employee.EmployeeId equals employeeEntry.EmployeeId into employeeEntry
+                        from x_employeeEntry in employeeEntry.DefaultIfEmpty()
 
-            select Employee.ToEntity(null, x_docsFaceImage, null,null);
+                        join equipmenAtSite in dbContext.EquipmenAtSite.Where(a => a.SiteId == SiteId)
+                        on x_employeeEntry.EquipmentId equals equipmenAtSite.EquipmentId into equipmenAtSite
+                        from x_equipmenAtSite in equipmenAtSite.DefaultIfEmpty()
+
+                        select Employee.ToEntity(null, x_docsFaceImage, null,null, x_equipmenAtSite);
 
             if (SiteId.HasValue)
                 query = query.Join(
@@ -77,7 +85,14 @@ namespace Malam.Mastpen.Core.DAL
 
                     (employee, siteemployee) => employee);
 
-            // Filter by: 'EmployeeID'
+          else  if (EmployeeIsNotInSiteId.HasValue && OrganizationId.HasValue)
+                query = query.Join(
+                    dbContext.SiteEmployee.Where(a => a.SiteId != EmployeeIsNotInSiteId),
+                    siteemployee => siteemployee.EmployeeId,
+                    employee => employee.EmployeeId,
+
+                    (employee, siteemployee) => employee);
+
             if (EmployeeID.HasValue)
                 query = query.Where(item => item.EmployeeId == EmployeeID);
 
@@ -94,25 +109,6 @@ namespace Malam.Mastpen.Core.DAL
                 query = query.Where(item => item.PassportCountryId == PassportCountryId);
 
 
-       
-           //מי נמצא כרגע באתר
-           // איך אני מכניסה את הערך לאוביקט שחוזר??
-            if (isEmployeeEntry && SiteId .HasValue)
-                query = query.Join(dbContext.EmployeeEntry
-                                    .Where(item => item.Date.Value.Date == DateTime.Now.Date)
-                                    .Join
-                                     (dbContext.EquipmenAtSite.Where(a => a.SiteId == SiteId),
-                                      employeeentry => employeeentry.EquipmentId,
-                                      AtSite => AtSite.EquipmentId,
-
-                                     (AtSite, employeeentry) => AtSite),
-                 
-                          employeeentry1 => employeeentry1.EmployeeId,
-                          employee => employee.EmployeeId,
-
-                          (employee, employeeentry1) => employee) ;
-
-   
 
 
             return query;
@@ -155,7 +151,7 @@ namespace Malam.Mastpen.Core.DAL
                         on Employee.EmployeeId equals docsCopyPassport.EntityId into docsCopyPassport
                         from x_docsCopyPassport in docsCopyPassport.DefaultIfEmpty()
 
-                        select Employee.ToEntity(x_phonMail, x_docsFaceImage, x_docsCopyPassport, x_docsCopyofID);
+                        select Employee.ToEntity(x_phonMail, x_docsFaceImage, x_docsCopyPassport, x_docsCopyofID,null);
 
 
             return query;
@@ -171,7 +167,7 @@ namespace Malam.Mastpen.Core.DAL
                         .Where(item => item.UserName == entity.UserName)
                         on Employee.EmployeeId equals user.EmployeeId
 
-                        select Employee.ToEntity(null,null,null,null);
+                        select Employee.ToEntity(null,null,null,null,null);
 
 
             return query;

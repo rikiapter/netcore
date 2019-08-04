@@ -169,7 +169,7 @@ namespace Malam.Mastpen.Core.BL.Requests
          
 
        };
-        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone, Docs docsFaceImage, Docs docsCopyPassport,Docs docsCopyofID)
+        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone, Docs docsFaceImage, Docs docsCopyPassport,Docs docsCopyofID, EquipmenAtSite equipmenAtSite)
             => new EmployeeResponse
             {
                 EmployeeId = request.EmployeeId,
@@ -203,7 +203,7 @@ namespace Malam.Mastpen.Core.BL.Requests
                 picturePath= docsFaceImage ==null ? null: docsFaceImage.DocumentPath,
                 IdentityFilePath = docsCopyofID == null ? null : docsCopyofID.DocumentPath,
                 PassportFilePath = docsCopyPassport == null ? null : docsCopyPassport.DocumentPath,
-            //    SiteEmployeeSite=request.SiteEmployeeSite
+                isEmployeeEntry= equipmenAtSite!=null//אם יש כניסה לאתר
 
             };
 

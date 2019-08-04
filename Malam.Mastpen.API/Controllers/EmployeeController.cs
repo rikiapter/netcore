@@ -57,8 +57,6 @@ namespace Malam.Mastpen.API.Controllers
         /// <param name="pageNumber">Page number</param>
         /// <param name="EmployeeId">Employee Id</param>
         /// <param name="SiteId">Site Id</param>
-        /// <param name="DateFrom">Date From</param>
-        /// <param name="DateTo">Date To</param>
         /// <returns>A response with Site Employee list</returns>
         /// <response code="200">Returns the Site Employee list</response>
         /// <response code="500">If there was an internal server error</response>
@@ -74,12 +72,13 @@ namespace Malam.Mastpen.API.Controllers
             int? PassportCountryId=null,
             int? ProffesionType=null,
             int? SiteId=null,
+            int? EmployeeIsNotInSiteId=null,
             bool isEmployeeEntry=false,
             bool sortByAuthtorization=false,
             bool sortByTraining=false,
             bool sortByWorkPermit=false)
         { 
-            var response = await EmployeeService.GetEmployeesAsync(pageSize, pageNumber, EmployeeId, EmployeeName ,  IdentityNumber, OrganizationId,PassportCountryId, ProffesionType, SiteId, isEmployeeEntry ,
+            var response = await EmployeeService.GetEmployeesAsync(pageSize, pageNumber, EmployeeId, EmployeeName ,  IdentityNumber, OrganizationId,PassportCountryId, ProffesionType, SiteId, EmployeeIsNotInSiteId, isEmployeeEntry ,
                 sortByAuthtorization ,
              sortByTraining ,
              sortByWorkPermit );
