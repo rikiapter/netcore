@@ -4,7 +4,7 @@
         <name>Malam.Mastpen.HR.API</name>
     </assembly>
     <members>
-        <member name="M:Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync(System.Int32,System.Int32,System.Nullable{System.Int32},System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync(System.Int32,System.Int32,System.Nullable{System.Int32},System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Retrieves Site Employee
             </summary>
@@ -12,8 +12,6 @@
             <param name="pageNumber">Page number</param>
             <param name="EmployeeId">Employee Id</param>
             <param name="SiteId">Site Id</param>
-            <param name="DateFrom">Date From</param>
-            <param name="DateTo">Date To</param>
             <returns>A response with Site Employee list</returns>
             <response code="200">Returns the Site Employee list</response>
             <response code="500">If there was an internal server error</response>

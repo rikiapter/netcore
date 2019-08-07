@@ -59,6 +59,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         public int? UserUpdate { get; set; }
         public DateTime? DateUpdate { get; set; }
         public bool? State { get; set; }
+        public int? SiteId { get; set; }
         public bool isEmployeeEntry { get; set; }
         public Gender Gender { get; set; }
         public IdentificationType IdentificationType { get; set; }
@@ -169,7 +170,7 @@ namespace Malam.Mastpen.Core.BL.Requests
          
 
        };
-        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone, Docs docsFaceImage, Docs docsCopyPassport,Docs docsCopyofID, EquipmenAtSite equipmenAtSite)
+        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone, Docs docsFaceImage, Docs docsCopyPassport,Docs docsCopyofID, EquipmenAtSite equipmenAtSite,SiteEmployee siteEmployee )
             => new EmployeeResponse
             {
                 EmployeeId = request.EmployeeId,
@@ -203,7 +204,9 @@ namespace Malam.Mastpen.Core.BL.Requests
                 picturePath= docsFaceImage ==null ? null: docsFaceImage.DocumentPath,
                 IdentityFilePath = docsCopyofID == null ? null : docsCopyofID.DocumentPath,
                 PassportFilePath = docsCopyPassport == null ? null : docsCopyPassport.DocumentPath,
-                isEmployeeEntry= equipmenAtSite!=null//אם יש כניסה לאתר
+                isEmployeeEntry= equipmenAtSite!=null,//אם יש כניסה לאתר
+                SiteId= siteEmployee == null ? null : siteEmployee.SiteId
+         
 
             };
 

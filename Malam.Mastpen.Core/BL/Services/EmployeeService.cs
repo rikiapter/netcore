@@ -36,11 +36,13 @@ namespace Malam.Mastpen.Core.BL.Services
             var query =DbContext.GetEmployee(EmployeeId,  EmployeeName , IdentityNumber,OrganizationId , PassportCountryId ,ProffesionType, SiteId, EmployeeIsNotInSiteId, isEmployeeEntry      , sortByAuthtorization , sortByTraining ,  sortByWorkPermit );// אם רוצים לפי סינונים מסוימים אז יש להשתמש בפונקציה
 
             // Set paging values
+
+            // response.ItemsCount = await query.CountAsync();
+
             response.PageSize = pageSize;
             response.PageNumber = pageNumber;
             response.ItemsCount = await query.CountAsync();
 
-            response.SetMessagePages(nameof(GetEmployeesAsync), pageNumber, response.PageCount, response.ItemsCount);
 
             response.Model = await query
             .Paging(pageSize, pageNumber)
@@ -53,6 +55,24 @@ namespace Malam.Mastpen.Core.BL.Services
             //מי נמצא כרגע באתר
             response.Model = isEmployeeEntry && SiteId.HasValue ? response.Model.OrderByDescending(x => x.isEmployeeEntry) : response.Model;
 
+            //מי משויך לאתר
+            response.Model = SiteId.HasValue ? response.Model.Where(x => x.SiteId == SiteId) : response.Model;
+
+
+            var rr = response.Model;
+            //מי לא משויך לאתר
+            if (EmployeeIsNotInSiteId.HasValue)
+            {
+                rr = response.Model.Where(x => x.SiteId == EmployeeIsNotInSiteId);
+
+                foreach (var model in rr)
+                    response.Model = response.Model.Where(x => x.EmployeeId != model.EmployeeId);
+       //             response.Model = EmployeeIsNotInSiteId.HasValue ? response.Model.Where(x => x.SiteId != EmployeeIsNotInSiteId) : response.Model;
+            }
+            response.PageSize = pageSize;
+            response.PageNumber = pageNumber;
+            response.ItemsCount = response.Model.Count();
+            response.SetMessagePages(nameof(GetEmployeesAsync), pageNumber, response.PageCount, response.ItemsCount);
             // throw new NotImplementedException();
             return response;
         }
@@ -97,7 +117,7 @@ namespace Malam.Mastpen.Core.BL.Services
 
             response.Message = string.Format("Sucsses Post for Employee = {0} ", employee.EmployeeId);
             // Set the entity to response model
-            response.Model = employee.ToEntity(null,null,null,null,null);
+            response.Model = employee.ToEntity(null,null,null,null,null,null);
 
             return response;
         }
@@ -174,7 +194,7 @@ namespace Malam.Mastpen.Core.BL.Services
 
             response.Message = string.Format("Sucsses Put for Site Employee = {0} ", employee.EmployeeId);
             // Save entity in database
-            response.Model = employee.ToEntity(null, null, null, null,null);
+            response.Model = employee.ToEntity(null, null, null, null,null,null);
             await DbContext.SaveChangesAsync();
 
             return response;
