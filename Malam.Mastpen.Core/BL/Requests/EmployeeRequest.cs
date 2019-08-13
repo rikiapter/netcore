@@ -37,6 +37,8 @@ namespace Malam.Mastpen.Core.BL.Requests
         public FileRequest IdentityFile { get; set; }
         public FileRequest PassportFile { get; set; }
 
+        public bool AgreeOnTheBylaws { get; set; }
+
     }
     
     public class EmployeeResponse

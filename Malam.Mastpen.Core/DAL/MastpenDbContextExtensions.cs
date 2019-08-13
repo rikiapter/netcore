@@ -24,6 +24,8 @@ namespace Malam.Mastpen.Core.DAL
 
         //db.Query(typeof(MyTable)).Where(...)
 
+
+
         public static void Add<TEntity>(this MastpenBitachonDbContext dbContext, TEntity entity, IUserInfo userInfo) where TEntity : class, IAuditableEntity
         {
             if (entity is IAuditableEntity cast)

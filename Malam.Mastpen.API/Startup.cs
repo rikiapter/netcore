@@ -136,7 +136,7 @@ namespace Malam.Mastpen.API
       
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("v1", new Info { Title = "Protected API", Version = "v1" });
+                options.SwaggerDoc("v1", new Info { Title = "HR API", Version = "v1" });
 
                 var settings = new MastpenIdentityClientSettings();
 

@@ -156,71 +156,76 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> PostEmployeeAsync([FromBody]EmployeeRequest request)
         {
+            if (!request.AgreeOnTheBylaws)
+                ModelState.AddModelError("AgreeOnTheBylaws", "Employee not Agree On The Bylaws");
+
             var existingEntity = await EmployeeService.GetEmployeeByIdentityNumberAsync(request.IdentityNumber);
 
-            if (existingEntity.Model != null)
-                ModelState.AddModelError("EmployeeIdentityNumber", "Employee IdentityNumber already exists");
+                if (existingEntity.Model != null)
+                    ModelState.AddModelError("EmployeeIdentityNumber", "Employee IdentityNumber already exists");
 
-            if (!ModelState.IsValid)
-                throw new Exception();
+                if (!ModelState.IsValid)
+                    throw new Exception();
 
-            var entity = request.ToEntity();
+                var entity = request.ToEntity();
 
-            entity.UserInsert = UserInfo.UserId;
+                entity.UserInsert = UserInfo.UserId;
 
-            var employeeResponse = await EmployeeService.CreateEmployeeAsync(entity);
-            if (request.PhoneNumber != null)
-            {
-                PhoneMail phoneMail = new PhoneMail();
-                phoneMail.PhoneNumber = request.PhoneNumber;
-                phoneMail.Email = request.Email;
-                phoneMail.EntityTypeId = (int)EntityTypeEnum.Employee;
-                phoneMail.EntityId = employeeResponse.Model.EmployeeId;
+                var employeeResponse = await EmployeeService.CreateEmployeeAsync(entity);
+                if (request.PhoneNumber != null)
+                {
+                    PhoneMail phoneMail = new PhoneMail();
+                    phoneMail.PhoneNumber = request.PhoneNumber;
+                    phoneMail.Email = request.Email;
+                    phoneMail.EntityTypeId = (int)EntityTypeEnum.Employee;
+                    phoneMail.EntityId = employeeResponse.Model.EmployeeId;
 
-          var res=   await  EmployeeService.CreatePhoneMailAsync(phoneMail, typeof(Employee));
-                if (res.DIdError)
-                    employeeResponse.SetMessageErrorCreate(nameof(PhoneMail), res.Message);
-            }
+                    var res = await EmployeeService.CreatePhoneMailAsync(phoneMail, typeof(Employee));
+                    if (res.DIdError)
+                        employeeResponse.SetMessageErrorCreate(nameof(PhoneMail), res.Message);
+                }
 
-            if (request.ProffesionTypeId != null)
-            {
-                EmployeeProffesionType proffesionType = new EmployeeProffesionType();
-                proffesionType.ProffesionTypeId = request.ProffesionTypeId;
-                proffesionType.EmployeeId = employeeResponse.Model.EmployeeId;
+                if (request.ProffesionTypeId != null)
+                {
+                    EmployeeProffesionType proffesionType = new EmployeeProffesionType();
+                    proffesionType.ProffesionTypeId = request.ProffesionTypeId;
+                    proffesionType.EmployeeId = employeeResponse.Model.EmployeeId;
 
-          var res=  await EmployeeService.CreateEmployeeProffesionTypeAsync(proffesionType, typeof(Employee));
-                if (res.DIdError)
-                    employeeResponse.SetMessageErrorCreate(nameof(ProffesionType), res.Message);
-            }
+                    var res = await EmployeeService.CreateEmployeeProffesionTypeAsync(proffesionType, typeof(Employee));
+                    if (res.DIdError)
+                        employeeResponse.SetMessageErrorCreate(nameof(ProffesionType), res.Message);
+                }
 
-            Docs docs = new Docs();
-            docs.EntityTypeId = (int)EntityTypeEnum.Employee;
-            docs.EntityId = employeeResponse.Model.EmployeeId;
-            var fileName = employeeResponse.Model.IdentityNumber;
-            
-            //יש לבדוק אם אכן זה עובד
-            //upload picture to blob
-            var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.picture, (int)DocumentType.FaceImage);
-            employeeResponse.Model.picturePath = DOCSResponse.Model.DocumentPath;
-            if (DOCSResponse.DIdError)
-                employeeResponse.SetMessageErrorUpdate("FaceImage", DOCSResponse.Message); 
+                Docs docs = new Docs();
+                docs.EntityTypeId = (int)EntityTypeEnum.Employee;
+                docs.EntityId = employeeResponse.Model.EmployeeId;
+                var fileName = employeeResponse.Model.IdentityNumber;
 
-            DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.IdentityFile, (int)DocumentType.CopyofID);
-            employeeResponse.Model.IdentityFilePath = DOCSResponse.Model.DocumentPath;
-            if (DOCSResponse.DIdError)
-                employeeResponse.SetMessageErrorUpdate("CopyofID", DOCSResponse.Message); 
+                //יש לבדוק אם אכן זה עובד
+                //upload picture to blob
+                var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.picture, (int)DocumentType.FaceImage);
+                employeeResponse.Model.picturePath = DOCSResponse.Model.DocumentPath;
+                if (DOCSResponse.DIdError)
+                    employeeResponse.SetMessageErrorUpdate("FaceImage", DOCSResponse.Message);
 
-            DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.PassportFile, (int)DocumentType.CopyPassport);
-            employeeResponse.Model.PassportFilePath = DOCSResponse.Model.DocumentPath;
-            if (DOCSResponse.DIdError)
-                employeeResponse.SetMessageErrorUpdate("CopyPassport", DOCSResponse.Message); 
+                DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.IdentityFile, (int)DocumentType.CopyofID);
+                employeeResponse.Model.IdentityFilePath = DOCSResponse.Model.DocumentPath;
+                if (DOCSResponse.DIdError)
+                    employeeResponse.SetMessageErrorUpdate("CopyofID", DOCSResponse.Message);
 
-            SiteEmployee siteEmployee = new SiteEmployee();
-            siteEmployee.EmployeeId= employeeResponse.Model.EmployeeId;
-            siteEmployee.SiteId = request.SiteId;
-            var response = await EmployeeService.CreateSiteEmployeeAsync(siteEmployee);
+                DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.PassportFile, (int)DocumentType.CopyPassport);
+                employeeResponse.Model.PassportFilePath = DOCSResponse.Model.DocumentPath;
+                if (DOCSResponse.DIdError)
+                    employeeResponse.SetMessageErrorUpdate("CopyPassport", DOCSResponse.Message);
 
-            return employeeResponse.ToHttpResponse();
+                SiteEmployee siteEmployee = new SiteEmployee();
+                siteEmployee.EmployeeId = employeeResponse.Model.EmployeeId;
+                siteEmployee.SiteId = request.SiteId;
+                var response = await EmployeeService.CreateSiteEmployeeAsync(siteEmployee);
+
+                return employeeResponse.ToHttpResponse();
+   
+
         }
 
 
