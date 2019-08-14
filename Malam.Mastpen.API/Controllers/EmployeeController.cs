@@ -392,6 +392,7 @@ namespace Malam.Mastpen.API.Controllers
             docs.EntityId = response.Model.EmployeeTrainingId;
             docs.EntityTypeId = (int)EntityTypeEnum.EmployeeTraining;
 
+          
             var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(EmployeeTraining), request.EmployeeTrainingName, request.fileRequest,(int)DocumentType.Training);
             response.Model.Comment = DOCSResponse.Model.DocumentPath;
             if (DOCSResponse.DIdError)

@@ -126,6 +126,8 @@ namespace Malam.Mastpen.Core.BL.Services
         }
         public async Task<SingleResponse<Docs>> CreateDocsAsync(Docs docs, Type type, string fileName, FileRequest file, int documentType)
         {
+            if (fileName == null)
+                fileName = type.ToString();
             if (file != null)
             {
                 //אם יש כבר תמונה אז יש צורך לעדכן את מה שיש
