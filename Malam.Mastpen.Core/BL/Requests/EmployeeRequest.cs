@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using Malam.Mastpen.Core.DAL.Entities;
 using Malam.Mastpen.Core.DAL;
 using Malam.Mastpen.HR.Core.BL.Requests;
+using IdentityModel;
 
 namespace Malam.Mastpen.Core.BL.Requests
     {
@@ -90,7 +91,7 @@ namespace Malam.Mastpen.Core.BL.Requests
     public class NoteRequest:Notes
     {
         public int EmployeeId { get; set; }
-        public Employee userEmployee { get; set; }
+        public EmployeeResponse userEmployee { get; set; }
     }
     public class TrainingResponse
     {
@@ -121,8 +122,17 @@ namespace Malam.Mastpen.Core.BL.Requests
         public FileRequest fileRequest { get; set; }
         public string uri { get; set; }
     }
-
-    public static class ExtensionsEmployee
+    public partial class UsersRequest
+    {
+        public int? EmployeeId { get; set; }
+        public int? OrganizationId { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public bool? IsActive { get; set; }
+        public DateTime? PasswordChangeDate { get; set; }
+        public string Comment { get; set; }
+    }
+        public static class ExtensionsEmployee
     {
         public static Employee ToEntity(this EmployeeRequest request)
         => new Employee
@@ -217,7 +227,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         public static NoteRequest ToEntity(this Notes request, Employee employee,int EmployeeId)
               => new NoteRequest
               {
-                  userEmployee=employee,
+                  userEmployee=employee.ToEntity(null,null,null,null,null,null),
                   EmployeeId= EmployeeId,
                   NoteId = request.NoteId,
                   NoteTypeId = request.NoteTypeId,
@@ -301,7 +311,19 @@ namespace Malam.Mastpen.Core.BL.Requests
                   State = request.State,
 
               };
+        public static Users ToEntity(this UsersRequest request)
+       => new Users
+       {
 
+           EmployeeId = request.EmployeeId,
+           OrganizationId = request.OrganizationId,
+           UserName = request.UserName,
+           Password = request.Password.ToSha256(),
+           IsActive = request.IsActive,
+           PasswordChangeDate = request.PasswordChangeDate,
+           Comment = request.Comment,
+
+       };
 
     }
 #pragma warning restore CS1591

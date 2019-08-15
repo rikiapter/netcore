@@ -20,6 +20,7 @@ using Malam.Mastpen.Core.BL.Contracts;
 using Malam.Mastpen.HR.Core.BL.Requests;
 using Malam.Mastpen.Core.BL.Services;
 using static Malam.Mastpen.API.Commom.Infrastructure.GeneralConsts;
+using IdentityModel;
 
 namespace Malam.Mastpen.API.Controllers
 {
@@ -137,6 +138,50 @@ namespace Malam.Mastpen.API.Controllers
             var response = await EmployeeService.GetEmployeeByUserIdAsync(UserName);
             return response.ToHttpResponse();
         }
+
+
+        // Post
+        // api/v1/Employee/EmployeeByUserName/riki
+
+        /// <summary>
+        /// Retrieves a Employee by UserName
+        /// </summary>
+        /// <param name="UserName">UserName</param>
+        /// <returns>A response with Employee</returns>
+        /// <response code="200">Returns the  Employee </response>
+        /// <response code="404">If Employee is not exists</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpPost("User")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        //יש להעלות את הפרויקט 
+        //identity server
+        //   [Authorize]//(Policy = Policies.CustomerPolicy)]
+        public async Task<IActionResult> PostUserAsync([FromBody] UsersRequest request)
+        {
+            // Get Employee by Id
+            var employee = await EmployeeService.GetEmployeesAsync(request.EmployeeId ?? 0);
+            //// ValIdate if entity exists
+            if (employee == null)
+                return NotFound();
+
+            //אם קיים שם משתמש
+            var user = await EmployeeService.GetEmployeeByUserIdAsync(request.UserName);
+            if (user != null)
+               throw new Exception("user name is alredy exist");
+
+            //אם קיים משתמש עם employee זה לא תקין
+            var useremployee = await EmployeeService.GetUserByEmployeeIdAsync(request.EmployeeId??0);
+            if (useremployee != null)
+                throw new Exception("user employee is alredy exist");
+
+            var entity = request.ToEntity();
+            var response = await EmployeeService.CreateUserAsync(entity);
+            return response.ToHttpResponse();
+        }
+
+
         // POST
         // api/v1/Employee/Employee/
 

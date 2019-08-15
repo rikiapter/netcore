@@ -49,9 +49,15 @@ namespace Malam.Mastpen.Core.BL.Services
             .ToListAsync();
 
 
+
+            //סינון לפי אב
+            response.Model = response.Model.OrderBy(x => x.FirstName);
+
+            //סינון לפי הדרכות וכו
             response.Model= sortByAuthtorization ? response.Model.OrderBy(x => x.EmployeeAuthtorization.regular): response.Model;
             response.Model = sortByWorkPermit ? response.Model.OrderBy(x => x.EmployeeWorkPermit.regular) : response.Model;
             response.Model = sortByTraining ? response.Model.OrderBy(x => x.EmployeeTraining.regular) : response.Model;
+           
             //מי נמצא כרגע באתר
             response.Model = isEmployeeEntry && SiteId.HasValue ? response.Model.OrderByDescending(x => x.isEmployeeEntry) : response.Model;
 
@@ -69,6 +75,8 @@ namespace Malam.Mastpen.Core.BL.Services
                     response.Model = response.Model.Where(x => x.EmployeeId != model.EmployeeId);
        //             response.Model = EmployeeIsNotInSiteId.HasValue ? response.Model.Where(x => x.SiteId != EmployeeIsNotInSiteId) : response.Model;
             }
+
+ 
             response.PageSize = pageSize;
             response.PageNumber = pageNumber;
             response.ItemsCount = response.Model.Count();
@@ -102,6 +110,28 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
 
+        public async Task<SingleResponse<Users>> GetUserByEmployeeIdAsync(int employeeId)
+        {
+            var response = new SingleResponse<Users>();
+
+            var query = DbContext.GetUserByEmployeeIdAsync(new Users { EmployeeId = employeeId });
+
+            response.Model = await query;
+
+ 
+            return response;
+        }
+        public async Task<SingleResponse<EmployeeResponse>> GetUserAsync(string userName)
+        {
+            var response = new SingleResponse<EmployeeResponse>();
+
+            var query = DbContext.GetEmployeeByUserIdAsync(new Users { UserName = userName });
+
+            response.Model = await query.FirstOrDefaultAsync();
+
+            response.SetMessageGetById(nameof(GetEmployeeByUserIdAsync), response.Model.EmployeeId);
+            return response;
+        }
 
 
 
@@ -122,6 +152,23 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
 
+
+        // POST
+        public async Task<SingleResponse<Users>> CreateUserAsync(Users user)
+        {
+            var response = new SingleResponse<Users>();
+
+            // Add entity to repository
+            DbContext.Add(user, UserInfo);
+
+            await DbContext.SaveChangesAsync();
+
+            response.Message = string.Format("Sucsses Post for user = {0} ", user.EmployeeId);
+            // Set the entity to response model
+            response.Model = user;
+
+            return response;
+        }
         //get
         public async Task<SingleResponse<Employee>> GetEmployeeByIdentityNumberAsync(string identityNumber)
         {
