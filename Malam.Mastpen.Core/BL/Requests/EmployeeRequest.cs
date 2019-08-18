@@ -92,6 +92,8 @@ namespace Malam.Mastpen.Core.BL.Requests
     {
         public int EmployeeId { get; set; }
         public EmployeeResponse userEmployee { get; set; }
+        public FileRequest FileRequest { get; set; }
+        public string uri { get; set; }
     }
     public class TrainingResponse
     {
@@ -224,15 +226,16 @@ namespace Malam.Mastpen.Core.BL.Requests
 
 
 
-        public static NoteRequest ToEntity(this Notes request, Employee employee,int EmployeeId)
+        public static NoteRequest ToEntity(this Notes request, Employee employee,int EmployeeId, Docs docs=null)
               => new NoteRequest
               {
-                  userEmployee=employee.ToEntity(null,null,null,null,null,null),
+                  userEmployee=employee !=null? employee.ToEntity(null,null,null,null,null,null):null,
                   EmployeeId= EmployeeId,
                   NoteId = request.NoteId,
                   NoteTypeId = request.NoteTypeId,
                   Site = request.Site,
                   NoteContent = request.NoteContent,
+                  uri = docs == null ? null : docs.DocumentPath,
                   //UserInsert = request.UserInsert,
                   //DateInsert = request.DateInsert,
                   //UserUpdate = request.UserUpdate,

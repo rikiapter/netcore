@@ -429,8 +429,7 @@ namespace Malam.Mastpen.API.Controllers
         {
             var entity =  request;
 
-            entity.UserInsert = UserInfo.UserId;
-
+            entity.DateFrom = DateTime.Now.Date;
             var response = await EmployeeService.CreateEmployeeTrainingAsync(entity);
 
             Docs docs = new Docs();
@@ -467,7 +466,7 @@ namespace Malam.Mastpen.API.Controllers
         {
 
             var entity = request;
-
+            entity.DateFrom = DateTime.Now.Date;
             var response = await EmployeeService.CreateEmployeeWorkPermitAsync(entity);
 
             Docs docs = new Docs();
@@ -475,11 +474,14 @@ namespace Malam.Mastpen.API.Controllers
             docs.EntityTypeId = (int)EntityTypeEnum.EmployeeWorkPermit;
 
             var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(EmployeeWorkPermit), request.EmployeeWorkPermitName, request.fileRequest, (int)DocumentType.CopyWorkPermit);
-            response.Model.Comment = DOCSResponse.Model.DocumentPath;
+         
             if (DOCSResponse.DIdError)
                 throw new Exception("Error in create Document EmployeeWorkPermit" + response.Message);
 
-            return response.ToHttpResponse();
+            SingleResponse<EmployeeWorkPermitRequest> res = new SingleResponse<EmployeeWorkPermitRequest>();
+            res.Model = response.Model.ToEntity(DOCSResponse.Model);
+
+            return res.ToHttpResponse();
         }
 
         // POST
@@ -505,7 +507,7 @@ namespace Malam.Mastpen.API.Controllers
             var entity = request;
 
             entity.UserInsert = UserInfo.UserId;
-
+            entity.DateFrom = DateTime.Now.Date;
             var response = await EmployeeService.CreateEmployeeAuthtorizationAsync(entity);
 
             Docs docs = new Docs();
@@ -513,11 +515,14 @@ namespace Malam.Mastpen.API.Controllers
             docs.EntityTypeId = (int)EntityTypeEnum.EmployeeAuthtorization;
 
             var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(EmployeeAuthtorization), request.EmployeeAuthorizationName, request.fileRequest, (int)DocumentType.Authtorization);
-            response.Model.Comment = DOCSResponse.Model.DocumentPath;
+
             if (DOCSResponse.DIdError)
                 throw new Exception("Error in create Document EmployeeAuthtorization" + response.Message);
 
-            return response.ToHttpResponse();
+            SingleResponse<EmployeeAuthtorizationRequest> res = new SingleResponse<EmployeeAuthtorizationRequest>();
+            res.Model=  response.Model.ToEntity(DOCSResponse.Model);
+       
+            return res.ToHttpResponse();
         }
 
 
@@ -546,7 +551,22 @@ namespace Malam.Mastpen.API.Controllers
             entity.EntityId = request.EmployeeId;
             var response = await EmployeeService.CreateEmployeeNoteAsync(entity);
 
-            return response.ToHttpResponse();
+
+
+            Docs docs = new Docs();
+            docs.EntityId = response.Model.NoteId;
+            docs.EntityTypeId = (int)EntityTypeEnum.Note;
+
+            var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Notes), request.NoteContent, request.FileRequest, (int)DocumentType.Note);
+     
+            if (DOCSResponse.DIdError)
+                throw new Exception("Error in create Document Notes" + response.Message);
+
+
+            SingleResponse<NoteRequest> res = new SingleResponse<NoteRequest>();
+            res.Model = response.Model.ToEntity(null, request.EmployeeId, DOCSResponse.Model);
+
+            return res.ToHttpResponse();
         }
 
 

@@ -225,12 +225,12 @@ namespace Malam.Mastpen.Core.DAL
             return query;
         }
 
-        public static IQueryable<Organization> GetOrganization(this MastpenBitachonDbContext dbContext, int? OrganizationID = null, string OrganizationName = null, int? OrganizationNumber = null, int? OrganizationExpertiseTypeId = null,int? OrganizationParentId=null)
+        public static IQueryable<Organization> GetOrganization(this MastpenBitachonDbContext dbContext, int? OrganizationID = null, string OrganizationName = null, int? OrganizationNumber = null, int? OrganizationExpertiseTypeId = null, int? OrganizationParentId = null)
         {
 
             // Get query from DbSet
             var query = dbContext.Organization
-                .Include(x=>x.OrganizationExpertiseType)
+                .Include(x => x.OrganizationExpertiseType)
                 .Include(x => x.OrganizationType)
                 .AsQueryable();
 
@@ -249,8 +249,10 @@ namespace Malam.Mastpen.Core.DAL
                 query = query.Where(item => item.OrganizationExpertiseTypeId == OrganizationExpertiseTypeId);
 
             if (OrganizationParentId != null)
-                query = query.Where(item => item.OrganizationParentId == OrganizationParentId);
-
+            {
+                query = query.Where(item => item.OrganizationParentId == OrganizationParentId || item.OrganizationId == OrganizationParentId);
+            
+            }
             return query;
 
 
@@ -277,10 +279,47 @@ namespace Malam.Mastpen.Core.DAL
             return query;
         }
         public static IQueryable<EmployeeWorkPermit> GetEmployeeWorkPermitByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeWorkPermit entity)
-=> dbContext.EmployeeWorkPermit.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId).Include(x => x.Site);
+        {
+            string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
+
+            // Get query from DbSet
+            var query = from tr in dbContext.EmployeeWorkPermit
+               .Include(x => x.Site)
+                .Where(item => item.EmployeeId == entity.EmployeeId)
+                .AsQueryable()
+
+                        join docs in dbContext.Docs
+                        .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        .Where(a => a.DocumentTypeId == (int)DocumentType.CopyWorkPermit)
+                        on tr.EmployeeId equals docs.EntityId into docs
+                        from x_docs in docs.DefaultIfEmpty()
+
+                        select tr.ToEntity(x_docs);
+            return query;
+        }
+
+       // => dbContext.EmployeeWorkPermit.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId).Include(x => x.Site);
 
         public static IQueryable<EmployeeAuthtorization> GetEmployeeAuthtorizationByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeAuthtorization entity)
-=> dbContext.EmployeeAuthtorization.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId).Include(x => x.Site);
+        {
+            string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
+
+            // Get query from DbSet
+            var query = from tr in dbContext.EmployeeAuthtorization
+               .Include(x => x.Site)
+                .Where(item => item.EmployeeId == entity.EmployeeId)
+                .AsQueryable()
+
+                        join docs in dbContext.Docs
+                        .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        .Where(a => a.DocumentTypeId == (int)DocumentType.Authtorization)
+                        on tr.EmployeeId equals docs.EntityId into docs
+                        from x_docs in docs.DefaultIfEmpty()
+
+                        select tr.ToEntity(x_docs);
+            return query;
+        }
+      //  => dbContext.EmployeeAuthtorization.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId).Include(x => x.Site);
 
         public static IQueryable<NoteRequest> GetEmployeeNoteByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, int EmployeeId)
         {
@@ -295,8 +334,15 @@ namespace Malam.Mastpen.Core.DAL
                         join employee in dbContext.Employee
                         on note.UserInsert equals employee.EmployeeId into employee
                         from x_employee in employee.DefaultIfEmpty()
-                        
-                        select note.ToEntity(x_employee, EmployeeId);
+
+
+                        join docs in dbContext.Docs
+                        .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        .Where(a => a.DocumentTypeId == (int)DocumentType.Note)
+                        on x_employee.EmployeeId equals docs.EntityId into docs
+                        from x_docs in docs.DefaultIfEmpty()
+
+                        select note.ToEntity(x_employee, EmployeeId, x_docs);
 
             return query;
         }
