@@ -49,6 +49,10 @@ namespace Malam.Mastpen.Core.BL.Services
             .ToListAsync();
 
 
+            //Distinct
+            response.Model = response.Model.GroupBy(s => s.EmployeeId)
+                                                 .Select(grp => grp.FirstOrDefault())
+                                                 .ToList();
 
             //סינון לפי אב
             response.Model = response.Model.OrderBy(x => x.FirstName);
@@ -95,6 +99,7 @@ namespace Malam.Mastpen.Core.BL.Services
             response.Model = await query.FirstOrDefaultAsync();
 
             response.SetMessageGetById(nameof(GetEmployeeAsync), Id);
+            response.Model.AgreeOnTheBylaws = true;
             return response;
         }
 

@@ -1060,5 +1060,76 @@ namespace Malam.Mastpen.Core.DAL.Configurations
                                 .HasDefaultValueSql("((1))");
         }
     }
+    public class EnteryRulesConfiguration : IEntityTypeConfiguration<EnteryRules>
+    {
+        public void Configure(EntityTypeBuilder<EnteryRules> builder)
+        {
+
+            builder.HasKey(e => e.RuleId);
+
+            builder.ToTable("BB_EC_EnteryRules");
+
+            builder.Property(e => e.RuleId).HasColumnName("RuleID");
+
+            builder.Property(e => e.Comment).HasMaxLength(50);
+
+            builder.Property(e => e.DateInsert)
+                            .HasColumnName("dateInsert")
+                            .HasColumnType("datetime")
+                            .HasDefaultValueSql("(getdate())");
+
+            builder.Property(e => e.DateUpdate)
+                            .HasColumnName("dateUpdate")
+                            .HasColumnType("datetime");
+
+            builder.Property(e => e.RuleDescription).HasMaxLength(100);
+
+            builder.Property(e => e.RuleName).HasMaxLength(100);
+
+            builder.Property(e => e.State)
+                            .HasColumnName("state")
+                            .HasDefaultValueSql("((1))");
+
+            builder.Property(e => e.UserInsert)
+                            .HasColumnName("userInsert")
+                            .HasDefaultValueSql("((1))");
+        }
+    }
+
+    public class OrganizationEnteryRulesConfiguration : IEntityTypeConfiguration<OrganizationEnteryRules>
+    {
+        public void Configure(EntityTypeBuilder<OrganizationEnteryRules> builder)
+        {
+
+            builder.HasKey(e => e.OrganizationEnteryRulesId);
+
+            builder.ToTable("BB_EC_OrganizationEnteryRules");
+
+            builder.Property(e => e.OrganizationEnteryRulesId).HasColumnName("OrganizationEnteryRulesID");
+
+            builder.Property(e => e.Comment).HasMaxLength(50);
+
+            builder.Property(e => e.DateInsert)
+                            .HasColumnName("dateInsert")
+                            .HasColumnType("datetime")
+                            .HasDefaultValueSql("(getdate())");
+
+            builder.Property(e => e.DateUpdate)
+                            .HasColumnName("dateUpdate")
+                            .HasColumnType("datetime");
+
+            builder.Property(e => e.OrganizationId).HasColumnName("OrganizationID");
+
+            builder.Property(e => e.RuleId).HasColumnName("RuleID");
+
+            builder.Property(e => e.State)
+                            .HasColumnName("state")
+                            .HasDefaultValueSql("((1))");
+
+            builder.Property(e => e.UserInsert)
+                    .HasColumnName("userInsert")
+                    .HasDefaultValueSql("((1))");
+        }
+    }
 
 }

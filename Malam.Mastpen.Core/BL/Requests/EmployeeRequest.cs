@@ -86,6 +86,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         public ICollection<SiteEmployee> SiteEmployeeSite { get; set; }
         //public ICollection<EmplyeePicture> EmplyeePicture { get; set; }
         //public ICollection<SiteRole> SiteRole { get; set; }
+        public bool AgreeOnTheBylaws { get; set; }
     }
 
     public class NoteRequest:Notes
@@ -210,9 +211,9 @@ namespace Malam.Mastpen.Core.BL.Requests
                 IdentificationType = request.IdentificationType,
                 Organization = request.Organization,
                 PassportCountry = request.PassportCountry,
-                EmployeeTraining = request.EmployeeTraining.Count > 0 ? new TrainingResponse((request.EmployeeTraining.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "היתר הדרכה"): new TrainingResponse(0, "היתר הדרכה"),
-                EmployeeAuthtorization = request.EmployeeAuthtorization.Count > 0 ? new TrainingResponse((request.EmployeeAuthtorization.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "תדריך בטיחות"): new TrainingResponse(0, "תדריך בטיחות"),
-                EmployeeWorkPermit = request.EmployeeWorkPermit.Count > 0 ? new TrainingResponse((request.EmployeeWorkPermit.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "אישור עבודה בגובה"): new TrainingResponse(0, "אישור עבודה בגובה"),
+                EmployeeTraining = request.EmployeeTraining.Count > 0 ? new TrainingResponse((request.EmployeeTraining.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "תדריך בטיחות") : new TrainingResponse(0, "תדריך בטיחות"),
+                EmployeeAuthtorization = request.EmployeeAuthtorization.Count > 0 ? new TrainingResponse((request.EmployeeAuthtorization.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "אישור עבודה בגובה"): new TrainingResponse(0, "אישור עבודה בגובה"),
+                EmployeeWorkPermit = request.IdentificationTypeId == 1 ? new TrainingResponse(100, "היתר עבודה") :request.EmployeeWorkPermit.Count > 0 ? new TrainingResponse((request.EmployeeWorkPermit.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "היתר עבודה"): new TrainingResponse(0, "היתר עבודה"),
                 phonMail = phone,
                 ProffesionType = request.EmployeeProffesionType.Count>0? request.EmployeeProffesionType.First().ProffesionType:null,
                 picturePath= docsFaceImage ==null ? null: docsFaceImage.DocumentPath,

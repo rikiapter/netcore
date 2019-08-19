@@ -80,7 +80,10 @@ namespace Malam.Mastpen.Core.DAL
                   .ApplyConfiguration(new SearchTypeSimpleConfiguration())
                   .ApplyConfiguration(new LanguageConfiguration())
                   .ApplyConfiguration(new TrainingTypeConfiguration())
-                  .ApplyConfiguration(new ProffesionTypeConfiguration());
+                  .ApplyConfiguration(new ProffesionTypeConfiguration())
+                  .ApplyConfiguration(new EnteryRulesConfiguration())
+                  .ApplyConfiguration(new OrganizationEnteryRulesConfiguration());
+
 
             base.OnModelCreating(modelBuilder);
         }
@@ -133,5 +136,7 @@ namespace Malam.Mastpen.Core.DAL
         public virtual DbSet<SearchTypeSimple> SearchTypeSimple { get; set; }
         public virtual DbSet<TrainingType> TrainingType { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<EnteryRules> EnteryRules { get; set; }
+        public virtual DbSet<OrganizationEnteryRules> OrganizationEnteryRules { get; set; }
     }
 }
