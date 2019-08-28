@@ -244,7 +244,7 @@ namespace Malam.Mastpen.API.Controllers
                 Docs docs = new Docs();
                 docs.EntityTypeId = (int)EntityTypeEnum.Employee;
                 docs.EntityId = employeeResponse.Model.EmployeeId;
-                var fileName = employeeResponse.Model.IdentityNumber;
+                var fileName = employeeResponse.Model.IdentityNumber+ "FaceImage";
 
                 //יש לבדוק אם אכן זה עובד
                 //upload picture to blob
@@ -253,10 +253,20 @@ namespace Malam.Mastpen.API.Controllers
                 if (DOCSResponse.DIdError)
                     employeeResponse.SetMessageErrorUpdate("FaceImage", DOCSResponse.Message);
 
+                 docs = new Docs();
+                 docs.EntityTypeId = (int)EntityTypeEnum.Employee;
+                 docs.EntityId = employeeResponse.Model.EmployeeId;
+                 fileName = employeeResponse.Model.IdentityNumber+ "CopyofID";
+
                 DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.IdentityFile, (int)DocumentType.CopyofID);
                 employeeResponse.Model.IdentityFilePath = DOCSResponse.Model.DocumentPath;
                 if (DOCSResponse.DIdError)
                     employeeResponse.SetMessageErrorUpdate("CopyofID", DOCSResponse.Message);
+
+                docs = new Docs();
+                docs.EntityTypeId = (int)EntityTypeEnum.Employee;
+                docs.EntityId = employeeResponse.Model.EmployeeId;
+                fileName = employeeResponse.Model.IdentityNumber+ "CopyPassport";
 
                 DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(Employee), fileName, request.PassportFile, (int)DocumentType.CopyPassport);
                 employeeResponse.Model.PassportFilePath = DOCSResponse.Model.DocumentPath;

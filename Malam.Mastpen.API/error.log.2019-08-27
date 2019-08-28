@@ -1,0 +1,12 @@
+2019-08-27 14:51:31,862 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-08-27 14:51:31,862 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-08-27 14:51:32,009 INFO - Request finished in 152.5811ms 200 
+2019-08-27 14:51:32,025 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-08-27 14:51:33,119 INFO - Request finished in 1256.9405ms 200 text/html
+2019-08-27 14:51:33,651 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-08-27 14:51:33,662 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-08-27 14:51:33,916 INFO - Request starting HTTP/1.1 GET http://localhost:59821/favicon-32x32.png  
+2019-08-27 14:51:33,929 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-08-27 14:51:33,960 INFO - Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2019-08-27 14:51:33,966 INFO - Request finished in 49.3075ms 200 image/png
+2019-08-27 14:51:36,003 INFO - Request finished in 2350.5529ms 200 application/json;charset=utf-8
