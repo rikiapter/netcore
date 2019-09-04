@@ -261,7 +261,7 @@ namespace Malam.Mastpen.Core.DAL
 
         public static IQueryable<EmployeeTrainingRequest> GetEmployeeTrainingByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeTraining entity)
         {
-            string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
+            string tableName = GetTableNameByType(dbContext, typeof(EmployeeTraining)).Result;
 
             // Get query from DbSet
             var query = from tr in dbContext.EmployeeTraining
@@ -272,15 +272,15 @@ namespace Malam.Mastpen.Core.DAL
                         join docs in dbContext.Docs
                         .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
                         .Where(a => a.DocumentTypeId == (int)DocumentType.Training)
-                        on tr.EmployeeId equals docs.EntityId into docs
+                        on tr.EmployeeTrainingId equals docs.EntityId into docs
                         from x_docs in docs.DefaultIfEmpty()
 
                         select tr.ToEntity(x_docs);
             return query;
         }
-        public static IQueryable<EmployeeWorkPermit> GetEmployeeWorkPermitByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeWorkPermit entity)
+        public static IQueryable<EmployeeWorkPermitRequest> GetEmployeeWorkPermitByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeWorkPermit entity)
         {
-            string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
+            string tableName = GetTableNameByType(dbContext, typeof(EmployeeWorkPermit)).Result;
 
             // Get query from DbSet
             var query = from tr in dbContext.EmployeeWorkPermit
@@ -291,7 +291,7 @@ namespace Malam.Mastpen.Core.DAL
                         join docs in dbContext.Docs
                         .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
                         .Where(a => a.DocumentTypeId == (int)DocumentType.CopyWorkPermit)
-                        on tr.EmployeeId equals docs.EntityId into docs
+                        on tr.EmployeeWorkPermitId equals docs.EntityId into docs
                         from x_docs in docs.DefaultIfEmpty()
 
                         select tr.ToEntity(x_docs);
@@ -300,9 +300,9 @@ namespace Malam.Mastpen.Core.DAL
 
        // => dbContext.EmployeeWorkPermit.AsQueryable().Where(item => item.EmployeeId == entity.EmployeeId).Include(x => x.Site);
 
-        public static IQueryable<EmployeeAuthtorization> GetEmployeeAuthtorizationByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeAuthtorization entity)
+        public static IQueryable<EmployeeAuthtorizationRequest> GetEmployeeAuthtorizationByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeAuthtorization entity)
         {
-            string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
+            string tableName = GetTableNameByType(dbContext, typeof(EmployeeAuthtorization)).Result;
 
             // Get query from DbSet
             var query = from tr in dbContext.EmployeeAuthtorization
@@ -313,7 +313,7 @@ namespace Malam.Mastpen.Core.DAL
                         join docs in dbContext.Docs
                         .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
                         .Where(a => a.DocumentTypeId == (int)DocumentType.Authtorization)
-                        on tr.EmployeeId equals docs.EntityId into docs
+                        on tr.EmployeeAuthorizationId equals docs.EntityId into docs
                         from x_docs in docs.DefaultIfEmpty()
 
                         select tr.ToEntity(x_docs);
@@ -323,11 +323,11 @@ namespace Malam.Mastpen.Core.DAL
 
         public static IQueryable<NoteRequest> GetEmployeeNoteByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, int EmployeeId)
         {
-            string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
-
+            string tableNameNotes = GetTableNameByType(dbContext, typeof(Notes)).Result;
+            string tableNameEmployee = GetTableNameByType(dbContext, typeof(Employee)).Result;
 
             var query = from note in dbContext.Notes
-                .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableNameEmployee).EntityTypeId)
                 .Where(item => item.EntityId == EmployeeId).Include(x => x.Site).AsQueryable()
 
              
@@ -337,9 +337,9 @@ namespace Malam.Mastpen.Core.DAL
 
 
                         join docs in dbContext.Docs
-                        .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableNameNotes).EntityTypeId)
                         .Where(a => a.DocumentTypeId == (int)DocumentType.Note)
-                        on x_employee.EmployeeId equals docs.EntityId into docs
+                        on note.NoteId equals docs.EntityId into docs
                         from x_docs in docs.DefaultIfEmpty()
 
                         select note.ToEntity(x_employee, EmployeeId, x_docs);

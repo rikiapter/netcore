@@ -330,9 +330,9 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
         //Get List
-        public async Task<ListResponse<EmployeeTraining>> GetEmployeeTrainingByEmployeeIdAsync(int Id)
+        public async Task<ListResponse<EmployeeTrainingRequest>> GetEmployeeTrainingByEmployeeIdAsync(int Id)
         {
-            var response = new ListResponse<EmployeeTraining>();
+            var response = new ListResponse<EmployeeTrainingRequest>();
             // Get the Employee by Id
             var query=  DbContext.GetEmployeeTrainingByEmployeeIdAsync(new EmployeeTraining { EmployeeId = Id });
 
@@ -342,9 +342,9 @@ namespace Malam.Mastpen.Core.BL.Services
         }
 
         //Get List
-        public async Task<ListResponse<EmployeeWorkPermit>> GetEmployeeWorkPermitByEmployeeIdAsync(int Id)
+        public async Task<ListResponse<EmployeeWorkPermitRequest>> GetEmployeeWorkPermitByEmployeeIdAsync(int Id)
         {
-            var response = new ListResponse<EmployeeWorkPermit>();
+            var response = new ListResponse<EmployeeWorkPermitRequest>();
             // Get the Employee by Id
             var query = DbContext.GetEmployeeWorkPermitByEmployeeIdAsync(new EmployeeWorkPermit { EmployeeId = Id });
             response.Model = await query.ToListAsync();
@@ -353,9 +353,9 @@ namespace Malam.Mastpen.Core.BL.Services
         }
 
         //Get List
-        public async Task<ListResponse<EmployeeAuthtorization>> GetEmployeeAuthtorizationByEmployeeIdAsync(int Id)
+        public async Task<ListResponse<EmployeeAuthtorizationRequest>> GetEmployeeAuthtorizationByEmployeeIdAsync(int Id)
         {
-            var response = new ListResponse<EmployeeAuthtorization>();
+            var response = new ListResponse<EmployeeAuthtorizationRequest>();
             // Get the Employee by Id
             var query = DbContext.GetEmployeeAuthtorizationByEmployeeIdAsync(new EmployeeAuthtorization { EmployeeId = Id });
             response.Model = await query.ToListAsync();
