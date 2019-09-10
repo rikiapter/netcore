@@ -84,7 +84,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         //public ICollection<EmployeeEntry> EmployeeEntry { get; set; }
         // public ICollection<SiteEmployee> SiteEmployeeEmployee { get; set; }
         public ICollection<SiteEmployee> SiteEmployeeSite { get; set; }
-        //public ICollection<EmplyeePicture> EmplyeePicture { get; set; }
+        public EmplyeePicture EmplyeePicture { get; set; }
         //public ICollection<SiteRole> SiteRole { get; set; }
         public bool AgreeOnTheBylaws { get; set; }
     }
@@ -185,7 +185,7 @@ namespace Malam.Mastpen.Core.BL.Requests
          
 
        };
-        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone, Docs docsFaceImage, Docs docsCopyPassport,Docs docsCopyofID, EquipmenAtSite equipmenAtSite,SiteEmployee siteEmployee )
+        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone, Docs docsFaceImage, Docs docsCopyPassport,Docs docsCopyofID, EquipmenAtSite equipmenAtSite,SiteEmployee siteEmployee ,EmplyeePicture emplyeePicture=null)
             => new EmployeeResponse
             {
                 EmployeeId = request.EmployeeId,
@@ -213,14 +213,15 @@ namespace Malam.Mastpen.Core.BL.Requests
                 PassportCountry = request.PassportCountry,
                 EmployeeTraining = request.EmployeeTraining.Count > 0 ? new TrainingResponse((request.EmployeeTraining.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "תדריך בטיחות") : new TrainingResponse(0, "תדריך בטיחות"),
                 EmployeeAuthtorization = request.EmployeeAuthtorization.Count > 0 ? new TrainingResponse((request.EmployeeAuthtorization.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "אישור עבודה בגובה"): new TrainingResponse(0, "אישור עבודה בגובה"),
-                EmployeeWorkPermit = request.IdentificationTypeId == 1 ? new TrainingResponse(100, "היתר עבודה") :request.EmployeeWorkPermit.Count > 0 ? new TrainingResponse((request.EmployeeWorkPermit.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "היתר עבודה"): new TrainingResponse(0, "היתר עבודה"),
+                EmployeeWorkPermit = request.IdentificationTypeId == 1 || request.IdentificationTypeId ==null ? new TrainingResponse(100, "היתר עבודה") :request.EmployeeWorkPermit.Count > 0 ? new TrainingResponse((request.EmployeeWorkPermit.Max(x => x.DateTo).Value.Date - DateTime.Now.Date).Days, "היתר עבודה"): new TrainingResponse(0, "היתר עבודה"),
                 phonMail = phone,
                 ProffesionType = request.EmployeeProffesionType.Count>0? request.EmployeeProffesionType.First().ProffesionType:null,
                 picturePath= docsFaceImage ==null ? null: docsFaceImage.DocumentPath,
                 IdentityFilePath = docsCopyofID == null ? null : docsCopyofID.DocumentPath,
                 PassportFilePath = docsCopyPassport == null ? null : docsCopyPassport.DocumentPath,
                 isEmployeeEntry= equipmenAtSite!=null,//אם יש כניסה לאתר
-                SiteId= siteEmployee == null ? null : siteEmployee.SiteId
+                SiteId= siteEmployee == null ? null : siteEmployee.SiteId,
+                EmplyeePicture=emplyeePicture
          
 
             };

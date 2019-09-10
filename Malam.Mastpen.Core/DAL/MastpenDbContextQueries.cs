@@ -80,9 +80,11 @@ namespace Malam.Mastpen.Core.DAL
                         on Employee.EmployeeId equals siteEmployee.EmployeeId into siteEmployee
                         from x_siteEmployee in siteEmployee.DefaultIfEmpty()
 
- 
+                        join docsEmplyeePicture in dbContext.EmplyeePicture
+                        on Employee.EmployeeId equals docsEmplyeePicture.EmployeeId into docsEmplyeePicture
+                        from x_docsEmplyeePicture in docsEmplyeePicture.DefaultIfEmpty()
 
-                        select Employee.ToEntity(null, x_docsFaceImage, null, null, x_equipmenAtSite, x_siteEmployee);
+                        select Employee.ToEntity(null, x_docsFaceImage, null, null, x_equipmenAtSite, x_siteEmployee, x_docsEmplyeePicture);
 
  
 
@@ -148,7 +150,12 @@ namespace Malam.Mastpen.Core.DAL
                         on Employee.EmployeeId equals docsCopyPassport.EntityId into docsCopyPassport
                         from x_docsCopyPassport in docsCopyPassport.DefaultIfEmpty()
 
-                        select Employee.ToEntity(x_phonMail, x_docsFaceImage, x_docsCopyPassport, x_docsCopyofID,null,null);
+
+                        join docsEmplyeePicture in dbContext.EmplyeePicture
+                        on Employee.EmployeeId equals docsEmplyeePicture.EmployeeId into docsEmplyeePicture
+                        from x_docsEmplyeePicture in docsEmplyeePicture.DefaultIfEmpty()
+
+                        select Employee.ToEntity(x_phonMail, x_docsFaceImage, x_docsCopyPassport, x_docsCopyofID,null,null, x_docsEmplyeePicture);
 
 
             return query;
@@ -164,7 +171,7 @@ namespace Malam.Mastpen.Core.DAL
                         .Where(item => item.UserName == entity.UserName)
                         on Employee.EmployeeId equals user.EmployeeId
 
-                        select Employee.ToEntity(null,null,null,null,null,null);
+                        select Employee.ToEntity(null,null,null,null,null,null,null);
 
 
             return query;

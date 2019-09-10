@@ -53,8 +53,8 @@ namespace Malam.Mastpen.API.Filters
                 if (!context.ModelState.IsValid)
                     message = context.ModelState.Values.Select(v => v.Errors).FirstOrDefault()[0].ErrorMessage;
                 logger.ErrorFormat("There was a critical error on '{0}': {1}", actionName, message + "  " + context.Exception);
-                response.Message = message;
-                response.ErrorMessage = string.Format("There was an internal error on '{0}': {1}, please contact to technical support.", actionName, message + "  " + context.Exception);
+            //    response.Message = message;
+                response.ErrorMessage = string.Format(message);
             }
             //if (exceptionType is MastpenException)
             //{

@@ -207,7 +207,7 @@ namespace Malam.Mastpen.API.Controllers
             var existingEntity = await EmployeeService.GetEmployeeByIdentityNumberAsync(request.IdentityNumber);
 
                 if (existingEntity.Model != null)
-                    ModelState.AddModelError("EmployeeIdentityNumber", "Employee IdentityNumber already exists");
+                    ModelState.AddModelError("EmployeeIdentityNumber", "תעודת הזהות קיימת במערכת");
 
                 if (!ModelState.IsValid)
                     throw new Exception();
