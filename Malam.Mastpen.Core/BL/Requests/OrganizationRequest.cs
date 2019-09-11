@@ -7,11 +7,13 @@ namespace Malam.Mastpen.HR.Core.BL.Requests
 {
    public class OrganizationRequest : Organization
     {
+        public FileRequest fileRequest { get; set; }
+        public string uri { get; set; }
 
+        public PhoneMail phonMail { get; set; }
     }
-    public class OrganizationResponse : Organization
-    { public PhoneMail phonMail { get; set; }
-    }
+
+
 
 
     public static class ExtensionsEmployee
@@ -28,13 +30,13 @@ namespace Malam.Mastpen.HR.Core.BL.Requests
         //        //UserUpdate = request.UserUpdate,
         //        //DateUpdate = request.DateUpdate,
         //        //State = request.State,
-     
+
 
 
         //    };
 
-        public static OrganizationResponse ToEntity(this Organization request, PhoneMail phone)
-            => new OrganizationResponse
+        public static OrganizationRequest ToEntity(this Organization request, PhoneMail phone, Docs docs)
+            => new OrganizationRequest
             {
         
                 OrganizationId = request.OrganizationId,
@@ -47,11 +49,8 @@ namespace Malam.Mastpen.HR.Core.BL.Requests
                 OrganizationTypeId=request.OrganizationTypeId,
                 Comment=request.Comment,
 
-                
-                //UserInsert = request.UserInsert,
-                //DateInsert = request.DateInsert,
-                //UserUpdate = request.UserUpdate,
-                //DateUpdate = request.DateUpdate,
+                uri = docs == null ? null : docs.DocumentPath,
+
                 State = request.State,
                 phonMail = phone,
       

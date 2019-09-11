@@ -60,7 +60,7 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> PostOrganizationAsync([FromBody]Organization request)
+        public async Task<IActionResult> PostOrganizationAsync([FromBody]OrganizationRequest request)
         {
             var existingEntity = await OrganizationService.GetOrganizationByNameAsync(request.OrganizationName);
 
@@ -70,13 +70,22 @@ namespace Malam.Mastpen.API.Controllers
             if (!ModelState.IsValid)
                 throw new Exception();
 
-           
-
             var entity = request;//.ToEntity();
             if (request.OrganizationParentId != null)
                 entity.OrganizationTypeId = (int)OrganizationTypeEnum.SecondaryOrganization;
 
             var response = await OrganizationService.CreateOrganizationAsync(entity);
+
+
+            Docs docs = new Docs();
+            docs.EntityId = response.Model.OrganizationId;
+            docs.EntityTypeId = (int)EntityTypeEnum.Organization;
+
+            var DOCSResponse = await OrganizationService.CreateDocsAsync(docs, typeof(Organization), request.OrganizationName, request.fileRequest, (int)DocumentType.Logo);
+
+            if (DOCSResponse.DIdError)
+                throw new Exception("Error in create Document Organization" + response.Message);
+
 
             entity.OrganizationFaceGroup = "facegroup" + response.Model.OrganizationId; 
             var response2 = await OrganizationService.UpdateOrganizationAsync(entity);
@@ -161,8 +170,17 @@ namespace Malam.Mastpen.API.Controllers
             var Organization = request;//.ToEntity();
 
 
-            Organization.OrganizationId = Id;
+           // Organization.OrganizationId = Id;
             var response = await OrganizationService.UpdateOrganizationAsync(Organization);
+
+            Docs docs = new Docs();
+            docs.EntityId = Organization.OrganizationId;
+            docs.EntityTypeId = (int)EntityTypeEnum.Organization;
+
+            var DOCSResponse = await OrganizationService.CreateDocsAsync(docs, typeof(Organization), request.OrganizationName, request.fileRequest, (int)DocumentType.Logo);
+
+            if (DOCSResponse.DIdError)
+                throw new Exception("Error in update Document Organization" + response.Message);
 
             response.Message = string.Format("Sucsses Put for Site Organization = {0} ", request.OrganizationId);
 

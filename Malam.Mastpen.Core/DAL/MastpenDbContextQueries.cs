@@ -213,12 +213,18 @@ namespace Malam.Mastpen.Core.DAL
         public static async Task<Organization> GetOrganizationeByNameAsync(this MastpenBitachonDbContext dbContext, Organization entity)
     => await dbContext.Organization.FirstOrDefaultAsync(item => item.OrganizationName == entity.OrganizationName);
 
-        public static IQueryable<OrganizationResponse> GetOrganizationsAsync(this MastpenBitachonDbContext dbContext, Organization entity)
+        public static IQueryable<OrganizationRequest> GetOrganizationsAsync(this MastpenBitachonDbContext dbContext, Organization entity)
         {
             string tableName = GetTableNameByType(dbContext, typeof(Organization)).Result;
 
 
             var query = from organization in dbContext.Organization.Where(item => item.OrganizationId == entity.OrganizationId)
+
+                        join docsLogo in dbContext.Docs
+                          .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                          .Where(a => a.DocumentTypeId == (int)DocumentType.Logo)
+                          on organization.OrganizationId equals docsLogo.EntityId into docsLogo
+                        from x_docsLogo in docsLogo.DefaultIfEmpty()
 
                         join phonMail in dbContext.PhoneMail
                           .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
@@ -227,19 +233,33 @@ namespace Malam.Mastpen.Core.DAL
 
 
 
-                        select organization.ToEntity(x_phonMail);
+                        select organization.ToEntity(x_phonMail, x_docsLogo);
 
             return query;
         }
 
-        public static IQueryable<Organization> GetOrganization(this MastpenBitachonDbContext dbContext, int? OrganizationID = null, string OrganizationName = null, int? OrganizationNumber = null, int? OrganizationExpertiseTypeId = null, int? OrganizationParentId = null)
+        public static IQueryable<OrganizationRequest> GetOrganization(this MastpenBitachonDbContext dbContext, int? OrganizationID = null, string OrganizationName = null, int? OrganizationNumber = null, int? OrganizationExpertiseTypeId = null, int? OrganizationParentId = null)
         {
-
+            string tableName = GetTableNameByType(dbContext, typeof(Organization)).Result;
             // Get query from DbSet
-            var query = dbContext.Organization
+            var query =from organization in dbContext.Organization
                 .Include(x => x.OrganizationExpertiseType)
                 .Include(x => x.OrganizationType)
-                .AsQueryable();
+                .AsQueryable()
+
+                       join docsLogo in dbContext.Docs
+                       .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                       .Where(a => a.DocumentTypeId == (int)DocumentType.Logo)
+                       on organization.OrganizationId equals docsLogo.EntityId into docsLogo
+                       from x_docsLogo in docsLogo.DefaultIfEmpty()
+
+                       join phonMail in dbContext.PhoneMail
+                         .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                         on organization.OrganizationId equals phonMail.EntityId into phonMail
+                       from x_phonMail in phonMail.DefaultIfEmpty()
+
+
+                       select organization.ToEntity(x_phonMail, x_docsLogo);
 
 
             // Filter by: 'EmployeeID'

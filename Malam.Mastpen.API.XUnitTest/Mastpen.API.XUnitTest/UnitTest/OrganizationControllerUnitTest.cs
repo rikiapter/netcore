@@ -22,7 +22,7 @@ namespace Malam.Mastpen.HR.XUnitTest.UnitTest
             // Arrange
             var controller = ControllerMocker.GetOrganizationController(nameof(TestPostOrganizationAsync));
 
-            var request = new Organization
+            var request = new OrganizationRequest
             {
                  OrganizationId=3,
                  OrganizationName="קבלן אא",
@@ -62,7 +62,7 @@ namespace Malam.Mastpen.HR.XUnitTest.UnitTest
 
             // Act
             var response = await controller.GetOrganizationAsync(id) as ObjectResult;
-            var value = response.Value as ISingleResponse<OrganizationResponse>;
+            var value = response.Value as ISingleResponse<OrganizationRequest>;
 
             // Assert
             Assert.False(value.DIdError);

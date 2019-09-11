@@ -26,7 +26,8 @@ namespace Malam.Mastpen.API.Commom.Infrastructure
             Authtorization,
             Signature,
             FaceImage,
-            Note
+            Note,
+            Logo
         }
         public enum EntityTypeEnum
         {
@@ -36,7 +37,9 @@ namespace Malam.Mastpen.API.Commom.Infrastructure
             EmployeeAuthtorization,
             EmployeeTraining,
             EmployeeWorkPermit,
-            Note
+            EmployeeEntry,
+            Note,
+            Organization
         }
 
         public enum OrganizationTypeEnum
