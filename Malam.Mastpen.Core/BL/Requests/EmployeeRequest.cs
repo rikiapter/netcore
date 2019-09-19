@@ -84,7 +84,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         //public ICollection<EmployeeEntry> EmployeeEntry { get; set; }
         // public ICollection<SiteEmployee> SiteEmployeeEmployee { get; set; }
         public ICollection<SiteEmployee> SiteEmployeeSite { get; set; }
-        public EmplyeePicture EmplyeePicture { get; set; }
+        public EmplyeePicture EmployeePicture { get; set; }
         //public ICollection<SiteRole> SiteRole { get; set; }
         public bool AgreeOnTheBylaws { get; set; }
     }
@@ -142,7 +142,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         {
             EmployeeId = request.EmployeeId ?? 0,
 
-            IdentificationTypeId = request.IdentificationTypeId,
+            IdentificationTypeId = request.PassportCountryId == 1?1:2,
             IdentityNumber = request.IdentityNumber,
             PassportCountryId = request.PassportCountryId,
             FirstName = request.FirstName,
@@ -221,7 +221,7 @@ namespace Malam.Mastpen.Core.BL.Requests
                 PassportFilePath = docsCopyPassport == null ? null : docsCopyPassport.DocumentPath,
                 isEmployeeEntry= equipmenAtSite!=null,//אם יש כניסה לאתר
                 SiteId= siteEmployee == null ? null : siteEmployee.SiteId,
-                EmplyeePicture=emplyeePicture
+                EmployeePicture=emplyeePicture
          
 
             };
@@ -256,6 +256,8 @@ namespace Malam.Mastpen.Core.BL.Requests
               DateFrom = request.DateFrom,
               DateTo = request.DateTo,
               Comment = request.Comment,
+              AuthorizationTypeId = request.AuthorizationTypeId,
+              AuthorizationType = request.AuthorizationType,
 
               Employee = request.Employee,
               Site = request.Site,
@@ -304,7 +306,7 @@ namespace Malam.Mastpen.Core.BL.Requests
                   DateFrom = request.DateFrom,
                   DateTo = request.DateTo,
                   Comment = request.Comment,
-
+                  
                   Employee = request.Employee,
                   Site = request.Site,
 

@@ -334,6 +334,7 @@ namespace Malam.Mastpen.Core.DAL
             // Get query from DbSet
             var query = from tr in dbContext.EmployeeAuthtorization
                .Include(x => x.Site)
+               .Include(x=>x.AuthorizationType)
                 .Where(item => item.EmployeeId == entity.EmployeeId)
                 .AsQueryable()
 

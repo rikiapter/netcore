@@ -250,7 +250,7 @@ namespace Malam.Mastpen.Core.DAL.Configurations
             builder.Property(e => e.EmployeeAuthorizationId).HasColumnName("EmployeeAuthorizationID");
             builder.Property(e => e.EmployeeAuthorizationName).HasMaxLength(50);
 
-            builder.Property(e => e.AuthorizationTypeId).HasColumnName("AuthorizationTypeID");
+            builder.Property(e => e.AuthorizationTypeId).HasColumnName("AuthorizationTypeID"); 
 
             builder.Property(e => e.Comment).HasMaxLength(50);
 

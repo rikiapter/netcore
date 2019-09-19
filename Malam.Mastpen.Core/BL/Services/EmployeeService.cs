@@ -220,7 +220,7 @@ namespace Malam.Mastpen.Core.BL.Services
             if (entity != null)
             {
                 //entity = employee.ToEntity();
-                entity.IdentificationTypeId = employee.IdentificationTypeId;
+                entity.IdentificationTypeId = employee.PassportCountryId == 1 || employee.PassportCountryId == null ? 1 : 2; //employee.IdentificationTypeId;
                 entity.IdentityNumber = employee.IdentityNumber;
                 entity.PassportCountryId = employee.PassportCountryId;
                 entity.FirstName = employee.FirstName;

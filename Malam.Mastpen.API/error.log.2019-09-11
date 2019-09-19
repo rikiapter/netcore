@@ -1,0 +1,8 @@
+2019-09-11 11:53:31,922 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-09-11 11:53:32,064 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-09-11 11:53:32,649 INFO - Request finished in 734.4986ms 200 text/html
+2019-09-11 11:54:49,734 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-09-11 11:54:49,736 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-09-11 11:54:49,812 INFO - Request finished in 94.6695ms 200 
+2019-09-11 11:54:49,841 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-09-11 11:54:50,060 INFO - Request finished in 333.2929ms 200 text/html
