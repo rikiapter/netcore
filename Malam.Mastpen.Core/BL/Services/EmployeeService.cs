@@ -220,7 +220,7 @@ namespace Malam.Mastpen.Core.BL.Services
             if (entity != null)
             {
                 //entity = employee.ToEntity();
-                entity.IdentificationTypeId = employee.PassportCountryId == 1 || employee.PassportCountryId == null ? 1 : 2; //employee.IdentificationTypeId;
+                entity.IdentificationTypeId = employee.PassportCountryId == 1 ? 1 : 2; 
                 entity.IdentityNumber = employee.IdentityNumber;
                 entity.PassportCountryId = employee.PassportCountryId;
                 entity.FirstName = employee.FirstName;
@@ -231,14 +231,9 @@ namespace Malam.Mastpen.Core.BL.Services
                 entity.BirthDate = employee.BirthDate;
                 entity.GenderId = employee.GenderId;
                 entity.Citizenship = employee.Citizenship;
-              //  entity.UserInsert = employee.UserInsert;
-              //  entity.DateInsert = employee.DateInsert;
-                entity.State = employee.State;
+             //   entity.State = employee.State;
                 entity.Address = employee.Address;
                 entity.Gender = employee.Gender;
-                entity.IdentificationType = employee.IdentificationType;
-               // entity.Organization = employee.Organization;
-                entity.PassportCountry = employee.PassportCountry;
               
                 DbContext.Update(entity, UserInfo);
 
