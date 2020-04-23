@@ -84,6 +84,11 @@ namespace Malam.Mastpen.Core.DAL
                   .ApplyConfiguration(new EnteryRulesConfiguration())
                   .ApplyConfiguration(new OrganizationEnteryRulesConfiguration());
 
+            modelBuilder
+            .ApplyConfiguration(new EmployeeBodyHeatConfiguration())
+            .ApplyConfiguration(new HealthConditionTypeConfiguration())
+            .ApplyConfiguration(new EmployeeHealthConditionConfiguration());
+
 
             base.OnModelCreating(modelBuilder);
         }
@@ -138,5 +143,11 @@ namespace Malam.Mastpen.Core.DAL
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<EnteryRules> EnteryRules { get; set; }
         public virtual DbSet<OrganizationEnteryRules> OrganizationEnteryRules { get; set; }
+
+
+        public virtual DbSet<EmployeeBodyHeat> EmployeeBodyHeat { get; set; }
+        public virtual DbSet<EmployeeHealthCondition> EmployeeHealthCondition { get; set; }
+        public virtual DbSet<HealthConditionType> HealthConditionType { get; set; }
+    
     }
 }

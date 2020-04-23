@@ -1,0 +1,130 @@
+2019-09-19 12:06:17,436 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-09-19 12:06:17,436 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-09-19 12:06:17,686 INFO - Request finished in 203.3941ms 200 
+2019-09-19 12:06:17,686 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-09-19 12:06:18,123 INFO - Request finished in 713.597ms 200 text/html
+2019-09-19 12:06:18,685 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-09-19 12:06:18,693 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-09-19 12:06:19,005 INFO - Request starting HTTP/1.1 GET http://localhost:59821/favicon-32x32.png  
+2019-09-19 12:06:19,009 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-09-19 12:06:19,034 INFO - Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2019-09-19 12:06:19,036 INFO - Request finished in 36.5467ms 200 image/png
+2019-09-19 12:06:20,274 INFO - Request finished in 1591.0494ms 200 application/json;charset=utf-8
+2019-09-19 12:06:25,727 INFO - Request starting HTTP/1.1 GET http://localhost:59821/oauth2-redirect.html  
+2019-09-19 12:06:25,730 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-09-19 12:06:25,740 INFO - Sending file. Request path: '/oauth2-redirect.html'. Physical path: 'N/A'
+2019-09-19 12:06:25,747 INFO - Request finished in 15.1186ms 200 text/html
+2019-09-19 12:06:32,703 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/EmployeeAuthtorization?EmployeeId=237  
+2019-09-19 12:06:35,706 INFO - Successfully validated the token.
+2019-09-19 12:06:35,714 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2019-09-19 12:06:35,842 INFO - Route matched with {action = "GetEmployeeAuthtorizationAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAuthtorizationAsync (Malam.Mastpen.HR.API)
+2019-09-19 12:06:35,856 INFO - Authorization was successful.
+2019-09-19 12:06:36,914 INFO - 'GetEmployeeAuthtorizationAsync' has been invoked
+2019-09-19 12:06:36,920 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAuthtorizationAsync (Malam.Mastpen.HR.API) with arguments (237) - Validation state: Valid
+2019-09-19 12:06:42,260 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-09-19 12:06:52,636 INFO - Executed DbCommand (114ms) [Parameters=[@__tableName_1='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[EmployeeAuthorizationID], [x].[AuthorizationTypeID], [x].[Comment], [x].[DateFrom], [x].[dateInsert], [x].[DateTo], [x].[dateUpdate], [x].[EmployeeAuthorizationName], [x].[EmployeeID], [x].[SiteId], [x].[state], [x].[userInsert], [x].[UserUpdate], [x.AuthorizationType].[AuthorizationTypeID], [x.AuthorizationType].[AuthorizationTypeName], [x.AuthorizationType].[Comment], [x.AuthorizationType].[dateInsert], [x.AuthorizationType].[dateUpdate], [x.AuthorizationType].[state], [x.AuthorizationType].[userInsert], [x.AuthorizationType].[UserUpdate], [x.Site].[SiteID], [x.Site].[Comment], [x.Site].[dateInsert], [x.Site].[dateUpdate], [x.Site].[OrganizationID], [x.Site].[SiteActivityStartDate], [x.Site].[SiteName], [x.Site].[SiteStatusID], [x.Site].[SiteTypeID], [x.Site].[state], [x.Site].[userInsert], [x.Site].[UserUpdate], [t].[DocumentID], [t].[dateInsert], [t].[dateUpdate], [t].[DocumentDate], [t].[DocumentPath], [t].[DocumentTypeID], [t].[EntityID], [t].[EntityTypeID], [t].[IsDocumentSigned], [t].[LanguageID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t].[ValIdDate]
+FROM [BB_HR_EmployeeAuthtorization] AS [x]
+LEFT JOIN [BB_HR_AuthtorizationType] AS [x.AuthorizationType] ON [x].[AuthorizationTypeID] = [x.AuthorizationType].[AuthorizationTypeID]
+LEFT JOIN [BB_GEN_Sites] AS [x.Site] ON [x].[SiteId] = [x.Site].[SiteID]
+LEFT JOIN (
+    SELECT [a].[DocumentID], [a].[dateInsert], [a].[dateUpdate], [a].[DocumentDate], [a].[DocumentPath], [a].[DocumentTypeID], [a].[EntityID], [a].[EntityTypeID], [a].[IsDocumentSigned], [a].[LanguageID], [a].[state], [a].[userInsert], [a].[UserUpdate], [a].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_1
+    )) AND ([a].[DocumentTypeID] = 5)
+) AS [t] ON [x].[EmployeeAuthorizationID] = [t].[EntityID]
+WHERE [x].[EmployeeID] = @__entity_EmployeeId_0
+2019-09-19 12:12:09,146 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2019-09-19 12:12:09,146 INFO - Request starting HTTP/1.1 DEBUG http://localhost:59821/  0
+2019-09-19 12:12:09,193 INFO - Request finished in 54.0801ms 200 
+2019-09-19 12:12:09,219 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-09-19 12:12:09,370 INFO - Request finished in 231.5629ms 200 text/html
+2019-09-19 12:12:09,592 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2019-09-19 12:12:09,600 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2019-09-19 12:12:10,036 INFO - Request finished in 446.3871ms 200 application/json;charset=utf-8
+2019-09-19 12:12:26,965 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/EmployeeAuthtorization?EmployeeId=218  
+2019-09-19 12:12:28,907 INFO - Successfully validated the token.
+2019-09-19 12:12:28,912 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2019-09-19 12:12:28,998 INFO - Route matched with {action = "GetEmployeeAuthtorizationAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAuthtorizationAsync (Malam.Mastpen.HR.API)
+2019-09-19 12:12:29,012 INFO - Authorization was successful.
+2019-09-19 12:12:29,517 INFO - 'GetEmployeeAuthtorizationAsync' has been invoked
+2019-09-19 12:12:29,527 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAuthtorizationAsync (Malam.Mastpen.HR.API) with arguments (218) - Validation state: Valid
+2019-09-19 12:12:33,152 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-09-19 12:12:34,410 INFO - Executed DbCommand (87ms) [Parameters=[@__tableName_1='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[EmployeeAuthorizationID], [x].[AuthorizationTypeID], [x].[Comment], [x].[DateFrom], [x].[dateInsert], [x].[DateTo], [x].[dateUpdate], [x].[EmployeeAuthorizationName], [x].[EmployeeID], [x].[SiteId], [x].[state], [x].[userInsert], [x].[UserUpdate], [x.AuthorizationType].[AuthorizationTypeID], [x.AuthorizationType].[AuthorizationTypeName], [x.AuthorizationType].[Comment], [x.AuthorizationType].[dateInsert], [x.AuthorizationType].[dateUpdate], [x.AuthorizationType].[state], [x.AuthorizationType].[userInsert], [x.AuthorizationType].[UserUpdate], [x.Site].[SiteID], [x.Site].[Comment], [x.Site].[dateInsert], [x.Site].[dateUpdate], [x.Site].[OrganizationID], [x.Site].[SiteActivityStartDate], [x.Site].[SiteName], [x.Site].[SiteStatusID], [x.Site].[SiteTypeID], [x.Site].[state], [x.Site].[userInsert], [x.Site].[UserUpdate], [t].[DocumentID], [t].[dateInsert], [t].[dateUpdate], [t].[DocumentDate], [t].[DocumentPath], [t].[DocumentTypeID], [t].[EntityID], [t].[EntityTypeID], [t].[IsDocumentSigned], [t].[LanguageID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t].[ValIdDate]
+FROM [BB_HR_EmployeeAuthtorization] AS [x]
+LEFT JOIN [BB_HR_AuthtorizationType] AS [x.AuthorizationType] ON [x].[AuthorizationTypeID] = [x.AuthorizationType].[AuthorizationTypeID]
+LEFT JOIN [BB_GEN_Sites] AS [x.Site] ON [x].[SiteId] = [x.Site].[SiteID]
+LEFT JOIN (
+    SELECT [a].[DocumentID], [a].[dateInsert], [a].[dateUpdate], [a].[DocumentDate], [a].[DocumentPath], [a].[DocumentTypeID], [a].[EntityID], [a].[EntityTypeID], [a].[IsDocumentSigned], [a].[LanguageID], [a].[state], [a].[userInsert], [a].[UserUpdate], [a].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_1
+    )) AND ([a].[DocumentTypeID] = 5)
+) AS [t] ON [x].[EmployeeAuthorizationID] = [t].[EntityID]
+WHERE [x].[EmployeeID] = @__entity_EmployeeId_0
+2019-09-19 12:12:34,619 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAuthtorizationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 5088.8021ms.
+2019-09-19 12:12:34,620 INFO - The GetEmployeeAuthtorizationAsync have been retrieved successfully.
+2019-09-19 12:12:34,631 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.ListResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeAuthtorizationRequest, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-09-19 12:12:34,648 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAuthtorizationAsync (Malam.Mastpen.HR.API) in 5646.7976ms
+2019-09-19 12:12:34,660 INFO - Request finished in 7692.3698ms 200 application/json; charset=utf-8
+2019-09-19 12:13:17,855 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/EmployeeWorkPermit?EmployeeId=218  
+2019-09-19 12:13:17,962 INFO - Successfully validated the token.
+2019-09-19 12:13:17,984 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2019-09-19 12:13:17,991 INFO - Route matched with {action = "GetEmployeeWorkPermitAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeWorkPermitAsync (Malam.Mastpen.HR.API)
+2019-09-19 12:13:17,993 INFO - Authorization was successful.
+2019-09-19 12:13:17,994 INFO - 'GetEmployeeWorkPermitAsync' has been invoked
+2019-09-19 12:13:17,996 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeWorkPermitAsync (Malam.Mastpen.HR.API) with arguments (218) - Validation state: Valid
+2019-09-19 12:13:18,004 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-09-19 12:13:18,116 INFO - Executed DbCommand (69ms) [Parameters=[@__tableName_1='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[EmployeeWorkPermitID], [x].[Comment], [x].[DateFrom], [x].[dateInsert], [x].[DateTo], [x].[dateUpdate], [x].[EmployeeID], [x].[EmployeeWorkPermitName], [x].[IsRequired], [x].[SiteID], [x].[state], [x].[userInsert], [x].[UserUpdate], [x.Site].[SiteID], [x.Site].[Comment], [x.Site].[dateInsert], [x.Site].[dateUpdate], [x.Site].[OrganizationID], [x.Site].[SiteActivityStartDate], [x.Site].[SiteName], [x.Site].[SiteStatusID], [x.Site].[SiteTypeID], [x.Site].[state], [x.Site].[userInsert], [x.Site].[UserUpdate], [t].[DocumentID], [t].[dateInsert], [t].[dateUpdate], [t].[DocumentDate], [t].[DocumentPath], [t].[DocumentTypeID], [t].[EntityID], [t].[EntityTypeID], [t].[IsDocumentSigned], [t].[LanguageID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t].[ValIdDate]
+FROM [BB_HR_EmployeeWorkPermit] AS [x]
+LEFT JOIN [BB_GEN_Sites] AS [x.Site] ON [x].[SiteID] = [x.Site].[SiteID]
+LEFT JOIN (
+    SELECT [a].[DocumentID], [a].[dateInsert], [a].[dateUpdate], [a].[DocumentDate], [a].[DocumentPath], [a].[DocumentTypeID], [a].[EntityID], [a].[EntityTypeID], [a].[IsDocumentSigned], [a].[LanguageID], [a].[state], [a].[userInsert], [a].[UserUpdate], [a].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_1
+    )) AND ([a].[DocumentTypeID] = 3)
+) AS [t] ON [x].[EmployeeWorkPermitID] = [t].[EntityID]
+WHERE [x].[EmployeeID] = @__entity_EmployeeId_0
+2019-09-19 12:13:18,162 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeWorkPermitAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 164.5847ms.
+2019-09-19 12:13:18,162 INFO - The GetEmployeeWorkPermitAsync have been retrieved successfully.
+2019-09-19 12:13:18,164 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.ListResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeWorkPermitRequest, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-09-19 12:13:18,177 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeWorkPermitAsync (Malam.Mastpen.HR.API) in 183.3056ms
+2019-09-19 12:13:18,180 INFO - Request finished in 329.9398ms 200 application/json; charset=utf-8
+2019-09-19 12:13:34,833 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/EmployeeTraining?EmployeeId=218  
+2019-09-19 12:13:34,835 INFO - Successfully validated the token.
+2019-09-19 12:13:34,837 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2019-09-19 12:13:34,848 INFO - Route matched with {action = "GetEmployeeTrainingAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeTrainingAsync (Malam.Mastpen.HR.API)
+2019-09-19 12:13:34,851 INFO - Authorization was successful.
+2019-09-19 12:13:34,852 INFO - 'GetEmployeeTrainingAsync' has been invoked
+2019-09-19 12:13:34,854 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeTrainingAsync (Malam.Mastpen.HR.API) with arguments (218) - Validation state: Valid
+2019-09-19 12:13:34,863 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-09-19 12:13:34,969 INFO - Executed DbCommand (68ms) [Parameters=[@__tableName_1='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[EmployeeTrainingID], [x].[Comment], [x].[DateFrom], [x].[dateInsert], [x].[DateTo], [x].[dateUpdate], [x].[EmployeeID], [x].[EmployeeTrainingName], [x].[SiteID], [x].[state], [x].[TrainingTypeID], [x].[userInsert], [x].[UserUpdate], [x.Site].[SiteID], [x.Site].[Comment], [x.Site].[dateInsert], [x.Site].[dateUpdate], [x.Site].[OrganizationID], [x.Site].[SiteActivityStartDate], [x.Site].[SiteName], [x.Site].[SiteStatusID], [x.Site].[SiteTypeID], [x.Site].[state], [x.Site].[userInsert], [x.Site].[UserUpdate], [x.TrainingType].[TrainingTypeID], [x.TrainingType].[Comment], [x.TrainingType].[dateInsert], [x.TrainingType].[dateUpdate], [x.TrainingType].[state], [x.TrainingType].[TrainingTypeName], [x.TrainingType].[userInsert], [x.TrainingType].[UserUpdate], [t].[DocumentID], [t].[dateInsert], [t].[dateUpdate], [t].[DocumentDate], [t].[DocumentPath], [t].[DocumentTypeID], [t].[EntityID], [t].[EntityTypeID], [t].[IsDocumentSigned], [t].[LanguageID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t].[ValIdDate]
+FROM [BB_HR_EmployeeTraining] AS [x]
+LEFT JOIN [BB_GEN_Sites] AS [x.Site] ON [x].[SiteID] = [x.Site].[SiteID]
+LEFT JOIN [BB_HR_TrainingType] AS [x.TrainingType] ON [x].[TrainingTypeID] = [x.TrainingType].[TrainingTypeID]
+LEFT JOIN (
+    SELECT [a].[DocumentID], [a].[dateInsert], [a].[dateUpdate], [a].[DocumentDate], [a].[DocumentPath], [a].[DocumentTypeID], [a].[EntityID], [a].[EntityTypeID], [a].[IsDocumentSigned], [a].[LanguageID], [a].[state], [a].[userInsert], [a].[UserUpdate], [a].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_1
+    )) AND ([a].[DocumentTypeID] = 4)
+) AS [t] ON [x].[EmployeeTrainingID] = [t].[EntityID]
+WHERE [x].[EmployeeID] = @__entity_EmployeeId_0
+2019-09-19 12:13:36,887 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeTrainingAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 2031.8829ms.
+2019-09-19 12:13:36,888 INFO - The GetEmployeeTrainingAsync have been retrieved successfully.
+2019-09-19 12:13:36,889 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.ListResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeTrainingRequest, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-09-19 12:13:36,906 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeTrainingAsync (Malam.Mastpen.HR.API) in 2054.5532ms
+2019-09-19 12:13:36,912 INFO - Request finished in 2080.3956ms 200 application/json; charset=utf-8
