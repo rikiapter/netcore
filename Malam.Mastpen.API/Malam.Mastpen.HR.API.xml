@@ -178,6 +178,17 @@
              <response code="404">If EmployeeAuthtorization is not exists</response>
              <response code="500">If there was an internal server error</response>
         </member>
+        <member name="M:Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync(System.Int32)">
+             <summary>
+            דשבורד מצב חירום בריאותי
+             Retrieves a site by Id
+             </summary>
+             <param name="Id">Site Id</param>
+             <returns>A response with site</returns>
+             <response code="200">Returns the Site </response>
+             <response code="404">If Employee is not exists</response>
+             <response code="500">If there was an internal server error</response>
+        </member>
         <member name="M:Malam.Mastpen.API.Controllers.HealthController.GetEmployeesAsync(System.Int32,System.Int32,System.Nullable{System.Int32},System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Retrieves Site Employee
