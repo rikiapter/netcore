@@ -1,0 +1,21 @@
+2020-04-22 11:13:21,291 INFO - Request starting HTTP/1.1 GET http://localhost:59821/  
+2020-04-22 11:13:21,337 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-04-22 11:13:21,424 INFO - Request finished in 141.7453ms 301 
+2020-04-22 11:13:21,426 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-04-22 11:13:21,430 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-04-22 11:13:21,644 INFO - Request finished in 207.0468ms 200 text/html
+2020-04-22 11:13:21,716 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger-ui-bundle.js  
+2020-04-22 11:13:21,737 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger-ui.css  
+2020-04-22 11:13:21,740 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-04-22 11:13:21,741 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-04-22 11:13:21,742 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger-ui-standalone-preset.js  
+2020-04-22 11:13:21,744 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-04-22 11:13:21,864 INFO - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2020-04-22 11:13:21,865 INFO - Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2020-04-22 11:13:21,866 INFO - Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2020-04-22 11:13:21,872 INFO - Request finished in 155.7237ms 200 text/css
+2020-04-22 11:13:21,874 INFO - Request finished in 155.7237ms 200 application/javascript
+2020-04-22 11:13:21,906 INFO - Request finished in 127.7009ms 200 application/javascript
+2020-04-22 11:13:22,303 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-04-22 11:13:22,314 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-04-22 11:13:23,070 INFO - Request finished in 768.5994ms 200 application/json;charset=utf-8

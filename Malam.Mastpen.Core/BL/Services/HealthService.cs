@@ -89,5 +89,29 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
 
+        public async Task<ISingleResponse<MainScreenHealthResponse>> GetMainScreenHealthAsync(int siteId)
+        {
+
+            var response = new SingleResponse<MainScreenHealthResponse>();
+            // Get list by Employee by Id
+            //var query = DbContext.GetNumberEmployeesOnSiteAsync(siteId);
+            DateTime date = DateTime.Now.Date;//today
+
+            response.Model = new MainScreenHealthResponse();
+
+            response.Model.NumberEmployees = await DbContext.GetNumberEmployeesAsync(siteId).CountAsync();
+            response.Model.NumberEmployeesOnSite = await DbContext.GetNumberEmployeesOnSiteAsync(siteId, date).GroupBy(x => x.EmployeeId).CountAsync();
+            response.Model.EmployeesWithHotBody = 1;
+            response.Model.NumberVisitors = 1;
+            response.Model.PresentEmployees = 5;
+            response.Model.WithoutHealthDeclaration = response.Model.NumberEmployeesOnSite - await DbContext.GetWithoutEmployeeTrainingAsync(siteId, date, null).GroupBy(x => x.EmployeeId).CountAsync();
+
+
+      
+
+            response.SetMessageGetById(nameof(MainScreenHealthResponse), siteId);
+            return response;
+        }
+
     }
 }

@@ -47,6 +47,28 @@ namespace Malam.Mastpen.API.Controllers
 #pragma warning restore CS1591
 
 
+        // GET
+        // api/v1/Health/MainScreenHealth/1
+
+        /// <summary>
+        ///דשבורד מצב חירום בריאותי
+        /// Retrieves a site by Id
+        /// </summary>
+        /// <param name="Id">Site Id</param>
+        /// <returns>A response with site</returns>
+        /// <response code="200">Returns the Site </response>
+        /// <response code="404">If Employee is not exists</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpGet("MainScreenHealth/{Id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+
+        public async Task<IActionResult> GetMainScreenHealthAsync(int Id)
+        {
+            var response = await HealthService.GetMainScreenHealthAsync(Id);
+            return response.ToHttpResponse();
+        }
 
         // GET
         // api/v1/Employee/Employee

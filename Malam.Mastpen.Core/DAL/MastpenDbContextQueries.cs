@@ -28,6 +28,48 @@ namespace Malam.Mastpen.Core.DAL
 
         }
 
+        public static IQueryable<SiteEmployee> GetNumberEmployeesAsync(this MastpenBitachonDbContext dbContext, int siteId)
+  => dbContext.SiteEmployee.Where(item => item.SiteId == siteId).AsQueryable();
+
+
+        public static IQueryable<EmployeeEntry> GetNumberEmployeesOnSiteAsync(this MastpenBitachonDbContext dbContext, int siteId, DateTime date)
+        {
+            var query = from employeeEntry in dbContext.EmployeeEntry
+                           .Where(item => item.Date.Value.Date >= date)
+
+                        join equipment in dbContext.EquipmenAtSite.Where(a => a.SiteId == siteId)
+                        on employeeEntry.EquipmentId equals equipment.EquipmentId
+
+
+                        select employeeEntry;
+
+            return query;
+        }
+
+        public static IQueryable<Employee> GetWithoutEmployeeTrainingAsync(this MastpenBitachonDbContext dbContext, int siteId, DateTime date, int? employeeId)
+        {
+
+            var query = from employeeEntry in dbContext.EmployeeEntry
+                       .Where(item => item.Date.Value.Date >= date)
+                        join equipment in dbContext.EquipmenAtSite.Where(a => a.SiteId == siteId)
+                        on employeeEntry.EquipmentId equals equipment.EquipmentId
+                        select employeeEntry.Employee;
+
+            if (employeeId != null)
+                query = dbContext.Employee.Where(x => x.EmployeeId == employeeId);
+
+            query = from employee in query
+
+                    join EmployeeTraining in dbContext.EmployeeTraining
+                    .Where(b => b.DateFrom <= DateTime.Now && b.DateTo >= DateTime.Now)
+                      .Where(b => b.TrainingTypeId == 4)//הצהרת בריאות
+                     on employee.EmployeeId equals EmployeeTraining.EmployeeId
+
+                    select employee;
+
+            return query;
+        }
+
         public static IQueryable<EmployeeResponse> GetEmployee(this MastpenBitachonDbContext dbContext, 
             int? EmployeeID = null, 
             string EmployeeName = null, 
