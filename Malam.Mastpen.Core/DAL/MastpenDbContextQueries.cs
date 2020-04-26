@@ -336,6 +336,7 @@ namespace Malam.Mastpen.Core.DAL
             var query = from tr in dbContext.EmployeeTraining
                 .Include(x => x.TrainingType).Include(x => x.Site)
                 .Where(item => item.EmployeeId == entity.EmployeeId)
+                  .Where(item => item.TrainingTypeId == entity.TrainingTypeId)
                 .AsQueryable()
 
                         join docs in dbContext.Docs

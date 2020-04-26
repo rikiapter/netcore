@@ -586,6 +586,8 @@ namespace Malam.Mastpen.API.Controllers
         /// <summary>
         /// Retrieves a EmployeeTraining by EmployeeId
         ///רשימת הדרכות
+        ///1=תדריך בטיחות
+        ///4=הצהרת בריאות
         /// </summary>
         /// <param name="EmployeeId">Employee Id</param>
         /// <returns>A response with EmployeeTraining</returns>
@@ -596,9 +598,9 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetEmployeeTrainingAsync(int EmployeeId)
+        public async Task<IActionResult> GetEmployeeTrainingAsync(int EmployeeId,int TrainingTypeId)
         {
-            var response = await EmployeeService.GetEmployeeTrainingByEmployeeIdAsync(EmployeeId);
+            var response = await EmployeeService.GetEmployeeTrainingByEmployeeIdAsync(EmployeeId, TrainingTypeId);
             return response.ToHttpResponse();
         }
 

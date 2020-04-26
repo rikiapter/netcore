@@ -325,11 +325,11 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
         //Get List
-        public async Task<ListResponse<EmployeeTrainingRequest>> GetEmployeeTrainingByEmployeeIdAsync(int Id)
+        public async Task<ListResponse<EmployeeTrainingRequest>> GetEmployeeTrainingByEmployeeIdAsync(int Id,int TrainingTypeId)
         {
             var response = new ListResponse<EmployeeTrainingRequest>();
             // Get the Employee by Id
-            var query=  DbContext.GetEmployeeTrainingByEmployeeIdAsync(new EmployeeTraining { EmployeeId = Id });
+            var query=  DbContext.GetEmployeeTrainingByEmployeeIdAsync(new EmployeeTraining { EmployeeId = Id , TrainingTypeId = TrainingTypeId });
 
             response.Model = await query.ToListAsync();
 
