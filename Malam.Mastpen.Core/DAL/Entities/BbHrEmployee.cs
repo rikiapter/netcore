@@ -16,7 +16,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
             EmployeeProffesionType = new HashSet<EmployeeProffesionType>();
             EmployeeTraining = new HashSet<EmployeeTraining>();
             EmployeeWorkPermit = new HashSet<EmployeeWorkPermit>();
-            EmployeeBodyHeat = new HashSet<EmployeeBodyHeat>();
+            EmployeeTemperature = new HashSet<EmployeeTemperature>();
             EmployeeHealthCondition = new HashSet<EmployeeHealthCondition>();
         }
 
@@ -52,7 +52,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
         public ICollection<EmployeeProffesionType> EmployeeProffesionType { get; set; }
         public ICollection<EmployeeTraining> EmployeeTraining { get; set; }
         public ICollection<EmployeeWorkPermit> EmployeeWorkPermit { get; set; }
-        public ICollection<EmployeeBodyHeat> EmployeeBodyHeat { get; set; }
+        public ICollection<EmployeeTemperature> EmployeeTemperature { get; set; }
         public ICollection<EmployeeHealthCondition> EmployeeHealthCondition { get; set; }
         
     }

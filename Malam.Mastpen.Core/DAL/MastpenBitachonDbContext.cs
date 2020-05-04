@@ -85,7 +85,7 @@ namespace Malam.Mastpen.Core.DAL
                   .ApplyConfiguration(new OrganizationEnteryRulesConfiguration());
 
             modelBuilder
-            .ApplyConfiguration(new EmployeeBodyHeatConfiguration())
+            .ApplyConfiguration(new EmployeeTemperatureConfiguration())
             .ApplyConfiguration(new HealthConditionTypeConfiguration())
             .ApplyConfiguration(new EmployeeHealthConditionConfiguration());
 
@@ -154,7 +154,7 @@ namespace Malam.Mastpen.Core.DAL
         public virtual DbSet<OrganizationEnteryRules> OrganizationEnteryRules { get; set; }
 
 
-        public virtual DbSet<EmployeeBodyHeat> EmployeeBodyHeat { get; set; }
+        public virtual DbSet<EmployeeTemperature> EmployeeTemperature { get; set; }
         public virtual DbSet<EmployeeHealthCondition> EmployeeHealthCondition { get; set; }
         public virtual DbSet<HealthConditionType> HealthConditionType { get; set; }
         public virtual DbSet<Alerts> Alerts { get; set; }

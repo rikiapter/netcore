@@ -461,8 +461,9 @@ namespace Malam.Mastpen.Core.DAL
         public static IQueryable<TrainingDocs> GetTrainingDocs(this MastpenBitachonDbContext dbContext, int? OrganizationId = null, int? LanguageId = null, int? DocumentTypeId = null)
         {
             // Get query from DbSet
-            var query = from Employee in dbContext.TrainingDocs.Where(x => x.State == true).AsQueryable()
-                        select Employee;
+            var query = from trainingDocs in dbContext.TrainingDocs.Where(x => x.State == true).AsQueryable()
+                        select trainingDocs;
+            query = query.Include(x=>x.Language);
 
             if (OrganizationId.HasValue)
                 query = query.Where(item => item.OrganizationId == OrganizationId);

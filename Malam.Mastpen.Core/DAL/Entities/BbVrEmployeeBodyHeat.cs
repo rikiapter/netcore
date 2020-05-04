@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Malam.Mastpen.Core.DAL.Entities
 {
-    public partial class EmployeeBodyHeat : IAuditableEntity
+    public partial class EmployeeTemperature : IAuditableEntity
     {
-        public int EmployeeBodyHeatId { get; set; }
+        public int EmployeeTemperatureId { get; set; }
         public int? EmployeeId { get; set; }
-        public int? BodyHeat { get; set; }
+        public float Temperature { get; set; }
         public DateTime? DateTest { get; set; }
         public int? UserInsert { get; set; }
         public DateTime? DateInsert { get; set; }

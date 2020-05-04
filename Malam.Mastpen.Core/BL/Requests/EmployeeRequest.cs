@@ -8,6 +8,7 @@ using Malam.Mastpen.Core.DAL.Entities;
 using Malam.Mastpen.Core.DAL;
 using Malam.Mastpen.HR.Core.BL.Requests;
 using IdentityModel;
+using Malam.Mastpen.Core.DAL.Dbo;
 
 namespace Malam.Mastpen.Core.BL.Requests
     {
@@ -159,7 +160,8 @@ namespace Malam.Mastpen.Core.BL.Requests
         public string IdentityFilePath { get; set; }
         public string PassportFilePath { get; set; }
 
-        public List<TrainingDocs> ListTrainingDocs { get; set; }
+        public List<ParameterCodeEntity> ListTrainingDocs { get; set; }
+        public List<ParameterCodeEntity> ListLanguage { get; set; }
     }
     public static class ExtensionsEmployee
     {
@@ -252,7 +254,7 @@ namespace Malam.Mastpen.Core.BL.Requests
 
             };
 
-        public static EmployeeTrainingDocResponse ToEntity(this Employee request, int siteId, List<TrainingDocs> ListTrainingDocs)
+        public static EmployeeTrainingDocResponse ToEntity(this Employee request, int siteId, List<ParameterCodeEntity> ListTrainingDocs, List<ParameterCodeEntity> ListLanguage)
 => new EmployeeTrainingDocResponse
 {
  EmployeeId = request.EmployeeId,
@@ -273,7 +275,8 @@ namespace Malam.Mastpen.Core.BL.Requests
  SiteId = siteId,
 
 
- ListTrainingDocs = ListTrainingDocs
+ ListTrainingDocs = ListTrainingDocs,
+ ListLanguage =ListLanguage
 
 };
 

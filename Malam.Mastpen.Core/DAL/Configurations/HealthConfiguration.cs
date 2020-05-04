@@ -6,16 +6,16 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Malam.Mastpen.Core.DAL.Configurations
 {
-    public class EmployeeBodyHeatConfiguration : IEntityTypeConfiguration<EmployeeBodyHeat>
+    public class EmployeeTemperatureConfiguration : IEntityTypeConfiguration<EmployeeTemperature>
     {
-        public void Configure(EntityTypeBuilder<EmployeeBodyHeat> builder)
+        public void Configure(EntityTypeBuilder<EmployeeTemperature> builder)
         {
-            builder.HasKey(e => e.EmployeeBodyHeatId)
-                   .HasName("PK_BB_VR_Employee_BodyHeat");
+            builder.HasKey(e => e.EmployeeTemperatureId)
+                   .HasName("PK_BB_VR_Employee_Temperature");
 
-            builder.ToTable("BB_VR_EmployeeBodyHeat");
+            builder.ToTable("BB_VR_EmployeeTemperature");
 
-            builder.Property(e => e.EmployeeBodyHeatId).HasColumnName("EmployeeBodyHeatID");
+            builder.Property(e => e.EmployeeTemperatureId).HasColumnName("EmployeeTemperatureID");
 
             builder.Property(e => e.DateInsert)
                 .HasColumnName("dateInsert")
@@ -41,9 +41,9 @@ namespace Malam.Mastpen.Core.DAL.Configurations
                 .HasDefaultValueSql("((1))");
 
             builder.HasOne(d => d.Employee)
-                .WithMany(p => p.EmployeeBodyHeat)
+                .WithMany(p => p.EmployeeTemperature)
                 .HasForeignKey(d => d.EmployeeId)
-                .HasConstraintName("FK_BB_VR_Employee_BodyHeat_EmployeeID");
+                .HasConstraintName("FK_BB_VR_Employee_Temperature_EmployeeID");
 
         }
     }

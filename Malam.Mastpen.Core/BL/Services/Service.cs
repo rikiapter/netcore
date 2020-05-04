@@ -274,7 +274,7 @@ namespace Malam.Mastpen.Core.BL.Services
             if (SiteId.HasValue)
                 trainingDocs = result.Where(item => item.SiteId == SiteId).ToList();
             //אם לא לוקחים את ההדרכה של הארגון
-            if (trainingDocs == null)
+            if (trainingDocs.Count == 0)
                 trainingDocs = result.ToList();
             if (trainingDocs != null)
                 response.Model = trainingDocs;

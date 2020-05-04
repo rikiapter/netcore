@@ -226,6 +226,29 @@
             <response code="200">Returns the Site Employee list</response>
             <response code="500">If there was an internal server error</response>
         </member>
+        <member name="M:Malam.Mastpen.API.Controllers.HealthController.PostEmployeeTemperatureAsync(Malam.Mastpen.Core.DAL.Entities.EmployeeTemperature)">
+            <summary>
+            Creates a new Temperature
+            מצמיד חום כלשהוא לאדם מסוים
+            </summary>
+            <param name="request">Request model</param>
+            <response code="400">For bad request</response>
+            <response code="500">If there was an internal server error</response>
+        </member>
+        <member name="M:Malam.Mastpen.API.Controllers.HealthController.GetEmployeeTrainingAsync(System.Int32,System.Int32)">
+             <summary>
+             Retrieves a EmployeeTraining by EmployeeId
+             בדיקה אם יש הצהרת בריאות תקפה להיום
+            רשימת הדרכות
+            1=תדריך בטיחות
+            4=הצהרת בריאות
+             </summary>
+             <param name="EmployeeId">Employee Id</param>
+             <returns>A response with EmployeeTraining</returns>
+             <response code="200">Returns the EmployeeTraining list</response>
+             <response code="404">If EmployeeTraining is not exists</response>
+             <response code="500">If there was an internal server error</response>
+        </member>
         <member name="M:Malam.Mastpen.API.Controllers.OrganizationController.PostOrganizationAsync(Malam.Mastpen.HR.Core.BL.Requests.OrganizationRequest)">
             <summary>
             Creates a new Organization

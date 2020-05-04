@@ -22,6 +22,7 @@ using Malam.Mastpen.HR.Core.BL.Requests;
 using Malam.Mastpen.Core.BL.Services;
 using static Malam.Mastpen.API.Commom.Infrastructure.GeneralConsts;
 using IdentityModel;
+using Malam.Mastpen.Core.DAL.Dbo;
 
 namespace Malam.Mastpen.API.Controllers
 {
@@ -71,10 +72,28 @@ namespace Malam.Mastpen.API.Controllers
             var responseEmployee = await EmployeeService.GetEmployeeAsync(responseEmployeeId.Model.EmployeeId);
             var site = await EmployeeService.GetSiteByEquipmentIdAsync(responseEquipmentId.Model.EquipmentId ?? 0);
 
-            var TrainingDocs = await EmployeeService.GetTrainingDocsAsync(site.Model.SiteId);//רשימת ההצהרות בטיחות
-
+            var TrainingDocs = await EmployeeService.GetTrainingDocsAsync(null,site.Model.SiteId,null,4);//רשימת ההצהרות בטיחות
+            var ListTrainingDocs = new List<ParameterCodeEntity>();
+            var ListLanguage = new List<ParameterCodeEntity>();
+            foreach (var t in TrainingDocs.Model)
+            {
+                ListTrainingDocs.Add(new ParameterCodeEntity
+                {
+                    ParameterFieldID = t.LanguageId,
+                    Name = t.DocumentPath
+                });
+            }
+            foreach ( var t in TrainingDocs.Model)
+            {
+                ListLanguage.Add(new ParameterCodeEntity
+                {
+                    ParameterFieldID = t.LanguageId,
+                    Name = t.Language.LanguageName
+                });
+            }
+           
             var response = new SingleResponse<EmployeeTrainingDocResponse>();
-           response.Model = responseEmployeeId.Model.ToEntity( site.Model.SiteId??0, TrainingDocs.Model);
+           response.Model = responseEmployeeId.Model.ToEntity( site.Model.SiteId??0, ListTrainingDocs, ListLanguage);
           
             return response.ToHttpResponse();
         }

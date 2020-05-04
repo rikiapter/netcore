@@ -114,5 +114,21 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
 
+        
+        // POST
+        public async Task<SingleResponse<EmployeeTemperature>> CreateEmployeeTemperatureAsync(EmployeeTemperature temperature)
+        {
+            var response = new SingleResponse<EmployeeTemperature>();
+
+            // Add entity to repository
+            DbContext.Add(temperature, UserInfo);
+            // Save entity in database
+            await DbContext.SaveChangesAsync();
+
+            response.Model = temperature;
+
+            return response;
+        }
+
     }
 }

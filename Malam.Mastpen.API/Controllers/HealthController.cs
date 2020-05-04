@@ -26,24 +26,27 @@ namespace Malam.Mastpen.API.Controllers
 {
 
 #pragma warning disable CS1591
-    [Authorize]
+
     [ApiController]
     [Route("api/v1/[controller]")]
     public class HealthController : MastpenController
     {
         protected readonly IRothschildHouseIdentityClient RothschildHouseIdentityClient;
+        protected readonly EmployeeService EmployeeService;
         protected readonly HealthService HealthService;
         protected readonly AlertService AlertService;
 
         public HealthController(
             IRothschildHouseIdentityClient rothschildHouseIdentityClient,
                  HealthService healthService,
-                 AlertService alertService)
+                 AlertService alertService,
+                 EmployeeService employeeService)
         {
             RothschildHouseIdentityClient = rothschildHouseIdentityClient;
             HealthService = healthService;
             HealthService.UserInfo = UserInfo;
             AlertService = alertService;
+            EmployeeService = employeeService;
 
 
         }
@@ -66,7 +69,7 @@ namespace Malam.Mastpen.API.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(404)]
         [ProducesResponseType(500)]
-
+        [Authorize]
         public async Task<IActionResult> GetMainScreenHealthAsync(int Id)
         {
             //נתונים כלליים
@@ -94,7 +97,7 @@ namespace Malam.Mastpen.API.Controllers
         /// <response code="200">Returns the Site Employee list</response>
         /// <response code="500">If there was an internal server error</response>
         [HttpGet("Employee")]
-
+        [Authorize]
         public async Task<IActionResult> GetEmployeesAsync(
             int pageSize = 10,
             int pageNumber = 1,
@@ -119,6 +122,60 @@ namespace Malam.Mastpen.API.Controllers
             // Return as http response
             return response.ToHttpResponse();
         }
+
+        // POST
+        // api/v1/Employee/Temperature/
+
+        /// <summary>
+        /// Creates a new Temperature
+        /// מצמיד חום כלשהוא לאדם מסוים
+        /// </summary>
+        /// <param name="request">Request model</param>
+        /// <response code="400">For bad request</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpPost("Temperature")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> PostEmployeeTemperatureAsync([FromBody]EmployeeTemperature request)
+        {
+            Random random = new Random();
+         
+            request.Temperature = random.Next(36, 39);
+            var response = await HealthService.CreateEmployeeTemperatureAsync(request);
+
+            return response.ToHttpResponse();
+        }
+
+        // GET
+        // api/v1/Employee/EmployeeTraining
+
+        /// <summary>
+        /// Retrieves a EmployeeTraining by EmployeeId
+        /// בדיקה אם יש הצהרת בריאות תקפה להיום
+        ///רשימת הדרכות
+        ///1=תדריך בטיחות
+        ///4=הצהרת בריאות
+        /// </summary>
+        /// <param name="EmployeeId">Employee Id</param>
+        /// <returns>A response with EmployeeTraining</returns>
+        /// <response code="200">Returns the EmployeeTraining list</response>
+        /// <response code="404">If EmployeeTraining is not exists</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpGet("EmployeeTraining")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> GetEmployeeTrainingAsync(int EmployeeId, int TrainingTypeId)
+        {
+            var response = await EmployeeService.GetEmployeeTrainingByEmployeeIdAsync(EmployeeId, TrainingTypeId);
+            var res = new SingleResponse<EmployeeTrainingRequest>();
+            res.Model=   response.Model.Where(x => x.DateFrom < DateTime.Now && x.DateTo > DateTime.Now).FirstOrDefault();
+           
+            return res.ToHttpResponse();
+        }
+
 
     }
 }
