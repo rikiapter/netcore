@@ -79,8 +79,8 @@ namespace Malam.Mastpen.API.Controllers
             {
                 ListTrainingDocs.Add(new ParameterCodeEntity
                 {
-                    ParameterFieldID = t.LanguageId,
-                    Name = t.DocumentPath
+                    ParameterFieldID = t.LanguageId, //שפה
+                    Name = t.DocumentPath            //נתיב
                 });
             }
             foreach ( var t in TrainingDocs.Model)
