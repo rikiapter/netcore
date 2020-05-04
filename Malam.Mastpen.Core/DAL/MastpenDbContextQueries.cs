@@ -230,6 +230,25 @@ namespace Malam.Mastpen.Core.DAL
         => await dbContext.SiteEmployee.Include(b => b.Site)
         .FirstOrDefaultAsync(item => item.EmployeeId == entity.EmployeeId);
 
+        public static IQueryable<EquipmenAtSite> GetSiteByEquipmentIdAsync(this MastpenBitachonDbContext dbContext, EquipmenAtSite entity)
+=> dbContext.EquipmenAtSite.Where(item => item.EquipmentId == entity.EquipmentId).DefaultIfEmpty();
+
+
+        public static IQueryable<EmployeeEntry> GetEmployeeEntryByGuid(this MastpenBitachonDbContext dbContext, string guid)
+=> dbContext.EmployeeEntry.Where(item => item.Guid == guid).DefaultIfEmpty();
+
+        public static IQueryable<Employee> GetEmployeeByGuid(this MastpenBitachonDbContext dbContext, string guid)
+        {
+            var query = from employee in dbContext.Employee
+
+                        join employeeEntry in dbContext.EmployeeEntry
+                           .Where(item => item.Guid == guid)
+                           on employee.EmployeeId equals employeeEntry.EmployeeId
+
+                        select employee;
+
+            return query;
+        }
         /// <summary>
         /// מקבל קוד טבלה וקוד בתוך הטבלה
         /// לדוגמא 1 טבלת אתרים
@@ -418,6 +437,48 @@ namespace Malam.Mastpen.Core.DAL
             return query;
         }
 
+        public static IQueryable<Alerts> GetAlertsAsync(this MastpenBitachonDbContext dbContext, int siteId,int ModuleID)
+   => dbContext.Alerts.Where(item => item.SiteId == siteId)
+                      .Where(x => x.Date > DateTime.Now.Date.AddDays(-1))
+                      .Where(x=>x.AlertType.ModuleID == ModuleID)
+                      .DefaultIfEmpty()
+                      .Include(x => x.AlertType)
+                      .Include(x => x.EntityType);
+
+        //  select alert.ToEntity(null);
+
+        //todo
+        //להוסיף פה גם את הישות
+        //id and name
+
+        //    return query;
+        //}
+
+
+        public static IQueryable<Alerts> GetAlerts(this MastpenBitachonDbContext dbContext, int siteId)
+         => dbContext.Alerts.Where(item => item.SiteId == siteId);
+
+        public static IQueryable<TrainingDocs> GetTrainingDocs(this MastpenBitachonDbContext dbContext, int? OrganizationId = null, int? LanguageId = null, int? DocumentTypeId = null)
+        {
+            // Get query from DbSet
+            var query = from Employee in dbContext.TrainingDocs.Where(x => x.State == true).AsQueryable()
+                        select Employee;
+
+            if (OrganizationId.HasValue)
+                query = query.Where(item => item.OrganizationId == OrganizationId);
+
+
+
+            if (LanguageId.HasValue)
+                query = query.Where(item => item.LanguageId == LanguageId);
+
+            if (DocumentTypeId.HasValue)
+                query = query.Where(item => item.DocumentTypeId == DocumentTypeId);
+
+            return query;
+
+
+        }
 
 
         /// <summary>
@@ -453,6 +514,31 @@ namespace Malam.Mastpen.Core.DAL
 
             return dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId;
 
+        }
+
+        public static IQueryable<ParameterCodeEntity> GetEntityTable(this MastpenBitachonDbContext dbContext, string tableName, int entityId)
+        {
+
+            if (tableName == GetTableNameByType(dbContext, typeof(Employee)).Result)
+            {
+                return from entityType in dbContext.Employee.Where(x => x.EmployeeId == entityId)
+                       select new ParameterCodeEntity
+                       {
+                           ParameterFieldID = entityType.EmployeeId,
+                           Name = entityType.FirstName + " " + entityType.LastName
+                       };
+            }
+            if (tableName == GetTableNameByType(dbContext, typeof(Organization)).Result)
+            {
+                return from entityType in dbContext.Organization.Where(x => x.OrganizationId == entityId)
+                       select new ParameterCodeEntity
+                       {
+                           ParameterFieldID = entityType.OrganizationId,
+                           Name = entityType.OrganizationName
+                       };
+            }
+
+            return null;
         }
     }
 }

@@ -1,0 +1,439 @@
+2020-04-26 06:16:54,338 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-04-26 06:16:54,539 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-04-26 06:16:55,115 INFO - Request finished in 779.2669ms 200 text/html
+2020-04-26 06:16:55,980 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-04-26 06:16:55,987 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-04-26 06:16:59,564 INFO - Request finished in 3591.3765ms 200 application/json;charset=utf-8
+2020-04-26 11:11:30,782 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-04-26 11:11:30,825 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-04-26 11:11:31,114 INFO - Request finished in 348.3973ms 200 text/html
+2020-04-26 11:11:31,536 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-04-26 11:11:31,547 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-04-26 11:11:32,314 INFO - Request finished in 757.7489ms 200 application/json;charset=utf-8
+2020-04-26 11:12:27,987 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/MainScreenHealth/1  
+2020-04-26 11:12:27,992 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-04-26 11:12:28,076 INFO - Route matched with {action = "GetMainScreenHealthAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync (Malam.Mastpen.HR.API)
+2020-04-26 11:12:28,088 INFO - Authorization failed.
+2020-04-26 11:12:28,089 INFO - Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2020-04-26 11:12:28,093 INFO - Executing ChallengeResult with authentication schemes ().
+2020-04-26 11:12:30,468 INFO - AuthenticationScheme: BearerIdentityServerAuthenticationJwt was challenged.
+2020-04-26 11:12:30,469 INFO - AuthenticationScheme: Bearer was challenged.
+2020-04-26 11:12:30,472 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync (Malam.Mastpen.HR.API) in 2393.5053ms
+2020-04-26 11:12:30,477 INFO - Request finished in 2489.2768ms 401 
+2020-04-26 11:12:47,509 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/MainScreenHealth/2  
+2020-04-26 11:12:47,511 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-04-26 11:12:47,512 INFO - Route matched with {action = "GetMainScreenHealthAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync (Malam.Mastpen.HR.API)
+2020-04-26 11:12:47,515 INFO - Authorization failed.
+2020-04-26 11:12:47,517 INFO - Authorization failed for the request at filter 'Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter'.
+2020-04-26 11:12:47,520 INFO - Executing ChallengeResult with authentication schemes ().
+2020-04-26 11:12:47,523 INFO - AuthenticationScheme: BearerIdentityServerAuthenticationJwt was challenged.
+2020-04-26 11:12:47,525 INFO - AuthenticationScheme: Bearer was challenged.
+2020-04-26 11:12:47,527 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync (Malam.Mastpen.HR.API) in 13.0308ms
+2020-04-26 11:12:47,529 INFO - Request finished in 19.6627ms 401 
+2020-04-26 11:13:06,883 INFO - Request starting HTTP/1.1 GET http://localhost:59821/oauth2-redirect.html  
+2020-04-26 11:13:06,884 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-04-26 11:13:06,895 INFO - Sending file. Request path: '/oauth2-redirect.html'. Physical path: 'N/A'
+2020-04-26 11:13:06,898 INFO - Request finished in 13.6122ms 200 text/html
+2020-04-26 11:13:15,356 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/MainScreenHealth/2  
+2020-04-26 11:13:16,588 INFO - Successfully validated the token.
+2020-04-26 11:13:16,594 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-04-26 11:13:16,596 INFO - Route matched with {action = "GetMainScreenHealthAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync (Malam.Mastpen.HR.API)
+2020-04-26 11:13:16,598 INFO - Authorization was successful.
+2020-04-26 11:13:16,608 INFO - test log
+2020-04-26 11:13:19,280 ERROR - There was a critical error on 'GetMainScreenHealthAsync':   System.InvalidOperationException: Unable to resolve service for type 'Malam.Mastpen.Core.BL.Services.HealthService' while attempting to activate 'Malam.Mastpen.API.Controllers.HealthController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2020-04-26 11:13:19,291 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-04-26 11:13:19,302 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync (Malam.Mastpen.HR.API) in 2704.5446ms
+2020-04-26 11:13:19,305 INFO - Request finished in 3949.1687ms 200 application/json; charset=utf-8
+2020-04-26 11:13:49,574 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/MainScreenHealth/2  
+2020-04-26 11:13:49,576 INFO - Successfully validated the token.
+2020-04-26 11:13:49,578 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-04-26 11:13:49,579 INFO - Route matched with {action = "GetMainScreenHealthAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync (Malam.Mastpen.HR.API)
+2020-04-26 11:13:49,580 INFO - Authorization was successful.
+2020-04-26 11:13:49,580 INFO - test log
+2020-04-26 11:13:49,581 ERROR - There was a critical error on 'GetMainScreenHealthAsync':   System.InvalidOperationException: Unable to resolve service for type 'Malam.Mastpen.Core.BL.Services.HealthService' while attempting to activate 'Malam.Mastpen.API.Controllers.HealthController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2020-04-26 11:13:49,586 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-04-26 11:13:49,591 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync (Malam.Mastpen.HR.API) in 7.9792ms
+2020-04-26 11:13:49,592 INFO - Request finished in 18.1429ms 200 application/json; charset=utf-8
+2020-04-26 11:13:56,300 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/MainScreenHealth/2  
+2020-04-26 11:13:56,302 INFO - Successfully validated the token.
+2020-04-26 11:13:56,303 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-04-26 11:13:56,304 INFO - Route matched with {action = "GetMainScreenHealthAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync (Malam.Mastpen.HR.API)
+2020-04-26 11:13:56,306 INFO - Authorization was successful.
+2020-04-26 11:13:56,307 INFO - test log
+2020-04-26 11:13:56,308 ERROR - There was a critical error on 'GetMainScreenHealthAsync':   System.InvalidOperationException: Unable to resolve service for type 'Malam.Mastpen.Core.BL.Services.HealthService' while attempting to activate 'Malam.Mastpen.API.Controllers.HealthController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2020-04-26 11:13:56,309 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-04-26 11:13:56,311 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync (Malam.Mastpen.HR.API) in 5.0622ms
+2020-04-26 11:13:56,314 INFO - Request finished in 13.4425ms 200 application/json; charset=utf-8
+2020-04-26 11:15:40,875 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-04-26 11:15:40,926 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-04-26 11:15:41,218 INFO - Request finished in 325.1728ms 200 text/html
+2020-04-26 11:15:41,503 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-04-26 11:15:41,517 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-04-26 11:15:42,215 INFO - Request finished in 711.1907ms 200 application/json;charset=utf-8
+2020-04-26 11:15:58,358 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/MainScreenHealth/2  
+2020-04-26 11:16:00,158 INFO - Successfully validated the token.
+2020-04-26 11:16:00,179 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-04-26 11:16:00,301 INFO - Route matched with {action = "GetMainScreenHealthAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync (Malam.Mastpen.HR.API)
+2020-04-26 11:16:00,330 INFO - Authorization was successful.
+2020-04-26 11:16:00,344 INFO - test log
+2020-04-26 11:16:00,400 ERROR - There was a critical error on 'GetMainScreenHealthAsync':   System.InvalidOperationException: Unable to resolve service for type 'Malam.Mastpen.Core.BL.Services.HealthService' while attempting to activate 'Malam.Mastpen.API.Controllers.HealthController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2020-04-26 11:16:00,417 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-04-26 11:16:00,474 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync (Malam.Mastpen.HR.API) in 125.6447ms
+2020-04-26 11:16:00,563 INFO - Request finished in 2122.4702ms 200 application/json; charset=utf-8
+2020-04-26 11:16:17,710 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/MainScreenHealth/1  
+2020-04-26 11:16:17,720 INFO - Successfully validated the token.
+2020-04-26 11:16:17,743 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-04-26 11:16:17,760 INFO - Route matched with {action = "GetMainScreenHealthAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync (Malam.Mastpen.HR.API)
+2020-04-26 11:16:17,763 INFO - Authorization was successful.
+2020-04-26 11:16:17,764 INFO - test log
+2020-04-26 11:16:17,764 ERROR - There was a critical error on 'GetMainScreenHealthAsync':   System.InvalidOperationException: Unable to resolve service for type 'Malam.Mastpen.Core.BL.Services.HealthService' while attempting to activate 'Malam.Mastpen.API.Controllers.HealthController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2020-04-26 11:16:17,766 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-04-26 11:16:17,771 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync (Malam.Mastpen.HR.API) in 6.2272ms
+2020-04-26 11:16:17,773 INFO - Request finished in 120.1397ms 200 application/json; charset=utf-8
+2020-04-26 11:17:24,856 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/Employee?pageSize=10&pageNumber=1&isEmployeeEntry=false&sortByAuthtorization=false&sortByTraining=false&sortByWorkPermit=false  
+2020-04-26 11:17:24,858 INFO - Successfully validated the token.
+2020-04-26 11:17:24,860 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-04-26 11:17:24,870 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2020-04-26 11:17:24,872 INFO - Authorization was successful.
+2020-04-26 11:17:24,873 INFO - test log
+2020-04-26 11:17:24,873 ERROR - There was a critical error on 'GetEmployeesAsync':   System.InvalidOperationException: Unable to resolve service for type 'Malam.Mastpen.Core.BL.Services.HealthService' while attempting to activate 'Malam.Mastpen.API.Controllers.HealthController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2020-04-26 11:17:24,875 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-04-26 11:17:24,881 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 5.189ms
+2020-04-26 11:17:24,883 INFO - Request finished in 29.9974ms 200 application/json; charset=utf-8
+2020-04-26 11:17:48,404 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/Employee?pageSize=10&pageNumber=1&isEmployeeEntry=false&sortByAuthtorization=false&sortByTraining=false&sortByWorkPermit=false  
+2020-04-26 11:17:48,409 INFO - Successfully validated the token.
+2020-04-26 11:17:48,413 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-04-26 11:17:48,415 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2020-04-26 11:17:48,417 INFO - Authorization was successful.
+2020-04-26 11:17:48,418 INFO - test log
+2020-04-26 11:17:48,418 ERROR - There was a critical error on 'GetEmployeesAsync':   System.InvalidOperationException: Unable to resolve service for type 'Malam.Mastpen.Core.BL.Services.HealthService' while attempting to activate 'Malam.Mastpen.API.Controllers.HealthController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2020-04-26 11:17:48,420 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-04-26 11:17:48,422 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 5.5064ms
+2020-04-26 11:17:48,427 INFO - Request finished in 20.3139ms 200 application/json; charset=utf-8
+2020-04-26 11:18:19,376 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee?pageSize=10&pageNumber=1&isEmployeeEntry=false&sortByAuthtorization=false&sortByTraining=false&sortByWorkPermit=false  
+2020-04-26 11:18:19,378 INFO - Successfully validated the token.
+2020-04-26 11:18:19,379 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-04-26 11:18:19,390 INFO - Route matched with {action = "GetEmployeesAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API)
+2020-04-26 11:18:19,392 INFO - Authorization was successful.
+2020-04-26 11:18:20,705 INFO - 'GetEmployeesAsync' has been invoked
+2020-04-26 11:18:20,709 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , , , , , , , False, False, False, False) - Validation state: Valid
+2020-04-26 11:18:21,963 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-26 11:18:22,173 WARN - The Include operation for navigation '[b].IdentificationType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-04-26 11:18:22,174 WARN - The Include operation for navigation '[b].Organization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-04-26 11:18:22,176 WARN - The Include operation for navigation '[b].EmployeeProffesionType.ProffesionType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-04-26 11:18:22,177 WARN - The Include operation for navigation '[b].PassportCountry' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-04-26 11:18:22,178 WARN - The Include operation for navigation '[b].EmployeeAuthtorization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-04-26 11:18:22,179 WARN - The Include operation for navigation '[b].EmployeeTraining' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-04-26 11:18:22,180 WARN - The Include operation for navigation '[b].EmployeeWorkPermit' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-04-26 11:18:23,360 INFO - Executed DbCommand (97ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [b]
+LEFT JOIN (
+    SELECT [a].[DocumentID], [a].[dateInsert], [a].[dateUpdate], [a].[DocumentDate], [a].[DocumentPath], [a].[DocumentTypeID], [a].[EntityID], [a].[EntityTypeID], [a].[IsDocumentSigned], [a].[LanguageID], [a].[state], [a].[userInsert], [a].[UserUpdate], [a].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_0
+    )) AND ([a].[DocumentTypeID] = 7)
+) AS [t] ON [b].[EmployeeID] = [t].[EntityID]
+LEFT JOIN (
+    SELECT [item0].*
+    FROM [BB_EC_EmployeeEntry] AS [item0]
+    WHERE CONVERT(date, [item0].[Date]) = CONVERT(date, GETDATE())
+) AS [t0] ON [b].[EmployeeID] = [t0].[EmployeeID]
+LEFT JOIN (
+    SELECT [a0].[EquipmentAtSiteID], [a0].[Comment], [a0].[DateFrom], [a0].[dateInsert], [a0].[DateTo], [a0].[dateUpdate], [a0].[EquipmentID], [a0].[SiteID], [a0].[state], [a0].[userInsert], [a0].[UserUpdate]
+    FROM [BB_EC_EquipmenAtSite] AS [a0]
+    WHERE [a0].[SiteID] IS NULL
+) AS [t1] ON [t0].[EquipmentID] = [t1].[EquipmentID]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [b].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture] ON [b].[EmployeeID] = [docsEmplyeePicture].[EmployeeID]
+2020-04-26 11:18:23,428 WARN - Query: '(from Employee b in DbSet<Employee> join Docs docsFaceImage in  from Docs a in DbSet<Docs> where [a]...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2020-04-26 11:18:23,932 INFO - Executed DbCommand (85ms) [Parameters=[@__tableName_0='?' (Size = 50), @__p_2='?' (DbType = Int32), @__p_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b].[EmployeeID], [b].[Address], [b].[BirthDate], [b].[Citizenship], [b].[dateInsert], [b].[dateUpdate], [b].[FirstName], [b].[FirstNameEN], [b].[GenderID], [b].[IdentificationTypeID], [b].[IdentityNumber], [b].[LastName], [b].[LastNameEN], [b].[OrganizationID], [b].[PassportCountryID], [b].[state], [b].[userInsert], [b].[UserUpdate], [b.PassportCountry].[CountryID], [b.PassportCountry].[CountryName], [b.PassportCountry].[dateInsert], [b.PassportCountry].[dateUpdate], [b.PassportCountry].[LanguageID], [b.PassportCountry].[state], [b.PassportCountry].[userInsert], [b.PassportCountry].[UserUpdate], [b.Organization].[OrganizationID], [b.Organization].[Comment], [b.Organization].[dateInsert], [b.Organization].[dateUpdate], [b.Organization].[OrganizationExpertiseTypeID], [b.Organization].[OrganizationFaceGroup], [b.Organization].[OrganizationName], [b.Organization].[OrganizationNumber], [b.Organization].[OrganizationParentID], [b.Organization].[OrganizationTypeID], [b.Organization].[state], [b.Organization].[userInsert], [b.Organization].[UserUpdate], [b.IdentificationType].[IdentificationTypeID], [b.IdentificationType].[Comment], [b.IdentificationType].[dateInsert], [b.IdentificationType].[dateUpdate], [b.IdentificationType].[IdentificationTypeName], [b.IdentificationType].[state], [b.IdentificationType].[userInsert], [b.IdentificationType].[UserUpdate], [t].[DocumentID], [t].[dateInsert], [t].[dateUpdate], [t].[DocumentDate], [t].[DocumentPath], [t].[DocumentTypeID], [t].[EntityID], [t].[EntityTypeID], [t].[IsDocumentSigned], [t].[LanguageID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t].[ValIdDate], [t1].[EquipmentAtSiteID], [t1].[Comment], [t1].[DateFrom], [t1].[dateInsert], [t1].[DateTo], [t1].[dateUpdate], [t1].[EquipmentID], [t1].[SiteID], [t1].[state], [t1].[userInsert], [t1].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [docsEmplyeePicture].[EmployeePictureID], [docsEmplyeePicture].[dateInsert], [docsEmplyeePicture].[dateUpdate], [docsEmplyeePicture].[EmployeeFacePrintID], [docsEmplyeePicture].[EmployeeID], [docsEmplyeePicture].[EmployeePicture], [docsEmplyeePicture].[IsUniqueDoc], [docsEmplyeePicture].[state], [docsEmplyeePicture].[userInsert], [docsEmplyeePicture].[UserUpdate]
+FROM [BB_HR_Employee] AS [b]
+LEFT JOIN [BB_GEN_Country] AS [b.PassportCountry] ON [b].[PassportCountryID] = [b.PassportCountry].[CountryID]
+LEFT JOIN [BB_GEN_Organization] AS [b.Organization] ON [b].[OrganizationID] = [b.Organization].[OrganizationID]
+LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType] ON [b].[IdentificationTypeID] = [b.IdentificationType].[IdentificationTypeID]
+LEFT JOIN (
+    SELECT [a].[DocumentID], [a].[dateInsert], [a].[dateUpdate], [a].[DocumentDate], [a].[DocumentPath], [a].[DocumentTypeID], [a].[EntityID], [a].[EntityTypeID], [a].[IsDocumentSigned], [a].[LanguageID], [a].[state], [a].[userInsert], [a].[UserUpdate], [a].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_0
+    )) AND ([a].[DocumentTypeID] = 7)
+) AS [t] ON [b].[EmployeeID] = [t].[EntityID]
+LEFT JOIN (
+    SELECT [item0].*
+    FROM [BB_EC_EmployeeEntry] AS [item0]
+    WHERE CONVERT(date, [item0].[Date]) = CONVERT(date, GETDATE())
+) AS [t0] ON [b].[EmployeeID] = [t0].[EmployeeID]
+LEFT JOIN (
+    SELECT [a0].[EquipmentAtSiteID], [a0].[Comment], [a0].[DateFrom], [a0].[dateInsert], [a0].[DateTo], [a0].[dateUpdate], [a0].[EquipmentID], [a0].[SiteID], [a0].[state], [a0].[userInsert], [a0].[UserUpdate]
+    FROM [BB_EC_EquipmenAtSite] AS [a0]
+    WHERE [a0].[SiteID] IS NULL
+) AS [t1] ON [t0].[EquipmentID] = [t1].[EquipmentID]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [b].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture] ON [b].[EmployeeID] = [docsEmplyeePicture].[EmployeeID]
+ORDER BY [b].[EmployeeID]
+OFFSET @__p_2 ROWS FETCH NEXT @__p_3 ROWS ONLY
+2020-04-26 11:18:24,302 INFO - Executed DbCommand (84ms) [Parameters=[@__tableName_0='?' (Size = 50), @__p_2='?' (DbType = Int32), @__p_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeProffesionType].[EmployeeAuthorizationID], [b.EmployeeProffesionType].[Comment], [b.EmployeeProffesionType].[dateInsert], [b.EmployeeProffesionType].[dateUpdate], [b.EmployeeProffesionType].[EmployeeID], [b.EmployeeProffesionType].[ProffesionTypeID], [b.EmployeeProffesionType].[state], [b.EmployeeProffesionType].[userInsert], [b.EmployeeProffesionType].[UserUpdate], [e.ProffesionType].[ProffesionTypeID], [e.ProffesionType].[Comment], [e.ProffesionType].[dateInsert], [e.ProffesionType].[dateUpdate], [e.ProffesionType].[ProffesionTypeName], [e.ProffesionType].[state], [e.ProffesionType].[userInsert], [e.ProffesionType].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [b.EmployeeProffesionType]
+LEFT JOIN [BB_HR_ProffesionType] AS [e.ProffesionType] ON [b.EmployeeProffesionType].[ProffesionTypeID] = [e.ProffesionType].[ProffesionTypeID]
+INNER JOIN (
+    SELECT DISTINCT [t5].*
+    FROM (
+        SELECT [b0].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b0]
+        LEFT JOIN [BB_GEN_Country] AS [b.PassportCountry0] ON [b0].[PassportCountryID] = [b.PassportCountry0].[CountryID]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization0] ON [b0].[OrganizationID] = [b.Organization0].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType0] ON [b0].[IdentificationTypeID] = [b.IdentificationType0].[IdentificationTypeID]
+        LEFT JOIN (
+            SELECT [a1].*
+            FROM [BB_GEN_Docs] AS [a1]
+            WHERE ([a1].[EntityTypeID] = (
+                SELECT TOP(1) [item1].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item1]
+                WHERE [item1].[EntityTypeName] = @__tableName_0
+            )) AND ([a1].[DocumentTypeID] = 7)
+        ) AS [t2] ON [b0].[EmployeeID] = [t2].[EntityID]
+        LEFT JOIN (
+            SELECT [item2].*
+            FROM [BB_EC_EmployeeEntry] AS [item2]
+            WHERE CONVERT(date, [item2].[Date]) = CONVERT(date, GETDATE())
+        ) AS [t3] ON [b0].[EmployeeID] = [t3].[EmployeeID]
+        LEFT JOIN (
+            SELECT [a2].*
+            FROM [BB_EC_EquipmenAtSite] AS [a2]
+            WHERE [a2].[SiteID] IS NULL
+        ) AS [t4] ON [t3].[EquipmentID] = [t4].[EquipmentID]
+        LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee0] ON [b0].[EmployeeID] = [siteEmployee0].[EmployeeID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture0] ON [b0].[EmployeeID] = [docsEmplyeePicture0].[EmployeeID]
+        ORDER BY [b0].[EmployeeID]
+        OFFSET @__p_2 ROWS FETCH NEXT @__p_3 ROWS ONLY
+    ) AS [t5]
+) AS [t6] ON [b.EmployeeProffesionType].[EmployeeID] = [t6].[EmployeeID]
+ORDER BY [t6].[EmployeeID]
+2020-04-26 11:18:24,421 INFO - Executed DbCommand (83ms) [Parameters=[@__tableName_0='?' (Size = 50), @__p_2='?' (DbType = Int32), @__p_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeAuthtorization].[EmployeeAuthorizationID], [b.EmployeeAuthtorization].[AuthorizationTypeID], [b.EmployeeAuthtorization].[Comment], [b.EmployeeAuthtorization].[DateFrom], [b.EmployeeAuthtorization].[dateInsert], [b.EmployeeAuthtorization].[DateTo], [b.EmployeeAuthtorization].[dateUpdate], [b.EmployeeAuthtorization].[EmployeeAuthorizationName], [b.EmployeeAuthtorization].[EmployeeID], [b.EmployeeAuthtorization].[SiteId], [b.EmployeeAuthtorization].[state], [b.EmployeeAuthtorization].[userInsert], [b.EmployeeAuthtorization].[UserUpdate]
+FROM [BB_HR_EmployeeAuthtorization] AS [b.EmployeeAuthtorization]
+INNER JOIN (
+    SELECT DISTINCT [t10].*
+    FROM (
+        SELECT [b1].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b1]
+        LEFT JOIN [BB_GEN_Country] AS [b.PassportCountry1] ON [b1].[PassportCountryID] = [b.PassportCountry1].[CountryID]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization1] ON [b1].[OrganizationID] = [b.Organization1].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType1] ON [b1].[IdentificationTypeID] = [b.IdentificationType1].[IdentificationTypeID]
+        LEFT JOIN (
+            SELECT [a3].*
+            FROM [BB_GEN_Docs] AS [a3]
+            WHERE ([a3].[EntityTypeID] = (
+                SELECT TOP(1) [item3].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item3]
+                WHERE [item3].[EntityTypeName] = @__tableName_0
+            )) AND ([a3].[DocumentTypeID] = 7)
+        ) AS [t7] ON [b1].[EmployeeID] = [t7].[EntityID]
+        LEFT JOIN (
+            SELECT [item4].*
+            FROM [BB_EC_EmployeeEntry] AS [item4]
+            WHERE CONVERT(date, [item4].[Date]) = CONVERT(date, GETDATE())
+        ) AS [t8] ON [b1].[EmployeeID] = [t8].[EmployeeID]
+        LEFT JOIN (
+            SELECT [a4].*
+            FROM [BB_EC_EquipmenAtSite] AS [a4]
+            WHERE [a4].[SiteID] IS NULL
+        ) AS [t9] ON [t8].[EquipmentID] = [t9].[EquipmentID]
+        LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee1] ON [b1].[EmployeeID] = [siteEmployee1].[EmployeeID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture1] ON [b1].[EmployeeID] = [docsEmplyeePicture1].[EmployeeID]
+        ORDER BY [b1].[EmployeeID]
+        OFFSET @__p_2 ROWS FETCH NEXT @__p_3 ROWS ONLY
+    ) AS [t10]
+) AS [t11] ON [b.EmployeeAuthtorization].[EmployeeID] = [t11].[EmployeeID]
+ORDER BY [t11].[EmployeeID]
+2020-04-26 11:18:24,553 INFO - Executed DbCommand (114ms) [Parameters=[@__tableName_0='?' (Size = 50), @__p_2='?' (DbType = Int32), @__p_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeTraining].[EmployeeTrainingID], [b.EmployeeTraining].[Comment], [b.EmployeeTraining].[DateFrom], [b.EmployeeTraining].[dateInsert], [b.EmployeeTraining].[DateTo], [b.EmployeeTraining].[dateUpdate], [b.EmployeeTraining].[EmployeeID], [b.EmployeeTraining].[EmployeeTrainingName], [b.EmployeeTraining].[SiteID], [b.EmployeeTraining].[state], [b.EmployeeTraining].[TrainingTypeID], [b.EmployeeTraining].[userInsert], [b.EmployeeTraining].[UserUpdate]
+FROM [BB_HR_EmployeeTraining] AS [b.EmployeeTraining]
+INNER JOIN (
+    SELECT DISTINCT [t15].*
+    FROM (
+        SELECT [b2].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b2]
+        LEFT JOIN [BB_GEN_Country] AS [b.PassportCountry2] ON [b2].[PassportCountryID] = [b.PassportCountry2].[CountryID]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization2] ON [b2].[OrganizationID] = [b.Organization2].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType2] ON [b2].[IdentificationTypeID] = [b.IdentificationType2].[IdentificationTypeID]
+        LEFT JOIN (
+            SELECT [a5].*
+            FROM [BB_GEN_Docs] AS [a5]
+            WHERE ([a5].[EntityTypeID] = (
+                SELECT TOP(1) [item5].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item5]
+                WHERE [item5].[EntityTypeName] = @__tableName_0
+            )) AND ([a5].[DocumentTypeID] = 7)
+        ) AS [t12] ON [b2].[EmployeeID] = [t12].[EntityID]
+        LEFT JOIN (
+            SELECT [item6].*
+            FROM [BB_EC_EmployeeEntry] AS [item6]
+            WHERE CONVERT(date, [item6].[Date]) = CONVERT(date, GETDATE())
+        ) AS [t13] ON [b2].[EmployeeID] = [t13].[EmployeeID]
+        LEFT JOIN (
+            SELECT [a6].*
+            FROM [BB_EC_EquipmenAtSite] AS [a6]
+            WHERE [a6].[SiteID] IS NULL
+        ) AS [t14] ON [t13].[EquipmentID] = [t14].[EquipmentID]
+        LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee2] ON [b2].[EmployeeID] = [siteEmployee2].[EmployeeID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture2] ON [b2].[EmployeeID] = [docsEmplyeePicture2].[EmployeeID]
+        ORDER BY [b2].[EmployeeID]
+        OFFSET @__p_2 ROWS FETCH NEXT @__p_3 ROWS ONLY
+    ) AS [t15]
+) AS [t16] ON [b.EmployeeTraining].[EmployeeID] = [t16].[EmployeeID]
+ORDER BY [t16].[EmployeeID]
+2020-04-26 11:18:24,654 INFO - Executed DbCommand (83ms) [Parameters=[@__tableName_0='?' (Size = 50), @__p_2='?' (DbType = Int32), @__p_3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeWorkPermit].[EmployeeWorkPermitID], [b.EmployeeWorkPermit].[Comment], [b.EmployeeWorkPermit].[DateFrom], [b.EmployeeWorkPermit].[dateInsert], [b.EmployeeWorkPermit].[DateTo], [b.EmployeeWorkPermit].[dateUpdate], [b.EmployeeWorkPermit].[EmployeeID], [b.EmployeeWorkPermit].[EmployeeWorkPermitName], [b.EmployeeWorkPermit].[IsRequired], [b.EmployeeWorkPermit].[SiteID], [b.EmployeeWorkPermit].[state], [b.EmployeeWorkPermit].[userInsert], [b.EmployeeWorkPermit].[UserUpdate]
+FROM [BB_HR_EmployeeWorkPermit] AS [b.EmployeeWorkPermit]
+INNER JOIN (
+    SELECT DISTINCT [t20].*
+    FROM (
+        SELECT [b3].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b3]
+        LEFT JOIN [BB_GEN_Country] AS [b.PassportCountry3] ON [b3].[PassportCountryID] = [b.PassportCountry3].[CountryID]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization3] ON [b3].[OrganizationID] = [b.Organization3].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType3] ON [b3].[IdentificationTypeID] = [b.IdentificationType3].[IdentificationTypeID]
+        LEFT JOIN (
+            SELECT [a7].*
+            FROM [BB_GEN_Docs] AS [a7]
+            WHERE ([a7].[EntityTypeID] = (
+                SELECT TOP(1) [item7].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item7]
+                WHERE [item7].[EntityTypeName] = @__tableName_0
+            )) AND ([a7].[DocumentTypeID] = 7)
+        ) AS [t17] ON [b3].[EmployeeID] = [t17].[EntityID]
+        LEFT JOIN (
+            SELECT [item8].*
+            FROM [BB_EC_EmployeeEntry] AS [item8]
+            WHERE CONVERT(date, [item8].[Date]) = CONVERT(date, GETDATE())
+        ) AS [t18] ON [b3].[EmployeeID] = [t18].[EmployeeID]
+        LEFT JOIN (
+            SELECT [a8].*
+            FROM [BB_EC_EquipmenAtSite] AS [a8]
+            WHERE [a8].[SiteID] IS NULL
+        ) AS [t19] ON [t18].[EquipmentID] = [t19].[EquipmentID]
+        LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee3] ON [b3].[EmployeeID] = [siteEmployee3].[EmployeeID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture3] ON [b3].[EmployeeID] = [docsEmplyeePicture3].[EmployeeID]
+        ORDER BY [b3].[EmployeeID]
+        OFFSET @__p_2 ROWS FETCH NEXT @__p_3 ROWS ONLY
+    ) AS [t20]
+) AS [t21] ON [b.EmployeeWorkPermit].[EmployeeID] = [t21].[EmployeeID]
+ORDER BY [t21].[EmployeeID]
+2020-04-26 11:18:33,090 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 12377.3272ms.
+2020-04-26 11:18:33,091 INFO - The GetEmployeesAsync have been retrieved successfully.
+2020-04-26 11:18:33,100 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-04-26 11:18:33,168 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeesAsync (Malam.Mastpen.HR.API) in 13776.2372ms
+2020-04-26 11:18:33,179 INFO - Request finished in 13800.29ms 200 application/json; charset=utf-8
+2020-04-26 11:21:07,542 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-04-26 11:21:07,595 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-04-26 11:21:07,859 INFO - Request finished in 308.6402ms 200 text/html
+2020-04-26 11:21:08,176 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-04-26 11:21:08,184 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-04-26 11:21:08,794 INFO - Request finished in 621.0397ms 200 application/json;charset=utf-8
+2020-04-26 11:21:24,649 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/MainScreenHealth/2  
+2020-04-26 11:21:26,075 INFO - Successfully validated the token.
+2020-04-26 11:21:26,086 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-04-26 11:21:26,250 INFO - Route matched with {action = "GetMainScreenHealthAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync (Malam.Mastpen.HR.API)
+2020-04-26 11:21:26,279 INFO - Authorization was successful.
+2020-04-26 11:21:27,044 INFO - 'GetMainScreenHealthAsync' has been invoked
+2020-04-26 11:21:27,125 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync (Malam.Mastpen.HR.API) with arguments (2) - Validation state: Valid
+2020-04-26 11:21:32,967 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-04-26 11:21:34,261 INFO - Executed DbCommand (94ms) [Parameters=[@__siteId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_EC_SiteEmployee] AS [item]
+WHERE [item].[SiteID] = @__siteId_0
+2020-04-26 11:21:34,410 WARN - The LINQ expression 'GroupBy([item].EmployeeId, [item])' could not be translated and will be evaluated locally.
+2020-04-26 11:21:34,414 WARN - The LINQ expression 'Count()' could not be translated and will be evaluated locally.
+2020-04-26 11:21:34,415 WARN - The LINQ expression 'Count()' could not be translated and will be evaluated locally.
+2020-04-26 11:21:34,544 INFO - Executed DbCommand (82ms) [Parameters=[@__siteId_1='?' (DbType = Int32), @__date_0='?' (DbType = Date)], CommandType='Text', CommandTimeout='30']
+SELECT [item].[EmployeeEntryID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EmployeeID], [item].[EquipmentID], [item].[state], [item].[Time], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_EC_EmployeeEntry] AS [item]
+INNER JOIN (
+    SELECT [a].*
+    FROM [BB_EC_EquipmenAtSite] AS [a]
+    WHERE [a].[SiteID] = @__siteId_1
+) AS [t] ON [item].[EquipmentID] = [t].[EquipmentID]
+WHERE CONVERT(date, [item].[Date]) >= @__date_0
+ORDER BY [item].[EmployeeID]
+2020-04-26 11:21:34,677 WARN - The LINQ expression 'GroupBy(Convert(Property([item], "EmployeeId"), Int32), [item.Employee])' could not be translated and will be evaluated locally.
+2020-04-26 11:21:34,679 WARN - The LINQ expression 'Count()' could not be translated and will be evaluated locally.
+2020-04-26 11:21:34,681 WARN - The LINQ expression 'Count()' could not be translated and will be evaluated locally.
+2020-04-26 11:21:34,794 INFO - Executed DbCommand (82ms) [Parameters=[@__siteId_1='?' (DbType = Int32), @__date_0='?' (DbType = Date)], CommandType='Text', CommandTimeout='30']
+SELECT [item.Employee].[EmployeeID], [item.Employee].[Address], [item.Employee].[BirthDate], [item.Employee].[Citizenship], [item.Employee].[dateInsert], [item.Employee].[dateUpdate], [item.Employee].[FirstName], [item.Employee].[FirstNameEN], [item.Employee].[GenderID], [item.Employee].[IdentificationTypeID], [item.Employee].[IdentityNumber], [item.Employee].[LastName], [item.Employee].[LastNameEN], [item.Employee].[OrganizationID], [item.Employee].[PassportCountryID], [item.Employee].[state], [item.Employee].[userInsert], [item.Employee].[UserUpdate], [item].[EmployeeID]
+FROM [BB_EC_EmployeeEntry] AS [item]
+LEFT JOIN [BB_HR_Employee] AS [item.Employee] ON [item].[EmployeeID] = [item.Employee].[EmployeeID]
+INNER JOIN (
+    SELECT [a].*
+    FROM [BB_EC_EquipmenAtSite] AS [a]
+    WHERE [a].[SiteID] = @__siteId_1
+) AS [t] ON [item].[EquipmentID] = [t].[EquipmentID]
+INNER JOIN (
+    SELECT [b].*
+    FROM [BB_HR_EmployeeTraining] AS [b]
+    WHERE (([b].[DateFrom] <= GETDATE()) AND ([b].[DateTo] >= GETDATE())) AND ([b].[TrainingTypeID] = 4)
+) AS [t0] ON [item].[EmployeeID] = [t0].[EmployeeID]
+WHERE CONVERT(date, [item].[Date]) >= @__date_0
+ORDER BY [item].[EmployeeID]
+2020-04-26 11:21:34,810 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 7680.6719ms.
+2020-04-26 11:21:34,811 INFO - The GetMainScreenHealthAsync have been retrieved successfully.
+2020-04-26 11:21:34,828 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.MainScreenHealthResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-04-26 11:21:34,847 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetMainScreenHealthAsync (Malam.Mastpen.HR.API) in 8590.118ms
+2020-04-26 11:21:34,890 INFO - Request finished in 10219.5003ms 200 application/json; charset=utf-8

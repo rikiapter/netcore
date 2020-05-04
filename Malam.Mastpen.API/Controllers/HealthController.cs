@@ -33,14 +33,17 @@ namespace Malam.Mastpen.API.Controllers
     {
         protected readonly IRothschildHouseIdentityClient RothschildHouseIdentityClient;
         protected readonly HealthService HealthService;
+        protected readonly AlertService AlertService;
 
         public HealthController(
             IRothschildHouseIdentityClient rothschildHouseIdentityClient,
-                 HealthService healthService)
+                 HealthService healthService,
+                 AlertService alertService)
         {
             RothschildHouseIdentityClient = rothschildHouseIdentityClient;
             HealthService = healthService;
             HealthService.UserInfo = UserInfo;
+            AlertService = alertService;
 
 
         }
@@ -66,7 +69,14 @@ namespace Malam.Mastpen.API.Controllers
 
         public async Task<IActionResult> GetMainScreenHealthAsync(int Id)
         {
+            //נתונים כלליים
             var response = await HealthService.GetMainScreenHealthAsync(Id);
+           
+            //התראות
+            var responseAlert = await AlertService.GetAlertAsync(Id,2);
+            response.Model.ListAlertsResponse = responseAlert.Model.ToList();
+            
+            //אתרים נוספים
             return response.ToHttpResponse();
         }
 

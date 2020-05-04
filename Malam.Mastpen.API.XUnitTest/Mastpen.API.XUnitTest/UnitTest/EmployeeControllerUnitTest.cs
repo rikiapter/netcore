@@ -215,7 +215,7 @@ namespace Malam.Mastpen.API.XUnitTest.UnitTest
             var id = 1;
 
             // Act
-            var response = await controller.GetEmployeeTrainingAsync(id) as ObjectResult;
+            var response = await controller.GetEmployeeTrainingAsync(id,1) as ObjectResult;
             var value = response.Value as IListResponse<EmployeeTraining>;
 
             // Assert

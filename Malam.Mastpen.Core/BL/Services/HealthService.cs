@@ -105,9 +105,10 @@ namespace Malam.Mastpen.Core.BL.Services
             response.Model.NumberVisitors = 1;
             response.Model.PresentEmployees = 5;
             response.Model.WithoutHealthDeclaration = response.Model.NumberEmployeesOnSite - await DbContext.GetWithoutEmployeeTrainingAsync(siteId, date, null).GroupBy(x => x.EmployeeId).CountAsync();
-
-
       
+
+
+
 
             response.SetMessageGetById(nameof(MainScreenHealthResponse), siteId);
             return response;

@@ -103,6 +103,8 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
 
+
+ 
         public async Task<SingleResponse<EmployeeResponse>> GetEmployeeByUserIdAsync(string userName)
         {
             var response = new SingleResponse<EmployeeResponse>();
@@ -367,7 +369,41 @@ namespace Malam.Mastpen.Core.BL.Services
 
             return response;
         }
-       
 
+        public async Task<SingleResponse<Employee>> GetEmployeeByGuidEntry(string guid)
+        {
+            var response = new SingleResponse<Employee>();
+
+            var query = DbContext.GetEmployeeByGuid(guid);
+
+            response.Model = await query.FirstOrDefaultAsync();
+
+            response.SetMessageGetById(nameof(GetEmployeeByGuidEntry), response.Model.EmployeeId);
+
+            return response;
+        }
+
+        public async Task<SingleResponse<EmployeeEntry>> GetEmployeeEntryByGuidEntry(string guid)
+        {
+            var response = new SingleResponse<EmployeeEntry>();
+
+            var query = DbContext.GetEmployeeEntryByGuid(guid);
+
+            response.Model = await query.FirstOrDefaultAsync();
+
+            response.SetMessageGetById(nameof(GetEmployeeByGuidEntry), response.Model.EmployeeId??0);
+
+            return response;
+        }
+        //get
+        public async Task<SingleResponse<EquipmenAtSite>> GetSiteByEquipmentIdAsync(int EquipmentId)
+        {
+            var response = new SingleResponse<EquipmenAtSite>();
+            // Get the Employee by Id
+            var res = DbContext.GetSiteByEquipmentIdAsync(new EquipmenAtSite { EquipmentId = EquipmentId });
+            response.Model = await res.OrderByDescending(x => x.EquipmentId).FirstOrDefaultAsync();
+
+            return response;
+        }
     }
 }

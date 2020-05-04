@@ -75,7 +75,8 @@ namespace Malam.Mastpen.API
             //ADD SERVICES
             services.AddScoped<EmployeeService>();
             services.AddScoped<OrganizationService>(); 
-            services.AddScoped<HealthService>();
+            services.AddScoped<HealthService>(); 
+            services.AddScoped<AlertService>();
 
             services.Configure<BlobConection>(Configuration.GetSection("BlobConnections"));
             services.AddSingleton<BlobConection>();
@@ -97,6 +98,8 @@ namespace Malam.Mastpen.API
             /*face recognition*/
             services.Configure<MastpenIdentityClientSettings>(Configuration.GetSection("MastpenFaceRecognitionSettings"));
             services.AddSingleton<MastpenIdentityClientSettings>();
+
+
 
             services.Configure<BlobConection>(Configuration.GetSection("BlobConnections"));
             services.AddSingleton<BlobConection>();

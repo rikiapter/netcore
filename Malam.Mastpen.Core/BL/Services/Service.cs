@@ -9,6 +9,10 @@ using Malam.Mastpen.Core.BL.Requests;
 using static Malam.Mastpen.API.Commom.Infrastructure.GeneralConsts;
 using Malam.Mastpen.HR.Core.BL.Requests;
 using System.Linq;
+using System.Collections.ObjectModel;
+using Microsoft.EntityFrameworkCore;
+using Malam.Mastpen.Core.DAL.Dbo;
+using System.Collections.Generic;
 
 namespace Malam.Mastpen.Core.BL.Services
 {
@@ -257,5 +261,26 @@ namespace Malam.Mastpen.Core.BL.Services
 
             return response;
         }
+        public async Task<ISingleResponse<List<TrainingDocs>>> GetTrainingDocsAsync(int? OrganizationId = null, int? SiteId = null, int? LanguageId = null, int? DocumentTypeId = null)
+        {
+            var response = new SingleResponse<List<TrainingDocs>>();
+
+            var query = DbContext.GetTrainingDocs(OrganizationId, LanguageId, DocumentTypeId);
+
+            var result = await query.ToListAsync();
+           List< TrainingDocs> trainingDocs = null;
+
+            //אם יש מסמך מיוחד לאתר
+            if (SiteId.HasValue)
+                trainingDocs = result.Where(item => item.SiteId == SiteId).ToList();
+            //אם לא לוקחים את ההדרכה של הארגון
+            if (trainingDocs == null)
+                trainingDocs = result.ToList();
+            if (trainingDocs != null)
+                response.Model = trainingDocs;
+
+            return response;
+        }
+
     }
 }

@@ -89,6 +89,15 @@ namespace Malam.Mastpen.Core.DAL
             .ApplyConfiguration(new HealthConditionTypeConfiguration())
             .ApplyConfiguration(new EmployeeHealthConditionConfiguration());
 
+            modelBuilder
+              .ApplyConfiguration(new AlertsConfiguration())
+              .ApplyConfiguration(new AlertTypeConfiguration())
+              .ApplyConfiguration(new AlertStatusConfiguration())
+              .ApplyConfiguration(new AlertTypeEntityConfiguration());
+
+            modelBuilder
+                .ApplyConfiguration(new TrainingDocsConfiguration());
+
 
             base.OnModelCreating(modelBuilder);
         }
@@ -148,6 +157,10 @@ namespace Malam.Mastpen.Core.DAL
         public virtual DbSet<EmployeeBodyHeat> EmployeeBodyHeat { get; set; }
         public virtual DbSet<EmployeeHealthCondition> EmployeeHealthCondition { get; set; }
         public virtual DbSet<HealthConditionType> HealthConditionType { get; set; }
-    
+        public virtual DbSet<Alerts> Alerts { get; set; }
+        public virtual DbSet<AlertType> AlertType { get; set; }
+        public virtual DbSet<AlertTypeEntity> AlertTypeEntity { get; set; }
+        public virtual DbSet<AlertStatus> AlertStatus { get; set; }
+        public virtual DbSet<TrainingDocs> TrainingDocs { get; set; }
     }
 }

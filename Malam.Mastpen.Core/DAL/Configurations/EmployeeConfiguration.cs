@@ -20,49 +20,51 @@ namespace Malam.Mastpen.Core.DAL.Configurations
         public void Configure(EntityTypeBuilder<EmployeeEntry> builder)
         {
 
-                builder.HasKey(e => e.EmployeeEntryId);
+            builder.HasKey(e => e.EmployeeEntryId);
 
-                builder.ToTable("BB_EC_EmployeeEntry");
+            builder.ToTable("BB_EC_EmployeeEntry");
 
-                builder.Property(e => e.EmployeeEntryId).HasColumnName("EmployeeEntryID");
+            builder.Property(e => e.EmployeeEntryId).HasColumnName("EmployeeEntryID");
 
-                builder.Property(e => e.Date)
+            builder.Property(e => e.Guid).HasColumnName("Guid");
+
+            builder.Property(e => e.Date)
                     .HasColumnType("date")
                     .HasDefaultValueSql("(getdate())");
 
-                builder.Property(e => e.DateInsert)
-                    .HasColumnName("dateInsert")
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
+            builder.Property(e => e.DateInsert)
+                .HasColumnName("dateInsert")
+                .HasColumnType("datetime")
+                .HasDefaultValueSql("(getdate())");
 
-                builder.Property(e => e.DateUpdate)
-                    .HasColumnName("dateUpdate")
-                    .HasColumnType("datetime");
+            builder.Property(e => e.DateUpdate)
+                .HasColumnName("dateUpdate")
+                .HasColumnType("datetime");
 
-                builder.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
+            builder.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 
-                builder.Property(e => e.EquipmentId).HasColumnName("EquipmentID");
+            builder.Property(e => e.EquipmentId).HasColumnName("EquipmentID");
 
-                builder.Property(e => e.State)
-                    .HasColumnName("state")
-                    .HasDefaultValueSql("((1))");
+            builder.Property(e => e.State)
+                .HasColumnName("state")
+                .HasDefaultValueSql("((1))");
 
-                builder.Property(e => e.Time).HasDefaultValueSql("(getdate())");
+            builder.Property(e => e.Time).HasDefaultValueSql("(getdate())");
 
-                builder.Property(e => e.UserInsert)
-                    .HasColumnName("userInsert")
-                    .HasDefaultValueSql("((1))");
+            builder.Property(e => e.UserInsert)
+                .HasColumnName("userInsert")
+                .HasDefaultValueSql("((1))");
 
-                builder.HasOne(d => d.Employee)
-                    .WithMany(p => p.EmployeeEntry)
-                    .HasForeignKey(d => d.EmployeeId)
-                    .HasConstraintName("FK_BB_EC_EmployeeEntry_EmployeeID");
+            builder.HasOne(d => d.Employee)
+                .WithMany(p => p.EmployeeEntry)
+                .HasForeignKey(d => d.EmployeeId)
+                .HasConstraintName("FK_BB_EC_EmployeeEntry_EmployeeID");
 
-                builder.HasOne(d => d.Equipment)
-                    .WithMany(p => p.EmployeeEntry)
-                    .HasForeignKey(d => d.EquipmentId)
-                    .HasConstraintName("FK_BB_EC_EmployeeEntry_EquipmentID");
-        
+            builder.HasOne(d => d.Equipment)
+                .WithMany(p => p.EmployeeEntry)
+                .HasForeignKey(d => d.EquipmentId)
+                .HasConstraintName("FK_BB_EC_EmployeeEntry_EquipmentID");
+
         }
     }
 

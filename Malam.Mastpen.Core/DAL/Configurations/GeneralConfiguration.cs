@@ -1131,5 +1131,62 @@ namespace Malam.Mastpen.Core.DAL.Configurations
                     .HasDefaultValueSql("((1))");
         }
     }
+    public class TrainingDocsConfiguration : IEntityTypeConfiguration<TrainingDocs>
+    {
+        public void Configure(EntityTypeBuilder<TrainingDocs> builder)
+        {
+            builder.HasKey(e => e.TrainingDocId);
+
+            builder.ToTable("BB_HR_TrainingDocs");
+
+            builder.Property(e => e.TrainingDocId).HasColumnName("TrainingDocID");
+
+            builder.Property(e => e.DateInsert)
+                .HasColumnName("dateInsert")
+                .HasColumnType("datetime")
+                .HasDefaultValueSql("(getdate())");
+
+            builder.Property(e => e.DateUpdate)
+                .HasColumnName("dateUpdate")
+                .HasColumnType("datetime");
+
+            builder.Property(e => e.DocumentDate).HasColumnType("datetime");
+
+            builder.Property(e => e.DocumentPath).HasMaxLength(50);
+
+            builder.Property(e => e.DocumentTypeId).HasColumnName("DocumentTypeID");
+
+            builder.Property(e => e.OrganizationId).HasColumnName("OrganizationID");
+
+            builder.Property(e => e.SiteId).HasColumnName("SiteID");
+
+            builder.Property(e => e.LanguageId).HasColumnName("LanguageID");
+
+            builder.Property(e => e.State)
+                .HasColumnName("state")
+                .HasDefaultValueSql("((1))");
+
+            builder.Property(e => e.UserInsert)
+                .HasColumnName("userInsert")
+                .HasDefaultValueSql("((1))");
+
+            //builder.HasOne(d => d.DocumentType)
+            //    .WithMany(p => p.Docs)
+            //    .HasForeignKey(d => d.DocumentTypeId)
+            //    .HasConstraintName("FK_BB_GEN_Docs_DocumentTypeID");
+
+            //builder.HasOne(d => d.EntityType)
+            //    .WithMany(p => p.Docs)
+            //    .HasForeignKey(d => d.EntityTypeId)
+            //    .HasConstraintName("FK_BB_GEN_Docs_EntityTypeID");
+
+            //builder.HasOne(d => d.Language)
+            //    .WithMany(p => p.Docs)
+            //    .HasForeignKey(d => d.LanguageId)
+            //    .HasConstraintName("FK_BB_GEN_Docs_LanguageID");
+
+        }
+    }
+
 
 }
