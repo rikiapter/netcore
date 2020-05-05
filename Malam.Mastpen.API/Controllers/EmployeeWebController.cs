@@ -34,14 +34,17 @@ namespace Malam.Mastpen.API.Controllers
     public class EmployeeWebController : MastpenController
     {
         protected readonly IRothschildHouseIdentityClient RothschildHouseIdentityClient;
-        protected readonly EmployeeService EmployeeService;
+        protected readonly EmployeeService EmployeeService; 
+        protected readonly AlertService AlertService;
 
         public EmployeeWebController(
             IRothschildHouseIdentityClient rothschildHouseIdentityClient,
-                 EmployeeService employeeService)
+                 EmployeeService employeeService,
+                 AlertService alertService)
         {
             RothschildHouseIdentityClient = rothschildHouseIdentityClient;
             EmployeeService = employeeService;
+            AlertService = alertService;
             EmployeeService.UserInfo = UserInfo;
 
 
@@ -122,6 +125,7 @@ namespace Malam.Mastpen.API.Controllers
             var entity = request;
 
             entity.DateFrom = DateTime.Now.Date;
+            entity.DateTo = DateTime.Now.AddDays(1).Date;
             var response = await EmployeeService.CreateEmployeeTrainingAsync(entity);
 
             Docs docs = new Docs();
@@ -131,9 +135,25 @@ namespace Malam.Mastpen.API.Controllers
 
             var DOCSResponse = await EmployeeService.CreateDocsAsync(docs, typeof(EmployeeTraining), request.EmployeeTrainingName, request.fileRequest, (int)DocumentType.Training);
             response.Model.Comment = DOCSResponse.Model.DocumentPath;
+         
             if (DOCSResponse.DIdError)
                 throw new Exception("Error in create Document EmployeeTraining" + response.Message);
 
+
+          
+            var Alert = new Alerts();
+
+
+            Alert.EntityId= request.EmployeeId;
+            Alert.EntityTypeId = 2;// עובדים
+            Alert.AlertTypeId = 7;//הצהרת בריאות
+            Alert.SiteId = request.SiteId;
+
+            var responseAlert = await AlertService.GetAlertAsync(Alert);
+            responseAlert.Model.AlertStatusId=2;//נקרא
+            if (responseAlert.Model !=null)
+                    await AlertService.UpdateAlertAsync(responseAlert.Model);
+            
             return response.ToHttpResponse();
         }
     }

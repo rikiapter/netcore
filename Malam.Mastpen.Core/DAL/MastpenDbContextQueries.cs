@@ -441,9 +441,18 @@ namespace Malam.Mastpen.Core.DAL
    => dbContext.Alerts.Where(item => item.SiteId == siteId)
                       .Where(x => x.Date > DateTime.Now.Date.AddDays(-1))
                       .Where(x=>x.AlertType.ModuleID == ModuleID)
+                        .Where(x => x.AlertStatusId == 1)
                       .DefaultIfEmpty()
                       .Include(x => x.AlertType)
                       .Include(x => x.EntityType);
+
+        public static IQueryable<Alerts> GetAlertsAsync(this MastpenBitachonDbContext dbContext,Alerts alerts)
+=> dbContext.Alerts.Where(item => item.SiteId ==alerts.SiteId)
+                .Where(x => x.Date > DateTime.Now.Date.AddDays(-1))
+                .Where(x => x.AlertTypeId == alerts.AlertTypeId)
+                 .Where(x => x.EntityId == alerts.EntityId)
+                 .Where(x => x.EntityTypeId == alerts.EntityTypeId)
+                .DefaultIfEmpty();
 
         //  select alert.ToEntity(null);
 

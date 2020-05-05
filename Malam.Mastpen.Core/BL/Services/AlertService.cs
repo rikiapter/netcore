@@ -51,6 +51,19 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
 
+        public async Task<SingleResponse<Alerts>> GetAlertAsync(Alerts alert)
+        {
+
+
+            var response = new SingleResponse<Alerts>();
+
+
+
+            response.Model = DbContext.GetAlertsAsync(alert).FirstOrDefault() ;
+
+         
+            return response;
+        }
         public async Task<SingleResponse<Alerts>> CreateAlertAsync(Alerts Alert)
         {
             var response = new SingleResponse<Alerts>();
