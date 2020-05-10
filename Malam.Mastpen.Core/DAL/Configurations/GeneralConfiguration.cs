@@ -1187,6 +1187,47 @@ namespace Malam.Mastpen.Core.DAL.Configurations
 
         }
     }
+    
+    public class GenTextSystemConfiguration : IEntityTypeConfiguration<GenTextSystem>
+    {
+        public void Configure(EntityTypeBuilder<GenTextSystem> builder)
+        {
+            builder.HasKey(e => e.TextSystemID);
 
+            builder.ToTable("BB_GEN_TextSystem");
+
+            builder.Property(e => e.TextSystemID).HasColumnName("TextSystemID");
+
+            builder.Property(e => e.DateInsert)
+                .HasColumnName("dateInsert")
+                .HasColumnType("datetime")
+                .HasDefaultValueSql("(getdate())");
+
+            builder.Property(e => e.DateUpdate)
+                .HasColumnName("dateUpdate")
+                .HasColumnType("datetime");
+
+            builder.Property(e => e.TextSystemTypeID).HasColumnType("TextSystemTypeID");
+
+            builder.Property(e => e.Title).HasMaxLength(50);
+            builder.Property(e => e.Text).HasMaxLength(250);
+
+      
+            builder.Property(e => e.OrganizationID).HasColumnName("OrganizationID");
+
+       
+
+            builder.Property(e => e.State)
+                .HasColumnName("state")
+                .HasDefaultValueSql("((1))");
+
+            builder.Property(e => e.UserInsert)
+                .HasColumnName("userInsert")
+                .HasDefaultValueSql("((1))");
+
+  
+
+        }
+    }
 
 }

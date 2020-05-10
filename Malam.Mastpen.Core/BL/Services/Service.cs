@@ -282,5 +282,18 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
 
+        public async Task<ISingleResponse<List<GenTextSystem>>> GetGenTextSystemAsync(int? OrganizationId = null)
+        {
+            var response = new SingleResponse<List<GenTextSystem>>();
+
+            var query = DbContext.GetGenTextSystem(OrganizationId);
+
+            response.Model = await query.ToListAsync();
+          
+       
+            return response;
+        }
+        
+
     }
 }

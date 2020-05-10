@@ -72,31 +72,31 @@ namespace Malam.Mastpen.API.Controllers
             var responseEmployeeId = await EmployeeService.GetEmployeeByGuidEntry(Guid);
             var responseEquipmentId = await EmployeeService.GetEmployeeEntryByGuidEntry(Guid);
 
-            var responseEmployee = await EmployeeService.GetEmployeeAsync(responseEmployeeId.Model.EmployeeId);
+            //var responseEmployee = await EmployeeService.GetEmployeeAsync(responseEmployeeId.Model.EmployeeId);
             var site = await EmployeeService.GetSiteByEquipmentIdAsync(responseEquipmentId.Model.EquipmentId ?? 0);
+            var ListGenTextSystem = await EmployeeService.GetGenTextSystemAsync(site.Model.Site.OrganizationId);
+            //var TrainingDocs = await EmployeeService.GetTrainingDocsAsync(null,site.Model.SiteId,null,4);//רשימת ההצהרות בטיחות
+            //var ListTrainingDocs = new List<ParameterCodeEntity>();
+            //var ListLanguage = new List<ParameterCodeEntity>();
+            //foreach (var t in TrainingDocs.Model)
+            //{
+            //    ListTrainingDocs.Add(new ParameterCodeEntity
+            //    {
+            //        ParameterFieldID = t.LanguageId, //שפה
+            //        Name = t.DocumentPath            //נתיב
+            //    });
+            //}
+            //foreach ( var t in TrainingDocs.Model)
+            //{
+            //    ListLanguage.Add(new ParameterCodeEntity
+            //    {
+            //        ParameterFieldID = t.LanguageId,
+            //        Name = t.Language.LanguageName
+            //    });
+            //}
 
-            var TrainingDocs = await EmployeeService.GetTrainingDocsAsync(null,site.Model.SiteId,null,4);//רשימת ההצהרות בטיחות
-            var ListTrainingDocs = new List<ParameterCodeEntity>();
-            var ListLanguage = new List<ParameterCodeEntity>();
-            foreach (var t in TrainingDocs.Model)
-            {
-                ListTrainingDocs.Add(new ParameterCodeEntity
-                {
-                    ParameterFieldID = t.LanguageId, //שפה
-                    Name = t.DocumentPath            //נתיב
-                });
-            }
-            foreach ( var t in TrainingDocs.Model)
-            {
-                ListLanguage.Add(new ParameterCodeEntity
-                {
-                    ParameterFieldID = t.LanguageId,
-                    Name = t.Language.LanguageName
-                });
-            }
-           
             var response = new SingleResponse<EmployeeTrainingDocResponse>();
-           response.Model = responseEmployeeId.Model.ToEntity( site.Model.SiteId??0, ListTrainingDocs, ListLanguage);
+           response.Model = responseEmployeeId.Model.ToEntity( site.Model.SiteId??0, ListGenTextSystem.Model);
           
             return response.ToHttpResponse();
         }

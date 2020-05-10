@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Malam.Mastpen.API.Commom.Infrastructure;
 using Malam.Mastpen.HR.Core.BL.Requests;
 using static Malam.Mastpen.API.Commom.Infrastructure.GeneralConsts;
+using System.Runtime.CompilerServices;
 
 namespace Malam.Mastpen.Core.DAL
 {
@@ -437,14 +438,15 @@ namespace Malam.Mastpen.Core.DAL
             return query;
         }
 
-        public static IQueryable<Alerts> GetAlertsAsync(this MastpenBitachonDbContext dbContext, int siteId,int ModuleID)
+        public static IQueryable<Alerts> GetAlertsAsync(this MastpenBitachonDbContext dbContext, int siteId,int ModuleID, int? alertTypeId)
    => dbContext.Alerts.Where(item => item.SiteId == siteId)
                       .Where(x => x.Date > DateTime.Now.Date.AddDays(-1))
                       .Where(x=>x.AlertType.ModuleID == ModuleID)
-                        .Where(x => x.AlertStatusId == 1)
-                      .DefaultIfEmpty()
+                      .Where(x => alertTypeId !=null  && x.AlertTypeId == alertTypeId)
+                      .Where(x => x.AlertStatusId == 1)
+                    
                       .Include(x => x.AlertType)
-                      .Include(x => x.EntityType);
+                      .Include(x => x.EntityType).AsQueryable();
 
         public static IQueryable<Alerts> GetAlertsAsync(this MastpenBitachonDbContext dbContext,Alerts alerts)
 => dbContext.Alerts.Where(item => item.SiteId ==alerts.SiteId)
@@ -490,7 +492,23 @@ namespace Malam.Mastpen.Core.DAL
 
         }
 
+        public static IQueryable<GenTextSystem> GetGenTextSystem(this MastpenBitachonDbContext dbContext, int? OrganizationId = null)
+        {
+            // Get query from DbSet
+            var query = from GenTextSystem in dbContext.GenTextSystem.Where(x => x.State == true).AsQueryable()
+                        select GenTextSystem;
+           
 
+            if (OrganizationId.HasValue)
+                query = query.Where(item => item.OrganizationID == OrganizationId);
+
+
+
+            return query;
+
+
+        }
+        
         /// <summary>
         ///get ntityTypeId
         ///return entity tablee

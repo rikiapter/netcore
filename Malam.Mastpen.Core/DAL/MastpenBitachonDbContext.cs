@@ -98,6 +98,11 @@ namespace Malam.Mastpen.Core.DAL
             modelBuilder
                 .ApplyConfiguration(new TrainingDocsConfiguration());
 
+            modelBuilder
+              .ApplyConfiguration(new ErrorConfiguration());
+
+            modelBuilder
+                .ApplyConfiguration(new GenTextSystemConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }
@@ -162,5 +167,8 @@ namespace Malam.Mastpen.Core.DAL
         public virtual DbSet<AlertTypeEntity> AlertTypeEntity { get; set; }
         public virtual DbSet<AlertStatus> AlertStatus { get; set; }
         public virtual DbSet<TrainingDocs> TrainingDocs { get; set; }
+
+        public virtual DbSet<BbError> BbError { get; set; }
+        public virtual DbSet<GenTextSystem> GenTextSystem { get; set; }
     }
 }

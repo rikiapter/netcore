@@ -139,29 +139,16 @@ namespace Malam.Mastpen.Core.BL.Requests
     public class EmployeeTrainingDocResponse
     {
         public int EmployeeId { get; set; }
-        public int? IdentificationTypeId { get; set; }
-        public string IdentityNumber { get; set; }
-        public int? PassportCountryId { get; set; }
+        public string IdentityNumber { get; set; }    
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string FirstNameEn { get; set; }
-        public string LastNameEn { get; set; }
         public int? OrganizationId { get; set; }
-        public DateTime? BirthDate { get; set; }
         public int? GenderId { get; set; }
-
-
         public int? SiteId { get; set; }
-        public bool isEmployeeEntry { get; set; }
-
-        public TrainingResponse EmployeeTraining { get; set; }
-
         public string picturePath { get; set; }
-        public string IdentityFilePath { get; set; }
-        public string PassportFilePath { get; set; }
+        public List< GenTextSystem > ListGenTextSystem { get; set; }
 
-        public List<ParameterCodeEntity> ListTrainingDocs { get; set; }
-        public List<ParameterCodeEntity> ListLanguage { get; set; }
+
     }
     public static class ExtensionsEmployee
     {
@@ -254,30 +241,25 @@ namespace Malam.Mastpen.Core.BL.Requests
 
             };
 
-        public static EmployeeTrainingDocResponse ToEntity(this Employee request, int siteId, List<ParameterCodeEntity> ListTrainingDocs, List<ParameterCodeEntity> ListLanguage)
+        public static EmployeeTrainingDocResponse ToEntity(this Employee request, int siteId, List<GenTextSystem> ListGenTextSystem)
 => new EmployeeTrainingDocResponse
 {
  EmployeeId = request.EmployeeId,
 
- IdentificationTypeId = request.IdentificationTypeId,
  IdentityNumber = request.IdentityNumber,
- PassportCountryId = request.PassportCountryId,
+
  FirstName = request.FirstName,
  LastName = request.LastName,
- FirstNameEn = request.FirstNameEn,
- LastNameEn = request.LastNameEn,
+
  OrganizationId = request.OrganizationId,
- BirthDate = request.BirthDate,
+
  GenderId = request.GenderId,
 
 
 
  SiteId = siteId,
 
-
- ListTrainingDocs = ListTrainingDocs,
- ListLanguage =ListLanguage
-
+ ListGenTextSystem= ListGenTextSystem
 };
 
         public static NoteRequest ToEntity(this Notes request, Employee employee,int EmployeeId, Docs docs=null)

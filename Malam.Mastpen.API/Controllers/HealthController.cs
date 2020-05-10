@@ -22,6 +22,10 @@ using Malam.Mastpen.Core.BL.Services;
 using static Malam.Mastpen.API.Commom.Infrastructure.GeneralConsts;
 using IdentityModel;
 
+using Mailjet.Client;
+using Mailjet.Client.Resources;
+
+using Newtonsoft.Json.Linq;
 namespace Malam.Mastpen.API.Controllers
 {
 
@@ -74,11 +78,11 @@ namespace Malam.Mastpen.API.Controllers
         {
             //נתונים כלליים
             var response = await HealthService.GetMainScreenHealthAsync(Id);
-           
+
             //התראות
-            var responseAlert = await AlertService.GetAlertAsync(Id,2);
+            var responseAlert = await AlertService.GetAlertAsync(Id, 2);
             response.Model.ListAlertsResponse = responseAlert.Model.ToList();
-            
+
             //אתרים נוספים
             return response.ToHttpResponse();
         }
@@ -141,7 +145,7 @@ namespace Malam.Mastpen.API.Controllers
         public async Task<IActionResult> PostEmployeeTemperatureAsync([FromBody]EmployeeTemperature request)
         {
             Random random = new Random();
-         
+
             request.Temperature = random.Next(36, 39);
             var response = await HealthService.CreateEmployeeTemperatureAsync(request);
 
@@ -171,11 +175,88 @@ namespace Malam.Mastpen.API.Controllers
         {
             var response = await EmployeeService.GetEmployeeTrainingByEmployeeIdAsync(EmployeeId, TrainingTypeId);
             var res = new SingleResponse<EmployeeTrainingRequest>();
-            res.Model=   response.Model.Where(x => x.DateFrom < DateTime.Now && x.DateTo > DateTime.Now).FirstOrDefault();
-           
+            res.Model = response.Model.Where(x => x.DateFrom < DateTime.Now && x.DateTo > DateTime.Now).FirstOrDefault();
+
             return res.ToHttpResponse();
         }
 
 
+
+        // GET
+        // api/v1/Health/sendMail
+
+        /// <summary>
+        /// Retrieves a sendMail 
+        /// </summary>
+        /// <param name="sendMail">sendMail</param>
+
+        [HttpGet("sendMail")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public  async Task sendMail()
+        {
+            {
+                MailjetClient client = new MailjetClient(
+                    Environment.GetEnvironmentVariable("634a08c3c975a7cd3ef966c18060f758"),
+                    Environment.GetEnvironmentVariable("d7c006fbae6f1c952ed8b92f48883f13"))
+                {
+                    Version = ApiVersion.V3_1,
+                };
+                MailjetRequest request = new MailjetRequest
+                {
+                    Resource = Send.Resource,
+                }
+                 .Property(Send.Messages, new JArray {
+     new JObject {
+      {
+       "From",
+       new JObject {
+        {"Email", "rikiapter@gmail.com"},
+        {"Name", "riki"}
+       }
+      }, {
+       "To",
+       new JArray {
+        new JObject {
+         {
+          "Email",
+          "rikiapter@gmail.com"
+         }, {
+          "Name",
+          "riki"
+         }
+        }
+       }
+      }, {
+       "Subject",
+       "Greetings from Mailjet."
+      }, {
+       "TextPart",
+       "My first Mailjet email"
+      }, {
+       "HTMLPart",
+       "<h3>Dear passenger 1, welcome to <a href='https://www.mailjet.com/'>Mailjet</a>!</h3><br />May the delivery force be with you!"
+      }, {
+       "CustomID",
+       "AppGettingStartedTest"
+      }
+     }
+                 });
+                MailjetResponse response = await client.PostAsync(request);
+                if (response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine(string.Format("Total: {0}, Count: {1}\n", response.GetTotal(), response.GetCount()));
+                    Console.WriteLine(response.GetData());
+                }
+                else
+                {
+                    Console.WriteLine(string.Format("StatusCode: {0}\n", response.StatusCode));
+                    Console.WriteLine(string.Format("ErrorInfo: {0}\n", response.GetErrorInfo()));
+                    Console.WriteLine(response.GetData());
+                    Console.WriteLine(string.Format("ErrorMessage: {0}\n", response.GetErrorMessage()));
+                }
+            }
+        }
     }
 }

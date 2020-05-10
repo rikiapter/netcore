@@ -101,9 +101,10 @@ namespace Malam.Mastpen.Core.BL.Services
 
             response.Model.NumberEmployees = await DbContext.GetNumberEmployeesAsync(siteId).CountAsync();
             response.Model.NumberEmployeesOnSite = await DbContext.GetNumberEmployeesOnSiteAsync(siteId, date).GroupBy(x => x.EmployeeId).CountAsync();
-            response.Model.EmployeesWithHotBody = 1;
+            response.Model.EmployeesWithHotBody = await DbContext.GetAlertsAsync(siteId, 2, 6).CountAsync();
+      
             response.Model.NumberVisitors = 1;
-            response.Model.PresentEmployees = 5;
+            response.Model.PresentEmployees = response.Model.NumberEmployees / response.Model.NumberEmployeesOnSite *100;
             response.Model.WithoutHealthDeclaration = response.Model.NumberEmployeesOnSite - await DbContext.GetWithoutEmployeeTrainingAsync(siteId, date, null).GroupBy(x => x.EmployeeId).CountAsync();
       
 

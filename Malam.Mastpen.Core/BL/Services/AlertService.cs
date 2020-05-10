@@ -32,7 +32,7 @@ namespace Malam.Mastpen.Core.BL.Services
 
             var response = new ListResponse<AlertsResponse>();
             var list = new List<AlertsResponse>();
-            var listAlert =  DbContext.GetAlertsAsync( siteId, ModuleID);
+            var listAlert =  DbContext.GetAlertsAsync( siteId, ModuleID,null);
 
             //יצירת רשימה חדשה הכוללת בתוכה גם את המזהה והשם של נושא הערה
             foreach (var alert in listAlert)

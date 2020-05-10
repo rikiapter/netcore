@@ -1,5 +1,8 @@
-﻿using Malam.Mastpen.Core.BL;
+﻿using Malam.Mastpen.API.Controllers;
+using Malam.Mastpen.Core.BL;
 using Malam.Mastpen.Core.BL.Responses;
+using Malam.Mastpen.Core.BL.Services;
+using Malam.Mastpen.Core.DAL.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -20,6 +23,12 @@ namespace Malam.Mastpen.API.Filters
     public class MastpenExceptionFilter : IExceptionFilter
     {
         private static readonly log4net.ILog logger  = log4net.LogManager.GetLogger(typeof(MastpenActionFilter));
+        protected readonly ErrorService ErrorService;
+
+        public MastpenExceptionFilter(ErrorService errorService)
+        {
+            ErrorService = errorService;
+        }
         public void OnException(ExceptionContext context)
         {
             string actionName = context.ActionDescriptor.RouteValues.First().Value;
@@ -63,6 +72,12 @@ namespace Malam.Mastpen.API.Filters
             //    response.ErrorMessage = string.Format("There was an error on '{0}': {1} ,Massage {2}", actionName, context.Exception.Message, context.Exception.InnerException);
             //}
             context.Result = new ObjectResult(response);
+
+            BbError bbError = new BbError();
+            bbError.ErrorTitle = "HR";
+            bbError.ErrorMessage = response.ErrorMessage;
+            bbError.ErrorTypeId = 1;
+            ErrorService.CreateErrorAsync(bbError);
         }
     }
 }

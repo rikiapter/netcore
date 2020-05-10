@@ -77,6 +77,7 @@ namespace Malam.Mastpen.API
             services.AddScoped<OrganizationService>(); 
             services.AddScoped<HealthService>(); 
             services.AddScoped<AlertService>();
+            services.AddScoped<ErrorService>();
 
             services.Configure<BlobConection>(Configuration.GetSection("BlobConnections"));
             services.AddSingleton<BlobConection>();
