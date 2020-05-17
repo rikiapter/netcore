@@ -36,15 +36,18 @@ namespace Malam.Mastpen.API.Controllers
         protected readonly IRothschildHouseIdentityClient RothschildHouseIdentityClient;
         protected readonly EmployeeService EmployeeService; 
         protected readonly AlertService AlertService;
+        protected readonly HealthService HealthService;
 
         public EmployeeWebController(
             IRothschildHouseIdentityClient rothschildHouseIdentityClient,
                  EmployeeService employeeService,
-                 AlertService alertService)
+                 AlertService alertService,
+                 HealthService healthService)
         {
             RothschildHouseIdentityClient = rothschildHouseIdentityClient;
             EmployeeService = employeeService;
             AlertService = alertService;
+            HealthService = healthService;
             EmployeeService.UserInfo = UserInfo;
 
 
@@ -101,7 +104,50 @@ namespace Malam.Mastpen.API.Controllers
             return response.ToHttpResponse();
         }
 
+        // POST
+        // api/v1/Employee/HealthDeclaration/
 
+        /// <summary>
+        /// Creates a new HealthDeclaration
+        /// </summary>
+        /// <param name="request">Request model</param>
+        /// <returns>A response with new HealthDeclaration</returns>
+        /// <response code="200">Returns the HealthDeclaration </response>
+        /// <response code="201">A response as creation of HealthDeclaration</response>
+        /// <response code="400">For bad request</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpPost("HealthDeclaration")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> PostHealthDeclarationAsync([FromBody]HealthDeclaration request)
+        {
+           
+            //EntityTypeId=2 עובדים
+            //EntityTypeId=11 מבקרים
+            //מבקר בינתיים יכול להיות ריק 
+          //  אם הוא לא מקושר לטבלת מבקרים
+
+            var entity = request;
+
+            entity.Date = DateTime.Now.Date;
+   
+            var response = await HealthService.CreateHealthDeclarationAsync(entity);
+
+            var Alert = new Alerts();
+            Alert.EntityId = request.EntityId;
+            Alert.EntityTypeId = request.EntityTypeId ;// עובדים
+            Alert.AlertTypeId = 7;//הצהרת בריאות
+            Alert.SiteId = request.SiteId;
+
+            var responseAlert = await AlertService.GetAlertAsync(Alert);
+            responseAlert.Model.AlertStatusId = 2;//נקרא
+            if (responseAlert.Model != null)
+                await AlertService.UpdateAlertAsync(responseAlert.Model);
+
+            return response.ToHttpResponse();
+        }
 
         // POST
         // api/v1/Employee/EmployeeTraining/

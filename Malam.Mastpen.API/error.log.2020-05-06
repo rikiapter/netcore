@@ -1,0 +1,102 @@
+2020-05-06 07:35:17,685 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-05-06 07:35:17,731 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-05-06 07:35:18,305 INFO - Request finished in 622.6846ms 200 text/html
+2020-05-06 07:35:18,893 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-05-06 07:35:18,902 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-05-06 07:35:20,594 INFO - Request finished in 1696.3932ms 200 application/json;charset=utf-8
+2020-05-06 07:47:41,045 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-05-06 07:47:41,172 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-05-06 07:47:41,705 INFO - Request finished in 646.6873ms 200 text/html
+2020-05-06 07:47:42,474 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-05-06 07:47:42,518 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-05-06 07:47:44,178 INFO - Request finished in 1718.5227ms 200 application/json;charset=utf-8
+2020-05-06 07:50:45,769 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/sendMail  
+2020-05-06 07:50:45,785 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-05-06 07:50:45,992 INFO - Route matched with {action = "sendMail", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.sendMail (Malam.Mastpen.HR.API)
+2020-05-06 07:50:48,613 INFO - 'sendMail' has been invoked
+2020-05-06 07:50:48,696 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.sendMail (Malam.Mastpen.HR.API) - Validation state: Valid
+2020-05-06 07:50:50,898 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.sendMail (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 2195.3707ms.
+2020-05-06 07:50:50,906 INFO - The sendMail have been retrieved successfully.
+2020-05-06 07:50:50,939 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.sendMail (Malam.Mastpen.HR.API) in 4937.945ms
+2020-05-06 07:50:50,976 INFO - Request finished in 5241.9067ms 200 
+2020-05-06 07:52:34,572 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/sendMail  
+2020-05-06 07:52:34,579 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-05-06 07:52:34,602 INFO - Route matched with {action = "sendMail", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.sendMail (Malam.Mastpen.HR.API)
+2020-05-06 07:52:34,603 INFO - 'sendMail' has been invoked
+2020-05-06 07:52:34,608 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.sendMail (Malam.Mastpen.HR.API) - Validation state: Valid
+2020-05-06 10:58:40,566 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-05-06 10:58:40,712 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-05-06 10:58:41,316 INFO - Request finished in 783.1748ms 200 text/html
+2020-05-06 10:58:42,042 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-05-06 10:58:42,067 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-05-06 10:58:44,335 INFO - Request finished in 2242.6594ms 200 application/json;charset=utf-8
+2020-05-06 11:02:41,821 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Employee/Employee/9  
+2020-05-06 11:02:44,593 INFO - Successfully validated the token.
+2020-05-06 11:02:44,632 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-05-06 11:02:47,233 INFO - Route matched with {action = "GetEmployeeAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API)
+2020-05-06 11:02:47,293 INFO - Authorization was successful.
+2020-05-06 11:02:47,363 INFO - 'GetEmployeeAsync' has been invoked
+2020-05-06 11:02:47,392 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync (Malam.Mastpen.HR.API) with arguments (9) - Validation state: Valid
+2020-05-06 11:02:55,365 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-05-06 11:02:59,386 INFO - Executed DbCommand (131ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item.PassportCountry].[CountryID], [item.PassportCountry].[CountryName], [item.PassportCountry].[dateInsert], [item.PassportCountry].[dateUpdate], [item.PassportCountry].[LanguageID], [item.PassportCountry].[state], [item.PassportCountry].[userInsert], [item.PassportCountry].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t0].[DocumentID], [t0].[dateInsert], [t0].[dateUpdate], [t0].[DocumentDate], [t0].[DocumentPath], [t0].[DocumentTypeID], [t0].[EntityID], [t0].[EntityTypeID], [t0].[IsDocumentSigned], [t0].[LanguageID], [t0].[state], [t0].[userInsert], [t0].[UserUpdate], [t0].[ValIdDate], [t1].[DocumentID], [t1].[dateInsert], [t1].[dateUpdate], [t1].[DocumentDate], [t1].[DocumentPath], [t1].[DocumentTypeID], [t1].[EntityID], [t1].[EntityTypeID], [t1].[IsDocumentSigned], [t1].[LanguageID], [t1].[state], [t1].[userInsert], [t1].[UserUpdate], [t1].[ValIdDate], [t2].[DocumentID], [t2].[dateInsert], [t2].[dateUpdate], [t2].[DocumentDate], [t2].[DocumentPath], [t2].[DocumentTypeID], [t2].[EntityID], [t2].[EntityTypeID], [t2].[IsDocumentSigned], [t2].[LanguageID], [t2].[state], [t2].[userInsert], [t2].[UserUpdate], [t2].[ValIdDate], [docsEmplyeePicture].[EmployeePictureID], [docsEmplyeePicture].[dateInsert], [docsEmplyeePicture].[dateUpdate], [docsEmplyeePicture].[EmployeeFacePrintID], [docsEmplyeePicture].[EmployeeID], [docsEmplyeePicture].[EmployeePicture], [docsEmplyeePicture].[IsUniqueDoc], [docsEmplyeePicture].[state], [docsEmplyeePicture].[userInsert], [docsEmplyeePicture].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry] ON [item].[PassportCountryID] = [item.PassportCountry].[CountryID]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+LEFT JOIN (
+    SELECT [a0].[DocumentID], [a0].[dateInsert], [a0].[dateUpdate], [a0].[DocumentDate], [a0].[DocumentPath], [a0].[DocumentTypeID], [a0].[EntityID], [a0].[EntityTypeID], [a0].[IsDocumentSigned], [a0].[LanguageID], [a0].[state], [a0].[userInsert], [a0].[UserUpdate], [a0].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a0]
+    WHERE ([a0].[EntityTypeID] = (
+        SELECT TOP(1) [item1].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item1]
+        WHERE [item1].[EntityTypeName] = @__tableName_2
+    )) AND ([a0].[DocumentTypeID] = 7)
+) AS [t0] ON [item].[EmployeeID] = [t0].[EntityID]
+LEFT JOIN (
+    SELECT [a1].[DocumentID], [a1].[dateInsert], [a1].[dateUpdate], [a1].[DocumentDate], [a1].[DocumentPath], [a1].[DocumentTypeID], [a1].[EntityID], [a1].[EntityTypeID], [a1].[IsDocumentSigned], [a1].[LanguageID], [a1].[state], [a1].[userInsert], [a1].[UserUpdate], [a1].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a1]
+    WHERE ([a1].[EntityTypeID] = (
+        SELECT TOP(1) [item2].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item2]
+        WHERE [item2].[EntityTypeName] = @__tableName_3
+    )) AND ([a1].[DocumentTypeID] = 1)
+) AS [t1] ON [item].[EmployeeID] = [t1].[EntityID]
+LEFT JOIN (
+    SELECT [a2].[DocumentID], [a2].[dateInsert], [a2].[dateUpdate], [a2].[DocumentDate], [a2].[DocumentPath], [a2].[DocumentTypeID], [a2].[EntityID], [a2].[EntityTypeID], [a2].[IsDocumentSigned], [a2].[LanguageID], [a2].[state], [a2].[userInsert], [a2].[UserUpdate], [a2].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a2]
+    WHERE ([a2].[EntityTypeID] = (
+        SELECT TOP(1) [item3].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item3]
+        WHERE [item3].[EntityTypeName] = @__tableName_4
+    )) AND ([a2].[DocumentTypeID] = 2)
+) AS [t2] ON [item].[EmployeeID] = [t2].[EntityID]
+LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture] ON [item].[EmployeeID] = [docsEmplyeePicture].[EmployeeID]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+ORDER BY [item].[EmployeeID]
+2020-05-06 11:03:29,571 INFO - The GetEmployeeAsync have been retrieved successfully.
+2020-05-06 11:04:14,961 INFO - test log
+2020-05-06 11:04:15,216 ERROR - There was a critical error on 'GetEmployeeAsync':   System.NullReferenceException: Object reference not set to an instance of an object.
+   at Malam.Mastpen.Core.BL.Services.EmployeeService.GetEmployeeAsync(Int32 Id) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\EmployeeService.cs:line 102
+   at Malam.Mastpen.API.Controllers.EmployeeController.GetEmployeeAsync(Int32 Id) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeController.cs:line 113
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2020-05-06 11:17:12,300 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-05-06 11:17:12,451 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-05-06 11:17:13,101 INFO - Request finished in 811.3496ms 200 text/html
+2020-05-06 11:17:14,794 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-05-06 11:17:14,803 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-05-06 11:17:17,296 INFO - Request finished in 2172.4246ms 200 application/json;charset=utf-8

@@ -401,7 +401,7 @@ namespace Malam.Mastpen.Core.BL.Services
             var response = new SingleResponse<EquipmenAtSite>();
             // Get the Employee by Id
             var res = DbContext.GetSiteByEquipmentIdAsync(new EquipmenAtSite { EquipmentId = EquipmentId });
-            response.Model = await res.OrderByDescending(x => x.EquipmentId).FirstOrDefaultAsync();
+            response.Model = await res.FirstOrDefaultAsync();//.OrderByDescending(x => x.EquipmentId).FirstOrDefaultAsync();
 
             return response;
         }

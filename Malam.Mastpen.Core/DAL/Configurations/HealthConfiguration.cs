@@ -122,4 +122,45 @@ namespace Malam.Mastpen.Core.DAL.Configurations
 
         }
     }
+    public class HealthDeclarationConfiguration : IEntityTypeConfiguration<HealthDeclaration>
+    {
+        public void Configure(EntityTypeBuilder<HealthDeclaration> builder)
+        {
+            builder.HasKey(e => e.DeclarationID);
+
+            builder.ToTable("BB_VR_HealthDeclaration");
+
+            builder.Property(e => e.DeclarationID).HasColumnName("DeclarationID");
+            builder.Property(e => e.SiteId).HasColumnName("SiteID");
+            builder.Property(e => e.FullName).HasMaxLength(50);
+            builder.Property(e => e.IdentityNumber).HasMaxLength(50);
+            builder.Property(e => e.EntityId).HasColumnName("EntityID");
+
+            builder.Property(e => e.EntityTypeId).HasColumnName("EntityTypeID");
+
+            builder.Property(e => e.Date)
+                  .HasColumnName("Date")
+                  .HasColumnType("datetime")
+                  .HasDefaultValueSql("(getdate())");
+
+            builder.Property(e => e.DateInsert)
+                .HasColumnName("dateInsert")
+                .HasColumnType("datetime")
+                .HasDefaultValueSql("(getdate())");
+
+            builder.Property(e => e.DateUpdate)
+                .HasColumnName("dateUpdate")
+                .HasColumnType("datetime");
+
+            builder.Property(e => e.State)
+                .HasColumnName("state")
+                .HasDefaultValueSql("((1))");
+
+            builder.Property(e => e.UserInsert)
+                .HasColumnName("userInsert")
+                .HasDefaultValueSql("((1))");
+
+        }
+    }
+    
 }

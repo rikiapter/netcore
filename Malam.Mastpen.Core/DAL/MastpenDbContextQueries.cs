@@ -232,7 +232,7 @@ namespace Malam.Mastpen.Core.DAL
         .FirstOrDefaultAsync(item => item.EmployeeId == entity.EmployeeId);
 
         public static IQueryable<EquipmenAtSite> GetSiteByEquipmentIdAsync(this MastpenBitachonDbContext dbContext, EquipmenAtSite entity)
-=> dbContext.EquipmenAtSite.Where(item => item.EquipmentId == entity.EquipmentId).DefaultIfEmpty();
+=> dbContext.EquipmenAtSite.Where(item => item.EquipmentId == entity.EquipmentId).Include(s=>s.Site).DefaultIfEmpty();
 
 
         public static IQueryable<EmployeeEntry> GetEmployeeEntryByGuid(this MastpenBitachonDbContext dbContext, string guid)
@@ -499,8 +499,8 @@ namespace Malam.Mastpen.Core.DAL
                         select GenTextSystem;
            
 
-            if (OrganizationId.HasValue)
-                query = query.Where(item => item.OrganizationID == OrganizationId);
+           if (OrganizationId.HasValue)
+               query = query.Where(item => item.OrganizationID == OrganizationId);
 
 
 

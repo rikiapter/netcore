@@ -1211,8 +1211,9 @@ namespace Malam.Mastpen.Core.DAL.Configurations
 
             builder.Property(e => e.Title).HasMaxLength(50);
             builder.Property(e => e.Text).HasMaxLength(250);
+            builder.Property(e => e.Comment).HasMaxLength(50);
 
-      
+
             builder.Property(e => e.OrganizationID).HasColumnName("OrganizationID");
 
        

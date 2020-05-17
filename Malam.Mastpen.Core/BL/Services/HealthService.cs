@@ -130,6 +130,19 @@ namespace Malam.Mastpen.Core.BL.Services
 
             return response;
         }
+        // POST
+        public async Task<SingleResponse<HealthDeclaration>> CreateHealthDeclarationAsync(HealthDeclaration healthDeclaration)
+        {
+            var response = new SingleResponse<HealthDeclaration>();
 
+
+            DbContext.Add(healthDeclaration, UserInfo);
+
+            await DbContext.SaveChangesAsync();
+
+            response.Model = healthDeclaration;
+
+            return response;
+        }
     }
 }

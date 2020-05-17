@@ -6,7 +6,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
     public partial class GenTextSystem : IAuditableEntity
     { 
         public int TextSystemID { get; set; }
-        public int TextSystemTypeID { get; set; }
+        public int? TextSystemTypeID { get; set; }
         public string Title { get; set; }
         public string Text { get; set; }
         public int? OrganizationID { get; set; }
@@ -18,8 +18,6 @@ namespace Malam.Mastpen.Core.DAL.Entities
         public DateTime? DateUpdate { get; set; }
         public bool? State { get; set; }
 
-        public AlertType AlertType { get; set; }
-        public EntityType EntityType { get; set; }
-        public Sites Site { get; set; }
+     
     }
 }
