@@ -13,6 +13,7 @@ using Malam.Mastpen.Core.BL.Requests;
 using Malam.Mastpen.Core.DAL;
 using IdentityModel.Client;
 using System.Net.Http;
+using System.Security.Policy;
 
 namespace Malam.Mastpen.Core.BL.Services
 {
@@ -383,6 +384,18 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
 
+        public async Task<SingleResponse<Sites>> GetSiteByGuid(string guid)
+        {
+            var response = new SingleResponse<Sites>();
+
+            var query = DbContext.GetSitesByGuid(guid);
+
+            response.Model = await query.FirstOrDefaultAsync();
+
+            response.SetMessageGetById(nameof(GetSiteByGuid), response.Model.SiteId);
+
+            return response;
+        }
         public async Task<SingleResponse<EmployeeEntry>> GetEmployeeEntryByGuidEntry(string guid)
         {
             var response = new SingleResponse<EmployeeEntry>();

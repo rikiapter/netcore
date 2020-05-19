@@ -10,6 +10,7 @@ using Malam.Mastpen.API.Commom.Infrastructure;
 using Malam.Mastpen.HR.Core.BL.Requests;
 using static Malam.Mastpen.API.Commom.Infrastructure.GeneralConsts;
 using System.Runtime.CompilerServices;
+using System.Security.Policy;
 
 namespace Malam.Mastpen.Core.DAL
 {
@@ -247,6 +248,14 @@ namespace Malam.Mastpen.Core.DAL
                            on employee.EmployeeId equals employeeEntry.EmployeeId
 
                         select employee;
+
+            return query;
+        }
+
+        public static IQueryable<Sites> GetSitesByGuid(this MastpenBitachonDbContext dbContext, string guid)
+        {
+            var query = from site in dbContext.Sites.Where(item => item.guid == guid)
+                        select site;
 
             return query;
         }

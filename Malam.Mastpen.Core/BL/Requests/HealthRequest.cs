@@ -20,6 +20,10 @@ namespace Malam.Mastpen.Core.BL.Requests
         public List<AlertsResponse> ListAlertsResponse { get; set; }//התראות
     }
  
+    public class HealthDeclarationResponse:HealthDeclaration
+    {
+       public float heatBody { get; set; }
+    }
     public static class ExtensionsHealth
     {
      
@@ -27,3 +31,4 @@ namespace Malam.Mastpen.Core.BL.Requests
 
     }
 }
+

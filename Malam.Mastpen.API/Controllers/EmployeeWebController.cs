@@ -52,6 +52,7 @@ namespace Malam.Mastpen.API.Controllers
 
 
         }
+        //to delete
         // GET
         // api/v1/EmployeeEntry/Employee/1
 
@@ -72,36 +73,108 @@ namespace Malam.Mastpen.API.Controllers
 
         public async Task<IActionResult> GetEmployeeByGuidEntry(string Guid)
         {
-            var responseEmployeeId = await EmployeeService.GetEmployeeByGuidEntry(Guid);
-            var responseEquipmentId = await EmployeeService.GetEmployeeEntryByGuidEntry(Guid);
-
-            //var responseEmployee = await EmployeeService.GetEmployeeAsync(responseEmployeeId.Model.EmployeeId);
-            var site = await EmployeeService.GetSiteByEquipmentIdAsync(responseEquipmentId.Model.EquipmentId ?? 0);
-            var ListGenTextSystem = await EmployeeService.GetGenTextSystemAsync(site.Model.Site.OrganizationId);
-            //var TrainingDocs = await EmployeeService.GetTrainingDocsAsync(null,site.Model.SiteId,null,4);//רשימת ההצהרות בטיחות
-            //var ListTrainingDocs = new List<ParameterCodeEntity>();
-            //var ListLanguage = new List<ParameterCodeEntity>();
-            //foreach (var t in TrainingDocs.Model)
-            //{
-            //    ListTrainingDocs.Add(new ParameterCodeEntity
-            //    {
-            //        ParameterFieldID = t.LanguageId, //שפה
-            //        Name = t.DocumentPath            //נתיב
-            //    });
-            //}
-            //foreach ( var t in TrainingDocs.Model)
-            //{
-            //    ListLanguage.Add(new ParameterCodeEntity
-            //    {
-            //        ParameterFieldID = t.LanguageId,
-            //        Name = t.Language.LanguageName
-            //    });
-            //}
-
-            var response = new SingleResponse<EmployeeTrainingDocResponse>();
-           response.Model = responseEmployeeId.Model.ToEntity( site.Model.SiteId??0, ListGenTextSystem.Model);
           
-            return response.ToHttpResponse();
+                var responseEmployeeId = await EmployeeService.GetEmployeeByGuidEntry(Guid);
+                var responseEquipmentId = await EmployeeService.GetEmployeeEntryByGuidEntry(Guid);
+
+                //var responseEmployee = await EmployeeService.GetEmployeeAsync(responseEmployeeId.Model.EmployeeId);
+                var site = await EmployeeService.GetSiteByEquipmentIdAsync(responseEquipmentId.Model.EquipmentId ?? 0);
+                var ListGenTextSystem = await EmployeeService.GetGenTextSystemAsync(site.Model.Site.OrganizationId);
+                //var TrainingDocs = await EmployeeService.GetTrainingDocsAsync(null,site.Model.SiteId,null,4);//רשימת ההצהרות בטיחות
+                //var ListTrainingDocs = new List<ParameterCodeEntity>();
+                //var ListLanguage = new List<ParameterCodeEntity>();
+                //foreach (var t in TrainingDocs.Model)
+                //{
+                //    ListTrainingDocs.Add(new ParameterCodeEntity
+                //    {
+                //        ParameterFieldID = t.LanguageId, //שפה
+                //        Name = t.DocumentPath            //נתיב
+                //    });
+                //}
+                //foreach ( var t in TrainingDocs.Model)
+                //{
+                //    ListLanguage.Add(new ParameterCodeEntity
+                //    {
+                //        ParameterFieldID = t.LanguageId,
+                //        Name = t.Language.LanguageName
+                //    });
+                //}
+
+                var response = new SingleResponse<EmployeeTrainingDocResponse>();
+                response.Model = responseEmployeeId.Model.ToEntity(site.Model.SiteId ?? 0, ListGenTextSystem.Model);
+
+                return response.ToHttpResponse();
+            
+         
+        }
+
+        //to delete
+        // GET
+        // api/v1/EmployeeEntry/Employee/1
+
+        /// <summary>
+        /// מביא את העובד ע"י guid
+        /// מיועד עבור הצהרת בריאות בweb
+        /// Retrieves a Employee by guId
+        /// </summary>
+        /// <param name="Id">Employee Id</param>
+        /// <returns>A response with Employee</returns>
+        /// <response code="200">Returns the Employee </response>
+        /// <response code="404">If Employee is not exists</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpGet("TextHealthDeclaration/{Guid}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+
+        public async Task<IActionResult> GetTextHealthDeclarationByGuidEntry(string Guid, string Type)
+        {
+            if (Type == "hr")
+            {
+                var responseEmployeeId = await EmployeeService.GetEmployeeByGuidEntry(Guid);
+                var responseEquipmentId = await EmployeeService.GetEmployeeEntryByGuidEntry(Guid);
+
+                //var responseEmployee = await EmployeeService.GetEmployeeAsync(responseEmployeeId.Model.EmployeeId);
+                var site = await EmployeeService.GetSiteByEquipmentIdAsync(responseEquipmentId.Model.EquipmentId ?? 0);
+                var ListGenTextSystem = await EmployeeService.GetGenTextSystemAsync(site.Model.Site.OrganizationId);
+                //var TrainingDocs = await EmployeeService.GetTrainingDocsAsync(null,site.Model.SiteId,null,4);//רשימת ההצהרות בטיחות
+                //var ListTrainingDocs = new List<ParameterCodeEntity>();
+                //var ListLanguage = new List<ParameterCodeEntity>();
+                //foreach (var t in TrainingDocs.Model)
+                //{
+                //    ListTrainingDocs.Add(new ParameterCodeEntity
+                //    {
+                //        ParameterFieldID = t.LanguageId, //שפה
+                //        Name = t.DocumentPath            //נתיב
+                //    });
+                //}
+                //foreach ( var t in TrainingDocs.Model)
+                //{
+                //    ListLanguage.Add(new ParameterCodeEntity
+                //    {
+                //        ParameterFieldID = t.LanguageId,
+                //        Name = t.Language.LanguageName
+                //    });
+                //}
+
+                var response = new SingleResponse<EmployeeTrainingDocResponse>();
+                response.Model = responseEmployeeId.Model.ToEntity(site.Model.SiteId ?? 0, ListGenTextSystem.Model);
+
+                return response.ToHttpResponse();
+            }
+            if (Type == "site")
+            {
+                var responseSite = await EmployeeService.GetSiteByGuid(Guid);
+                var ListGenTextSystem = await EmployeeService.GetGenTextSystemAsync(responseSite.Model.OrganizationId);
+        
+                var response = new SingleResponse<EmployeeTrainingDocResponse>();
+                response.Model = responseSite.Model.ToEntity(ListGenTextSystem.Model);
+
+                return response.ToHttpResponse();
+            }
+            else
+                    return NotFound();
+
         }
 
         // POST
@@ -135,6 +208,7 @@ namespace Malam.Mastpen.API.Controllers
    
             var response = await HealthService.CreateHealthDeclarationAsync(entity);
 
+         
             var Alert = new Alerts();
             Alert.EntityId = request.EntityId;
             Alert.EntityTypeId = request.EntityTypeId ;// עובדים
@@ -142,10 +216,12 @@ namespace Malam.Mastpen.API.Controllers
             Alert.SiteId = request.SiteId;
 
             var responseAlert = await AlertService.GetAlertAsync(Alert);
-            responseAlert.Model.AlertStatusId = 2;//נקרא
-            if (responseAlert.Model != null)
-                await AlertService.UpdateAlertAsync(responseAlert.Model);
 
+            if (responseAlert.Model != null)
+            {
+                responseAlert.Model.AlertStatusId = 2;//נקרא
+                await AlertService.UpdateAlertAsync(responseAlert.Model);
+            }
             return response.ToHttpResponse();
         }
 

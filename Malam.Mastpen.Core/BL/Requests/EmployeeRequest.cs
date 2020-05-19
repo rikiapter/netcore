@@ -262,6 +262,17 @@ namespace Malam.Mastpen.Core.BL.Requests
  ListGenTextSystem= ListGenTextSystem
 };
 
+        public static EmployeeTrainingDocResponse ToEntity(this Sites request ,List<GenTextSystem> ListGenTextSystem)
+=> new EmployeeTrainingDocResponse
+{
+ 
+ OrganizationId = request.OrganizationId,
+
+
+ SiteId = request.SiteId,
+
+ ListGenTextSystem = ListGenTextSystem
+};
         public static NoteRequest ToEntity(this Notes request, Employee employee,int EmployeeId, Docs docs=null)
               => new NoteRequest
               {

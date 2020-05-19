@@ -17,6 +17,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
         public int? SiteTypeId { get; set; }
         public int? SiteStatusId { get; set; }
         public int? OrganizationId { get; set; }
+        public string guid { get; set; }
         public string Comment { get; set; }
         public int? UserInsert { get; set; }
         public DateTime? DateInsert { get; set; }
