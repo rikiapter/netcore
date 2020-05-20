@@ -37,17 +37,20 @@ namespace Malam.Mastpen.API.Controllers
         protected readonly EmployeeService EmployeeService; 
         protected readonly AlertService AlertService;
         protected readonly HealthService HealthService;
+        protected readonly OrganizationService OrganizationService;
 
         public EmployeeWebController(
             IRothschildHouseIdentityClient rothschildHouseIdentityClient,
                  EmployeeService employeeService,
                  AlertService alertService,
-                 HealthService healthService)
+                 HealthService healthService,
+             OrganizationService organizationService)
         {
             RothschildHouseIdentityClient = rothschildHouseIdentityClient;
             EmployeeService = employeeService;
             AlertService = alertService;
             HealthService = healthService;
+            OrganizationService = organizationService;
             EmployeeService.UserInfo = UserInfo;
 
 
@@ -129,7 +132,7 @@ namespace Malam.Mastpen.API.Controllers
 
         public async Task<IActionResult> GetTextHealthDeclarationByGuidEntry(string Guid, string Type)
         {
-            if (Type == "hr")
+            if (Type == "entry")
             {
                 var responseEmployeeId = await EmployeeService.GetEmployeeByGuidEntry(Guid);
                 var responseEquipmentId = await EmployeeService.GetEmployeeEntryByGuidEntry(Guid);
@@ -159,6 +162,20 @@ namespace Malam.Mastpen.API.Controllers
 
                 var response = new SingleResponse<EmployeeTrainingDocResponse>();
                 response.Model = responseEmployeeId.Model.ToEntity(site.Model.SiteId ?? 0, ListGenTextSystem.Model);
+
+                return response.ToHttpResponse();
+            }
+            if (Type == "hr")
+            {
+                var responseEmployeeId = await EmployeeService.GetEmployeeByGuid(Guid);
+         
+                //var responseEmployee = await EmployeeService.GetEmployeeAsync(responseEmployeeId.Model.EmployeeId);
+                var site = await EmployeeService.GetSitesByEmployeeIdAsync(responseEmployeeId.Model.EmployeeId);
+                var ListSites = await OrganizationService.GetSitesByOrganizationIdAsync(site.Model.OrganizationId ?? 0);
+                var ListGenTextSystem = await EmployeeService.GetGenTextSystemAsync(site.Model.OrganizationId);
+               
+                var response = new SingleResponse<EmployeeTrainingDocResponse>();
+                response.Model = responseEmployeeId.Model.ToEntity(site.Model.SiteId, ListGenTextSystem.Model,ListSites.Model);
 
                 return response.ToHttpResponse();
             }

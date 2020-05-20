@@ -228,10 +228,19 @@ namespace Malam.Mastpen.Core.DAL
         public static async Task<Employee> GetEmployeeByIdentityNumberAsync(this MastpenBitachonDbContext dbContext, Employee entity)
             => await dbContext.Employee.FirstOrDefaultAsync(item => item.IdentityNumber == entity.IdentityNumber);
 
-        public static async Task<SiteEmployee> GetSitesByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, SiteEmployee entity)
-        => await dbContext.SiteEmployee.Include(b => b.Site)
-        .FirstOrDefaultAsync(item => item.EmployeeId == entity.EmployeeId);
+        public static async Task<Sites> GetSitesByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, SiteEmployee entity)
+        {
+            var query = from site in dbContext.Sites
 
+
+                        join siteEmployee in dbContext.SiteEmployee.Where(x => x.EmployeeId == entity.EmployeeId)
+                                      on site.SiteId equals siteEmployee.SiteId into siteEmployee
+
+                        from x_siteEmployee in siteEmployee.DefaultIfEmpty()
+                        select site;
+
+            return query.FirstOrDefault();
+                }
         public static IQueryable<EquipmenAtSite> GetSiteByEquipmentIdAsync(this MastpenBitachonDbContext dbContext, EquipmenAtSite entity)
 => dbContext.EquipmenAtSite.Where(item => item.EquipmentId == entity.EquipmentId).Include(s=>s.Site).DefaultIfEmpty();
 
@@ -239,7 +248,7 @@ namespace Malam.Mastpen.Core.DAL
         public static IQueryable<EmployeeEntry> GetEmployeeEntryByGuid(this MastpenBitachonDbContext dbContext, string guid)
 => dbContext.EmployeeEntry.Where(item => item.Guid == guid).DefaultIfEmpty();
 
-        public static IQueryable<Employee> GetEmployeeByGuid(this MastpenBitachonDbContext dbContext, string guid)
+        public static IQueryable<Employee> GetEmployeeByGuidEmployeeEntry(this MastpenBitachonDbContext dbContext, string guid)
         {
             var query = from employee in dbContext.Employee
 
@@ -252,6 +261,19 @@ namespace Malam.Mastpen.Core.DAL
             return query;
         }
 
+
+        public static IQueryable<Employee> GetEmployeeByGuid(this MastpenBitachonDbContext dbContext, string guid)
+        {
+            var query = from employee in dbContext.Employee
+
+                           .Where(item => item.Guid == guid)
+                         
+
+
+                        select employee;
+
+            return query;
+        }
         public static IQueryable<Sites> GetSitesByGuid(this MastpenBitachonDbContext dbContext, string guid)
         {
             var query = from site in dbContext.Sites.Where(item => item.guid == guid)
@@ -356,7 +378,8 @@ namespace Malam.Mastpen.Core.DAL
 
         }
 
-
+      public static IQueryable<Sites> GetSitesByOrganizationIdAsync (this MastpenBitachonDbContext dbContext,Organization entity)
+               => dbContext.Sites.Where(item => item.OrganizationId == entity.OrganizationId);
         public static IQueryable<EmployeeTrainingRequest> GetEmployeeTrainingByEmployeeIdAsync(this MastpenBitachonDbContext dbContext, EmployeeTraining entity)
         {
             string tableName = GetTableNameByType(dbContext, typeof(EmployeeTraining)).Result;

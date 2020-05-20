@@ -159,5 +159,18 @@ namespace Malam.Mastpen.Core.BL.Services
 
             return response;
         }
+
+        public async Task<SingleResponse<List< Sites>>> GetSitesByOrganizationIdAsync(int OrganizationId)
+            
+        {
+            var response = new SingleResponse<List<Sites>> ();
+
+            var query = DbContext.GetSitesByOrganizationIdAsync(new Organization {  OrganizationId= OrganizationId });
+
+            response.Model =await query.ToListAsync() ;
+
+            return response;
+        }
+        
     }
 }

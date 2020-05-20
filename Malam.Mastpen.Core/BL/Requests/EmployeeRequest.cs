@@ -147,6 +147,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         public int? SiteId { get; set; }
         public string picturePath { get; set; }
         public List< GenTextSystem > ListGenTextSystem { get; set; }
+        public List<Sites> ListSites { get; set; }
 
 
     }
@@ -241,7 +242,7 @@ namespace Malam.Mastpen.Core.BL.Requests
 
             };
 
-        public static EmployeeTrainingDocResponse ToEntity(this Employee request, int siteId, List<GenTextSystem> ListGenTextSystem)
+        public static EmployeeTrainingDocResponse ToEntity(this Employee request, int siteId, List<GenTextSystem> ListGenTextSystem, List<Sites> ListSites=null)
 => new EmployeeTrainingDocResponse
 {
  EmployeeId = request.EmployeeId,
@@ -259,7 +260,8 @@ namespace Malam.Mastpen.Core.BL.Requests
 
  SiteId = siteId,
 
- ListGenTextSystem= ListGenTextSystem
+ ListGenTextSystem= ListGenTextSystem,
+    ListSites= ListSites
 };
 
         public static EmployeeTrainingDocResponse ToEntity(this Sites request ,List<GenTextSystem> ListGenTextSystem)

@@ -9,6 +9,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
         {
             EquipmenAtSite = new HashSet<EquipmenAtSite>();
             SiteRole = new HashSet<SiteRole>();
+            SiteEmployeeSite = new HashSet<SiteEmployee>();
         }
 
         public int SiteId { get; set; }
@@ -30,7 +31,9 @@ namespace Malam.Mastpen.Core.DAL.Entities
         public SiteType SiteType { get; set; }
         public ICollection<EquipmenAtSite> EquipmenAtSite { get; set; }
         public ICollection<SiteRole> SiteRole { get; set; }
-    }
+        public ICollection<SiteEmployee> SiteEmployeeSite { get; set; }
+    
+}
 
 
 }

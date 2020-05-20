@@ -375,7 +375,7 @@ namespace Malam.Mastpen.Core.BL.Services
         {
             var response = new SingleResponse<Employee>();
 
-            var query = DbContext.GetEmployeeByGuid(guid);
+            var query = DbContext.GetEmployeeByGuidEmployeeEntry(guid);
 
             response.Model = await query.FirstOrDefaultAsync();
 
@@ -384,6 +384,18 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
 
+        public async Task<SingleResponse<Employee>> GetEmployeeByGuid(string guid)
+        {
+            var response = new SingleResponse<Employee>();
+
+            var query = DbContext.GetEmployeeByGuid(guid);
+
+            response.Model = await query.FirstOrDefaultAsync();
+
+            response.SetMessageGetById(nameof(GetEmployeeByGuidEntry), response.Model.EmployeeId);
+
+            return response;
+        }
         public async Task<SingleResponse<Sites>> GetSiteByGuid(string guid)
         {
             var response = new SingleResponse<Sites>();
@@ -418,5 +430,17 @@ namespace Malam.Mastpen.Core.BL.Services
 
             return response;
         }
+
+        //get
+        public async Task<SingleResponse<Sites>> GetSitesByEmployeeIdAsync(int EmployeeId)
+        {
+            var response = new SingleResponse<Sites>();
+            // Get the Employee by Id
+            var res = DbContext.GetSitesByEmployeeIdAsync(new SiteEmployee { EmployeeId = EmployeeId });
+            response.Model = await res;
+
+            return response;
+        }
+        
     }
 }

@@ -33,6 +33,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
         public int? GenderId { get; set; }
         public int? Citizenship { get; set; }
         public string Address { get; set; }
+        public string Guid { get; set; }
         public int? UserInsert { get; set; }
         public DateTime? DateInsert { get; set; }
         public int? UserUpdate { get; set; }

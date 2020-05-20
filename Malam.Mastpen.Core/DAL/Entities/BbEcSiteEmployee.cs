@@ -18,6 +18,6 @@ namespace Malam.Mastpen.Core.DAL.Entities
         public bool? State { get; set; }
 
         public Employee Employee { get; set; }
-        public Employee Site { get; set; }
+        public Sites Site { get; set; }
     }
 }
