@@ -34,5 +34,16 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
 
+        public void CreateError(BbError error)
+        {
+            var response = new SingleResponse<BbError>();
+            // Get the Employee by Id
+            error.ErrorMessage = error.ErrorMessage.Substring(0, 250);
+            var res = DbContext.Add(error);
+             DbContext.SaveChangesAsync();
+            response.Model = error;
+         
+        }
+
     }
 }

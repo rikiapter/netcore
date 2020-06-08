@@ -67,7 +67,6 @@ namespace Malam.Mastpen.Core.DAL.Configurations
 
         }
     }
-
     public class SiteEmployeeConfiguration : IEntityTypeConfiguration<SiteEmployee>
     {
         /// <summary>
@@ -102,10 +101,6 @@ namespace Malam.Mastpen.Core.DAL.Configurations
 
             builder.Property(e => e.SiteId).HasColumnName("SiteID");
 
-            builder.HasOne(d => d.Site)
-                    .WithMany(p => p.SiteEmployeeSite)
-                    .HasForeignKey(d => d.SiteId)
-                    .HasConstraintName("FK_BB_EC_SiteEmployee_SiteID");
             builder.Property(e => e.State)
                     .HasColumnName("state")
                     .HasDefaultValueSql("((1))");
@@ -114,15 +109,84 @@ namespace Malam.Mastpen.Core.DAL.Configurations
                     .HasColumnName("userInsert")
                     .HasDefaultValueSql("((1))");
 
+            //builder.HasOne(d => d.Employee)
+            //        .WithMany(p => p.SiteEmployeeEmployee)
+            //        .HasForeignKey(d => d.EmployeeId)
+            //        .HasConstraintName("FK_BB_EC_SiteEmployee_EmployeeID");
+
+            builder.HasOne(d => d.Site)
+                    .WithMany(p => p.SiteEmployeeSite)
+                    .HasForeignKey(d => d.SiteId)
+                    .HasConstraintName("FK_BB_EC_SiteEmployee_SiteID");
+
+
             builder.HasOne(d => d.Employee)
                     .WithMany(p => p.SiteEmployeeEmployee)
                     .HasForeignKey(d => d.EmployeeId)
                     .HasConstraintName("FK_BB_EC_SiteEmployee_EmployeeID");
 
-      
-            
+
+
+            //     ALTER TABLE[dbo].[BB_EC_SiteEmployee] ADD CONSTRAINT[FK_BB_EC_SiteEmployee_SiteID] FOREIGN KEY([SiteID])
+            //REFERENCES[dbo].[BB_GEN_Sites] ([SiteID])
+
         }
     }
+    //public class SiteEmployeeConfiguration : IEntityTypeConfiguration<SiteEmployee>
+    //{
+    //    /// <summary>
+    //    /// 
+    //    /// </summary>
+    //    /// <param name="builder"></param>
+    //    public void Configure(EntityTypeBuilder<SiteEmployee> builder)
+    //    {
+
+    //        builder.HasKey(e => e.SiteEmployeeId);
+
+    //        builder.ToTable("BB_EC_SiteEmployee");
+
+    //        builder.Property(e => e.SiteEmployeeId).HasColumnName("SiteEmployeeID");
+
+    //        builder.Property(e => e.Comment).HasMaxLength(50);
+
+    //        builder.Property(e => e.DateFrom).HasColumnType("datetime");
+
+    //        builder.Property(e => e.DateInsert)
+    //                .HasColumnName("dateInsert")
+    //                .HasColumnType("datetime")
+    //                .HasDefaultValueSql("(getdate())");
+
+    //        builder.Property(e => e.DateTo).HasColumnType("datetime");
+
+    //        builder.Property(e => e.DateUpdate)
+    //                .HasColumnName("dateUpdate")
+    //                .HasColumnType("datetime");
+
+    //        builder.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
+
+    //        builder.Property(e => e.SiteId).HasColumnName("SiteID");
+
+    //        builder.HasOne(d => d.Site)
+    //                .WithMany(p => p.SiteEmployeeSite)
+    //                .HasForeignKey(d => d.SiteId)
+    //                .HasConstraintName("FK_BB_EC_SiteEmployee_SiteID");
+    //        builder.Property(e => e.State)
+    //                .HasColumnName("state")
+    //                .HasDefaultValueSql("((1))");
+
+    //        builder.Property(e => e.UserInsert)
+    //                .HasColumnName("userInsert")
+    //                .HasDefaultValueSql("((1))");
+
+    //        builder.HasOne(d => d.Employee)
+    //                .WithMany(p => p.SiteEmployeeEmployee)
+    //                .HasForeignKey(d => d.EmployeeId)
+    //                .HasConstraintName("FK_BB_EC_SiteEmployee_EmployeeID");
+
+
+
+    //    }
+    //}
 
 
     public class EmplyeePictureConfiguration : IEntityTypeConfiguration<EmplyeePicture>

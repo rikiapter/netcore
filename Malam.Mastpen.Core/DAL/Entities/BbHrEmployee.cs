@@ -9,7 +9,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
         {
             EmployeeEntry = new HashSet<EmployeeEntry>();
             SiteEmployeeEmployee = new HashSet<SiteEmployee>();
-            SiteEmployeeSite = new HashSet<SiteEmployee>();
+            //SiteEmployeeSite = new HashSet<SiteEmployee>();
             EmplyeePicture = new HashSet<EmplyeePicture>();
             SiteRole = new HashSet<SiteRole>();
             EmployeeAuthtorization = new HashSet<EmployeeAuthtorization>();
@@ -46,7 +46,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
         public Country PassportCountry { get; set; }
         public ICollection<EmployeeEntry> EmployeeEntry { get; set; }
         public ICollection<SiteEmployee> SiteEmployeeEmployee { get; set; }
-        public ICollection<SiteEmployee> SiteEmployeeSite { get; set; }
+       // public ICollection<SiteEmployee> SiteEmployeeSite { get; set; }
         public ICollection<EmplyeePicture> EmplyeePicture { get; set; }
         public ICollection<SiteRole> SiteRole { get; set; }
         public ICollection<EmployeeAuthtorization> EmployeeAuthtorization { get; set; }

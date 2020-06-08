@@ -1,0 +1,308 @@
+2020-06-03 11:46:00,001 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-03 11:46:00,040 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-03 11:46:00,476 INFO - Request finished in 481.0143ms 200 text/html
+2020-06-03 11:46:00,923 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-03 11:46:00,926 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-03 11:46:01,783 INFO - Request finished in 859.8165ms 200 application/json;charset=utf-8
+2020-06-03 11:49:18,771 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/TextHealthDeclaration/tj?Type=hr  
+2020-06-03 11:49:18,775 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-03 11:49:19,837 INFO - Route matched with {action = "GetTextHealthDeclarationByGuidEntry", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API)
+2020-06-03 11:49:19,861 INFO - 'GetTextHealthDeclarationByGuidEntry' has been invoked
+2020-06-03 11:49:19,870 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) with arguments (tj, hr) - Validation state: Valid
+2020-06-03 11:49:20,919 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-03 11:49:22,129 INFO - Executed DbCommand (97ms) [Parameters=[@__guid_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[Guid] = @__guid_0
+2020-06-03 11:49:29,395 INFO - The GetTextHealthDeclarationByGuidEntry have been retrieved successfully.
+2020-06-03 11:49:29,400 INFO - test log
+2020-06-03 11:49:29,542 ERROR - There was a critical error on 'GetTextHealthDeclarationByGuidEntry': There was a critical error on 'GetTextHealthDeclarationByGuidEntry':   System.NullReferenceException: Object reference not set to an instance of an object.
+   at Malam.Mastpen.Core.BL.Services.EmployeeService.GetEmployeeByGuid(String guid) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\EmployeeService.cs:line 395
+   at Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry(String Guid, String Type) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeWebController.cs:line 179
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()  System.NullReferenceException: Object reference not set to an instance of an object.
+   at Malam.Mastpen.Core.BL.Services.EmployeeService.GetEmployeeByGuid(String guid) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\EmployeeService.cs:line 395
+   at Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry(String Guid, String Type) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeWebController.cs:line 179
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2020-06-03 11:49:29,881 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-03 11:49:29,898 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) in 10058.156ms
+2020-06-03 11:49:30,890 INFO - Executed DbCommand (1,025ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 250), @p2='?' (Size = 250), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_Error] ([dateUpdate], [ErrorMessage], [ErrorTitle], [ErrorTypeID], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [ErrorID], [dateInsert], [state], [userInsert]
+FROM [BB_Error]
+WHERE @@ROWCOUNT = 1 AND [ErrorID] = scope_identity();
+2020-06-03 11:49:30,897 ERROR - Connection ID "18158513707758387267", Request ID "80000044-0002-fc00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The connection does not support MultipleActiveResultSets.
+   at System.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at System.Data.SqlClient.SqlInternalTransaction.Rollback()
+   at System.Data.SqlClient.SqlTransaction.Dispose(Boolean disposing)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.Dispose()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.ClearTransactions()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Dispose()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.EntityFrameworkCore.DbContext.Dispose()
+   at Malam.Mastpen.Core.BL.Services.Service.Dispose() in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\Service.cs:line 35
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesFeature.Dispose()
+   at Microsoft.AspNetCore.Http.HttpResponse.<>c.<.cctor>b__30_1(Object disposable)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContext.FireOnCompleted()
+2020-06-03 11:49:30,899 INFO - Request finished in 12149.5905ms 200 application/json; charset=utf-8
+2020-06-03 11:50:00,043 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/TextHealthDeclaration/tj?Type=hr  
+2020-06-03 11:50:00,045 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-03 11:50:00,062 INFO - Route matched with {action = "GetTextHealthDeclarationByGuidEntry", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API)
+2020-06-03 11:50:00,063 INFO - 'GetTextHealthDeclarationByGuidEntry' has been invoked
+2020-06-03 11:50:00,067 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) with arguments (tj, hr) - Validation state: Valid
+2020-06-03 11:50:00,072 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-03 11:50:00,604 INFO - Executed DbCommand (77ms) [Parameters=[@__guid_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[Guid] = @__guid_0
+2020-06-03 11:50:07,395 INFO - The GetTextHealthDeclarationByGuidEntry have been retrieved successfully.
+2020-06-03 11:50:07,395 INFO - test log
+2020-06-03 11:50:07,397 ERROR - There was a critical error on 'GetTextHealthDeclarationByGuidEntry': There was a critical error on 'GetTextHealthDeclarationByGuidEntry':   System.NullReferenceException: Object reference not set to an instance of an object.
+   at Malam.Mastpen.Core.BL.Services.EmployeeService.GetEmployeeByGuid(String guid) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\EmployeeService.cs:line 395
+   at Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry(String Guid, String Type) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeWebController.cs:line 179
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()  System.NullReferenceException: Object reference not set to an instance of an object.
+   at Malam.Mastpen.Core.BL.Services.EmployeeService.GetEmployeeByGuid(String guid) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\EmployeeService.cs:line 395
+   at Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry(String Guid, String Type) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeWebController.cs:line 179
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2020-06-03 11:50:07,474 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-03 11:50:07,477 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) in 7412.9156ms
+2020-06-03 11:50:08,187 ERROR - Connection ID "18158513707758387267", Request ID "80000045-0002-fc00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The connection does not support MultipleActiveResultSets.
+   at System.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at System.Data.SqlClient.SqlInternalTransaction.Rollback()
+   at System.Data.SqlClient.SqlTransaction.Dispose(Boolean disposing)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.Dispose()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.ClearTransactions()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Dispose()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.EntityFrameworkCore.DbContext.Dispose()
+   at Malam.Mastpen.Core.BL.Services.Service.Dispose() in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\Service.cs:line 35
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesFeature.Dispose()
+   at Microsoft.AspNetCore.Http.HttpResponse.<>c.<.cctor>b__30_1(Object disposable)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContext.FireOnCompleted()
+2020-06-03 11:50:08,188 INFO - Executed DbCommand (714ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 250), @p2='?' (Size = 250), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_Error] ([dateUpdate], [ErrorMessage], [ErrorTitle], [ErrorTypeID], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [ErrorID], [dateInsert], [state], [userInsert]
+FROM [BB_Error]
+WHERE @@ROWCOUNT = 1 AND [ErrorID] = scope_identity();
+2020-06-03 11:50:08,190 INFO - Request finished in 8146.4696ms 200 application/json; charset=utf-8
+2020-06-03 11:51:33,472 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-03 11:51:33,528 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-03 11:51:33,738 INFO - Request finished in 269.1418ms 200 text/html
+2020-06-03 11:51:33,942 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-03 11:51:33,953 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-03 11:51:34,563 INFO - Request finished in 608.411ms 200 application/json;charset=utf-8
+2020-06-03 11:51:41,870 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/TextHealthDeclaration/erf?Type=hr  
+2020-06-03 11:51:41,872 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-03 11:51:42,339 INFO - Route matched with {action = "GetTextHealthDeclarationByGuidEntry", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API)
+2020-06-03 11:51:42,363 INFO - 'GetTextHealthDeclarationByGuidEntry' has been invoked
+2020-06-03 11:51:42,371 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) with arguments (erf, hr) - Validation state: Valid
+2020-06-03 11:51:43,431 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-03 11:51:44,426 INFO - Executed DbCommand (87ms) [Parameters=[@__guid_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[Guid] = @__guid_0
+2020-06-03 11:51:48,386 INFO - The GetTextHealthDeclarationByGuidEntry have been retrieved successfully.
+2020-06-03 11:51:48,391 INFO - test log
+2020-06-03 11:51:48,446 ERROR - There was a critical error on 'GetTextHealthDeclarationByGuidEntry': There was a critical error on 'GetTextHealthDeclarationByGuidEntry':   System.NullReferenceException: Object reference not set to an instance of an object.
+   at Malam.Mastpen.Core.BL.Services.EmployeeService.GetEmployeeByGuid(String guid) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\EmployeeService.cs:line 395
+   at Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry(String Guid, String Type) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeWebController.cs:line 179
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()  System.NullReferenceException: Object reference not set to an instance of an object.
+   at Malam.Mastpen.Core.BL.Services.EmployeeService.GetEmployeeByGuid(String guid) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\EmployeeService.cs:line 395
+   at Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry(String Guid, String Type) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeWebController.cs:line 179
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2020-06-03 11:51:48,752 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-03 11:51:48,766 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) in 6423.895ms
+2020-06-03 11:51:49,704 INFO - Executed DbCommand (964ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 250), @p2='?' (Size = 250), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_Error] ([dateUpdate], [ErrorMessage], [ErrorTitle], [ErrorTypeID], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [ErrorID], [dateInsert], [state], [userInsert]
+FROM [BB_Error]
+WHERE @@ROWCOUNT = 1 AND [ErrorID] = scope_identity();
+2020-06-03 11:51:49,715 ERROR - Connection ID "17365880169046212655", Request ID "80000032-0001-f100-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The connection does not support MultipleActiveResultSets.
+   at System.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at System.Data.SqlClient.SqlInternalTransaction.Rollback()
+   at System.Data.SqlClient.SqlTransaction.Dispose(Boolean disposing)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.Dispose()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.ClearTransactions()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Dispose()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.EntityFrameworkCore.DbContext.Dispose()
+   at Malam.Mastpen.Core.BL.Services.Service.Dispose() in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\Service.cs:line 35
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesFeature.Dispose()
+   at Microsoft.AspNetCore.Http.HttpResponse.<>c.<.cctor>b__30_1(Object disposable)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContext.FireOnCompleted()
+2020-06-03 11:51:49,717 INFO - Request finished in 7847.5165ms 200 application/json; charset=utf-8
+2020-06-03 11:52:04,543 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/TextHealthDeclaration/erf?Type=hr  
+2020-06-03 11:52:04,544 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-03 11:52:04,546 INFO - Route matched with {action = "GetTextHealthDeclarationByGuidEntry", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API)
+2020-06-03 11:52:04,547 INFO - 'GetTextHealthDeclarationByGuidEntry' has been invoked
+2020-06-03 11:52:04,555 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) with arguments (erf, hr) - Validation state: Valid
+2020-06-03 11:52:04,559 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-03 11:52:05,080 INFO - Executed DbCommand (75ms) [Parameters=[@__guid_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[Guid] = @__guid_0
+2020-06-03 11:52:10,119 INFO - The GetTextHealthDeclarationByGuidEntry have been retrieved successfully.
+2020-06-03 11:52:10,120 INFO - test log
+2020-06-03 11:52:10,121 ERROR - There was a critical error on 'GetTextHealthDeclarationByGuidEntry': There was a critical error on 'GetTextHealthDeclarationByGuidEntry':   System.NullReferenceException: Object reference not set to an instance of an object.
+   at Malam.Mastpen.Core.BL.Services.EmployeeService.GetEmployeeByGuid(String guid) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\EmployeeService.cs:line 395
+   at Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry(String Guid, String Type) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeWebController.cs:line 179
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()  System.NullReferenceException: Object reference not set to an instance of an object.
+   at Malam.Mastpen.Core.BL.Services.EmployeeService.GetEmployeeByGuid(String guid) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\EmployeeService.cs:line 395
+   at Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry(String Guid, String Type) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeWebController.cs:line 179
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2020-06-03 11:52:10,202 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-03 11:52:10,205 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) in 5656.469ms
+2020-06-03 11:52:11,678 ERROR - Connection ID "17365880169046212655", Request ID "80000033-0001-f100-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The connection does not support MultipleActiveResultSets.
+   at System.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at System.Data.SqlClient.SqlInternalTransaction.Rollback()
+   at System.Data.SqlClient.SqlTransaction.Dispose(Boolean disposing)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.Dispose()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.ClearTransactions()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Dispose()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.EntityFrameworkCore.DbContext.Dispose()
+   at Malam.Mastpen.Core.BL.Services.Service.Dispose() in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\Service.cs:line 35
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesFeature.Dispose()
+   at Microsoft.AspNetCore.Http.HttpResponse.<>c.<.cctor>b__30_1(Object disposable)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContext.FireOnCompleted()
+2020-06-03 11:52:11,680 INFO - Executed DbCommand (1,478ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 250), @p2='?' (Size = 250), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_Error] ([dateUpdate], [ErrorMessage], [ErrorTitle], [ErrorTypeID], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [ErrorID], [dateInsert], [state], [userInsert]
+FROM [BB_Error]
+WHERE @@ROWCOUNT = 1 AND [ErrorID] = scope_identity();
+2020-06-03 11:52:11,681 INFO - Request finished in 7138.2887ms 200 application/json; charset=utf-8
+2020-06-03 11:52:54,185 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-03 11:52:54,229 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-03 11:52:54,406 INFO - Request finished in 235.4183ms 200 text/html
+2020-06-03 11:52:54,606 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-03 11:52:54,610 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-03 11:52:55,170 INFO - Request finished in 564.7411ms 200 application/json;charset=utf-8
+2020-06-03 11:53:02,759 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/TextHealthDeclaration/dfs?Type=hr  
+2020-06-03 11:53:02,761 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-03 11:53:03,240 INFO - Route matched with {action = "GetTextHealthDeclarationByGuidEntry", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API)
+2020-06-03 11:53:03,267 INFO - 'GetTextHealthDeclarationByGuidEntry' has been invoked
+2020-06-03 11:53:03,274 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) with arguments (dfs, hr) - Validation state: Valid
+2020-06-03 11:53:04,346 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-03 11:53:05,320 INFO - Executed DbCommand (87ms) [Parameters=[@__guid_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[Guid] = @__guid_0
+2020-06-03 11:53:07,857 INFO - The GetTextHealthDeclarationByGuidEntry have been retrieved successfully.
+2020-06-03 11:53:07,862 INFO - test log
+2020-06-03 11:53:07,925 ERROR - There was a critical error on 'GetTextHealthDeclarationByGuidEntry': There was a critical error on 'GetTextHealthDeclarationByGuidEntry':   System.NullReferenceException: Object reference not set to an instance of an object.
+   at Malam.Mastpen.Core.BL.Services.EmployeeService.GetEmployeeByGuid(String guid) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\EmployeeService.cs:line 395
+   at Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry(String Guid, String Type) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeWebController.cs:line 179
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()  System.NullReferenceException: Object reference not set to an instance of an object.
+   at Malam.Mastpen.Core.BL.Services.EmployeeService.GetEmployeeByGuid(String guid) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\EmployeeService.cs:line 395
+   at Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry(String Guid, String Type) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeWebController.cs:line 179
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2020-06-03 11:53:08,227 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-03 11:53:08,241 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) in 4997.5248ms
+2020-06-03 11:53:09,165 INFO - Executed DbCommand (952ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 250), @p2='?' (Size = 250), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_Error] ([dateUpdate], [ErrorMessage], [ErrorTitle], [ErrorTypeID], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [ErrorID], [dateInsert], [state], [userInsert]
+FROM [BB_Error]
+WHERE @@ROWCOUNT = 1 AND [ErrorID] = scope_identity();
+2020-06-03 11:53:09,172 ERROR - Connection ID "17365880169046212660", Request ID "80000037-0001-f100-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The connection does not support MultipleActiveResultSets.
+   at System.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at System.Data.SqlClient.SqlInternalTransaction.Rollback()
+   at System.Data.SqlClient.SqlTransaction.Dispose(Boolean disposing)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.Dispose()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.ClearTransactions()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Dispose()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.EntityFrameworkCore.DbContext.Dispose()
+   at Malam.Mastpen.Core.BL.Services.Service.Dispose() in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\Service.cs:line 35
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesFeature.Dispose()
+   at Microsoft.AspNetCore.Http.HttpResponse.<>c.<.cctor>b__30_1(Object disposable)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContext.FireOnCompleted()
+2020-06-03 11:53:09,175 INFO - Request finished in 6416.0804ms 200 application/json; charset=utf-8

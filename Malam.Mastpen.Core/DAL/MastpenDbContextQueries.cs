@@ -111,7 +111,7 @@ namespace Malam.Mastpen.Core.DAL
                               on Employee.EmployeeId equals docsFaceImage.EntityId into docsFaceImage
                         from x_docsFaceImage in docsFaceImage.DefaultIfEmpty()
 
-                            //מי שנמצא כרגע  באתר
+                        //מי שנמצא כרגע  באתר
                         join employeeEntry in dbContext.EmployeeEntry.Where(item => item.Date.Value.Date == DateTime.Now.Date)
                          on Employee.EmployeeId equals employeeEntry.EmployeeId into employeeEntry
                         from x_employeeEntry in employeeEntry.DefaultIfEmpty()
@@ -128,7 +128,14 @@ namespace Malam.Mastpen.Core.DAL
                         on Employee.EmployeeId equals docsEmplyeePicture.EmployeeId into docsEmplyeePicture
                         from x_docsEmplyeePicture in docsEmplyeePicture.DefaultIfEmpty()
 
-                        select Employee.ToEntity(null, x_docsFaceImage, null, null, x_equipmenAtSite, x_siteEmployee, x_docsEmplyeePicture);
+                        //מי שנתן הצהרת בריאות
+                        join healthDeclaration in dbContext.HealthDeclaration
+                        .Where(item => item.Date.Value.Date == DateTime.Now.Date)
+                        .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        on Employee.EmployeeId equals healthDeclaration.EntityId into healthDeclaration
+                        from x_healthDeclaration in healthDeclaration.DefaultIfEmpty()
+
+                        select Employee.ToEntity(null, x_docsFaceImage, null, null, x_equipmenAtSite, x_siteEmployee, x_docsEmplyeePicture, x_healthDeclaration);
 
  
 
@@ -199,7 +206,40 @@ namespace Malam.Mastpen.Core.DAL
                         on Employee.EmployeeId equals docsEmplyeePicture.EmployeeId into docsEmplyeePicture
                         from x_docsEmplyeePicture in docsEmplyeePicture.DefaultIfEmpty()
 
-                        select Employee.ToEntity(x_phonMail, x_docsFaceImage, x_docsCopyPassport, x_docsCopyofID,null,null, x_docsEmplyeePicture);
+                            //מי שנתן הצהרת בריאות
+                        join healthDeclaration in dbContext.HealthDeclaration
+                        .Where(item => item.Date.Value.Date == DateTime.Now.Date)
+                        .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        on Employee.EmployeeId equals healthDeclaration.EntityId into healthDeclaration
+                        from x_healthDeclaration in healthDeclaration.DefaultIfEmpty()
+
+                        select Employee.ToEntity(x_phonMail, x_docsFaceImage, x_docsCopyPassport, x_docsCopyofID,null,null, x_docsEmplyeePicture, x_healthDeclaration);
+
+
+            return query;
+        }
+
+        public static IQueryable<EmployeeGuid> GetEmployeesByOrganizationAsync(this MastpenBitachonDbContext dbContext, int? OrganizationId = null, int? SiteId = null)
+        {
+            string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
+
+            var query = from Employee in dbContext.Employee
+                        .Where(item => item.OrganizationId == OrganizationId || OrganizationId !=null)
+
+                        join phonMail in dbContext.PhoneMail
+                        .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        on Employee.EmployeeId equals phonMail.EntityId into phonMail
+                        from x_phonMail in phonMail.DefaultIfEmpty()
+
+                       // join siteEmployee in dbContext.SiteEmployee
+                       //.Where(a => a.SiteId == SiteId || SiteId !=null) 
+                       //on Employee.EmployeeId equals siteEmployee.EmployeeId into siteEmployee
+                       
+                       //from x_siteEmployee in siteEmployee.DefaultIfEmpty()
+
+
+                       select Employee.ToEntity(x_phonMail);
+
 
 
             return query;
@@ -215,7 +255,7 @@ namespace Malam.Mastpen.Core.DAL
                         .Where(item => item.UserName == entity.UserName)
                         on Employee.EmployeeId equals user.EmployeeId
 
-                        select Employee.ToEntity(null,null,null,null,null,null,null);
+                        select Employee.ToEntity(null,null,null,null,null,null,null,null);
 
 
             return query;
@@ -540,7 +580,13 @@ namespace Malam.Mastpen.Core.DAL
 
 
         }
-        
+
+
+        public static IQueryable<HealthDeclaration> GetHealthDeclarationAsync(this MastpenBitachonDbContext dbContext, HealthDeclaration entity)
+=> dbContext.HealthDeclaration.Where(item => item.EntityId == entity.EntityId)
+            .Where(item => item.EntityTypeId == entity.EntityTypeId)
+            .Where(item => item.Date == DateTime.Now.Date).AsQueryable();
+
         /// <summary>
         ///get ntityTypeId
         ///return entity tablee

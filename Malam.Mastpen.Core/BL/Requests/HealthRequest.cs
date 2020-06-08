@@ -26,14 +26,28 @@ namespace Malam.Mastpen.Core.BL.Requests
         public DateTime Time { get; set; }
         public int count { get; set; }
     }
+
+    public class EmployeeGuid
+    {
+        public string Guid { get; set; }
+        public string PhonNumber { get; set; }
+        public string Mail { get; set; }
+    }
     public class HealthDeclarationResponse:HealthDeclaration
     {
        public float heatBody { get; set; }
     }
     public static class ExtensionsHealth
     {
-     
 
+        public static EmployeeGuid ToEntity(this Employee request,PhoneMail phoneMail=null)
+=> new EmployeeGuid
+{
+ Guid=request.Guid,
+ PhonNumber = phoneMail != null ? phoneMail.PhoneNumber:"0",
+ Mail = phoneMail != null ?  phoneMail.Email:"0"
+
+};
 
     }
 }

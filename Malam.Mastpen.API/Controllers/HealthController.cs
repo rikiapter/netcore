@@ -117,17 +117,44 @@ namespace Malam.Mastpen.API.Controllers
             bool isEmployeeEntry = false,
             bool sortByAuthtorization = false,
             bool sortByTraining = false,
-            bool sortByWorkPermit = false)
+            bool sortByWorkPermit = false,
+            bool sortHealthDeclaration=false)
         {
             var response = await HealthService.GetEmployeesAsync(pageSize, pageNumber, EmployeeId, EmployeeName, IdentityNumber, OrganizationId, PassportCountryId, ProffesionType, SiteId, EmployeeIsNotInSiteId, isEmployeeEntry,
                 sortByAuthtorization,
              sortByTraining,
-             sortByWorkPermit);
+             sortByWorkPermit,
+             sortHealthDeclaration);
 
             // Return as http response
             return response.ToHttpResponse();
         }
 
+
+        // GET
+        // api/v1/Employee/Organization
+
+        /// <summary>
+        /// Retrieves Organization Employee
+        /// </summary>
+
+        /// <param name="OrganizationId">Organization Id</param>
+        /// <param name="SiteId">Site Id</param>
+        /// <returns>A response with Site Employee list</returns>
+        /// <response code="200">Returns the Site Employee list</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpGet("EmployeeByOrganization")]
+ 
+        public async Task<IActionResult> GetEmployeesByOrganizationAsync(
+            int? OrganizationId = null
+        
+         )
+        {
+            var response = await HealthService.GetEmployeesByOrganizationAsync(OrganizationId);//, SiteId);
+
+            // Return as http response
+            return response.ToHttpResponse();
+        }
         // POST
         // api/v1/Employee/Temperature/
 

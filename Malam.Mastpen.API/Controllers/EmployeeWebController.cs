@@ -132,14 +132,23 @@ namespace Malam.Mastpen.API.Controllers
 
         public async Task<IActionResult> GetTextHealthDeclarationByGuidEntry(string Guid, string Type)
         {
+            var response = new SingleResponse<EmployeeTrainingDocResponse>();
             if (Type == "entry")
             {
-                var responseEmployeeId = await EmployeeService.GetEmployeeByGuidEntry(Guid);
-                var responseEquipmentId = await EmployeeService.GetEmployeeEntryByGuidEntry(Guid);
 
-                //var responseEmployee = await EmployeeService.GetEmployeeAsync(responseEmployeeId.Model.EmployeeId);
+                var responseEmployeeId = await EmployeeService.GetEmployeeByGuidEntry(Guid);
+
+                var HealthDeclaration = await HealthService.GetHealthDeclarationAsync(new HealthDeclaration { EntityId = responseEmployeeId.Model.EmployeeId, EntityTypeId = 2 });
+
+                if (HealthDeclaration.Model != null)//אם יש אישור
+                {
+                    response.Model.DeclarationID = HealthDeclaration.Model.DeclarationID;
+                    return response.ToHttpResponse();
+                }
+                var responseEquipmentId = await EmployeeService.GetEmployeeEntryByGuidEntry(Guid);
                 var site = await EmployeeService.GetSiteByEquipmentIdAsync(responseEquipmentId.Model.EquipmentId ?? 0);
                 var ListGenTextSystem = await EmployeeService.GetGenTextSystemAsync(site.Model.Site.OrganizationId);
+                
                 //var TrainingDocs = await EmployeeService.GetTrainingDocsAsync(null,site.Model.SiteId,null,4);//רשימת ההצהרות בטיחות
                 //var ListTrainingDocs = new List<ParameterCodeEntity>();
                 //var ListLanguage = new List<ParameterCodeEntity>();
@@ -160,7 +169,7 @@ namespace Malam.Mastpen.API.Controllers
                 //    });
                 //}
 
-                var response = new SingleResponse<EmployeeTrainingDocResponse>();
+   
                 response.Model = responseEmployeeId.Model.ToEntity(site.Model.SiteId ?? 0, ListGenTextSystem.Model);
 
                 return response.ToHttpResponse();
@@ -168,13 +177,18 @@ namespace Malam.Mastpen.API.Controllers
             if (Type == "hr")
             {
                 var responseEmployeeId = await EmployeeService.GetEmployeeByGuid(Guid);
-         
-                //var responseEmployee = await EmployeeService.GetEmployeeAsync(responseEmployeeId.Model.EmployeeId);
+                var HealthDeclaration = await HealthService.GetHealthDeclarationAsync(new HealthDeclaration { EntityId = responseEmployeeId.Model.EmployeeId, EntityTypeId = 2 });
+
+                if (HealthDeclaration.Model != null)//אם יש אישור
+                {
+                    response.Model.DeclarationID = HealthDeclaration.Model.DeclarationID;
+                    return response.ToHttpResponse();
+                }
                 var site = await EmployeeService.GetSitesByEmployeeIdAsync(responseEmployeeId.Model.EmployeeId);
                 var ListSites = await OrganizationService.GetSitesByOrganizationIdAsync(site.Model.OrganizationId ?? 0);
                 var ListGenTextSystem = await EmployeeService.GetGenTextSystemAsync(site.Model.OrganizationId);
                
-                var response = new SingleResponse<EmployeeTrainingDocResponse>();
+   
                 response.Model = responseEmployeeId.Model.ToEntity(site.Model.SiteId, ListGenTextSystem.Model,ListSites.Model);
 
                 return response.ToHttpResponse();
@@ -184,7 +198,7 @@ namespace Malam.Mastpen.API.Controllers
                 var responseSite = await EmployeeService.GetSiteByGuid(Guid);
                 var ListGenTextSystem = await EmployeeService.GetGenTextSystemAsync(responseSite.Model.OrganizationId);
         
-                var response = new SingleResponse<EmployeeTrainingDocResponse>();
+ 
                 response.Model = responseSite.Model.ToEntity(ListGenTextSystem.Model);
 
                 return response.ToHttpResponse();

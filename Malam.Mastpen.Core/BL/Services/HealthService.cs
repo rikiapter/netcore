@@ -13,6 +13,7 @@ using Malam.Mastpen.Core.BL.Requests;
 using Malam.Mastpen.Core.DAL;
 using IdentityModel.Client;
 using System.Net.Http;
+using System.Collections.Generic;
 
 namespace Malam.Mastpen.Core.BL.Services
 {
@@ -28,7 +29,8 @@ namespace Malam.Mastpen.Core.BL.Services
 
         public async Task<IPagedResponse<EmployeeResponse>> GetEmployeesAsync(int pageSize = 10, int pageNumber = 1, int? EmployeeId = null, string EmployeeName = null, string IdentityNumber = null, int? OrganizationId = null, int? PassportCountryId = null, int? ProffesionType = null, int? SiteId = null, int? EmployeeIsNotInSiteId = null, bool isEmployeeEntry = false, bool sortByAuthtorization = false,
             bool sortByTraining = false,
-            bool sortByWorkPermit = false)//, int? SiteId = null, DateTime? DateFrom = null, DateTime? DateTo = null)
+            bool sortByWorkPermit = false,
+            bool sortHealthDeclaration=false)//, int? SiteId = null, DateTime? DateFrom = null, DateTime? DateTo = null)
         {
             var response = new PagedResponse<EmployeeResponse>();
 
@@ -62,13 +64,16 @@ namespace Malam.Mastpen.Core.BL.Services
             response.Model = sortByWorkPermit ? response.Model.OrderBy(x => x.EmployeeWorkPermit.regular) : response.Model;
             response.Model = sortByTraining ? response.Model.OrderBy(x => x.EmployeeTraining.regular) : response.Model;
 
+            //סינון לפי הצהרת בריאות
+            response.Model = sortHealthDeclaration  ? response.Model.OrderByDescending(x => x.HealthDeclaration) : response.Model;
+
             //מי נמצא כרגע באתר
             response.Model = isEmployeeEntry && SiteId.HasValue ? response.Model.OrderByDescending(x => x.isEmployeeEntry) : response.Model;
 
             //מי משויך לאתר
             response.Model = SiteId.HasValue ? response.Model.Where(x => x.SiteId == SiteId) : response.Model;
 
-
+            
             var rr = response.Model;
             //מי לא משויך לאתר
             if (EmployeeIsNotInSiteId.HasValue)
@@ -89,6 +94,21 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
 
+
+        public async Task<ISingleResponse<List<EmployeeGuid>>> GetEmployeesByOrganizationAsync(int? OrganizationId = null)//, int? SiteId = null)//, int? SiteId = null, DateTime? DateFrom = null, DateTime? DateTo = null)
+        {
+            var response = new SingleResponse<List<EmployeeGuid>>();
+
+            // Get the "proposed" query from repository
+            var query = DbContext.GetEmployeesByOrganizationAsync(OrganizationId);//,  SiteId);// אם רוצים לפי סינונים מסוימים אז יש להשתמש בפונקציה
+
+
+
+            response.Model = await query.ToListAsync();
+
+
+            return response;
+        }
         public async Task<ISingleResponse<MainScreenHealthResponse>> GetMainScreenHealthAsync(int siteId)
         {
 
@@ -104,7 +124,8 @@ namespace Malam.Mastpen.Core.BL.Services
             response.Model.EmployeesWithHotBody = await DbContext.GetAlertsAsync(siteId, 2, 6).CountAsync();
       
             response.Model.NumberVisitors = 1;
-            response.Model.PresentEmployees = response.Model.NumberEmployees / response.Model.NumberEmployeesOnSite *100;
+            if(response.Model.NumberEmployeesOnSite!=0)
+                 response.Model.PresentEmployees = response.Model.NumberEmployees / response.Model.NumberEmployeesOnSite *100;
             response.Model.WithoutHealthDeclaration = response.Model.NumberEmployeesOnSite - await DbContext.GetWithoutEmployeeTrainingAsync(siteId, date, null).GroupBy(x => x.EmployeeId).CountAsync();
       
 
@@ -142,6 +163,13 @@ namespace Malam.Mastpen.Core.BL.Services
 
             response.Model = healthDeclaration;
 
+            return response;
+        }
+        // POST
+        public async Task<SingleResponse<HealthDeclaration>> GetHealthDeclarationAsync(HealthDeclaration healthDeclaration)
+        {
+            var response = new SingleResponse<HealthDeclaration>();
+            response.Model = await DbContext.GetHealthDeclarationAsync(healthDeclaration).FirstOrDefaultAsync();
             return response;
         }
     }

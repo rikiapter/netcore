@@ -61,6 +61,8 @@ namespace Malam.Mastpen.API.Filters
                 var message = "";
                 if (!context.ModelState.IsValid)
                     message = context.ModelState.Values.Select(v => v.Errors).FirstOrDefault()[0].ErrorMessage;
+                else
+                    message = string.Format("There was a critical error on '{0}': {1}", actionName, message + "  " + context.Exception);
                 logger.ErrorFormat("There was a critical error on '{0}': {1}", actionName, message + "  " + context.Exception);
             //    response.Message = message;
                 response.ErrorMessage = string.Format(message);
@@ -77,7 +79,7 @@ namespace Malam.Mastpen.API.Filters
             bbError.ErrorTitle = "HR";
             bbError.ErrorMessage = response.ErrorMessage;
             bbError.ErrorTypeId = 1;
-            ErrorService.CreateErrorAsync(bbError);
+            ErrorService.CreateError(bbError);
         }
     }
 }

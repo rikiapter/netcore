@@ -88,6 +88,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         public EmplyeePicture EmployeePicture { get; set; }
         //public ICollection<SiteRole> SiteRole { get; set; }
         public bool AgreeOnTheBylaws { get; set; }
+        public HealthDeclaration HealthDeclaration { get; set; }
     }
 
     public class NoteRequest:Notes
@@ -149,6 +150,8 @@ namespace Malam.Mastpen.Core.BL.Requests
         public List< GenTextSystem > ListGenTextSystem { get; set; }
         public List<Sites> ListSites { get; set; }
 
+         public int? DeclarationID { get; set; }
+
 
     }
     public static class ExtensionsEmployee
@@ -201,7 +204,7 @@ namespace Malam.Mastpen.Core.BL.Requests
          
 
        };
-        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone, Docs docsFaceImage, Docs docsCopyPassport,Docs docsCopyofID, EquipmenAtSite equipmenAtSite,SiteEmployee siteEmployee ,EmplyeePicture emplyeePicture=null)
+        public static EmployeeResponse ToEntity(this Employee request, PhoneMail phone, Docs docsFaceImage, Docs docsCopyPassport,Docs docsCopyofID, EquipmenAtSite equipmenAtSite,SiteEmployee siteEmployee ,EmplyeePicture emplyeePicture=null,HealthDeclaration healthDeclaration =null)
             => new EmployeeResponse
             {
                 EmployeeId = request.EmployeeId,
@@ -237,8 +240,9 @@ namespace Malam.Mastpen.Core.BL.Requests
                 PassportFilePath = docsCopyPassport == null ? null : docsCopyPassport.DocumentPath,
                 isEmployeeEntry= equipmenAtSite!=null,//אם יש כניסה לאתר
                 SiteId= siteEmployee == null ? null : siteEmployee.SiteId,
-                EmployeePicture=emplyeePicture
-         
+                EmployeePicture=emplyeePicture,
+                HealthDeclaration = healthDeclaration
+
 
             };
 
