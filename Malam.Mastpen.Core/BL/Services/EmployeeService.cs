@@ -35,9 +35,8 @@ namespace Malam.Mastpen.Core.BL.Services
 
             // Get the "proposed" query from repository
             var query =DbContext.GetEmployee(EmployeeId,  EmployeeName , IdentityNumber,OrganizationId , PassportCountryId ,ProffesionType, SiteId, EmployeeIsNotInSiteId, isEmployeeEntry      , sortByAuthtorization , sortByTraining ,  sortByWorkPermit );// אם רוצים לפי סינונים מסוימים אז יש להשתמש בפונקציה
-
-            // Set paging values
-
+           
+      
             // response.ItemsCount = await query.CountAsync();
 
             response.PageSize = pageSize;
@@ -48,7 +47,6 @@ namespace Malam.Mastpen.Core.BL.Services
             response.Model = await query
             .Paging(pageSize, pageNumber)
             .ToListAsync();
-
 
             //Distinct
             response.Model = response.Model.GroupBy(s => s.EmployeeId)
@@ -114,7 +112,7 @@ namespace Malam.Mastpen.Core.BL.Services
 
             response.Model = await query.FirstOrDefaultAsync();
 
-            response.SetMessageGetById(nameof(GetEmployeeByUserIdAsync), response.Model.EmployeeId);
+            //response.SetMessageGetById(nameof(GetEmployeeByUserIdAsync), response.Model.EmployeeId);
             return response;
         }
 
@@ -431,6 +429,16 @@ namespace Malam.Mastpen.Core.BL.Services
             return response;
         }
 
+        //get
+        public async Task<SingleResponse<Sites>> GetSiteBySiteIdAsync(int siteId)
+        {
+            var response = new SingleResponse<Sites>();
+            // Get the Employee by Id
+            var res = DbContext.GetSiteBySiteIdAsync(new Sites { SiteId = siteId });
+            response.Model = await res.FirstOrDefaultAsync();//.OrderByDescending(x => x.EquipmentId).FirstOrDefaultAsync();
+
+            return response;
+        }
         //get
         public async Task<SingleResponse<Sites>> GetSitesByEmployeeIdAsync(int EmployeeId)
         {

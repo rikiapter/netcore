@@ -298,10 +298,10 @@ namespace Malam.Mastpen.Core.DAL.Configurations
             //    .HasForeignKey(d => d.OrganizationId)
             //    .HasConstraintName("FK_BB_HR_Employee_OrganizationID");
 
-            builder.HasOne(d => d.PassportCountry)
-                .WithMany(p => p.Employee)
-                .HasForeignKey(d => d.PassportCountryId)
-                .HasConstraintName("FK_BB_HR_Employee_PassportCountryID");
+            //builder.HasOne(d => d.PassportCountry)
+            //    .WithMany(p => p.Employee)
+            //    .HasForeignKey(d => d.PassportCountryId)
+            //    .HasConstraintName("FK_BB_HR_Employee_PassportCountryID");
         }
     }
 

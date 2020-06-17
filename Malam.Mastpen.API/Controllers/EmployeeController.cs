@@ -161,19 +161,19 @@ namespace Malam.Mastpen.API.Controllers
         public async Task<IActionResult> PostUserAsync([FromBody] UsersRequest request)
         {
             // Get Employee by Id
-            var employee = await EmployeeService.GetEmployeesAsync(request.EmployeeId ?? 0);
+            var employee = await EmployeeService.GetEmployeeAsync(request.EmployeeId ?? 0);
             //// ValIdate if entity exists
             if (employee == null)
                 return NotFound();
 
             //אם קיים שם משתמש
             var user = await EmployeeService.GetEmployeeByUserIdAsync(request.UserName);
-            if (user != null)
+            if (user.Model != null)
                throw new Exception("user name is alredy exist");
 
             //אם קיים משתמש עם employee זה לא תקין
             var useremployee = await EmployeeService.GetUserByEmployeeIdAsync(request.EmployeeId??0);
-            if (useremployee != null)
+            if (useremployee.Model != null)
                 throw new Exception("user employee is alredy exist");
 
             var entity = request.ToEntity();

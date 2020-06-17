@@ -47,6 +47,7 @@ namespace Malam.Mastpen.API
 
             /* Configuration for MVC */
             var appSettingsSection = Configuration.GetSection("AppSettings");
+     
             services.AddMvc(config =>
         {
             config.Filters.Add(typeof(MastpenExceptionFilter));

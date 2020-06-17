@@ -9,13 +9,26 @@ using Malam.Mastpen.Core.DAL;
 using Malam.Mastpen.HR.Core.BL.Requests;
 using IdentityModel;
 using Malam.Mastpen.Core.DAL.Dbo;
+using System.Security.Policy;
 
 namespace Malam.Mastpen.Core.BL.Requests
     {
 #pragma warning disable CS1591
 
 
+    public class EmployeeDeclarationResponse
+    {
+        public int EmployeeId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string SiteName { get; set; }
+        public int? SiteId { get; set; }
+        public int? OrganizationId { get; set; }
+        public int? DeclarationID { get; set; }
+        public DateTime? DeclarationDate { get; set; }
 
+
+    }
     public class EmployeeRequest
     {
         public int? EmployeeId { get; set; }
@@ -89,6 +102,7 @@ namespace Malam.Mastpen.Core.BL.Requests
         //public ICollection<SiteRole> SiteRole { get; set; }
         public bool AgreeOnTheBylaws { get; set; }
         public HealthDeclaration HealthDeclaration { get; set; }
+        public bool isHealthDeclaration { get; set; }
     }
 
     public class NoteRequest:Notes
@@ -146,14 +160,16 @@ namespace Malam.Mastpen.Core.BL.Requests
         public int? OrganizationId { get; set; }
         public int? GenderId { get; set; }
         public int? SiteId { get; set; }
+        public string SiteName { get; set; }
         public string picturePath { get; set; }
         public List< GenTextSystem > ListGenTextSystem { get; set; }
         public List<Sites> ListSites { get; set; }
 
-         public int? DeclarationID { get; set; }
+        public int? DeclarationID { get; set; }
 
-
+        public DateTime? dateInsert { get; set; }
     }
+
     public static class ExtensionsEmployee
     {
         public static Employee ToEntity(this EmployeeRequest request)
@@ -241,12 +257,13 @@ namespace Malam.Mastpen.Core.BL.Requests
                 isEmployeeEntry= equipmenAtSite!=null,//אם יש כניסה לאתר
                 SiteId= siteEmployee == null ? null : siteEmployee.SiteId,
                 EmployeePicture=emplyeePicture,
-                HealthDeclaration = healthDeclaration
+                HealthDeclaration = healthDeclaration,
+                isHealthDeclaration = healthDeclaration == null ? false : true
 
 
             };
 
-        public static EmployeeTrainingDocResponse ToEntity(this Employee request, int siteId, List<GenTextSystem> ListGenTextSystem, List<Sites> ListSites=null)
+        public static EmployeeTrainingDocResponse ToEntity(this Employee request, Sites site, List<GenTextSystem> ListGenTextSystem, List<Sites> ListSites=null)
 => new EmployeeTrainingDocResponse
 {
  EmployeeId = request.EmployeeId,
@@ -262,10 +279,12 @@ namespace Malam.Mastpen.Core.BL.Requests
 
 
 
- SiteId = siteId,
+ SiteId =site !=null ? site.SiteId : 0,
+ SiteName= site != null ? site.SiteName : "",
 
- ListGenTextSystem= ListGenTextSystem,
-    ListSites= ListSites
+    ListGenTextSystem = ListGenTextSystem,
+    ListSites= ListSites,
+dateInsert=request.DateInsert 
 };
 
         public static EmployeeTrainingDocResponse ToEntity(this Sites request ,List<GenTextSystem> ListGenTextSystem)
@@ -276,6 +295,7 @@ namespace Malam.Mastpen.Core.BL.Requests
 
 
  SiteId = request.SiteId,
+ SiteName=request.SiteName,
 
  ListGenTextSystem = ListGenTextSystem
 };
@@ -381,9 +401,23 @@ namespace Malam.Mastpen.Core.BL.Requests
            PasswordChangeDate = request.PasswordChangeDate,
            Comment = request.Comment,
 
-       }; 
+       };
 
+        public static EmployeeDeclarationResponse ToEntity(this EmployeeResponse request,Sites site =null)
+            => new EmployeeDeclarationResponse
+            {
 
+            EmployeeId = request.EmployeeId,
+            FirstName = request.FirstName,
+            LastName = request.LastName,
+            DeclarationDate = request.HealthDeclaration != null ? request.HealthDeclaration.DateInsert : null,
+            DeclarationID = request.HealthDeclaration != null ? request.HealthDeclaration.DeclarationID : 0,
+            SiteName=site != null ?site.SiteName:"",
+           OrganizationId=request.OrganizationId,
+            SiteId=request.SiteId
+
+                //sitename
+            };
     }
 #pragma warning restore CS1591
 }

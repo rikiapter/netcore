@@ -1,0 +1,608 @@
+2020-06-15 11:08:52,892 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-15 11:08:52,952 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:08:54,132 INFO - Request finished in 1237.7325ms 200 text/html
+2020-06-15 11:08:55,374 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-15 11:08:55,392 INFO - Request starting HTTP/1.1 GET http://localhost:59821/favicon-32x32.png  
+2020-06-15 11:08:55,404 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:08:55,409 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:08:55,575 INFO - Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2020-06-15 11:08:55,603 INFO - Request finished in 252.0354ms 200 image/png
+2020-06-15 11:08:58,041 INFO - Request finished in 2348.8276ms 200 application/json;charset=utf-8
+2020-06-15 11:09:15,534 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&OrganizationId=22&isHealthDeclaration=true  
+2020-06-15 11:09:15,540 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:09:16,895 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-15 11:09:16,927 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-15 11:09:16,934 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, 22, , True) - Validation state: Valid
+2020-06-15 11:09:18,296 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-15 11:09:18,513 WARN - The Include operation for navigation '[s].Site' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-06-15 11:09:18,801 WARN - The LINQ expression 'where ([Employee].ToEntity(null, null, null, null, null, [x_siteEmployee], null, [x_healthDeclaration]).ToEntity([x_siteEmployee.Site]).OrganizationId == __OrganizationId_1)' could not be translated and will be evaluated locally.
+2020-06-15 11:09:18,817 WARN - The LINQ expression 'Count()' could not be translated and will be evaluated locally.
+2020-06-15 11:09:19,608 INFO - Executed DbCommand (83ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:09:19,829 WARN - Query: '(from Employee Employee in DbSet<Employee> join SiteEmployee siteEmployee in DbSet<SiteEmployee> on ...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2020-06-15 11:09:19,877 WARN - The LINQ expression 'where ([Employee].ToEntity(null, null, null, null, null, [x_siteEmployee], null, [x_healthDeclaration]).ToEntity([x_siteEmployee.Site]).OrganizationId == __OrganizationId_1)' could not be translated and will be evaluated locally.
+2020-06-15 11:09:19,881 WARN - The LINQ expression 'Skip(__p_2)' could not be translated and will be evaluated locally.
+2020-06-15 11:09:19,886 WARN - The LINQ expression 'Take(__p_3)' could not be translated and will be evaluated locally.
+2020-06-15 11:09:20,000 INFO - Executed DbCommand (74ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:09:20,130 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 3188.9845ms.
+2020-06-15 11:09:20,131 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-15 11:09:20,153 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-15 11:09:20,180 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 3278.2719ms
+2020-06-15 11:09:20,194 INFO - Request finished in 4675.7009ms 200 application/json; charset=utf-8
+2020-06-15 11:09:35,695 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&OrganizationId=22&isHealthDeclaration=true  
+2020-06-15 11:09:35,697 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:09:35,701 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-15 11:09:35,703 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-15 11:09:35,708 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, 22, , True) - Validation state: Valid
+2020-06-15 11:09:35,715 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-15 11:09:35,790 INFO - Executed DbCommand (67ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:09:35,866 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:09:41,757 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 6046.9651ms.
+2020-06-15 11:09:41,757 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-15 11:09:41,759 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-15 11:09:41,766 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 6058.7546ms
+2020-06-15 11:09:41,768 INFO - Request finished in 6076.3738ms 200 application/json; charset=utf-8
+2020-06-15 11:09:44,052 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&OrganizationId=22&isHealthDeclaration=true  
+2020-06-15 11:09:44,053 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:09:44,055 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-15 11:09:44,055 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-15 11:09:44,056 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, 22, , True) - Validation state: Valid
+2020-06-15 11:09:44,058 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-15 11:09:44,132 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:09:44,217 INFO - Executed DbCommand (66ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:09:50,336 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 6278.3718ms.
+2020-06-15 11:09:50,336 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-15 11:09:50,338 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-15 11:09:50,340 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 6282.9341ms
+2020-06-15 11:09:50,342 INFO - Request finished in 6289.898ms 200 application/json; charset=utf-8
+2020-06-15 11:09:52,190 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&OrganizationId=22&isHealthDeclaration=true  
+2020-06-15 11:09:52,191 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:09:52,192 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-15 11:09:52,193 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-15 11:09:52,194 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, 22, , True) - Validation state: Valid
+2020-06-15 11:09:52,195 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-15 11:09:52,269 INFO - Executed DbCommand (68ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:09:52,345 INFO - Executed DbCommand (68ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:10:54,538 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 62342.754ms.
+2020-06-15 11:10:54,538 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-15 11:10:54,540 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-15 11:10:54,544 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 62347.947ms
+2020-06-15 11:10:54,548 INFO - Request finished in 62359.6215ms 200 application/json; charset=utf-8
+2020-06-15 11:10:56,266 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&OrganizationId=22&isHealthDeclaration=true  
+2020-06-15 11:10:56,270 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:10:56,272 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-15 11:10:56,272 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-15 11:10:56,274 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, 22, , True) - Validation state: Valid
+2020-06-15 11:11:53,555 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-15 11:11:53,627 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:11:53,728 INFO - Executed DbCommand (64ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:11:54,759 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 58483.1697ms.
+2020-06-15 11:11:54,759 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-15 11:11:54,760 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-15 11:11:54,767 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 58489.1017ms
+2020-06-15 11:11:54,772 INFO - Request finished in 58502.829ms 200 application/json; charset=utf-8
+2020-06-15 11:11:58,574 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&OrganizationId=22&isHealthDeclaration=true  
+2020-06-15 11:11:58,578 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:11:58,580 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-15 11:11:58,581 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-15 11:11:58,583 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, 22, , True) - Validation state: Valid
+2020-06-15 11:11:59,949 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-15 11:12:00,018 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:12:00,105 INFO - Executed DbCommand (67ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:12:02,312 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 3727.6083ms.
+2020-06-15 11:12:02,312 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-15 11:12:02,313 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-15 11:12:02,315 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 3733.5286ms
+2020-06-15 11:12:02,317 INFO - Request finished in 3743.1107ms 200 application/json; charset=utf-8
+2020-06-15 11:12:06,025 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&OrganizationId=22&isHealthDeclaration=true  
+2020-06-15 11:12:06,026 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:12:06,028 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-15 11:12:06,028 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-15 11:12:06,029 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, 22, , True) - Validation state: Valid
+2020-06-15 11:13:23,494 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-15 11:13:23,569 INFO - Executed DbCommand (67ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:13:23,647 INFO - Executed DbCommand (64ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:13:25,399 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 79368.7027ms.
+2020-06-15 11:13:25,399 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-15 11:13:25,402 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-15 11:13:25,404 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 79374.8321ms
+2020-06-15 11:13:25,406 INFO - Request finished in 79381.131ms 200 application/json; charset=utf-8
+2020-06-15 11:13:28,877 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&OrganizationId=22&isHealthDeclaration=true  
+2020-06-15 11:13:28,878 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:13:28,882 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-15 11:13:28,882 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-15 11:13:28,884 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, 22, , True) - Validation state: Valid
+2020-06-15 11:13:30,034 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-15 11:13:30,102 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:13:30,179 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:13:31,322 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 2436.5243ms.
+2020-06-15 11:13:31,322 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-15 11:13:31,323 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-15 11:13:31,325 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 2441.7772ms
+2020-06-15 11:13:31,327 INFO - Request finished in 2450.5977ms 200 application/json; charset=utf-8
+2020-06-15 11:13:41,393 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&OrganizationId=22&isHealthDeclaration=true  
+2020-06-15 11:13:41,395 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:13:41,397 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-15 11:13:41,397 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-15 11:13:41,398 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, 22, , True) - Validation state: Valid
+2020-06-15 11:13:46,863 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-15 11:13:46,930 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:13:47,011 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:13:58,603 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 17200.6042ms.
+2020-06-15 11:13:58,603 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-15 11:13:58,604 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-15 11:13:58,610 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 17207.7278ms
+2020-06-15 11:13:58,612 INFO - Request finished in 17219.788ms 200 application/json; charset=utf-8
+2020-06-15 11:15:16,017 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&OrganizationId=22&isHealthDeclaration=true  
+2020-06-15 11:15:16,019 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:15:16,021 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-15 11:15:16,022 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-15 11:15:16,023 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, 22, , True) - Validation state: Valid
+2020-06-15 11:15:17,443 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-15 11:15:17,511 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:15:17,623 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:15:18,504 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 2479.453ms.
+2020-06-15 11:15:18,504 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-15 11:15:18,505 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-15 11:15:18,507 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 2484.4105ms
+2020-06-15 11:15:18,509 INFO - Request finished in 2492.4896ms 200 application/json; charset=utf-8
+2020-06-15 11:16:41,845 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&OrganizationId=22&isHealthDeclaration=true  
+2020-06-15 11:16:41,870 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:16:41,874 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-15 11:16:41,874 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-15 11:16:41,876 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, 22, , True) - Validation state: Valid
+2020-06-15 11:16:43,449 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-15 11:16:43,541 INFO - Executed DbCommand (66ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:16:43,658 INFO - Executed DbCommand (69ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:16:44,637 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 2758.1808ms.
+2020-06-15 11:16:44,637 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-15 11:16:44,638 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-15 11:16:44,642 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 2764.4204ms
+2020-06-15 11:16:44,644 INFO - Request finished in 2798.6663ms 200 application/json; charset=utf-8
+2020-06-15 11:17:08,873 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&OrganizationId=22&isHealthDeclaration=true  
+2020-06-15 11:17:08,875 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:17:08,877 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-15 11:17:08,877 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-15 11:17:08,878 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, 22, , True) - Validation state: Valid
+2020-06-15 11:17:11,668 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-15 11:17:11,736 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:17:11,820 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:17:12,671 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 3790.2001ms.
+2020-06-15 11:17:12,671 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-15 11:17:12,673 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-15 11:17:12,675 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 3796.3071ms
+2020-06-15 11:17:12,677 INFO - Request finished in 3803.1525ms 200 application/json; charset=utf-8
+2020-06-15 11:17:36,799 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&OrganizationId=22&isHealthDeclaration=true  
+2020-06-15 11:17:36,800 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:17:36,802 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-15 11:17:36,802 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-15 11:17:36,803 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, 22, , True) - Validation state: Valid
+2020-06-15 11:17:36,804 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-15 11:17:36,876 INFO - Executed DbCommand (68ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:17:36,981 INFO - Executed DbCommand (64ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:17:38,404 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1600.1685ms.
+2020-06-15 11:17:38,405 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-15 11:17:38,410 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-15 11:17:38,412 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 1608.5694ms
+2020-06-15 11:17:38,414 INFO - Request finished in 1614.7785ms 200 application/json; charset=utf-8
+2020-06-15 11:18:07,268 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&OrganizationId=22&isHealthDeclaration=true  
+2020-06-15 11:18:07,269 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:18:07,271 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-15 11:18:07,271 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-15 11:18:07,272 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, 22, , True) - Validation state: Valid
+2020-06-15 11:18:07,274 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-15 11:18:07,344 INFO - Executed DbCommand (66ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:18:07,429 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:18:49,375 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 42101.7552ms.
+2020-06-15 11:18:49,376 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-15 11:18:49,379 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-15 11:18:49,384 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 42108.76ms
+2020-06-15 11:18:49,386 INFO - Request finished in 42122.627ms 200 application/json; charset=utf-8
+2020-06-15 11:18:54,216 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=100000&pageNumber=1&OrganizationId=22&isHealthDeclaration=true  
+2020-06-15 11:18:54,218 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:18:54,220 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-15 11:18:54,220 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-15 11:18:54,221 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (100000, 1, 22, , True) - Validation state: Valid
+2020-06-15 11:18:54,223 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-15 11:18:54,290 INFO - Executed DbCommand (64ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:18:54,370 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-15 11:18:55,860 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1637.655ms.
+2020-06-15 11:18:55,860 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-15 11:18:55,862 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-15 11:18:55,867 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 1645.8146ms
+2020-06-15 11:18:55,869 INFO - Request finished in 1655.5616ms 200 application/json; charset=utf-8
+2020-06-15 11:21:14,136 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-15 11:21:14,211 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:21:14,403 INFO - Request finished in 272.1211ms 200 text/html
+2020-06-15 11:21:15,375 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-15 11:21:15,382 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-15 11:21:16,017 INFO - Request finished in 650.3084ms 200 application/json;charset=utf-8

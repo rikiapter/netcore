@@ -48,29 +48,6 @@ namespace Malam.Mastpen.Core.DAL
             return query;
         }
 
-        public static IQueryable<Employee> GetWithoutEmployeeTrainingAsync(this MastpenBitachonDbContext dbContext, int siteId, DateTime date, int? employeeId)
-        {
-
-            var query = from employeeEntry in dbContext.EmployeeEntry
-                       .Where(item => item.Date.Value.Date >= date)
-                        join equipment in dbContext.EquipmenAtSite.Where(a => a.SiteId == siteId)
-                        on employeeEntry.EquipmentId equals equipment.EquipmentId
-                        select employeeEntry.Employee;
-
-            if (employeeId != null)
-                query = dbContext.Employee.Where(x => x.EmployeeId == employeeId);
-
-            query = from employee in query
-
-                    join EmployeeTraining in dbContext.EmployeeTraining
-                    .Where(b => b.DateFrom <= DateTime.Now && b.DateTo >= DateTime.Now)
-                      .Where(b => b.TrainingTypeId == 4)//הצהרת בריאות
-                     on employee.EmployeeId equals EmployeeTraining.EmployeeId
-
-                    select employee;
-
-            return query;
-        }
 
         public static IQueryable<EmployeeResponse> GetEmployee(this MastpenBitachonDbContext dbContext, 
             int? EmployeeID = null, 
@@ -165,6 +142,57 @@ namespace Malam.Mastpen.Core.DAL
 
         }
 
+        public static IQueryable<EmployeeDeclarationResponse> GetEmployeeHealteDeclaration(this MastpenBitachonDbContext dbContext,
+     
+       int? OrganizationId = null,
+     
+       int? SiteId = null,
+   
+            bool isHealteDeclaration =false
+       )
+        {
+            string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
+
+            // Get query from DbSet
+            var query = from Employee in dbContext.Employee
+
+                 .AsQueryable()
+
+                    
+                       join siteEmployee in dbContext.SiteEmployee.Include(s=>s.Site)
+                        on Employee.EmployeeId equals siteEmployee.EmployeeId into siteEmployee
+                        from x_siteEmployee in siteEmployee.DefaultIfEmpty()
+
+                            //מי שנתן הצהרת בריאות
+                        join healthDeclaration in dbContext.HealthDeclaration
+                        .Where(item => item.Date.Value.Date == DateTime.Now.Date)
+                        .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        on Employee.EmployeeId equals healthDeclaration.EntityId into healthDeclaration
+                        from x_healthDeclaration in healthDeclaration.DefaultIfEmpty()
+
+                        select Employee.ToEntity(null, null, null, null, null, x_siteEmployee, null, x_healthDeclaration).ToEntity(x_siteEmployee.Site);
+
+
+
+            //עובדים בארגון ולא משויכים לאתר
+
+
+          
+            if (OrganizationId.HasValue)
+                query = query.Where(item => item.OrganizationId == OrganizationId);
+
+  
+
+
+
+
+            return query;
+
+
+        }
+
+
+
         public static IQueryable<EmployeeResponse> GetEmployeesAsync(this MastpenBitachonDbContext dbContext, Employee entity)
         {
             string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
@@ -224,7 +252,7 @@ namespace Malam.Mastpen.Core.DAL
             string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
 
             var query = from Employee in dbContext.Employee
-                        .Where(item => item.OrganizationId == OrganizationId || OrganizationId !=null)
+                        .Where(item => item.OrganizationId == OrganizationId )//|| OrganizationId !=null)
 
                         join phonMail in dbContext.PhoneMail
                         .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
@@ -245,6 +273,23 @@ namespace Malam.Mastpen.Core.DAL
             return query;
         }
 
+
+        public static IQueryable<EmployeeGuid> GetEmployeesByPhoneAsync(this MastpenBitachonDbContext dbContext, string Phone = null)
+        {
+            string tableName = GetTableNameByType(dbContext, typeof(Employee)).Result;
+
+            var query =from phonMail in dbContext.PhoneMail
+                        .Where(a => a.EntityTypeId == dbContext.EntityType.FirstOrDefault(item => item.EntityTypeName == tableName).EntityTypeId)
+                        .Where(a => a.PhoneNumber == Phone)
+
+                       join employee in dbContext.Employee
+                        on phonMail.EntityId equals employee.EmployeeId  into employee
+                       from x_employee in employee.DefaultIfEmpty()
+
+                        select x_employee.ToEntity(phonMail);
+
+            return query;
+        }
         public static IQueryable<EmployeeResponse> GetEmployeeByUserIdAsync(this MastpenBitachonDbContext dbContext, Users entity)
         { 
                  var query = from Employee in dbContext.Employee
@@ -272,11 +317,9 @@ namespace Malam.Mastpen.Core.DAL
         {
             var query = from site in dbContext.Sites
 
-
                         join siteEmployee in dbContext.SiteEmployee.Where(x => x.EmployeeId == entity.EmployeeId)
-                                      on site.SiteId equals siteEmployee.SiteId into siteEmployee
+                                      on site.SiteId equals siteEmployee.SiteId
 
-                        from x_siteEmployee in siteEmployee.DefaultIfEmpty()
                         select site;
 
             return query.FirstOrDefault();
@@ -284,6 +327,8 @@ namespace Malam.Mastpen.Core.DAL
         public static IQueryable<EquipmenAtSite> GetSiteByEquipmentIdAsync(this MastpenBitachonDbContext dbContext, EquipmenAtSite entity)
 => dbContext.EquipmenAtSite.Where(item => item.EquipmentId == entity.EquipmentId).Include(s=>s.Site).DefaultIfEmpty();
 
+        public static IQueryable<Sites> GetSiteBySiteIdAsync(this MastpenBitachonDbContext dbContext, Sites entity)
+=> dbContext.Sites.Where(item => item.SiteId == entity.SiteId).DefaultIfEmpty();
 
         public static IQueryable<EmployeeEntry> GetEmployeeEntryByGuid(this MastpenBitachonDbContext dbContext, string guid)
 => dbContext.EmployeeEntry.Where(item => item.Guid == guid).DefaultIfEmpty();
@@ -583,9 +628,38 @@ namespace Malam.Mastpen.Core.DAL
 
 
         public static IQueryable<HealthDeclaration> GetHealthDeclarationAsync(this MastpenBitachonDbContext dbContext, HealthDeclaration entity)
-=> dbContext.HealthDeclaration.Where(item => item.EntityId == entity.EntityId)
+            => dbContext.HealthDeclaration.Where(item => item.EntityId == entity.EntityId)
             .Where(item => item.EntityTypeId == entity.EntityTypeId)
             .Where(item => item.Date == DateTime.Now.Date).AsQueryable();
+
+        public static IQueryable<EmployeeResponse> GetVisitHealthDeclarationAsync(this MastpenBitachonDbContext dbContext, HealthDeclaration entity)
+        {
+            var query = from h in dbContext.HealthDeclaration.Where(item => item.EntityId == null)
+     .Where(item => item.EntityTypeId == null)
+    .Where(item => item.SiteId == entity.SiteId)
+     .Where(item => item.Date == DateTime.Now.Date)
+
+                        select h.ToEntity();
+
+
+            return query;
+
+        }
+
+        public static IQueryable<HealthDeclaration> GetHealthDeclarationAsync(this MastpenBitachonDbContext dbContext, int siteId,int? entityTypeId=null)
+            => dbContext.HealthDeclaration
+            .Where(item => item.SiteId == siteId)
+            .Where(item=> item.EntityTypeId==entityTypeId)
+            .Where(item => item.Date == DateTime.Now.Date).AsQueryable();
+
+        public static IQueryable<HealthDeclaration> GetHealthDeclarationWithoutAsync(this MastpenBitachonDbContext dbContext, int siteId)
+            => dbContext.HealthDeclaration
+            .Where(item => item.SiteId == siteId)
+            .Where(item => item.Date == DateTime.Now.Date)
+            .Where(item => item.EntityId == GetNumberEmployeesOnSiteAsync(dbContext, siteId, DateTime.Now.Date).Select(X=>X.EmployeeId).First())
+            .AsQueryable();
+
+     
 
         /// <summary>
         ///get ntityTypeId

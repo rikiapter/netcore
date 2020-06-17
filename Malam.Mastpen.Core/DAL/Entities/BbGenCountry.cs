@@ -7,7 +7,7 @@ namespace Malam.Mastpen.Core.DAL.Entities
     {
         public Country()
         {
-            Employee = new HashSet<Employee>();
+            //Employee = new HashSet<Employee>();
         }
 
         public int CountryId { get; set; }
@@ -19,6 +19,6 @@ namespace Malam.Mastpen.Core.DAL.Entities
         public DateTime? DateUpdate { get; set; }
         public bool? State { get; set; }
 
-        public ICollection<Employee> Employee { get; set; }
+        //public ICollection<Employee> Employee { get; set; }
     }
 }

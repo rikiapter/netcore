@@ -1,0 +1,2228 @@
+2020-06-09 09:17:50,448 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/TextHealthDeclaration/6211C817-A7D3-4ADB-9D1D-51AFE8563E9F?Type=hr  
+2020-06-09 09:17:50,538 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 09:17:50,562 INFO - Route matched with {action = "GetTextHealthDeclarationByGuidEntry", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API)
+2020-06-09 09:17:50,567 INFO - 'GetTextHealthDeclarationByGuidEntry' has been invoked
+2020-06-09 09:17:50,570 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) with arguments (6211C817-A7D3-4ADB-9D1D-51AFE8563E9F, hr) - Validation state: Valid
+2020-06-09 09:17:50,602 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-09 09:17:51,495 INFO - Executed DbCommand (97ms) [Parameters=[@__guid_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[Guid] = @__guid_0
+2020-06-09 09:17:52,077 INFO - Executed DbCommand (77ms) [Parameters=[@__entity_EntityId_0='?' (DbType = Int32), @__entity_EntityTypeId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_VR_HealthDeclaration] AS [item]
+WHERE (([item].[EntityID] = @__entity_EntityId_0) AND ([item].[EntityTypeID] = @__entity_EntityTypeId_1)) AND ([item].[Date] = CONVERT(date, GETDATE()))
+2020-06-09 09:17:53,508 WARN - Query: '(from Sites site in DbSet<Sites> join SiteEmployee siteEmployee in  from SiteEmployee x in DbSet<Sit...' uses First/FirstOrDefault/Last/LastOrDefault operation without OrderBy and filter which may lead to unpredictable results.
+2020-06-09 09:17:53,595 INFO - Executed DbCommand (73ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [site].[SiteID], [site].[Comment], [site].[dateInsert], [site].[dateUpdate], [site].[OrganizationID], [site].[SiteActivityStartDate], [site].[SiteName], [site].[SiteStatusID], [site].[SiteTypeID], [site].[state], [site].[userInsert], [site].[UserUpdate], [site].[guid]
+FROM [BB_GEN_Sites] AS [site]
+LEFT JOIN (
+    SELECT [x].*
+    FROM [BB_EC_SiteEmployee] AS [x]
+    WHERE [x].[EmployeeID] = @__entity_EmployeeId_0
+) AS [t] ON [site].[SiteID] = [t].[SiteID]
+2020-06-09 09:17:53,706 INFO - Executed DbCommand (73ms) [Parameters=[@__entity_OrganizationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item].[SiteID], [item].[Comment], [item].[dateInsert], [item].[dateUpdate], [item].[OrganizationID], [item].[SiteActivityStartDate], [item].[SiteName], [item].[SiteStatusID], [item].[SiteTypeID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item].[guid]
+FROM [BB_GEN_Sites] AS [item]
+WHERE [item].[OrganizationID] = @__entity_OrganizationId_0
+2020-06-09 09:17:59,772 INFO - Executed DbCommand (73ms) [Parameters=[@__OrganizationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[TextSystemID], [x].[Comment], [x].[dateInsert], [x].[dateUpdate], [x].[OrganizationID], [x].[state], [x].[Text], [x].[TextSystemTypeID], [x].[Title], [x].[userInsert], [x].[UserUpdate]
+FROM [BB_GEN_TextSystem] AS [x]
+WHERE ([x].[state] = 1) AND ([x].[OrganizationID] = @__OrganizationId_0)
+2020-06-09 09:17:59,784 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 9212.1568ms.
+2020-06-09 09:17:59,784 INFO - The GetTextHealthDeclarationByGuidEntry have been retrieved successfully.
+2020-06-09 09:17:59,785 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeTrainingDocResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-09 09:17:59,817 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) in 9251.6732ms
+2020-06-09 09:17:59,820 INFO - Request finished in 9375.5571ms 200 application/json; charset=utf-8
+2020-06-09 09:18:09,628 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/TextHealthDeclaration/6211C817-A7D3-4ADB-9D1D-51AFE8563E9F?Type=hr  
+2020-06-09 09:18:09,630 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 09:18:09,632 INFO - Route matched with {action = "GetTextHealthDeclarationByGuidEntry", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API)
+2020-06-09 09:18:09,633 INFO - 'GetTextHealthDeclarationByGuidEntry' has been invoked
+2020-06-09 09:18:09,635 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) with arguments (6211C817-A7D3-4ADB-9D1D-51AFE8563E9F, hr) - Validation state: Valid
+2020-06-09 09:18:09,636 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-09 09:18:09,714 INFO - Executed DbCommand (74ms) [Parameters=[@__guid_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[Guid] = @__guid_0
+2020-06-09 09:18:09,790 INFO - Executed DbCommand (74ms) [Parameters=[@__entity_EntityId_0='?' (DbType = Int32), @__entity_EntityTypeId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_VR_HealthDeclaration] AS [item]
+WHERE (([item].[EntityID] = @__entity_EntityId_0) AND ([item].[EntityTypeID] = @__entity_EntityTypeId_1)) AND ([item].[Date] = CONVERT(date, GETDATE()))
+2020-06-09 09:18:09,867 INFO - Executed DbCommand (73ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [site].[SiteID], [site].[Comment], [site].[dateInsert], [site].[dateUpdate], [site].[OrganizationID], [site].[SiteActivityStartDate], [site].[SiteName], [site].[SiteStatusID], [site].[SiteTypeID], [site].[state], [site].[userInsert], [site].[UserUpdate], [site].[guid]
+FROM [BB_GEN_Sites] AS [site]
+LEFT JOIN (
+    SELECT [x].*
+    FROM [BB_EC_SiteEmployee] AS [x]
+    WHERE [x].[EmployeeID] = @__entity_EmployeeId_0
+) AS [t] ON [site].[SiteID] = [t].[SiteID]
+2020-06-09 09:18:09,942 INFO - Executed DbCommand (73ms) [Parameters=[@__entity_OrganizationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item].[SiteID], [item].[Comment], [item].[dateInsert], [item].[dateUpdate], [item].[OrganizationID], [item].[SiteActivityStartDate], [item].[SiteName], [item].[SiteStatusID], [item].[SiteTypeID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item].[guid]
+FROM [BB_GEN_Sites] AS [item]
+WHERE [item].[OrganizationID] = @__entity_OrganizationId_0
+2020-06-09 09:19:09,517 INFO - Executed DbCommand (73ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [site].[SiteID], [site].[Comment], [site].[dateInsert], [site].[dateUpdate], [site].[OrganizationID], [site].[SiteActivityStartDate], [site].[SiteName], [site].[SiteStatusID], [site].[SiteTypeID], [site].[state], [site].[userInsert], [site].[UserUpdate], [site].[guid]
+FROM [BB_GEN_Sites] AS [site]
+LEFT JOIN (
+    SELECT [x].*
+    FROM [BB_EC_SiteEmployee] AS [x]
+    WHERE [x].[EmployeeID] = @__entity_EmployeeId_0
+) AS [t] ON [site].[SiteID] = [t].[SiteID]
+2020-06-09 09:20:16,346 INFO - Executed DbCommand (77ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [site].[SiteID], [site].[Comment], [site].[dateInsert], [site].[dateUpdate], [site].[OrganizationID], [site].[SiteActivityStartDate], [site].[SiteName], [site].[SiteStatusID], [site].[SiteTypeID], [site].[state], [site].[userInsert], [site].[UserUpdate], [site].[guid]
+FROM [BB_GEN_Sites] AS [site]
+LEFT JOIN (
+    SELECT [x].*
+    FROM [BB_EC_SiteEmployee] AS [x]
+    WHERE [x].[EmployeeID] = @__entity_EmployeeId_0
+) AS [t] ON [site].[SiteID] = [t].[SiteID]
+2020-06-09 09:24:21,478 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-09 09:24:21,510 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 09:24:21,724 INFO - Request finished in 250.1065ms 200 text/html
+2020-06-09 09:24:22,137 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-09 09:24:22,140 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 09:24:22,728 INFO - Request finished in 591.0678ms 200 application/json;charset=utf-8
+2020-06-09 09:24:37,295 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/TextHealthDeclaration/6211C817-A7D3-4ADB-9D1D-51AFE8563E9F?Type=hr  
+2020-06-09 09:24:37,296 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 09:24:37,971 INFO - Route matched with {action = "GetTextHealthDeclarationByGuidEntry", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API)
+2020-06-09 09:24:37,994 INFO - 'GetTextHealthDeclarationByGuidEntry' has been invoked
+2020-06-09 09:24:38,002 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) with arguments (6211C817-A7D3-4ADB-9D1D-51AFE8563E9F, hr) - Validation state: Valid
+2020-06-09 09:24:39,068 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-09 09:24:40,184 INFO - Executed DbCommand (91ms) [Parameters=[@__guid_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[Guid] = @__guid_0
+2020-06-09 09:24:40,413 INFO - Executed DbCommand (74ms) [Parameters=[@__entity_EntityId_0='?' (DbType = Int32), @__entity_EntityTypeId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_VR_HealthDeclaration] AS [item]
+WHERE (([item].[EntityID] = @__entity_EntityId_0) AND ([item].[EntityTypeID] = @__entity_EntityTypeId_1)) AND ([item].[Date] = CONVERT(date, GETDATE()))
+2020-06-09 09:24:40,444 WARN - Query: '(from Sites site in DbSet<Sites> join SiteEmployee siteEmployee in  from SiteEmployee x in DbSet<Sit...' uses First/FirstOrDefault/Last/LastOrDefault operation without OrderBy and filter which may lead to unpredictable results.
+2020-06-09 09:24:40,513 WARN - The LINQ expression 'FirstOrDefault()' could not be translated and will be evaluated locally.
+2020-06-09 09:24:40,620 INFO - Executed DbCommand (79ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [site].[SiteID], [site].[Comment], [site].[dateInsert], [site].[dateUpdate], [site].[OrganizationID], [site].[SiteActivityStartDate], [site].[SiteName], [site].[SiteStatusID], [site].[SiteTypeID], [site].[state], [site].[userInsert], [site].[UserUpdate], [site].[guid], [t].[SiteEmployeeID], [t].[Comment], [t].[DateFrom], [t].[dateInsert], [t].[DateTo], [t].[dateUpdate], [t].[EmployeeID], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_GEN_Sites] AS [site]
+LEFT JOIN (
+    SELECT [x].[SiteEmployeeID], [x].[Comment], [x].[DateFrom], [x].[dateInsert], [x].[DateTo], [x].[dateUpdate], [x].[EmployeeID], [x].[SiteID], [x].[state], [x].[userInsert], [x].[UserUpdate]
+    FROM [BB_EC_SiteEmployee] AS [x]
+    WHERE [x].[EmployeeID] = @__entity_EmployeeId_0
+) AS [t] ON [site].[SiteID] = [t].[SiteID]
+ORDER BY [site].[SiteID]
+2020-06-09 09:24:40,807 INFO - Executed DbCommand (78ms) [Parameters=[@__entity_OrganizationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item].[SiteID], [item].[Comment], [item].[dateInsert], [item].[dateUpdate], [item].[OrganizationID], [item].[SiteActivityStartDate], [item].[SiteName], [item].[SiteStatusID], [item].[SiteTypeID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item].[guid]
+FROM [BB_GEN_Sites] AS [item]
+WHERE [item].[OrganizationID] = @__entity_OrganizationId_0
+2020-06-09 09:26:13,889 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-09 09:26:13,936 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 09:26:14,112 INFO - Request finished in 222.7944ms 200 text/html
+2020-06-09 09:26:14,451 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-09 09:26:14,459 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 09:26:14,935 INFO - Request finished in 484.3622ms 200 application/json;charset=utf-8
+2020-06-09 09:26:23,176 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/TextHealthDeclaration/6211C817-A7D3-4ADB-9D1D-51AFE8563E9F?Type=hr  
+2020-06-09 09:26:23,177 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 09:26:23,673 INFO - Route matched with {action = "GetTextHealthDeclarationByGuidEntry", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API)
+2020-06-09 09:26:23,698 INFO - 'GetTextHealthDeclarationByGuidEntry' has been invoked
+2020-06-09 09:26:23,706 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) with arguments (6211C817-A7D3-4ADB-9D1D-51AFE8563E9F, hr) - Validation state: Valid
+2020-06-09 09:26:24,769 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-09 09:26:25,717 INFO - Executed DbCommand (88ms) [Parameters=[@__guid_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+WHERE [item].[Guid] = @__guid_0
+2020-06-09 09:26:25,944 INFO - Executed DbCommand (74ms) [Parameters=[@__entity_EntityId_0='?' (DbType = Int32), @__entity_EntityTypeId_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+FROM [BB_VR_HealthDeclaration] AS [item]
+WHERE (([item].[EntityID] = @__entity_EntityId_0) AND ([item].[EntityTypeID] = @__entity_EntityTypeId_1)) AND ([item].[Date] = CONVERT(date, GETDATE()))
+2020-06-09 09:26:25,974 WARN - Query: '(from Sites site in DbSet<Sites> join SiteEmployee siteEmployee in  from SiteEmployee x in DbSet<Sit...' uses First/FirstOrDefault/Last/LastOrDefault operation without OrderBy and filter which may lead to unpredictable results.
+2020-06-09 09:26:26,130 INFO - Executed DbCommand (76ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [site].[SiteID], [site].[Comment], [site].[dateInsert], [site].[dateUpdate], [site].[OrganizationID], [site].[SiteActivityStartDate], [site].[SiteName], [site].[SiteStatusID], [site].[SiteTypeID], [site].[state], [site].[userInsert], [site].[UserUpdate], [site].[guid]
+FROM [BB_GEN_Sites] AS [site]
+INNER JOIN (
+    SELECT [x].*
+    FROM [BB_EC_SiteEmployee] AS [x]
+    WHERE [x].[EmployeeID] = @__entity_EmployeeId_0
+) AS [t] ON [site].[SiteID] = [t].[SiteID]
+2020-06-09 09:26:26,259 INFO - Executed DbCommand (73ms) [Parameters=[@__entity_OrganizationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item].[SiteID], [item].[Comment], [item].[dateInsert], [item].[dateUpdate], [item].[OrganizationID], [item].[SiteActivityStartDate], [item].[SiteName], [item].[SiteStatusID], [item].[SiteTypeID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item].[guid]
+FROM [BB_GEN_Sites] AS [item]
+WHERE [item].[OrganizationID] = @__entity_OrganizationId_0
+2020-06-09 09:26:33,078 INFO - Executed DbCommand (74ms) [Parameters=[@__OrganizationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[TextSystemID], [x].[Comment], [x].[dateInsert], [x].[dateUpdate], [x].[OrganizationID], [x].[state], [x].[Text], [x].[TextSystemTypeID], [x].[Title], [x].[userInsert], [x].[UserUpdate]
+FROM [BB_GEN_TextSystem] AS [x]
+WHERE ([x].[state] = 1) AND ([x].[OrganizationID] = @__OrganizationId_0)
+2020-06-09 09:26:33,087 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 9378.0134ms.
+2020-06-09 09:26:33,089 INFO - The GetTextHealthDeclarationByGuidEntry have been retrieved successfully.
+2020-06-09 09:26:33,099 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeTrainingDocResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-09 09:26:33,122 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) in 9446.306ms
+2020-06-09 09:26:33,131 INFO - Request finished in 9954.946ms 200 application/json; charset=utf-8
+2020-06-09 10:04:32,264 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-09 10:04:32,299 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 10:04:32,446 INFO - Request finished in 184.3576ms 200 text/html
+2020-06-09 10:04:33,590 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-09 10:04:33,593 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 10:04:33,999 INFO - Request finished in 409.0872ms 200 application/json;charset=utf-8
+2020-06-09 10:14:48,130 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/User application/json-patch+json 192
+2020-06-09 10:14:48,134 INFO - CORS policy execution failed.
+2020-06-09 10:14:48,135 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2020-06-09 10:14:49,479 INFO - Successfully validated the token.
+2020-06-09 10:14:49,485 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-06-09 10:14:49,966 INFO - Route matched with {action = "PostUserAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync (Malam.Mastpen.HR.API)
+2020-06-09 10:14:49,977 INFO - Authorization was successful.
+2020-06-09 10:14:50,023 INFO - 'PostUserAsync' has been invoked
+2020-06-09 10:14:50,030 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.UsersRequest) - Validation state: Valid
+2020-06-09 10:14:51,123 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-09 10:14:51,305 WARN - The Include operation for navigation '[b].IdentificationType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-06-09 10:14:51,306 WARN - The Include operation for navigation '[b].Organization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-06-09 10:14:51,308 WARN - The Include operation for navigation '[b].EmployeeProffesionType.ProffesionType' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-06-09 10:14:51,309 WARN - The Include operation for navigation '[b].PassportCountry' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-06-09 10:14:51,310 WARN - The Include operation for navigation '[b].EmployeeAuthtorization' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-06-09 10:14:51,311 WARN - The Include operation for navigation '[b].EmployeeTraining' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-06-09 10:14:51,312 WARN - The Include operation for navigation '[b].EmployeeWorkPermit' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-06-09 10:14:52,387 INFO - Executed DbCommand (148ms) [Parameters=[@__tableName_0='?' (Size = 50), @__tableName_2='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [b]
+LEFT JOIN (
+    SELECT [a].[DocumentID], [a].[dateInsert], [a].[dateUpdate], [a].[DocumentDate], [a].[DocumentPath], [a].[DocumentTypeID], [a].[EntityID], [a].[EntityTypeID], [a].[IsDocumentSigned], [a].[LanguageID], [a].[state], [a].[userInsert], [a].[UserUpdate], [a].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_0
+    )) AND ([a].[DocumentTypeID] = 7)
+) AS [t] ON [b].[EmployeeID] = [t].[EntityID]
+LEFT JOIN (
+    SELECT [item0].*
+    FROM [BB_EC_EmployeeEntry] AS [item0]
+    WHERE CONVERT(date, [item0].[Date]) = CONVERT(date, GETDATE())
+) AS [t0] ON [b].[EmployeeID] = [t0].[EmployeeID]
+LEFT JOIN (
+    SELECT [a0].[EquipmentAtSiteID], [a0].[Comment], [a0].[DateFrom], [a0].[dateInsert], [a0].[DateTo], [a0].[dateUpdate], [a0].[EquipmentID], [a0].[SiteID], [a0].[state], [a0].[userInsert], [a0].[UserUpdate]
+    FROM [BB_EC_EquipmenAtSite] AS [a0]
+    WHERE [a0].[SiteID] IS NULL
+) AS [t1] ON [t0].[EquipmentID] = [t1].[EquipmentID]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [b].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture] ON [b].[EmployeeID] = [docsEmplyeePicture].[EmployeeID]
+LEFT JOIN (
+    SELECT [item1].[DeclarationID], [item1].[Date], [item1].[dateInsert], [item1].[dateUpdate], [item1].[EntityID], [item1].[EntityTypeID], [item1].[FullName], [item1].[IdentityNumber], [item1].[SiteID], [item1].[state], [item1].[userInsert], [item1].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item1]
+    WHERE (CONVERT(date, [item1].[Date]) = CONVERT(date, GETDATE())) AND ([item1].[EntityTypeID] = (
+        SELECT TOP(1) [item2].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item2]
+        WHERE [item2].[EntityTypeName] = @__tableName_2
+    ))
+) AS [t2] ON [b].[EmployeeID] = [t2].[EntityID]
+2020-06-09 10:15:00,058 WARN - Query: '(from Employee b in DbSet<Employee> join Docs docsFaceImage in  from Docs a in DbSet<Docs> where [a]...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2020-06-09 10:15:00,524 INFO - Executed DbCommand (108ms) [Parameters=[@__tableName_0='?' (Size = 50), @__tableName_2='?' (Size = 50), @__p_3='?' (DbType = Int32), @__p_4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b].[EmployeeID], [b].[Address], [b].[BirthDate], [b].[Citizenship], [b].[dateInsert], [b].[dateUpdate], [b].[FirstName], [b].[FirstNameEN], [b].[GenderID], [b].[Guid], [b].[IdentificationTypeID], [b].[IdentityNumber], [b].[LastName], [b].[LastNameEN], [b].[OrganizationID], [b].[PassportCountryID], [b].[state], [b].[userInsert], [b].[UserUpdate], [b.PassportCountry].[CountryID], [b.PassportCountry].[CountryName], [b.PassportCountry].[dateInsert], [b.PassportCountry].[dateUpdate], [b.PassportCountry].[LanguageID], [b.PassportCountry].[state], [b.PassportCountry].[userInsert], [b.PassportCountry].[UserUpdate], [b.Organization].[OrganizationID], [b.Organization].[Comment], [b.Organization].[dateInsert], [b.Organization].[dateUpdate], [b.Organization].[OrganizationExpertiseTypeID], [b.Organization].[OrganizationFaceGroup], [b.Organization].[OrganizationName], [b.Organization].[OrganizationNumber], [b.Organization].[OrganizationParentID], [b.Organization].[OrganizationTypeID], [b.Organization].[state], [b.Organization].[userInsert], [b.Organization].[UserUpdate], [b.IdentificationType].[IdentificationTypeID], [b.IdentificationType].[Comment], [b.IdentificationType].[dateInsert], [b.IdentificationType].[dateUpdate], [b.IdentificationType].[IdentificationTypeName], [b.IdentificationType].[state], [b.IdentificationType].[userInsert], [b.IdentificationType].[UserUpdate], [t].[DocumentID], [t].[dateInsert], [t].[dateUpdate], [t].[DocumentDate], [t].[DocumentPath], [t].[DocumentTypeID], [t].[EntityID], [t].[EntityTypeID], [t].[IsDocumentSigned], [t].[LanguageID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t].[ValIdDate], [t1].[EquipmentAtSiteID], [t1].[Comment], [t1].[DateFrom], [t1].[dateInsert], [t1].[DateTo], [t1].[dateUpdate], [t1].[EquipmentID], [t1].[SiteID], [t1].[state], [t1].[userInsert], [t1].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [docsEmplyeePicture].[EmployeePictureID], [docsEmplyeePicture].[dateInsert], [docsEmplyeePicture].[dateUpdate], [docsEmplyeePicture].[EmployeeFacePrintID], [docsEmplyeePicture].[EmployeeID], [docsEmplyeePicture].[EmployeePicture], [docsEmplyeePicture].[IsUniqueDoc], [docsEmplyeePicture].[state], [docsEmplyeePicture].[userInsert], [docsEmplyeePicture].[UserUpdate], [t2].[DeclarationID], [t2].[Date], [t2].[dateInsert], [t2].[dateUpdate], [t2].[EntityID], [t2].[EntityTypeID], [t2].[FullName], [t2].[IdentityNumber], [t2].[SiteID], [t2].[state], [t2].[userInsert], [t2].[UserUpdate]
+FROM [BB_HR_Employee] AS [b]
+LEFT JOIN [BB_GEN_Country] AS [b.PassportCountry] ON [b].[PassportCountryID] = [b.PassportCountry].[CountryID]
+LEFT JOIN [BB_GEN_Organization] AS [b.Organization] ON [b].[OrganizationID] = [b.Organization].[OrganizationID]
+LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType] ON [b].[IdentificationTypeID] = [b.IdentificationType].[IdentificationTypeID]
+LEFT JOIN (
+    SELECT [a].[DocumentID], [a].[dateInsert], [a].[dateUpdate], [a].[DocumentDate], [a].[DocumentPath], [a].[DocumentTypeID], [a].[EntityID], [a].[EntityTypeID], [a].[IsDocumentSigned], [a].[LanguageID], [a].[state], [a].[userInsert], [a].[UserUpdate], [a].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_0
+    )) AND ([a].[DocumentTypeID] = 7)
+) AS [t] ON [b].[EmployeeID] = [t].[EntityID]
+LEFT JOIN (
+    SELECT [item0].*
+    FROM [BB_EC_EmployeeEntry] AS [item0]
+    WHERE CONVERT(date, [item0].[Date]) = CONVERT(date, GETDATE())
+) AS [t0] ON [b].[EmployeeID] = [t0].[EmployeeID]
+LEFT JOIN (
+    SELECT [a0].[EquipmentAtSiteID], [a0].[Comment], [a0].[DateFrom], [a0].[dateInsert], [a0].[DateTo], [a0].[dateUpdate], [a0].[EquipmentID], [a0].[SiteID], [a0].[state], [a0].[userInsert], [a0].[UserUpdate]
+    FROM [BB_EC_EquipmenAtSite] AS [a0]
+    WHERE [a0].[SiteID] IS NULL
+) AS [t1] ON [t0].[EquipmentID] = [t1].[EquipmentID]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [b].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture] ON [b].[EmployeeID] = [docsEmplyeePicture].[EmployeeID]
+LEFT JOIN (
+    SELECT [item1].[DeclarationID], [item1].[Date], [item1].[dateInsert], [item1].[dateUpdate], [item1].[EntityID], [item1].[EntityTypeID], [item1].[FullName], [item1].[IdentityNumber], [item1].[SiteID], [item1].[state], [item1].[userInsert], [item1].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item1]
+    WHERE (CONVERT(date, [item1].[Date]) = CONVERT(date, GETDATE())) AND ([item1].[EntityTypeID] = (
+        SELECT TOP(1) [item2].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item2]
+        WHERE [item2].[EntityTypeName] = @__tableName_2
+    ))
+) AS [t2] ON [b].[EmployeeID] = [t2].[EntityID]
+ORDER BY [b].[EmployeeID]
+OFFSET @__p_3 ROWS FETCH NEXT @__p_4 ROWS ONLY
+2020-06-09 10:15:01,108 INFO - Executed DbCommand (334ms) [Parameters=[@__tableName_0='?' (Size = 50), @__tableName_2='?' (Size = 50), @__p_3='?' (DbType = Int32), @__p_4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeProffesionType].[EmployeeAuthorizationID], [b.EmployeeProffesionType].[Comment], [b.EmployeeProffesionType].[dateInsert], [b.EmployeeProffesionType].[dateUpdate], [b.EmployeeProffesionType].[EmployeeID], [b.EmployeeProffesionType].[ProffesionTypeID], [b.EmployeeProffesionType].[state], [b.EmployeeProffesionType].[userInsert], [b.EmployeeProffesionType].[UserUpdate], [e.ProffesionType].[ProffesionTypeID], [e.ProffesionType].[Comment], [e.ProffesionType].[dateInsert], [e.ProffesionType].[dateUpdate], [e.ProffesionType].[ProffesionTypeName], [e.ProffesionType].[state], [e.ProffesionType].[userInsert], [e.ProffesionType].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [b.EmployeeProffesionType]
+LEFT JOIN [BB_HR_ProffesionType] AS [e.ProffesionType] ON [b.EmployeeProffesionType].[ProffesionTypeID] = [e.ProffesionType].[ProffesionTypeID]
+INNER JOIN (
+    SELECT DISTINCT [t7].*
+    FROM (
+        SELECT [b0].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b0]
+        LEFT JOIN [BB_GEN_Country] AS [b.PassportCountry0] ON [b0].[PassportCountryID] = [b.PassportCountry0].[CountryID]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization0] ON [b0].[OrganizationID] = [b.Organization0].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType0] ON [b0].[IdentificationTypeID] = [b.IdentificationType0].[IdentificationTypeID]
+        LEFT JOIN (
+            SELECT [a1].*
+            FROM [BB_GEN_Docs] AS [a1]
+            WHERE ([a1].[EntityTypeID] = (
+                SELECT TOP(1) [item3].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item3]
+                WHERE [item3].[EntityTypeName] = @__tableName_0
+            )) AND ([a1].[DocumentTypeID] = 7)
+        ) AS [t3] ON [b0].[EmployeeID] = [t3].[EntityID]
+        LEFT JOIN (
+            SELECT [item4].*
+            FROM [BB_EC_EmployeeEntry] AS [item4]
+            WHERE CONVERT(date, [item4].[Date]) = CONVERT(date, GETDATE())
+        ) AS [t4] ON [b0].[EmployeeID] = [t4].[EmployeeID]
+        LEFT JOIN (
+            SELECT [a2].*
+            FROM [BB_EC_EquipmenAtSite] AS [a2]
+            WHERE [a2].[SiteID] IS NULL
+        ) AS [t5] ON [t4].[EquipmentID] = [t5].[EquipmentID]
+        LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee0] ON [b0].[EmployeeID] = [siteEmployee0].[EmployeeID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture0] ON [b0].[EmployeeID] = [docsEmplyeePicture0].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item5].*
+            FROM [BB_VR_HealthDeclaration] AS [item5]
+            WHERE (CONVERT(date, [item5].[Date]) = CONVERT(date, GETDATE())) AND ([item5].[EntityTypeID] = (
+                SELECT TOP(1) [item6].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item6]
+                WHERE [item6].[EntityTypeName] = @__tableName_2
+            ))
+        ) AS [t6] ON [b0].[EmployeeID] = [t6].[EntityID]
+        ORDER BY [b0].[EmployeeID]
+        OFFSET @__p_3 ROWS FETCH NEXT @__p_4 ROWS ONLY
+    ) AS [t7]
+) AS [t8] ON [b.EmployeeProffesionType].[EmployeeID] = [t8].[EmployeeID]
+ORDER BY [t8].[EmployeeID]
+2020-06-09 10:15:01,635 INFO - Executed DbCommand (486ms) [Parameters=[@__tableName_0='?' (Size = 50), @__tableName_2='?' (Size = 50), @__p_3='?' (DbType = Int32), @__p_4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeAuthtorization].[EmployeeAuthorizationID], [b.EmployeeAuthtorization].[AuthorizationTypeID], [b.EmployeeAuthtorization].[Comment], [b.EmployeeAuthtorization].[DateFrom], [b.EmployeeAuthtorization].[dateInsert], [b.EmployeeAuthtorization].[DateTo], [b.EmployeeAuthtorization].[dateUpdate], [b.EmployeeAuthtorization].[EmployeeAuthorizationName], [b.EmployeeAuthtorization].[EmployeeID], [b.EmployeeAuthtorization].[SiteId], [b.EmployeeAuthtorization].[state], [b.EmployeeAuthtorization].[userInsert], [b.EmployeeAuthtorization].[UserUpdate]
+FROM [BB_HR_EmployeeAuthtorization] AS [b.EmployeeAuthtorization]
+INNER JOIN (
+    SELECT DISTINCT [t13].*
+    FROM (
+        SELECT [b1].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b1]
+        LEFT JOIN [BB_GEN_Country] AS [b.PassportCountry1] ON [b1].[PassportCountryID] = [b.PassportCountry1].[CountryID]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization1] ON [b1].[OrganizationID] = [b.Organization1].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType1] ON [b1].[IdentificationTypeID] = [b.IdentificationType1].[IdentificationTypeID]
+        LEFT JOIN (
+            SELECT [a3].*
+            FROM [BB_GEN_Docs] AS [a3]
+            WHERE ([a3].[EntityTypeID] = (
+                SELECT TOP(1) [item7].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item7]
+                WHERE [item7].[EntityTypeName] = @__tableName_0
+            )) AND ([a3].[DocumentTypeID] = 7)
+        ) AS [t9] ON [b1].[EmployeeID] = [t9].[EntityID]
+        LEFT JOIN (
+            SELECT [item8].*
+            FROM [BB_EC_EmployeeEntry] AS [item8]
+            WHERE CONVERT(date, [item8].[Date]) = CONVERT(date, GETDATE())
+        ) AS [t10] ON [b1].[EmployeeID] = [t10].[EmployeeID]
+        LEFT JOIN (
+            SELECT [a4].*
+            FROM [BB_EC_EquipmenAtSite] AS [a4]
+            WHERE [a4].[SiteID] IS NULL
+        ) AS [t11] ON [t10].[EquipmentID] = [t11].[EquipmentID]
+        LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee1] ON [b1].[EmployeeID] = [siteEmployee1].[EmployeeID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture1] ON [b1].[EmployeeID] = [docsEmplyeePicture1].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item9].*
+            FROM [BB_VR_HealthDeclaration] AS [item9]
+            WHERE (CONVERT(date, [item9].[Date]) = CONVERT(date, GETDATE())) AND ([item9].[EntityTypeID] = (
+                SELECT TOP(1) [item10].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item10]
+                WHERE [item10].[EntityTypeName] = @__tableName_2
+            ))
+        ) AS [t12] ON [b1].[EmployeeID] = [t12].[EntityID]
+        ORDER BY [b1].[EmployeeID]
+        OFFSET @__p_3 ROWS FETCH NEXT @__p_4 ROWS ONLY
+    ) AS [t13]
+) AS [t14] ON [b.EmployeeAuthtorization].[EmployeeID] = [t14].[EmployeeID]
+ORDER BY [t14].[EmployeeID]
+2020-06-09 10:15:02,216 INFO - Executed DbCommand (563ms) [Parameters=[@__tableName_0='?' (Size = 50), @__tableName_2='?' (Size = 50), @__p_3='?' (DbType = Int32), @__p_4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeTraining].[EmployeeTrainingID], [b.EmployeeTraining].[Comment], [b.EmployeeTraining].[DateFrom], [b.EmployeeTraining].[dateInsert], [b.EmployeeTraining].[DateTo], [b.EmployeeTraining].[dateUpdate], [b.EmployeeTraining].[EmployeeID], [b.EmployeeTraining].[EmployeeTrainingName], [b.EmployeeTraining].[SiteID], [b.EmployeeTraining].[state], [b.EmployeeTraining].[TrainingTypeID], [b.EmployeeTraining].[userInsert], [b.EmployeeTraining].[UserUpdate]
+FROM [BB_HR_EmployeeTraining] AS [b.EmployeeTraining]
+INNER JOIN (
+    SELECT DISTINCT [t19].*
+    FROM (
+        SELECT [b2].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b2]
+        LEFT JOIN [BB_GEN_Country] AS [b.PassportCountry2] ON [b2].[PassportCountryID] = [b.PassportCountry2].[CountryID]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization2] ON [b2].[OrganizationID] = [b.Organization2].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType2] ON [b2].[IdentificationTypeID] = [b.IdentificationType2].[IdentificationTypeID]
+        LEFT JOIN (
+            SELECT [a5].*
+            FROM [BB_GEN_Docs] AS [a5]
+            WHERE ([a5].[EntityTypeID] = (
+                SELECT TOP(1) [item11].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item11]
+                WHERE [item11].[EntityTypeName] = @__tableName_0
+            )) AND ([a5].[DocumentTypeID] = 7)
+        ) AS [t15] ON [b2].[EmployeeID] = [t15].[EntityID]
+        LEFT JOIN (
+            SELECT [item12].*
+            FROM [BB_EC_EmployeeEntry] AS [item12]
+            WHERE CONVERT(date, [item12].[Date]) = CONVERT(date, GETDATE())
+        ) AS [t16] ON [b2].[EmployeeID] = [t16].[EmployeeID]
+        LEFT JOIN (
+            SELECT [a6].*
+            FROM [BB_EC_EquipmenAtSite] AS [a6]
+            WHERE [a6].[SiteID] IS NULL
+        ) AS [t17] ON [t16].[EquipmentID] = [t17].[EquipmentID]
+        LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee2] ON [b2].[EmployeeID] = [siteEmployee2].[EmployeeID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture2] ON [b2].[EmployeeID] = [docsEmplyeePicture2].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item13].*
+            FROM [BB_VR_HealthDeclaration] AS [item13]
+            WHERE (CONVERT(date, [item13].[Date]) = CONVERT(date, GETDATE())) AND ([item13].[EntityTypeID] = (
+                SELECT TOP(1) [item14].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item14]
+                WHERE [item14].[EntityTypeName] = @__tableName_2
+            ))
+        ) AS [t18] ON [b2].[EmployeeID] = [t18].[EntityID]
+        ORDER BY [b2].[EmployeeID]
+        OFFSET @__p_3 ROWS FETCH NEXT @__p_4 ROWS ONLY
+    ) AS [t19]
+) AS [t20] ON [b.EmployeeTraining].[EmployeeID] = [t20].[EmployeeID]
+ORDER BY [t20].[EmployeeID]
+2020-06-09 10:15:02,683 INFO - Executed DbCommand (446ms) [Parameters=[@__tableName_0='?' (Size = 50), @__tableName_2='?' (Size = 50), @__p_3='?' (DbType = Int32), @__p_4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeWorkPermit].[EmployeeWorkPermitID], [b.EmployeeWorkPermit].[Comment], [b.EmployeeWorkPermit].[DateFrom], [b.EmployeeWorkPermit].[dateInsert], [b.EmployeeWorkPermit].[DateTo], [b.EmployeeWorkPermit].[dateUpdate], [b.EmployeeWorkPermit].[EmployeeID], [b.EmployeeWorkPermit].[EmployeeWorkPermitName], [b.EmployeeWorkPermit].[IsRequired], [b.EmployeeWorkPermit].[SiteID], [b.EmployeeWorkPermit].[state], [b.EmployeeWorkPermit].[userInsert], [b.EmployeeWorkPermit].[UserUpdate]
+FROM [BB_HR_EmployeeWorkPermit] AS [b.EmployeeWorkPermit]
+INNER JOIN (
+    SELECT DISTINCT [t25].*
+    FROM (
+        SELECT [b3].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b3]
+        LEFT JOIN [BB_GEN_Country] AS [b.PassportCountry3] ON [b3].[PassportCountryID] = [b.PassportCountry3].[CountryID]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization3] ON [b3].[OrganizationID] = [b.Organization3].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType3] ON [b3].[IdentificationTypeID] = [b.IdentificationType3].[IdentificationTypeID]
+        LEFT JOIN (
+            SELECT [a7].*
+            FROM [BB_GEN_Docs] AS [a7]
+            WHERE ([a7].[EntityTypeID] = (
+                SELECT TOP(1) [item15].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item15]
+                WHERE [item15].[EntityTypeName] = @__tableName_0
+            )) AND ([a7].[DocumentTypeID] = 7)
+        ) AS [t21] ON [b3].[EmployeeID] = [t21].[EntityID]
+        LEFT JOIN (
+            SELECT [item16].*
+            FROM [BB_EC_EmployeeEntry] AS [item16]
+            WHERE CONVERT(date, [item16].[Date]) = CONVERT(date, GETDATE())
+        ) AS [t22] ON [b3].[EmployeeID] = [t22].[EmployeeID]
+        LEFT JOIN (
+            SELECT [a8].*
+            FROM [BB_EC_EquipmenAtSite] AS [a8]
+            WHERE [a8].[SiteID] IS NULL
+        ) AS [t23] ON [t22].[EquipmentID] = [t23].[EquipmentID]
+        LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee3] ON [b3].[EmployeeID] = [siteEmployee3].[EmployeeID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture3] ON [b3].[EmployeeID] = [docsEmplyeePicture3].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item17].*
+            FROM [BB_VR_HealthDeclaration] AS [item17]
+            WHERE (CONVERT(date, [item17].[Date]) = CONVERT(date, GETDATE())) AND ([item17].[EntityTypeID] = (
+                SELECT TOP(1) [item18].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item18]
+                WHERE [item18].[EntityTypeName] = @__tableName_2
+            ))
+        ) AS [t24] ON [b3].[EmployeeID] = [t24].[EntityID]
+        ORDER BY [b3].[EmployeeID]
+        OFFSET @__p_3 ROWS FETCH NEXT @__p_4 ROWS ONLY
+    ) AS [t25]
+) AS [t26] ON [b.EmployeeWorkPermit].[EmployeeID] = [t26].[EmployeeID]
+ORDER BY [t26].[EmployeeID]
+2020-06-09 10:15:31,029 WARN - Query: '(from Employee x in DbSet<Employee> join Users user in  from Users item in DbSet<Users> where [item]...' uses First/FirstOrDefault/Last/LastOrDefault operation without OrderBy and filter which may lead to unpredictable results.
+2020-06-09 10:15:31,146 INFO - Executed DbCommand (82ms) [Parameters=[@__entity_UserName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[EmployeeID], [x].[Address], [x].[BirthDate], [x].[Citizenship], [x].[dateInsert], [x].[dateUpdate], [x].[FirstName], [x].[FirstNameEN], [x].[GenderID], [x].[Guid], [x].[IdentificationTypeID], [x].[IdentityNumber], [x].[LastName], [x].[LastNameEN], [x].[OrganizationID], [x].[PassportCountryID], [x].[state], [x].[userInsert], [x].[UserUpdate], [x.Organization].[OrganizationID], [x.Organization].[Comment], [x.Organization].[dateInsert], [x.Organization].[dateUpdate], [x.Organization].[OrganizationExpertiseTypeID], [x.Organization].[OrganizationFaceGroup], [x.Organization].[OrganizationName], [x.Organization].[OrganizationNumber], [x.Organization].[OrganizationParentID], [x.Organization].[OrganizationTypeID], [x.Organization].[state], [x.Organization].[userInsert], [x.Organization].[UserUpdate]
+FROM [BB_HR_Employee] AS [x]
+LEFT JOIN [BB_GEN_Organization] AS [x.Organization] ON [x].[OrganizationID] = [x.Organization].[OrganizationID]
+INNER JOIN (
+    SELECT [item].*
+    FROM [BB_HR_Users] AS [item]
+    WHERE [item].[UserName] = @__entity_UserName_0
+) AS [t] ON [x].[EmployeeID] = [t].[EmployeeID]
+2020-06-09 10:17:08,484 INFO - The PostUserAsync have been retrieved successfully.
+2020-06-09 10:17:08,490 INFO - test log
+2020-06-09 10:17:08,635 ERROR - There was a critical error on 'PostUserAsync': There was a critical error on 'PostUserAsync':   System.NullReferenceException: Object reference not set to an instance of an object.
+   at Malam.Mastpen.Core.BL.Services.EmployeeService.GetEmployeeByUserIdAsync(String userName) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\EmployeeService.cs:line 117
+   at Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync(UsersRequest request) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeController.cs:line 170
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()  System.NullReferenceException: Object reference not set to an instance of an object.
+   at Malam.Mastpen.Core.BL.Services.EmployeeService.GetEmployeeByUserIdAsync(String userName) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\EmployeeService.cs:line 117
+   at Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync(UsersRequest request) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeController.cs:line 170
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2020-06-09 10:17:08,951 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-09 10:17:08,968 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync (Malam.Mastpen.HR.API) in 138998.0877ms
+2020-06-09 10:17:10,806 INFO - Executed DbCommand (107ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 250), @p2='?' (Size = 250), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_Error] ([dateUpdate], [ErrorMessage], [ErrorTitle], [ErrorTypeID], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [ErrorID], [dateInsert], [state], [userInsert]
+FROM [BB_Error]
+WHERE @@ROWCOUNT = 1 AND [ErrorID] = scope_identity();
+2020-06-09 10:17:10,814 ERROR - Connection ID "17798225741863715084", Request ID "8000010d-0003-f700-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The connection does not support MultipleActiveResultSets.
+   at System.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at System.Data.SqlClient.SqlInternalTransaction.Rollback()
+   at System.Data.SqlClient.SqlTransaction.Dispose(Boolean disposing)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.Dispose()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.ClearTransactions()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Dispose()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.EntityFrameworkCore.DbContext.Dispose()
+   at Malam.Mastpen.Core.BL.Services.Service.Dispose() in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\Service.cs:line 35
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesFeature.Dispose()
+   at Microsoft.AspNetCore.Http.HttpResponse.<>c.<.cctor>b__30_1(Object disposable)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContext.FireOnCompleted()
+2020-06-09 10:17:10,816 INFO - Request finished in 142688.5785ms 200 application/json; charset=utf-8
+2020-06-09 10:17:12,865 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/User application/json-patch+json 192
+2020-06-09 10:17:12,867 INFO - CORS policy execution failed.
+2020-06-09 10:17:12,869 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2020-06-09 10:17:12,872 INFO - Successfully validated the token.
+2020-06-09 10:17:12,873 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-06-09 10:17:12,876 INFO - Route matched with {action = "PostUserAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync (Malam.Mastpen.HR.API)
+2020-06-09 10:17:12,909 INFO - Authorization was successful.
+2020-06-09 10:17:12,911 INFO - 'PostUserAsync' has been invoked
+2020-06-09 10:17:12,918 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.UsersRequest) - Validation state: Valid
+2020-06-09 10:17:16,122 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-09 10:17:16,743 INFO - Executed DbCommand (121ms) [Parameters=[@__tableName_0='?' (Size = 50), @__tableName_2='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [b]
+LEFT JOIN (
+    SELECT [a].[DocumentID], [a].[dateInsert], [a].[dateUpdate], [a].[DocumentDate], [a].[DocumentPath], [a].[DocumentTypeID], [a].[EntityID], [a].[EntityTypeID], [a].[IsDocumentSigned], [a].[LanguageID], [a].[state], [a].[userInsert], [a].[UserUpdate], [a].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_0
+    )) AND ([a].[DocumentTypeID] = 7)
+) AS [t] ON [b].[EmployeeID] = [t].[EntityID]
+LEFT JOIN (
+    SELECT [item0].*
+    FROM [BB_EC_EmployeeEntry] AS [item0]
+    WHERE CONVERT(date, [item0].[Date]) = CONVERT(date, GETDATE())
+) AS [t0] ON [b].[EmployeeID] = [t0].[EmployeeID]
+LEFT JOIN (
+    SELECT [a0].[EquipmentAtSiteID], [a0].[Comment], [a0].[DateFrom], [a0].[dateInsert], [a0].[DateTo], [a0].[dateUpdate], [a0].[EquipmentID], [a0].[SiteID], [a0].[state], [a0].[userInsert], [a0].[UserUpdate]
+    FROM [BB_EC_EquipmenAtSite] AS [a0]
+    WHERE [a0].[SiteID] IS NULL
+) AS [t1] ON [t0].[EquipmentID] = [t1].[EquipmentID]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [b].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture] ON [b].[EmployeeID] = [docsEmplyeePicture].[EmployeeID]
+LEFT JOIN (
+    SELECT [item1].[DeclarationID], [item1].[Date], [item1].[dateInsert], [item1].[dateUpdate], [item1].[EntityID], [item1].[EntityTypeID], [item1].[FullName], [item1].[IdentityNumber], [item1].[SiteID], [item1].[state], [item1].[userInsert], [item1].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item1]
+    WHERE (CONVERT(date, [item1].[Date]) = CONVERT(date, GETDATE())) AND ([item1].[EntityTypeID] = (
+        SELECT TOP(1) [item2].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item2]
+        WHERE [item2].[EntityTypeName] = @__tableName_2
+    ))
+) AS [t2] ON [b].[EmployeeID] = [t2].[EntityID]
+2020-06-09 10:17:19,811 INFO - Executed DbCommand (103ms) [Parameters=[@__tableName_0='?' (Size = 50), @__tableName_2='?' (Size = 50), @__p_3='?' (DbType = Int32), @__p_4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b].[EmployeeID], [b].[Address], [b].[BirthDate], [b].[Citizenship], [b].[dateInsert], [b].[dateUpdate], [b].[FirstName], [b].[FirstNameEN], [b].[GenderID], [b].[Guid], [b].[IdentificationTypeID], [b].[IdentityNumber], [b].[LastName], [b].[LastNameEN], [b].[OrganizationID], [b].[PassportCountryID], [b].[state], [b].[userInsert], [b].[UserUpdate], [b.PassportCountry].[CountryID], [b.PassportCountry].[CountryName], [b.PassportCountry].[dateInsert], [b.PassportCountry].[dateUpdate], [b.PassportCountry].[LanguageID], [b.PassportCountry].[state], [b.PassportCountry].[userInsert], [b.PassportCountry].[UserUpdate], [b.Organization].[OrganizationID], [b.Organization].[Comment], [b.Organization].[dateInsert], [b.Organization].[dateUpdate], [b.Organization].[OrganizationExpertiseTypeID], [b.Organization].[OrganizationFaceGroup], [b.Organization].[OrganizationName], [b.Organization].[OrganizationNumber], [b.Organization].[OrganizationParentID], [b.Organization].[OrganizationTypeID], [b.Organization].[state], [b.Organization].[userInsert], [b.Organization].[UserUpdate], [b.IdentificationType].[IdentificationTypeID], [b.IdentificationType].[Comment], [b.IdentificationType].[dateInsert], [b.IdentificationType].[dateUpdate], [b.IdentificationType].[IdentificationTypeName], [b.IdentificationType].[state], [b.IdentificationType].[userInsert], [b.IdentificationType].[UserUpdate], [t].[DocumentID], [t].[dateInsert], [t].[dateUpdate], [t].[DocumentDate], [t].[DocumentPath], [t].[DocumentTypeID], [t].[EntityID], [t].[EntityTypeID], [t].[IsDocumentSigned], [t].[LanguageID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t].[ValIdDate], [t1].[EquipmentAtSiteID], [t1].[Comment], [t1].[DateFrom], [t1].[dateInsert], [t1].[DateTo], [t1].[dateUpdate], [t1].[EquipmentID], [t1].[SiteID], [t1].[state], [t1].[userInsert], [t1].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [docsEmplyeePicture].[EmployeePictureID], [docsEmplyeePicture].[dateInsert], [docsEmplyeePicture].[dateUpdate], [docsEmplyeePicture].[EmployeeFacePrintID], [docsEmplyeePicture].[EmployeeID], [docsEmplyeePicture].[EmployeePicture], [docsEmplyeePicture].[IsUniqueDoc], [docsEmplyeePicture].[state], [docsEmplyeePicture].[userInsert], [docsEmplyeePicture].[UserUpdate], [t2].[DeclarationID], [t2].[Date], [t2].[dateInsert], [t2].[dateUpdate], [t2].[EntityID], [t2].[EntityTypeID], [t2].[FullName], [t2].[IdentityNumber], [t2].[SiteID], [t2].[state], [t2].[userInsert], [t2].[UserUpdate]
+FROM [BB_HR_Employee] AS [b]
+LEFT JOIN [BB_GEN_Country] AS [b.PassportCountry] ON [b].[PassportCountryID] = [b.PassportCountry].[CountryID]
+LEFT JOIN [BB_GEN_Organization] AS [b.Organization] ON [b].[OrganizationID] = [b.Organization].[OrganizationID]
+LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType] ON [b].[IdentificationTypeID] = [b.IdentificationType].[IdentificationTypeID]
+LEFT JOIN (
+    SELECT [a].[DocumentID], [a].[dateInsert], [a].[dateUpdate], [a].[DocumentDate], [a].[DocumentPath], [a].[DocumentTypeID], [a].[EntityID], [a].[EntityTypeID], [a].[IsDocumentSigned], [a].[LanguageID], [a].[state], [a].[userInsert], [a].[UserUpdate], [a].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_0
+    )) AND ([a].[DocumentTypeID] = 7)
+) AS [t] ON [b].[EmployeeID] = [t].[EntityID]
+LEFT JOIN (
+    SELECT [item0].*
+    FROM [BB_EC_EmployeeEntry] AS [item0]
+    WHERE CONVERT(date, [item0].[Date]) = CONVERT(date, GETDATE())
+) AS [t0] ON [b].[EmployeeID] = [t0].[EmployeeID]
+LEFT JOIN (
+    SELECT [a0].[EquipmentAtSiteID], [a0].[Comment], [a0].[DateFrom], [a0].[dateInsert], [a0].[DateTo], [a0].[dateUpdate], [a0].[EquipmentID], [a0].[SiteID], [a0].[state], [a0].[userInsert], [a0].[UserUpdate]
+    FROM [BB_EC_EquipmenAtSite] AS [a0]
+    WHERE [a0].[SiteID] IS NULL
+) AS [t1] ON [t0].[EquipmentID] = [t1].[EquipmentID]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [b].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture] ON [b].[EmployeeID] = [docsEmplyeePicture].[EmployeeID]
+LEFT JOIN (
+    SELECT [item1].[DeclarationID], [item1].[Date], [item1].[dateInsert], [item1].[dateUpdate], [item1].[EntityID], [item1].[EntityTypeID], [item1].[FullName], [item1].[IdentityNumber], [item1].[SiteID], [item1].[state], [item1].[userInsert], [item1].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item1]
+    WHERE (CONVERT(date, [item1].[Date]) = CONVERT(date, GETDATE())) AND ([item1].[EntityTypeID] = (
+        SELECT TOP(1) [item2].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item2]
+        WHERE [item2].[EntityTypeName] = @__tableName_2
+    ))
+) AS [t2] ON [b].[EmployeeID] = [t2].[EntityID]
+ORDER BY [b].[EmployeeID]
+OFFSET @__p_3 ROWS FETCH NEXT @__p_4 ROWS ONLY
+2020-06-09 10:17:20,608 INFO - Executed DbCommand (501ms) [Parameters=[@__tableName_0='?' (Size = 50), @__tableName_2='?' (Size = 50), @__p_3='?' (DbType = Int32), @__p_4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeProffesionType].[EmployeeAuthorizationID], [b.EmployeeProffesionType].[Comment], [b.EmployeeProffesionType].[dateInsert], [b.EmployeeProffesionType].[dateUpdate], [b.EmployeeProffesionType].[EmployeeID], [b.EmployeeProffesionType].[ProffesionTypeID], [b.EmployeeProffesionType].[state], [b.EmployeeProffesionType].[userInsert], [b.EmployeeProffesionType].[UserUpdate], [e.ProffesionType].[ProffesionTypeID], [e.ProffesionType].[Comment], [e.ProffesionType].[dateInsert], [e.ProffesionType].[dateUpdate], [e.ProffesionType].[ProffesionTypeName], [e.ProffesionType].[state], [e.ProffesionType].[userInsert], [e.ProffesionType].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [b.EmployeeProffesionType]
+LEFT JOIN [BB_HR_ProffesionType] AS [e.ProffesionType] ON [b.EmployeeProffesionType].[ProffesionTypeID] = [e.ProffesionType].[ProffesionTypeID]
+INNER JOIN (
+    SELECT DISTINCT [t7].*
+    FROM (
+        SELECT [b0].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b0]
+        LEFT JOIN [BB_GEN_Country] AS [b.PassportCountry0] ON [b0].[PassportCountryID] = [b.PassportCountry0].[CountryID]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization0] ON [b0].[OrganizationID] = [b.Organization0].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType0] ON [b0].[IdentificationTypeID] = [b.IdentificationType0].[IdentificationTypeID]
+        LEFT JOIN (
+            SELECT [a1].*
+            FROM [BB_GEN_Docs] AS [a1]
+            WHERE ([a1].[EntityTypeID] = (
+                SELECT TOP(1) [item3].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item3]
+                WHERE [item3].[EntityTypeName] = @__tableName_0
+            )) AND ([a1].[DocumentTypeID] = 7)
+        ) AS [t3] ON [b0].[EmployeeID] = [t3].[EntityID]
+        LEFT JOIN (
+            SELECT [item4].*
+            FROM [BB_EC_EmployeeEntry] AS [item4]
+            WHERE CONVERT(date, [item4].[Date]) = CONVERT(date, GETDATE())
+        ) AS [t4] ON [b0].[EmployeeID] = [t4].[EmployeeID]
+        LEFT JOIN (
+            SELECT [a2].*
+            FROM [BB_EC_EquipmenAtSite] AS [a2]
+            WHERE [a2].[SiteID] IS NULL
+        ) AS [t5] ON [t4].[EquipmentID] = [t5].[EquipmentID]
+        LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee0] ON [b0].[EmployeeID] = [siteEmployee0].[EmployeeID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture0] ON [b0].[EmployeeID] = [docsEmplyeePicture0].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item5].*
+            FROM [BB_VR_HealthDeclaration] AS [item5]
+            WHERE (CONVERT(date, [item5].[Date]) = CONVERT(date, GETDATE())) AND ([item5].[EntityTypeID] = (
+                SELECT TOP(1) [item6].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item6]
+                WHERE [item6].[EntityTypeName] = @__tableName_2
+            ))
+        ) AS [t6] ON [b0].[EmployeeID] = [t6].[EntityID]
+        ORDER BY [b0].[EmployeeID]
+        OFFSET @__p_3 ROWS FETCH NEXT @__p_4 ROWS ONLY
+    ) AS [t7]
+) AS [t8] ON [b.EmployeeProffesionType].[EmployeeID] = [t8].[EmployeeID]
+ORDER BY [t8].[EmployeeID]
+2020-06-09 10:17:21,060 INFO - Executed DbCommand (448ms) [Parameters=[@__tableName_0='?' (Size = 50), @__tableName_2='?' (Size = 50), @__p_3='?' (DbType = Int32), @__p_4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeAuthtorization].[EmployeeAuthorizationID], [b.EmployeeAuthtorization].[AuthorizationTypeID], [b.EmployeeAuthtorization].[Comment], [b.EmployeeAuthtorization].[DateFrom], [b.EmployeeAuthtorization].[dateInsert], [b.EmployeeAuthtorization].[DateTo], [b.EmployeeAuthtorization].[dateUpdate], [b.EmployeeAuthtorization].[EmployeeAuthorizationName], [b.EmployeeAuthtorization].[EmployeeID], [b.EmployeeAuthtorization].[SiteId], [b.EmployeeAuthtorization].[state], [b.EmployeeAuthtorization].[userInsert], [b.EmployeeAuthtorization].[UserUpdate]
+FROM [BB_HR_EmployeeAuthtorization] AS [b.EmployeeAuthtorization]
+INNER JOIN (
+    SELECT DISTINCT [t13].*
+    FROM (
+        SELECT [b1].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b1]
+        LEFT JOIN [BB_GEN_Country] AS [b.PassportCountry1] ON [b1].[PassportCountryID] = [b.PassportCountry1].[CountryID]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization1] ON [b1].[OrganizationID] = [b.Organization1].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType1] ON [b1].[IdentificationTypeID] = [b.IdentificationType1].[IdentificationTypeID]
+        LEFT JOIN (
+            SELECT [a3].*
+            FROM [BB_GEN_Docs] AS [a3]
+            WHERE ([a3].[EntityTypeID] = (
+                SELECT TOP(1) [item7].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item7]
+                WHERE [item7].[EntityTypeName] = @__tableName_0
+            )) AND ([a3].[DocumentTypeID] = 7)
+        ) AS [t9] ON [b1].[EmployeeID] = [t9].[EntityID]
+        LEFT JOIN (
+            SELECT [item8].*
+            FROM [BB_EC_EmployeeEntry] AS [item8]
+            WHERE CONVERT(date, [item8].[Date]) = CONVERT(date, GETDATE())
+        ) AS [t10] ON [b1].[EmployeeID] = [t10].[EmployeeID]
+        LEFT JOIN (
+            SELECT [a4].*
+            FROM [BB_EC_EquipmenAtSite] AS [a4]
+            WHERE [a4].[SiteID] IS NULL
+        ) AS [t11] ON [t10].[EquipmentID] = [t11].[EquipmentID]
+        LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee1] ON [b1].[EmployeeID] = [siteEmployee1].[EmployeeID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture1] ON [b1].[EmployeeID] = [docsEmplyeePicture1].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item9].*
+            FROM [BB_VR_HealthDeclaration] AS [item9]
+            WHERE (CONVERT(date, [item9].[Date]) = CONVERT(date, GETDATE())) AND ([item9].[EntityTypeID] = (
+                SELECT TOP(1) [item10].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item10]
+                WHERE [item10].[EntityTypeName] = @__tableName_2
+            ))
+        ) AS [t12] ON [b1].[EmployeeID] = [t12].[EntityID]
+        ORDER BY [b1].[EmployeeID]
+        OFFSET @__p_3 ROWS FETCH NEXT @__p_4 ROWS ONLY
+    ) AS [t13]
+) AS [t14] ON [b.EmployeeAuthtorization].[EmployeeID] = [t14].[EmployeeID]
+ORDER BY [t14].[EmployeeID]
+2020-06-09 10:17:21,531 INFO - Executed DbCommand (467ms) [Parameters=[@__tableName_0='?' (Size = 50), @__tableName_2='?' (Size = 50), @__p_3='?' (DbType = Int32), @__p_4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeTraining].[EmployeeTrainingID], [b.EmployeeTraining].[Comment], [b.EmployeeTraining].[DateFrom], [b.EmployeeTraining].[dateInsert], [b.EmployeeTraining].[DateTo], [b.EmployeeTraining].[dateUpdate], [b.EmployeeTraining].[EmployeeID], [b.EmployeeTraining].[EmployeeTrainingName], [b.EmployeeTraining].[SiteID], [b.EmployeeTraining].[state], [b.EmployeeTraining].[TrainingTypeID], [b.EmployeeTraining].[userInsert], [b.EmployeeTraining].[UserUpdate]
+FROM [BB_HR_EmployeeTraining] AS [b.EmployeeTraining]
+INNER JOIN (
+    SELECT DISTINCT [t19].*
+    FROM (
+        SELECT [b2].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b2]
+        LEFT JOIN [BB_GEN_Country] AS [b.PassportCountry2] ON [b2].[PassportCountryID] = [b.PassportCountry2].[CountryID]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization2] ON [b2].[OrganizationID] = [b.Organization2].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType2] ON [b2].[IdentificationTypeID] = [b.IdentificationType2].[IdentificationTypeID]
+        LEFT JOIN (
+            SELECT [a5].*
+            FROM [BB_GEN_Docs] AS [a5]
+            WHERE ([a5].[EntityTypeID] = (
+                SELECT TOP(1) [item11].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item11]
+                WHERE [item11].[EntityTypeName] = @__tableName_0
+            )) AND ([a5].[DocumentTypeID] = 7)
+        ) AS [t15] ON [b2].[EmployeeID] = [t15].[EntityID]
+        LEFT JOIN (
+            SELECT [item12].*
+            FROM [BB_EC_EmployeeEntry] AS [item12]
+            WHERE CONVERT(date, [item12].[Date]) = CONVERT(date, GETDATE())
+        ) AS [t16] ON [b2].[EmployeeID] = [t16].[EmployeeID]
+        LEFT JOIN (
+            SELECT [a6].*
+            FROM [BB_EC_EquipmenAtSite] AS [a6]
+            WHERE [a6].[SiteID] IS NULL
+        ) AS [t17] ON [t16].[EquipmentID] = [t17].[EquipmentID]
+        LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee2] ON [b2].[EmployeeID] = [siteEmployee2].[EmployeeID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture2] ON [b2].[EmployeeID] = [docsEmplyeePicture2].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item13].*
+            FROM [BB_VR_HealthDeclaration] AS [item13]
+            WHERE (CONVERT(date, [item13].[Date]) = CONVERT(date, GETDATE())) AND ([item13].[EntityTypeID] = (
+                SELECT TOP(1) [item14].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item14]
+                WHERE [item14].[EntityTypeName] = @__tableName_2
+            ))
+        ) AS [t18] ON [b2].[EmployeeID] = [t18].[EntityID]
+        ORDER BY [b2].[EmployeeID]
+        OFFSET @__p_3 ROWS FETCH NEXT @__p_4 ROWS ONLY
+    ) AS [t19]
+) AS [t20] ON [b.EmployeeTraining].[EmployeeID] = [t20].[EmployeeID]
+ORDER BY [t20].[EmployeeID]
+2020-06-09 10:17:21,968 INFO - Executed DbCommand (432ms) [Parameters=[@__tableName_0='?' (Size = 50), @__tableName_2='?' (Size = 50), @__p_3='?' (DbType = Int32), @__p_4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [b.EmployeeWorkPermit].[EmployeeWorkPermitID], [b.EmployeeWorkPermit].[Comment], [b.EmployeeWorkPermit].[DateFrom], [b.EmployeeWorkPermit].[dateInsert], [b.EmployeeWorkPermit].[DateTo], [b.EmployeeWorkPermit].[dateUpdate], [b.EmployeeWorkPermit].[EmployeeID], [b.EmployeeWorkPermit].[EmployeeWorkPermitName], [b.EmployeeWorkPermit].[IsRequired], [b.EmployeeWorkPermit].[SiteID], [b.EmployeeWorkPermit].[state], [b.EmployeeWorkPermit].[userInsert], [b.EmployeeWorkPermit].[UserUpdate]
+FROM [BB_HR_EmployeeWorkPermit] AS [b.EmployeeWorkPermit]
+INNER JOIN (
+    SELECT DISTINCT [t25].*
+    FROM (
+        SELECT [b3].[EmployeeID]
+        FROM [BB_HR_Employee] AS [b3]
+        LEFT JOIN [BB_GEN_Country] AS [b.PassportCountry3] ON [b3].[PassportCountryID] = [b.PassportCountry3].[CountryID]
+        LEFT JOIN [BB_GEN_Organization] AS [b.Organization3] ON [b3].[OrganizationID] = [b.Organization3].[OrganizationID]
+        LEFT JOIN [BB_HR_IdentificationType] AS [b.IdentificationType3] ON [b3].[IdentificationTypeID] = [b.IdentificationType3].[IdentificationTypeID]
+        LEFT JOIN (
+            SELECT [a7].*
+            FROM [BB_GEN_Docs] AS [a7]
+            WHERE ([a7].[EntityTypeID] = (
+                SELECT TOP(1) [item15].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item15]
+                WHERE [item15].[EntityTypeName] = @__tableName_0
+            )) AND ([a7].[DocumentTypeID] = 7)
+        ) AS [t21] ON [b3].[EmployeeID] = [t21].[EntityID]
+        LEFT JOIN (
+            SELECT [item16].*
+            FROM [BB_EC_EmployeeEntry] AS [item16]
+            WHERE CONVERT(date, [item16].[Date]) = CONVERT(date, GETDATE())
+        ) AS [t22] ON [b3].[EmployeeID] = [t22].[EmployeeID]
+        LEFT JOIN (
+            SELECT [a8].*
+            FROM [BB_EC_EquipmenAtSite] AS [a8]
+            WHERE [a8].[SiteID] IS NULL
+        ) AS [t23] ON [t22].[EquipmentID] = [t23].[EquipmentID]
+        LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee3] ON [b3].[EmployeeID] = [siteEmployee3].[EmployeeID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture3] ON [b3].[EmployeeID] = [docsEmplyeePicture3].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item17].*
+            FROM [BB_VR_HealthDeclaration] AS [item17]
+            WHERE (CONVERT(date, [item17].[Date]) = CONVERT(date, GETDATE())) AND ([item17].[EntityTypeID] = (
+                SELECT TOP(1) [item18].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item18]
+                WHERE [item18].[EntityTypeName] = @__tableName_2
+            ))
+        ) AS [t24] ON [b3].[EmployeeID] = [t24].[EntityID]
+        ORDER BY [b3].[EmployeeID]
+        OFFSET @__p_3 ROWS FETCH NEXT @__p_4 ROWS ONLY
+    ) AS [t25]
+) AS [t26] ON [b.EmployeeWorkPermit].[EmployeeID] = [t26].[EmployeeID]
+ORDER BY [t26].[EmployeeID]
+2020-06-09 10:19:50,957 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-09 10:19:50,993 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 10:19:51,141 INFO - Request finished in 187.5969ms 200 text/html
+2020-06-09 10:19:51,330 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-09 10:19:51,334 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 10:19:51,788 INFO - Request finished in 457.9514ms 200 application/json;charset=utf-8
+2020-06-09 10:20:13,779 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/User application/json-patch+json 192
+2020-06-09 10:20:13,783 INFO - CORS policy execution failed.
+2020-06-09 10:20:13,785 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2020-06-09 10:20:15,099 INFO - Successfully validated the token.
+2020-06-09 10:20:15,105 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-06-09 10:20:15,579 INFO - Route matched with {action = "PostUserAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync (Malam.Mastpen.HR.API)
+2020-06-09 10:20:15,589 INFO - Authorization was successful.
+2020-06-09 10:20:15,629 INFO - 'PostUserAsync' has been invoked
+2020-06-09 10:20:15,636 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.UsersRequest) - Validation state: Valid
+2020-06-09 10:20:18,651 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-09 10:20:20,133 INFO - Executed DbCommand (113ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item.PassportCountry].[CountryID], [item.PassportCountry].[CountryName], [item.PassportCountry].[dateInsert], [item.PassportCountry].[dateUpdate], [item.PassportCountry].[LanguageID], [item.PassportCountry].[state], [item.PassportCountry].[userInsert], [item.PassportCountry].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t0].[DocumentID], [t0].[dateInsert], [t0].[dateUpdate], [t0].[DocumentDate], [t0].[DocumentPath], [t0].[DocumentTypeID], [t0].[EntityID], [t0].[EntityTypeID], [t0].[IsDocumentSigned], [t0].[LanguageID], [t0].[state], [t0].[userInsert], [t0].[UserUpdate], [t0].[ValIdDate], [t1].[DocumentID], [t1].[dateInsert], [t1].[dateUpdate], [t1].[DocumentDate], [t1].[DocumentPath], [t1].[DocumentTypeID], [t1].[EntityID], [t1].[EntityTypeID], [t1].[IsDocumentSigned], [t1].[LanguageID], [t1].[state], [t1].[userInsert], [t1].[UserUpdate], [t1].[ValIdDate], [t2].[DocumentID], [t2].[dateInsert], [t2].[dateUpdate], [t2].[DocumentDate], [t2].[DocumentPath], [t2].[DocumentTypeID], [t2].[EntityID], [t2].[EntityTypeID], [t2].[IsDocumentSigned], [t2].[LanguageID], [t2].[state], [t2].[userInsert], [t2].[UserUpdate], [t2].[ValIdDate], [docsEmplyeePicture].[EmployeePictureID], [docsEmplyeePicture].[dateInsert], [docsEmplyeePicture].[dateUpdate], [docsEmplyeePicture].[EmployeeFacePrintID], [docsEmplyeePicture].[EmployeeID], [docsEmplyeePicture].[EmployeePicture], [docsEmplyeePicture].[IsUniqueDoc], [docsEmplyeePicture].[state], [docsEmplyeePicture].[userInsert], [docsEmplyeePicture].[UserUpdate], [t3].[DeclarationID], [t3].[Date], [t3].[dateInsert], [t3].[dateUpdate], [t3].[EntityID], [t3].[EntityTypeID], [t3].[FullName], [t3].[IdentityNumber], [t3].[SiteID], [t3].[state], [t3].[userInsert], [t3].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry] ON [item].[PassportCountryID] = [item.PassportCountry].[CountryID]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+LEFT JOIN (
+    SELECT [a0].[DocumentID], [a0].[dateInsert], [a0].[dateUpdate], [a0].[DocumentDate], [a0].[DocumentPath], [a0].[DocumentTypeID], [a0].[EntityID], [a0].[EntityTypeID], [a0].[IsDocumentSigned], [a0].[LanguageID], [a0].[state], [a0].[userInsert], [a0].[UserUpdate], [a0].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a0]
+    WHERE ([a0].[EntityTypeID] = (
+        SELECT TOP(1) [item1].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item1]
+        WHERE [item1].[EntityTypeName] = @__tableName_2
+    )) AND ([a0].[DocumentTypeID] = 7)
+) AS [t0] ON [item].[EmployeeID] = [t0].[EntityID]
+LEFT JOIN (
+    SELECT [a1].[DocumentID], [a1].[dateInsert], [a1].[dateUpdate], [a1].[DocumentDate], [a1].[DocumentPath], [a1].[DocumentTypeID], [a1].[EntityID], [a1].[EntityTypeID], [a1].[IsDocumentSigned], [a1].[LanguageID], [a1].[state], [a1].[userInsert], [a1].[UserUpdate], [a1].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a1]
+    WHERE ([a1].[EntityTypeID] = (
+        SELECT TOP(1) [item2].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item2]
+        WHERE [item2].[EntityTypeName] = @__tableName_3
+    )) AND ([a1].[DocumentTypeID] = 1)
+) AS [t1] ON [item].[EmployeeID] = [t1].[EntityID]
+LEFT JOIN (
+    SELECT [a2].[DocumentID], [a2].[dateInsert], [a2].[dateUpdate], [a2].[DocumentDate], [a2].[DocumentPath], [a2].[DocumentTypeID], [a2].[EntityID], [a2].[EntityTypeID], [a2].[IsDocumentSigned], [a2].[LanguageID], [a2].[state], [a2].[userInsert], [a2].[UserUpdate], [a2].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a2]
+    WHERE ([a2].[EntityTypeID] = (
+        SELECT TOP(1) [item3].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item3]
+        WHERE [item3].[EntityTypeName] = @__tableName_4
+    )) AND ([a2].[DocumentTypeID] = 2)
+) AS [t2] ON [item].[EmployeeID] = [t2].[EntityID]
+LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture] ON [item].[EmployeeID] = [docsEmplyeePicture].[EmployeeID]
+LEFT JOIN (
+    SELECT [item4].[DeclarationID], [item4].[Date], [item4].[dateInsert], [item4].[dateUpdate], [item4].[EntityID], [item4].[EntityTypeID], [item4].[FullName], [item4].[IdentityNumber], [item4].[SiteID], [item4].[state], [item4].[userInsert], [item4].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item4]
+    WHERE (CONVERT(date, [item4].[Date]) = CONVERT(date, GETDATE())) AND ([item4].[EntityTypeID] = (
+        SELECT TOP(1) [item5].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item5]
+        WHERE [item5].[EntityTypeName] = @__tableName_5
+    ))
+) AS [t3] ON [item].[EmployeeID] = [t3].[EntityID]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+ORDER BY [item].[EmployeeID]
+2020-06-09 10:20:20,447 INFO - Executed DbCommand (89ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item.EmployeeProffesionType].[EmployeeAuthorizationID], [item.EmployeeProffesionType].[Comment], [item.EmployeeProffesionType].[dateInsert], [item.EmployeeProffesionType].[dateUpdate], [item.EmployeeProffesionType].[EmployeeID], [item.EmployeeProffesionType].[ProffesionTypeID], [item.EmployeeProffesionType].[state], [item.EmployeeProffesionType].[userInsert], [item.EmployeeProffesionType].[UserUpdate], [e.ProffesionType].[ProffesionTypeID], [e.ProffesionType].[Comment], [e.ProffesionType].[dateInsert], [e.ProffesionType].[dateUpdate], [e.ProffesionType].[ProffesionTypeName], [e.ProffesionType].[state], [e.ProffesionType].[userInsert], [e.ProffesionType].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [item.EmployeeProffesionType]
+LEFT JOIN [BB_HR_ProffesionType] AS [e.ProffesionType] ON [item.EmployeeProffesionType].[ProffesionTypeID] = [e.ProffesionType].[ProffesionTypeID]
+INNER JOIN (
+    SELECT DISTINCT [t9].*
+    FROM (
+        SELECT TOP(1) [item6].[EmployeeID]
+        FROM [BB_HR_Employee] AS [item6]
+        LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry0] ON [item6].[PassportCountryID] = [item.PassportCountry0].[CountryID]
+        LEFT JOIN (
+            SELECT [a3].*
+            FROM [BB_GEN_PhoneMail] AS [a3]
+            WHERE [a3].[EntityTypeID] = (
+                SELECT TOP(1) [item7].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item7]
+                WHERE [item7].[EntityTypeName] = @__tableName_1
+            )
+        ) AS [t4] ON [item6].[EmployeeID] = [t4].[EntityID]
+        LEFT JOIN (
+            SELECT [a4].*
+            FROM [BB_GEN_Docs] AS [a4]
+            WHERE ([a4].[EntityTypeID] = (
+                SELECT TOP(1) [item8].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item8]
+                WHERE [item8].[EntityTypeName] = @__tableName_2
+            )) AND ([a4].[DocumentTypeID] = 7)
+        ) AS [t5] ON [item6].[EmployeeID] = [t5].[EntityID]
+        LEFT JOIN (
+            SELECT [a5].*
+            FROM [BB_GEN_Docs] AS [a5]
+            WHERE ([a5].[EntityTypeID] = (
+                SELECT TOP(1) [item9].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item9]
+                WHERE [item9].[EntityTypeName] = @__tableName_3
+            )) AND ([a5].[DocumentTypeID] = 1)
+        ) AS [t6] ON [item6].[EmployeeID] = [t6].[EntityID]
+        LEFT JOIN (
+            SELECT [a6].*
+            FROM [BB_GEN_Docs] AS [a6]
+            WHERE ([a6].[EntityTypeID] = (
+                SELECT TOP(1) [item10].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item10]
+                WHERE [item10].[EntityTypeName] = @__tableName_4
+            )) AND ([a6].[DocumentTypeID] = 2)
+        ) AS [t7] ON [item6].[EmployeeID] = [t7].[EntityID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture0] ON [item6].[EmployeeID] = [docsEmplyeePicture0].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item11].*
+            FROM [BB_VR_HealthDeclaration] AS [item11]
+            WHERE (CONVERT(date, [item11].[Date]) = CONVERT(date, GETDATE())) AND ([item11].[EntityTypeID] = (
+                SELECT TOP(1) [item12].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item12]
+                WHERE [item12].[EntityTypeName] = @__tableName_5
+            ))
+        ) AS [t8] ON [item6].[EmployeeID] = [t8].[EntityID]
+        WHERE [item6].[EmployeeID] = @__entity_EmployeeId_0
+        ORDER BY [item6].[EmployeeID]
+    ) AS [t9]
+) AS [t10] ON [item.EmployeeProffesionType].[EmployeeID] = [t10].[EmployeeID]
+ORDER BY [t10].[EmployeeID]
+2020-06-09 10:20:20,715 INFO - Executed DbCommand (216ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item.EmployeeAuthtorization].[EmployeeAuthorizationID], [item.EmployeeAuthtorization].[AuthorizationTypeID], [item.EmployeeAuthtorization].[Comment], [item.EmployeeAuthtorization].[DateFrom], [item.EmployeeAuthtorization].[dateInsert], [item.EmployeeAuthtorization].[DateTo], [item.EmployeeAuthtorization].[dateUpdate], [item.EmployeeAuthtorization].[EmployeeAuthorizationName], [item.EmployeeAuthtorization].[EmployeeID], [item.EmployeeAuthtorization].[SiteId], [item.EmployeeAuthtorization].[state], [item.EmployeeAuthtorization].[userInsert], [item.EmployeeAuthtorization].[UserUpdate]
+FROM [BB_HR_EmployeeAuthtorization] AS [item.EmployeeAuthtorization]
+INNER JOIN (
+    SELECT DISTINCT [t16].*
+    FROM (
+        SELECT TOP(1) [item13].[EmployeeID]
+        FROM [BB_HR_Employee] AS [item13]
+        LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry1] ON [item13].[PassportCountryID] = [item.PassportCountry1].[CountryID]
+        LEFT JOIN (
+            SELECT [a7].*
+            FROM [BB_GEN_PhoneMail] AS [a7]
+            WHERE [a7].[EntityTypeID] = (
+                SELECT TOP(1) [item14].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item14]
+                WHERE [item14].[EntityTypeName] = @__tableName_1
+            )
+        ) AS [t11] ON [item13].[EmployeeID] = [t11].[EntityID]
+        LEFT JOIN (
+            SELECT [a8].*
+            FROM [BB_GEN_Docs] AS [a8]
+            WHERE ([a8].[EntityTypeID] = (
+                SELECT TOP(1) [item15].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item15]
+                WHERE [item15].[EntityTypeName] = @__tableName_2
+            )) AND ([a8].[DocumentTypeID] = 7)
+        ) AS [t12] ON [item13].[EmployeeID] = [t12].[EntityID]
+        LEFT JOIN (
+            SELECT [a9].*
+            FROM [BB_GEN_Docs] AS [a9]
+            WHERE ([a9].[EntityTypeID] = (
+                SELECT TOP(1) [item16].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item16]
+                WHERE [item16].[EntityTypeName] = @__tableName_3
+            )) AND ([a9].[DocumentTypeID] = 1)
+        ) AS [t13] ON [item13].[EmployeeID] = [t13].[EntityID]
+        LEFT JOIN (
+            SELECT [a10].*
+            FROM [BB_GEN_Docs] AS [a10]
+            WHERE ([a10].[EntityTypeID] = (
+                SELECT TOP(1) [item17].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item17]
+                WHERE [item17].[EntityTypeName] = @__tableName_4
+            )) AND ([a10].[DocumentTypeID] = 2)
+        ) AS [t14] ON [item13].[EmployeeID] = [t14].[EntityID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture1] ON [item13].[EmployeeID] = [docsEmplyeePicture1].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item18].*
+            FROM [BB_VR_HealthDeclaration] AS [item18]
+            WHERE (CONVERT(date, [item18].[Date]) = CONVERT(date, GETDATE())) AND ([item18].[EntityTypeID] = (
+                SELECT TOP(1) [item19].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item19]
+                WHERE [item19].[EntityTypeName] = @__tableName_5
+            ))
+        ) AS [t15] ON [item13].[EmployeeID] = [t15].[EntityID]
+        WHERE [item13].[EmployeeID] = @__entity_EmployeeId_0
+        ORDER BY [item13].[EmployeeID]
+    ) AS [t16]
+) AS [t17] ON [item.EmployeeAuthtorization].[EmployeeID] = [t17].[EmployeeID]
+ORDER BY [t17].[EmployeeID]
+2020-06-09 10:20:20,845 INFO - Executed DbCommand (91ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item.EmployeeTraining].[EmployeeTrainingID], [item.EmployeeTraining].[Comment], [item.EmployeeTraining].[DateFrom], [item.EmployeeTraining].[dateInsert], [item.EmployeeTraining].[DateTo], [item.EmployeeTraining].[dateUpdate], [item.EmployeeTraining].[EmployeeID], [item.EmployeeTraining].[EmployeeTrainingName], [item.EmployeeTraining].[SiteID], [item.EmployeeTraining].[state], [item.EmployeeTraining].[TrainingTypeID], [item.EmployeeTraining].[userInsert], [item.EmployeeTraining].[UserUpdate]
+FROM [BB_HR_EmployeeTraining] AS [item.EmployeeTraining]
+INNER JOIN (
+    SELECT DISTINCT [t23].*
+    FROM (
+        SELECT TOP(1) [item20].[EmployeeID]
+        FROM [BB_HR_Employee] AS [item20]
+        LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry2] ON [item20].[PassportCountryID] = [item.PassportCountry2].[CountryID]
+        LEFT JOIN (
+            SELECT [a11].*
+            FROM [BB_GEN_PhoneMail] AS [a11]
+            WHERE [a11].[EntityTypeID] = (
+                SELECT TOP(1) [item21].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item21]
+                WHERE [item21].[EntityTypeName] = @__tableName_1
+            )
+        ) AS [t18] ON [item20].[EmployeeID] = [t18].[EntityID]
+        LEFT JOIN (
+            SELECT [a12].*
+            FROM [BB_GEN_Docs] AS [a12]
+            WHERE ([a12].[EntityTypeID] = (
+                SELECT TOP(1) [item22].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item22]
+                WHERE [item22].[EntityTypeName] = @__tableName_2
+            )) AND ([a12].[DocumentTypeID] = 7)
+        ) AS [t19] ON [item20].[EmployeeID] = [t19].[EntityID]
+        LEFT JOIN (
+            SELECT [a13].*
+            FROM [BB_GEN_Docs] AS [a13]
+            WHERE ([a13].[EntityTypeID] = (
+                SELECT TOP(1) [item23].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item23]
+                WHERE [item23].[EntityTypeName] = @__tableName_3
+            )) AND ([a13].[DocumentTypeID] = 1)
+        ) AS [t20] ON [item20].[EmployeeID] = [t20].[EntityID]
+        LEFT JOIN (
+            SELECT [a14].*
+            FROM [BB_GEN_Docs] AS [a14]
+            WHERE ([a14].[EntityTypeID] = (
+                SELECT TOP(1) [item24].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item24]
+                WHERE [item24].[EntityTypeName] = @__tableName_4
+            )) AND ([a14].[DocumentTypeID] = 2)
+        ) AS [t21] ON [item20].[EmployeeID] = [t21].[EntityID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture2] ON [item20].[EmployeeID] = [docsEmplyeePicture2].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item25].*
+            FROM [BB_VR_HealthDeclaration] AS [item25]
+            WHERE (CONVERT(date, [item25].[Date]) = CONVERT(date, GETDATE())) AND ([item25].[EntityTypeID] = (
+                SELECT TOP(1) [item26].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item26]
+                WHERE [item26].[EntityTypeName] = @__tableName_5
+            ))
+        ) AS [t22] ON [item20].[EmployeeID] = [t22].[EntityID]
+        WHERE [item20].[EmployeeID] = @__entity_EmployeeId_0
+        ORDER BY [item20].[EmployeeID]
+    ) AS [t23]
+) AS [t24] ON [item.EmployeeTraining].[EmployeeID] = [t24].[EmployeeID]
+ORDER BY [t24].[EmployeeID]
+2020-06-09 10:20:20,979 INFO - Executed DbCommand (98ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item.EmployeeWorkPermit].[EmployeeWorkPermitID], [item.EmployeeWorkPermit].[Comment], [item.EmployeeWorkPermit].[DateFrom], [item.EmployeeWorkPermit].[dateInsert], [item.EmployeeWorkPermit].[DateTo], [item.EmployeeWorkPermit].[dateUpdate], [item.EmployeeWorkPermit].[EmployeeID], [item.EmployeeWorkPermit].[EmployeeWorkPermitName], [item.EmployeeWorkPermit].[IsRequired], [item.EmployeeWorkPermit].[SiteID], [item.EmployeeWorkPermit].[state], [item.EmployeeWorkPermit].[userInsert], [item.EmployeeWorkPermit].[UserUpdate]
+FROM [BB_HR_EmployeeWorkPermit] AS [item.EmployeeWorkPermit]
+INNER JOIN (
+    SELECT DISTINCT [t30].*
+    FROM (
+        SELECT TOP(1) [item27].[EmployeeID]
+        FROM [BB_HR_Employee] AS [item27]
+        LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry3] ON [item27].[PassportCountryID] = [item.PassportCountry3].[CountryID]
+        LEFT JOIN (
+            SELECT [a15].*
+            FROM [BB_GEN_PhoneMail] AS [a15]
+            WHERE [a15].[EntityTypeID] = (
+                SELECT TOP(1) [item28].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item28]
+                WHERE [item28].[EntityTypeName] = @__tableName_1
+            )
+        ) AS [t25] ON [item27].[EmployeeID] = [t25].[EntityID]
+        LEFT JOIN (
+            SELECT [a16].*
+            FROM [BB_GEN_Docs] AS [a16]
+            WHERE ([a16].[EntityTypeID] = (
+                SELECT TOP(1) [item29].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item29]
+                WHERE [item29].[EntityTypeName] = @__tableName_2
+            )) AND ([a16].[DocumentTypeID] = 7)
+        ) AS [t26] ON [item27].[EmployeeID] = [t26].[EntityID]
+        LEFT JOIN (
+            SELECT [a17].*
+            FROM [BB_GEN_Docs] AS [a17]
+            WHERE ([a17].[EntityTypeID] = (
+                SELECT TOP(1) [item30].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item30]
+                WHERE [item30].[EntityTypeName] = @__tableName_3
+            )) AND ([a17].[DocumentTypeID] = 1)
+        ) AS [t27] ON [item27].[EmployeeID] = [t27].[EntityID]
+        LEFT JOIN (
+            SELECT [a18].*
+            FROM [BB_GEN_Docs] AS [a18]
+            WHERE ([a18].[EntityTypeID] = (
+                SELECT TOP(1) [item31].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item31]
+                WHERE [item31].[EntityTypeName] = @__tableName_4
+            )) AND ([a18].[DocumentTypeID] = 2)
+        ) AS [t28] ON [item27].[EmployeeID] = [t28].[EntityID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture3] ON [item27].[EmployeeID] = [docsEmplyeePicture3].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item32].*
+            FROM [BB_VR_HealthDeclaration] AS [item32]
+            WHERE (CONVERT(date, [item32].[Date]) = CONVERT(date, GETDATE())) AND ([item32].[EntityTypeID] = (
+                SELECT TOP(1) [item33].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item33]
+                WHERE [item33].[EntityTypeName] = @__tableName_5
+            ))
+        ) AS [t29] ON [item27].[EmployeeID] = [t29].[EntityID]
+        WHERE [item27].[EmployeeID] = @__entity_EmployeeId_0
+        ORDER BY [item27].[EmployeeID]
+    ) AS [t30]
+) AS [t31] ON [item.EmployeeWorkPermit].[EmployeeID] = [t31].[EmployeeID]
+ORDER BY [t31].[EmployeeID]
+2020-06-09 10:20:37,210 WARN - Query: '(from Employee x in DbSet<Employee> join Users user in  from Users item in DbSet<Users> where [item]...' uses First/FirstOrDefault/Last/LastOrDefault operation without OrderBy and filter which may lead to unpredictable results.
+2020-06-09 10:20:37,321 INFO - Executed DbCommand (76ms) [Parameters=[@__entity_UserName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[EmployeeID], [x].[Address], [x].[BirthDate], [x].[Citizenship], [x].[dateInsert], [x].[dateUpdate], [x].[FirstName], [x].[FirstNameEN], [x].[GenderID], [x].[Guid], [x].[IdentificationTypeID], [x].[IdentityNumber], [x].[LastName], [x].[LastNameEN], [x].[OrganizationID], [x].[PassportCountryID], [x].[state], [x].[userInsert], [x].[UserUpdate], [x.Organization].[OrganizationID], [x.Organization].[Comment], [x.Organization].[dateInsert], [x.Organization].[dateUpdate], [x.Organization].[OrganizationExpertiseTypeID], [x.Organization].[OrganizationFaceGroup], [x.Organization].[OrganizationName], [x.Organization].[OrganizationNumber], [x.Organization].[OrganizationParentID], [x.Organization].[OrganizationTypeID], [x.Organization].[state], [x.Organization].[userInsert], [x.Organization].[UserUpdate]
+FROM [BB_HR_Employee] AS [x]
+LEFT JOIN [BB_GEN_Organization] AS [x.Organization] ON [x].[OrganizationID] = [x.Organization].[OrganizationID]
+INNER JOIN (
+    SELECT [item].*
+    FROM [BB_HR_Users] AS [item]
+    WHERE [item].[UserName] = @__entity_UserName_0
+) AS [t] ON [x].[EmployeeID] = [t].[EmployeeID]
+2020-06-09 10:21:13,659 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-09 10:21:13,715 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 10:21:13,989 INFO - Request finished in 335.1507ms 200 text/html
+2020-06-09 10:21:14,190 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-09 10:21:14,193 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 10:21:14,663 INFO - Request finished in 472.3506ms 200 application/json;charset=utf-8
+2020-06-09 10:21:29,048 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/User application/json-patch+json 192
+2020-06-09 10:21:29,051 INFO - CORS policy execution failed.
+2020-06-09 10:21:29,052 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2020-06-09 10:21:30,313 INFO - Successfully validated the token.
+2020-06-09 10:21:30,318 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-06-09 10:21:30,918 INFO - Route matched with {action = "PostUserAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync (Malam.Mastpen.HR.API)
+2020-06-09 10:21:30,929 INFO - Authorization was successful.
+2020-06-09 10:21:30,971 INFO - 'PostUserAsync' has been invoked
+2020-06-09 10:21:30,980 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.UsersRequest) - Validation state: Valid
+2020-06-09 10:21:32,075 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-09 10:21:33,576 INFO - Executed DbCommand (95ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item.PassportCountry].[CountryID], [item.PassportCountry].[CountryName], [item.PassportCountry].[dateInsert], [item.PassportCountry].[dateUpdate], [item.PassportCountry].[LanguageID], [item.PassportCountry].[state], [item.PassportCountry].[userInsert], [item.PassportCountry].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t0].[DocumentID], [t0].[dateInsert], [t0].[dateUpdate], [t0].[DocumentDate], [t0].[DocumentPath], [t0].[DocumentTypeID], [t0].[EntityID], [t0].[EntityTypeID], [t0].[IsDocumentSigned], [t0].[LanguageID], [t0].[state], [t0].[userInsert], [t0].[UserUpdate], [t0].[ValIdDate], [t1].[DocumentID], [t1].[dateInsert], [t1].[dateUpdate], [t1].[DocumentDate], [t1].[DocumentPath], [t1].[DocumentTypeID], [t1].[EntityID], [t1].[EntityTypeID], [t1].[IsDocumentSigned], [t1].[LanguageID], [t1].[state], [t1].[userInsert], [t1].[UserUpdate], [t1].[ValIdDate], [t2].[DocumentID], [t2].[dateInsert], [t2].[dateUpdate], [t2].[DocumentDate], [t2].[DocumentPath], [t2].[DocumentTypeID], [t2].[EntityID], [t2].[EntityTypeID], [t2].[IsDocumentSigned], [t2].[LanguageID], [t2].[state], [t2].[userInsert], [t2].[UserUpdate], [t2].[ValIdDate], [docsEmplyeePicture].[EmployeePictureID], [docsEmplyeePicture].[dateInsert], [docsEmplyeePicture].[dateUpdate], [docsEmplyeePicture].[EmployeeFacePrintID], [docsEmplyeePicture].[EmployeeID], [docsEmplyeePicture].[EmployeePicture], [docsEmplyeePicture].[IsUniqueDoc], [docsEmplyeePicture].[state], [docsEmplyeePicture].[userInsert], [docsEmplyeePicture].[UserUpdate], [t3].[DeclarationID], [t3].[Date], [t3].[dateInsert], [t3].[dateUpdate], [t3].[EntityID], [t3].[EntityTypeID], [t3].[FullName], [t3].[IdentityNumber], [t3].[SiteID], [t3].[state], [t3].[userInsert], [t3].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry] ON [item].[PassportCountryID] = [item.PassportCountry].[CountryID]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+LEFT JOIN (
+    SELECT [a0].[DocumentID], [a0].[dateInsert], [a0].[dateUpdate], [a0].[DocumentDate], [a0].[DocumentPath], [a0].[DocumentTypeID], [a0].[EntityID], [a0].[EntityTypeID], [a0].[IsDocumentSigned], [a0].[LanguageID], [a0].[state], [a0].[userInsert], [a0].[UserUpdate], [a0].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a0]
+    WHERE ([a0].[EntityTypeID] = (
+        SELECT TOP(1) [item1].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item1]
+        WHERE [item1].[EntityTypeName] = @__tableName_2
+    )) AND ([a0].[DocumentTypeID] = 7)
+) AS [t0] ON [item].[EmployeeID] = [t0].[EntityID]
+LEFT JOIN (
+    SELECT [a1].[DocumentID], [a1].[dateInsert], [a1].[dateUpdate], [a1].[DocumentDate], [a1].[DocumentPath], [a1].[DocumentTypeID], [a1].[EntityID], [a1].[EntityTypeID], [a1].[IsDocumentSigned], [a1].[LanguageID], [a1].[state], [a1].[userInsert], [a1].[UserUpdate], [a1].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a1]
+    WHERE ([a1].[EntityTypeID] = (
+        SELECT TOP(1) [item2].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item2]
+        WHERE [item2].[EntityTypeName] = @__tableName_3
+    )) AND ([a1].[DocumentTypeID] = 1)
+) AS [t1] ON [item].[EmployeeID] = [t1].[EntityID]
+LEFT JOIN (
+    SELECT [a2].[DocumentID], [a2].[dateInsert], [a2].[dateUpdate], [a2].[DocumentDate], [a2].[DocumentPath], [a2].[DocumentTypeID], [a2].[EntityID], [a2].[EntityTypeID], [a2].[IsDocumentSigned], [a2].[LanguageID], [a2].[state], [a2].[userInsert], [a2].[UserUpdate], [a2].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a2]
+    WHERE ([a2].[EntityTypeID] = (
+        SELECT TOP(1) [item3].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item3]
+        WHERE [item3].[EntityTypeName] = @__tableName_4
+    )) AND ([a2].[DocumentTypeID] = 2)
+) AS [t2] ON [item].[EmployeeID] = [t2].[EntityID]
+LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture] ON [item].[EmployeeID] = [docsEmplyeePicture].[EmployeeID]
+LEFT JOIN (
+    SELECT [item4].[DeclarationID], [item4].[Date], [item4].[dateInsert], [item4].[dateUpdate], [item4].[EntityID], [item4].[EntityTypeID], [item4].[FullName], [item4].[IdentityNumber], [item4].[SiteID], [item4].[state], [item4].[userInsert], [item4].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item4]
+    WHERE (CONVERT(date, [item4].[Date]) = CONVERT(date, GETDATE())) AND ([item4].[EntityTypeID] = (
+        SELECT TOP(1) [item5].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item5]
+        WHERE [item5].[EntityTypeName] = @__tableName_5
+    ))
+) AS [t3] ON [item].[EmployeeID] = [t3].[EntityID]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+ORDER BY [item].[EmployeeID]
+2020-06-09 10:21:33,868 INFO - Executed DbCommand (77ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item.EmployeeProffesionType].[EmployeeAuthorizationID], [item.EmployeeProffesionType].[Comment], [item.EmployeeProffesionType].[dateInsert], [item.EmployeeProffesionType].[dateUpdate], [item.EmployeeProffesionType].[EmployeeID], [item.EmployeeProffesionType].[ProffesionTypeID], [item.EmployeeProffesionType].[state], [item.EmployeeProffesionType].[userInsert], [item.EmployeeProffesionType].[UserUpdate], [e.ProffesionType].[ProffesionTypeID], [e.ProffesionType].[Comment], [e.ProffesionType].[dateInsert], [e.ProffesionType].[dateUpdate], [e.ProffesionType].[ProffesionTypeName], [e.ProffesionType].[state], [e.ProffesionType].[userInsert], [e.ProffesionType].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [item.EmployeeProffesionType]
+LEFT JOIN [BB_HR_ProffesionType] AS [e.ProffesionType] ON [item.EmployeeProffesionType].[ProffesionTypeID] = [e.ProffesionType].[ProffesionTypeID]
+INNER JOIN (
+    SELECT DISTINCT [t9].*
+    FROM (
+        SELECT TOP(1) [item6].[EmployeeID]
+        FROM [BB_HR_Employee] AS [item6]
+        LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry0] ON [item6].[PassportCountryID] = [item.PassportCountry0].[CountryID]
+        LEFT JOIN (
+            SELECT [a3].*
+            FROM [BB_GEN_PhoneMail] AS [a3]
+            WHERE [a3].[EntityTypeID] = (
+                SELECT TOP(1) [item7].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item7]
+                WHERE [item7].[EntityTypeName] = @__tableName_1
+            )
+        ) AS [t4] ON [item6].[EmployeeID] = [t4].[EntityID]
+        LEFT JOIN (
+            SELECT [a4].*
+            FROM [BB_GEN_Docs] AS [a4]
+            WHERE ([a4].[EntityTypeID] = (
+                SELECT TOP(1) [item8].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item8]
+                WHERE [item8].[EntityTypeName] = @__tableName_2
+            )) AND ([a4].[DocumentTypeID] = 7)
+        ) AS [t5] ON [item6].[EmployeeID] = [t5].[EntityID]
+        LEFT JOIN (
+            SELECT [a5].*
+            FROM [BB_GEN_Docs] AS [a5]
+            WHERE ([a5].[EntityTypeID] = (
+                SELECT TOP(1) [item9].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item9]
+                WHERE [item9].[EntityTypeName] = @__tableName_3
+            )) AND ([a5].[DocumentTypeID] = 1)
+        ) AS [t6] ON [item6].[EmployeeID] = [t6].[EntityID]
+        LEFT JOIN (
+            SELECT [a6].*
+            FROM [BB_GEN_Docs] AS [a6]
+            WHERE ([a6].[EntityTypeID] = (
+                SELECT TOP(1) [item10].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item10]
+                WHERE [item10].[EntityTypeName] = @__tableName_4
+            )) AND ([a6].[DocumentTypeID] = 2)
+        ) AS [t7] ON [item6].[EmployeeID] = [t7].[EntityID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture0] ON [item6].[EmployeeID] = [docsEmplyeePicture0].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item11].*
+            FROM [BB_VR_HealthDeclaration] AS [item11]
+            WHERE (CONVERT(date, [item11].[Date]) = CONVERT(date, GETDATE())) AND ([item11].[EntityTypeID] = (
+                SELECT TOP(1) [item12].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item12]
+                WHERE [item12].[EntityTypeName] = @__tableName_5
+            ))
+        ) AS [t8] ON [item6].[EmployeeID] = [t8].[EntityID]
+        WHERE [item6].[EmployeeID] = @__entity_EmployeeId_0
+        ORDER BY [item6].[EmployeeID]
+    ) AS [t9]
+) AS [t10] ON [item.EmployeeProffesionType].[EmployeeID] = [t10].[EmployeeID]
+ORDER BY [t10].[EmployeeID]
+2020-06-09 10:21:33,984 INFO - Executed DbCommand (77ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item.EmployeeAuthtorization].[EmployeeAuthorizationID], [item.EmployeeAuthtorization].[AuthorizationTypeID], [item.EmployeeAuthtorization].[Comment], [item.EmployeeAuthtorization].[DateFrom], [item.EmployeeAuthtorization].[dateInsert], [item.EmployeeAuthtorization].[DateTo], [item.EmployeeAuthtorization].[dateUpdate], [item.EmployeeAuthtorization].[EmployeeAuthorizationName], [item.EmployeeAuthtorization].[EmployeeID], [item.EmployeeAuthtorization].[SiteId], [item.EmployeeAuthtorization].[state], [item.EmployeeAuthtorization].[userInsert], [item.EmployeeAuthtorization].[UserUpdate]
+FROM [BB_HR_EmployeeAuthtorization] AS [item.EmployeeAuthtorization]
+INNER JOIN (
+    SELECT DISTINCT [t16].*
+    FROM (
+        SELECT TOP(1) [item13].[EmployeeID]
+        FROM [BB_HR_Employee] AS [item13]
+        LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry1] ON [item13].[PassportCountryID] = [item.PassportCountry1].[CountryID]
+        LEFT JOIN (
+            SELECT [a7].*
+            FROM [BB_GEN_PhoneMail] AS [a7]
+            WHERE [a7].[EntityTypeID] = (
+                SELECT TOP(1) [item14].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item14]
+                WHERE [item14].[EntityTypeName] = @__tableName_1
+            )
+        ) AS [t11] ON [item13].[EmployeeID] = [t11].[EntityID]
+        LEFT JOIN (
+            SELECT [a8].*
+            FROM [BB_GEN_Docs] AS [a8]
+            WHERE ([a8].[EntityTypeID] = (
+                SELECT TOP(1) [item15].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item15]
+                WHERE [item15].[EntityTypeName] = @__tableName_2
+            )) AND ([a8].[DocumentTypeID] = 7)
+        ) AS [t12] ON [item13].[EmployeeID] = [t12].[EntityID]
+        LEFT JOIN (
+            SELECT [a9].*
+            FROM [BB_GEN_Docs] AS [a9]
+            WHERE ([a9].[EntityTypeID] = (
+                SELECT TOP(1) [item16].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item16]
+                WHERE [item16].[EntityTypeName] = @__tableName_3
+            )) AND ([a9].[DocumentTypeID] = 1)
+        ) AS [t13] ON [item13].[EmployeeID] = [t13].[EntityID]
+        LEFT JOIN (
+            SELECT [a10].*
+            FROM [BB_GEN_Docs] AS [a10]
+            WHERE ([a10].[EntityTypeID] = (
+                SELECT TOP(1) [item17].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item17]
+                WHERE [item17].[EntityTypeName] = @__tableName_4
+            )) AND ([a10].[DocumentTypeID] = 2)
+        ) AS [t14] ON [item13].[EmployeeID] = [t14].[EntityID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture1] ON [item13].[EmployeeID] = [docsEmplyeePicture1].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item18].*
+            FROM [BB_VR_HealthDeclaration] AS [item18]
+            WHERE (CONVERT(date, [item18].[Date]) = CONVERT(date, GETDATE())) AND ([item18].[EntityTypeID] = (
+                SELECT TOP(1) [item19].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item19]
+                WHERE [item19].[EntityTypeName] = @__tableName_5
+            ))
+        ) AS [t15] ON [item13].[EmployeeID] = [t15].[EntityID]
+        WHERE [item13].[EmployeeID] = @__entity_EmployeeId_0
+        ORDER BY [item13].[EmployeeID]
+    ) AS [t16]
+) AS [t17] ON [item.EmployeeAuthtorization].[EmployeeID] = [t17].[EmployeeID]
+ORDER BY [t17].[EmployeeID]
+2020-06-09 10:21:34,078 INFO - Executed DbCommand (76ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item.EmployeeTraining].[EmployeeTrainingID], [item.EmployeeTraining].[Comment], [item.EmployeeTraining].[DateFrom], [item.EmployeeTraining].[dateInsert], [item.EmployeeTraining].[DateTo], [item.EmployeeTraining].[dateUpdate], [item.EmployeeTraining].[EmployeeID], [item.EmployeeTraining].[EmployeeTrainingName], [item.EmployeeTraining].[SiteID], [item.EmployeeTraining].[state], [item.EmployeeTraining].[TrainingTypeID], [item.EmployeeTraining].[userInsert], [item.EmployeeTraining].[UserUpdate]
+FROM [BB_HR_EmployeeTraining] AS [item.EmployeeTraining]
+INNER JOIN (
+    SELECT DISTINCT [t23].*
+    FROM (
+        SELECT TOP(1) [item20].[EmployeeID]
+        FROM [BB_HR_Employee] AS [item20]
+        LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry2] ON [item20].[PassportCountryID] = [item.PassportCountry2].[CountryID]
+        LEFT JOIN (
+            SELECT [a11].*
+            FROM [BB_GEN_PhoneMail] AS [a11]
+            WHERE [a11].[EntityTypeID] = (
+                SELECT TOP(1) [item21].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item21]
+                WHERE [item21].[EntityTypeName] = @__tableName_1
+            )
+        ) AS [t18] ON [item20].[EmployeeID] = [t18].[EntityID]
+        LEFT JOIN (
+            SELECT [a12].*
+            FROM [BB_GEN_Docs] AS [a12]
+            WHERE ([a12].[EntityTypeID] = (
+                SELECT TOP(1) [item22].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item22]
+                WHERE [item22].[EntityTypeName] = @__tableName_2
+            )) AND ([a12].[DocumentTypeID] = 7)
+        ) AS [t19] ON [item20].[EmployeeID] = [t19].[EntityID]
+        LEFT JOIN (
+            SELECT [a13].*
+            FROM [BB_GEN_Docs] AS [a13]
+            WHERE ([a13].[EntityTypeID] = (
+                SELECT TOP(1) [item23].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item23]
+                WHERE [item23].[EntityTypeName] = @__tableName_3
+            )) AND ([a13].[DocumentTypeID] = 1)
+        ) AS [t20] ON [item20].[EmployeeID] = [t20].[EntityID]
+        LEFT JOIN (
+            SELECT [a14].*
+            FROM [BB_GEN_Docs] AS [a14]
+            WHERE ([a14].[EntityTypeID] = (
+                SELECT TOP(1) [item24].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item24]
+                WHERE [item24].[EntityTypeName] = @__tableName_4
+            )) AND ([a14].[DocumentTypeID] = 2)
+        ) AS [t21] ON [item20].[EmployeeID] = [t21].[EntityID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture2] ON [item20].[EmployeeID] = [docsEmplyeePicture2].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item25].*
+            FROM [BB_VR_HealthDeclaration] AS [item25]
+            WHERE (CONVERT(date, [item25].[Date]) = CONVERT(date, GETDATE())) AND ([item25].[EntityTypeID] = (
+                SELECT TOP(1) [item26].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item26]
+                WHERE [item26].[EntityTypeName] = @__tableName_5
+            ))
+        ) AS [t22] ON [item20].[EmployeeID] = [t22].[EntityID]
+        WHERE [item20].[EmployeeID] = @__entity_EmployeeId_0
+        ORDER BY [item20].[EmployeeID]
+    ) AS [t23]
+) AS [t24] ON [item.EmployeeTraining].[EmployeeID] = [t24].[EmployeeID]
+ORDER BY [t24].[EmployeeID]
+2020-06-09 10:21:34,185 INFO - Executed DbCommand (87ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item.EmployeeWorkPermit].[EmployeeWorkPermitID], [item.EmployeeWorkPermit].[Comment], [item.EmployeeWorkPermit].[DateFrom], [item.EmployeeWorkPermit].[dateInsert], [item.EmployeeWorkPermit].[DateTo], [item.EmployeeWorkPermit].[dateUpdate], [item.EmployeeWorkPermit].[EmployeeID], [item.EmployeeWorkPermit].[EmployeeWorkPermitName], [item.EmployeeWorkPermit].[IsRequired], [item.EmployeeWorkPermit].[SiteID], [item.EmployeeWorkPermit].[state], [item.EmployeeWorkPermit].[userInsert], [item.EmployeeWorkPermit].[UserUpdate]
+FROM [BB_HR_EmployeeWorkPermit] AS [item.EmployeeWorkPermit]
+INNER JOIN (
+    SELECT DISTINCT [t30].*
+    FROM (
+        SELECT TOP(1) [item27].[EmployeeID]
+        FROM [BB_HR_Employee] AS [item27]
+        LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry3] ON [item27].[PassportCountryID] = [item.PassportCountry3].[CountryID]
+        LEFT JOIN (
+            SELECT [a15].*
+            FROM [BB_GEN_PhoneMail] AS [a15]
+            WHERE [a15].[EntityTypeID] = (
+                SELECT TOP(1) [item28].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item28]
+                WHERE [item28].[EntityTypeName] = @__tableName_1
+            )
+        ) AS [t25] ON [item27].[EmployeeID] = [t25].[EntityID]
+        LEFT JOIN (
+            SELECT [a16].*
+            FROM [BB_GEN_Docs] AS [a16]
+            WHERE ([a16].[EntityTypeID] = (
+                SELECT TOP(1) [item29].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item29]
+                WHERE [item29].[EntityTypeName] = @__tableName_2
+            )) AND ([a16].[DocumentTypeID] = 7)
+        ) AS [t26] ON [item27].[EmployeeID] = [t26].[EntityID]
+        LEFT JOIN (
+            SELECT [a17].*
+            FROM [BB_GEN_Docs] AS [a17]
+            WHERE ([a17].[EntityTypeID] = (
+                SELECT TOP(1) [item30].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item30]
+                WHERE [item30].[EntityTypeName] = @__tableName_3
+            )) AND ([a17].[DocumentTypeID] = 1)
+        ) AS [t27] ON [item27].[EmployeeID] = [t27].[EntityID]
+        LEFT JOIN (
+            SELECT [a18].*
+            FROM [BB_GEN_Docs] AS [a18]
+            WHERE ([a18].[EntityTypeID] = (
+                SELECT TOP(1) [item31].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item31]
+                WHERE [item31].[EntityTypeName] = @__tableName_4
+            )) AND ([a18].[DocumentTypeID] = 2)
+        ) AS [t28] ON [item27].[EmployeeID] = [t28].[EntityID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture3] ON [item27].[EmployeeID] = [docsEmplyeePicture3].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item32].*
+            FROM [BB_VR_HealthDeclaration] AS [item32]
+            WHERE (CONVERT(date, [item32].[Date]) = CONVERT(date, GETDATE())) AND ([item32].[EntityTypeID] = (
+                SELECT TOP(1) [item33].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item33]
+                WHERE [item33].[EntityTypeName] = @__tableName_5
+            ))
+        ) AS [t29] ON [item27].[EmployeeID] = [t29].[EntityID]
+        WHERE [item27].[EmployeeID] = @__entity_EmployeeId_0
+        ORDER BY [item27].[EmployeeID]
+    ) AS [t30]
+) AS [t31] ON [item.EmployeeWorkPermit].[EmployeeID] = [t31].[EmployeeID]
+ORDER BY [t31].[EmployeeID]
+2020-06-09 10:21:37,179 WARN - Query: '(from Employee x in DbSet<Employee> join Users user in  from Users item in DbSet<Users> where [item]...' uses First/FirstOrDefault/Last/LastOrDefault operation without OrderBy and filter which may lead to unpredictable results.
+2020-06-09 10:21:37,286 INFO - Executed DbCommand (76ms) [Parameters=[@__entity_UserName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[EmployeeID], [x].[Address], [x].[BirthDate], [x].[Citizenship], [x].[dateInsert], [x].[dateUpdate], [x].[FirstName], [x].[FirstNameEN], [x].[GenderID], [x].[Guid], [x].[IdentificationTypeID], [x].[IdentityNumber], [x].[LastName], [x].[LastNameEN], [x].[OrganizationID], [x].[PassportCountryID], [x].[state], [x].[userInsert], [x].[UserUpdate], [x.Organization].[OrganizationID], [x.Organization].[Comment], [x.Organization].[dateInsert], [x.Organization].[dateUpdate], [x.Organization].[OrganizationExpertiseTypeID], [x.Organization].[OrganizationFaceGroup], [x.Organization].[OrganizationName], [x.Organization].[OrganizationNumber], [x.Organization].[OrganizationParentID], [x.Organization].[OrganizationTypeID], [x.Organization].[state], [x.Organization].[userInsert], [x.Organization].[UserUpdate]
+FROM [BB_HR_Employee] AS [x]
+LEFT JOIN [BB_GEN_Organization] AS [x.Organization] ON [x].[OrganizationID] = [x.Organization].[OrganizationID]
+INNER JOIN (
+    SELECT [item].*
+    FROM [BB_HR_Users] AS [item]
+    WHERE [item].[UserName] = @__entity_UserName_0
+) AS [t] ON [x].[EmployeeID] = [t].[EmployeeID]
+2020-06-09 10:21:37,341 INFO - The PostUserAsync have been retrieved successfully.
+2020-06-09 10:21:37,346 INFO - test log
+2020-06-09 10:21:37,412 ERROR - There was a critical error on 'PostUserAsync': There was a critical error on 'PostUserAsync':   System.Exception: user name is alredy exist
+   at Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync(UsersRequest request) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeController.cs:line 175
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()  System.Exception: user name is alredy exist
+   at Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync(UsersRequest request) in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.API\Controllers\EmployeeController.cs:line 175
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+2020-06-09 10:21:37,697 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.DAL.Entities.Employee, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-09 10:21:37,710 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync (Malam.Mastpen.HR.API) in 6788.2582ms
+2020-06-09 10:21:41,118 INFO - Executed DbCommand (95ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (Size = 250), @p2='?' (Size = 250), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_Error] ([dateUpdate], [ErrorMessage], [ErrorTitle], [ErrorTypeID], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [ErrorID], [dateInsert], [state], [userInsert]
+FROM [BB_Error]
+WHERE @@ROWCOUNT = 1 AND [ErrorID] = scope_identity();
+2020-06-09 10:21:41,134 ERROR - Connection ID "18014398515387564050", Request ID "80000015-0001-fa00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The connection does not support MultipleActiveResultSets.
+   at System.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at System.Data.SqlClient.SqlInternalTransaction.Rollback()
+   at System.Data.SqlClient.SqlTransaction.Dispose(Boolean disposing)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalTransaction.Dispose()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.ClearTransactions()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Dispose()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.EntityFrameworkCore.DbContext.Dispose()
+   at Malam.Mastpen.Core.BL.Services.Service.Dispose() in C:\Users\riki_apter.000\source\repos\MastpenProject\Malam.Mastpen.MS.HR\Malam.Mastpen.Core\BL\Services\Service.cs:line 35
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.Dispose()
+   at Microsoft.AspNetCore.Hosting.Internal.RequestServicesFeature.Dispose()
+   at Microsoft.AspNetCore.Http.HttpResponse.<>c.<.cctor>b__30_1(Object disposable)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContext.FireOnCompleted()
+2020-06-09 10:21:41,136 INFO - Request finished in 12088.5188ms 200 application/json; charset=utf-8
+2020-06-09 10:21:45,956 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/User application/json-patch+json 192
+2020-06-09 10:21:45,958 INFO - CORS policy execution failed.
+2020-06-09 10:21:45,960 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2020-06-09 10:21:45,962 INFO - Successfully validated the token.
+2020-06-09 10:21:45,965 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-06-09 10:21:45,967 INFO - Route matched with {action = "PostUserAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync (Malam.Mastpen.HR.API)
+2020-06-09 10:21:45,970 INFO - Authorization was successful.
+2020-06-09 10:21:45,972 INFO - 'PostUserAsync' has been invoked
+2020-06-09 10:21:45,974 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.UsersRequest) - Validation state: Valid
+2020-06-09 10:21:45,977 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-09 10:21:46,567 INFO - Executed DbCommand (76ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item.PassportCountry].[CountryID], [item.PassportCountry].[CountryName], [item.PassportCountry].[dateInsert], [item.PassportCountry].[dateUpdate], [item.PassportCountry].[LanguageID], [item.PassportCountry].[state], [item.PassportCountry].[userInsert], [item.PassportCountry].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t0].[DocumentID], [t0].[dateInsert], [t0].[dateUpdate], [t0].[DocumentDate], [t0].[DocumentPath], [t0].[DocumentTypeID], [t0].[EntityID], [t0].[EntityTypeID], [t0].[IsDocumentSigned], [t0].[LanguageID], [t0].[state], [t0].[userInsert], [t0].[UserUpdate], [t0].[ValIdDate], [t1].[DocumentID], [t1].[dateInsert], [t1].[dateUpdate], [t1].[DocumentDate], [t1].[DocumentPath], [t1].[DocumentTypeID], [t1].[EntityID], [t1].[EntityTypeID], [t1].[IsDocumentSigned], [t1].[LanguageID], [t1].[state], [t1].[userInsert], [t1].[UserUpdate], [t1].[ValIdDate], [t2].[DocumentID], [t2].[dateInsert], [t2].[dateUpdate], [t2].[DocumentDate], [t2].[DocumentPath], [t2].[DocumentTypeID], [t2].[EntityID], [t2].[EntityTypeID], [t2].[IsDocumentSigned], [t2].[LanguageID], [t2].[state], [t2].[userInsert], [t2].[UserUpdate], [t2].[ValIdDate], [docsEmplyeePicture].[EmployeePictureID], [docsEmplyeePicture].[dateInsert], [docsEmplyeePicture].[dateUpdate], [docsEmplyeePicture].[EmployeeFacePrintID], [docsEmplyeePicture].[EmployeeID], [docsEmplyeePicture].[EmployeePicture], [docsEmplyeePicture].[IsUniqueDoc], [docsEmplyeePicture].[state], [docsEmplyeePicture].[userInsert], [docsEmplyeePicture].[UserUpdate], [t3].[DeclarationID], [t3].[Date], [t3].[dateInsert], [t3].[dateUpdate], [t3].[EntityID], [t3].[EntityTypeID], [t3].[FullName], [t3].[IdentityNumber], [t3].[SiteID], [t3].[state], [t3].[userInsert], [t3].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry] ON [item].[PassportCountryID] = [item.PassportCountry].[CountryID]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+LEFT JOIN (
+    SELECT [a0].[DocumentID], [a0].[dateInsert], [a0].[dateUpdate], [a0].[DocumentDate], [a0].[DocumentPath], [a0].[DocumentTypeID], [a0].[EntityID], [a0].[EntityTypeID], [a0].[IsDocumentSigned], [a0].[LanguageID], [a0].[state], [a0].[userInsert], [a0].[UserUpdate], [a0].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a0]
+    WHERE ([a0].[EntityTypeID] = (
+        SELECT TOP(1) [item1].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item1]
+        WHERE [item1].[EntityTypeName] = @__tableName_2
+    )) AND ([a0].[DocumentTypeID] = 7)
+) AS [t0] ON [item].[EmployeeID] = [t0].[EntityID]
+LEFT JOIN (
+    SELECT [a1].[DocumentID], [a1].[dateInsert], [a1].[dateUpdate], [a1].[DocumentDate], [a1].[DocumentPath], [a1].[DocumentTypeID], [a1].[EntityID], [a1].[EntityTypeID], [a1].[IsDocumentSigned], [a1].[LanguageID], [a1].[state], [a1].[userInsert], [a1].[UserUpdate], [a1].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a1]
+    WHERE ([a1].[EntityTypeID] = (
+        SELECT TOP(1) [item2].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item2]
+        WHERE [item2].[EntityTypeName] = @__tableName_3
+    )) AND ([a1].[DocumentTypeID] = 1)
+) AS [t1] ON [item].[EmployeeID] = [t1].[EntityID]
+LEFT JOIN (
+    SELECT [a2].[DocumentID], [a2].[dateInsert], [a2].[dateUpdate], [a2].[DocumentDate], [a2].[DocumentPath], [a2].[DocumentTypeID], [a2].[EntityID], [a2].[EntityTypeID], [a2].[IsDocumentSigned], [a2].[LanguageID], [a2].[state], [a2].[userInsert], [a2].[UserUpdate], [a2].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a2]
+    WHERE ([a2].[EntityTypeID] = (
+        SELECT TOP(1) [item3].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item3]
+        WHERE [item3].[EntityTypeName] = @__tableName_4
+    )) AND ([a2].[DocumentTypeID] = 2)
+) AS [t2] ON [item].[EmployeeID] = [t2].[EntityID]
+LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture] ON [item].[EmployeeID] = [docsEmplyeePicture].[EmployeeID]
+LEFT JOIN (
+    SELECT [item4].[DeclarationID], [item4].[Date], [item4].[dateInsert], [item4].[dateUpdate], [item4].[EntityID], [item4].[EntityTypeID], [item4].[FullName], [item4].[IdentityNumber], [item4].[SiteID], [item4].[state], [item4].[userInsert], [item4].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item4]
+    WHERE (CONVERT(date, [item4].[Date]) = CONVERT(date, GETDATE())) AND ([item4].[EntityTypeID] = (
+        SELECT TOP(1) [item5].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item5]
+        WHERE [item5].[EntityTypeName] = @__tableName_5
+    ))
+) AS [t3] ON [item].[EmployeeID] = [t3].[EntityID]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+ORDER BY [item].[EmployeeID]
+2020-06-09 10:21:46,644 INFO - Executed DbCommand (75ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item.EmployeeProffesionType].[EmployeeAuthorizationID], [item.EmployeeProffesionType].[Comment], [item.EmployeeProffesionType].[dateInsert], [item.EmployeeProffesionType].[dateUpdate], [item.EmployeeProffesionType].[EmployeeID], [item.EmployeeProffesionType].[ProffesionTypeID], [item.EmployeeProffesionType].[state], [item.EmployeeProffesionType].[userInsert], [item.EmployeeProffesionType].[UserUpdate], [e.ProffesionType].[ProffesionTypeID], [e.ProffesionType].[Comment], [e.ProffesionType].[dateInsert], [e.ProffesionType].[dateUpdate], [e.ProffesionType].[ProffesionTypeName], [e.ProffesionType].[state], [e.ProffesionType].[userInsert], [e.ProffesionType].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [item.EmployeeProffesionType]
+LEFT JOIN [BB_HR_ProffesionType] AS [e.ProffesionType] ON [item.EmployeeProffesionType].[ProffesionTypeID] = [e.ProffesionType].[ProffesionTypeID]
+INNER JOIN (
+    SELECT DISTINCT [t9].*
+    FROM (
+        SELECT TOP(1) [item6].[EmployeeID]
+        FROM [BB_HR_Employee] AS [item6]
+        LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry0] ON [item6].[PassportCountryID] = [item.PassportCountry0].[CountryID]
+        LEFT JOIN (
+            SELECT [a3].*
+            FROM [BB_GEN_PhoneMail] AS [a3]
+            WHERE [a3].[EntityTypeID] = (
+                SELECT TOP(1) [item7].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item7]
+                WHERE [item7].[EntityTypeName] = @__tableName_1
+            )
+        ) AS [t4] ON [item6].[EmployeeID] = [t4].[EntityID]
+        LEFT JOIN (
+            SELECT [a4].*
+            FROM [BB_GEN_Docs] AS [a4]
+            WHERE ([a4].[EntityTypeID] = (
+                SELECT TOP(1) [item8].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item8]
+                WHERE [item8].[EntityTypeName] = @__tableName_2
+            )) AND ([a4].[DocumentTypeID] = 7)
+        ) AS [t5] ON [item6].[EmployeeID] = [t5].[EntityID]
+        LEFT JOIN (
+            SELECT [a5].*
+            FROM [BB_GEN_Docs] AS [a5]
+            WHERE ([a5].[EntityTypeID] = (
+                SELECT TOP(1) [item9].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item9]
+                WHERE [item9].[EntityTypeName] = @__tableName_3
+            )) AND ([a5].[DocumentTypeID] = 1)
+        ) AS [t6] ON [item6].[EmployeeID] = [t6].[EntityID]
+        LEFT JOIN (
+            SELECT [a6].*
+            FROM [BB_GEN_Docs] AS [a6]
+            WHERE ([a6].[EntityTypeID] = (
+                SELECT TOP(1) [item10].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item10]
+                WHERE [item10].[EntityTypeName] = @__tableName_4
+            )) AND ([a6].[DocumentTypeID] = 2)
+        ) AS [t7] ON [item6].[EmployeeID] = [t7].[EntityID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture0] ON [item6].[EmployeeID] = [docsEmplyeePicture0].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item11].*
+            FROM [BB_VR_HealthDeclaration] AS [item11]
+            WHERE (CONVERT(date, [item11].[Date]) = CONVERT(date, GETDATE())) AND ([item11].[EntityTypeID] = (
+                SELECT TOP(1) [item12].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item12]
+                WHERE [item12].[EntityTypeName] = @__tableName_5
+            ))
+        ) AS [t8] ON [item6].[EmployeeID] = [t8].[EntityID]
+        WHERE [item6].[EmployeeID] = @__entity_EmployeeId_0
+        ORDER BY [item6].[EmployeeID]
+    ) AS [t9]
+) AS [t10] ON [item.EmployeeProffesionType].[EmployeeID] = [t10].[EmployeeID]
+ORDER BY [t10].[EmployeeID]
+2020-06-09 10:21:46,721 INFO - Executed DbCommand (75ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item.EmployeeAuthtorization].[EmployeeAuthorizationID], [item.EmployeeAuthtorization].[AuthorizationTypeID], [item.EmployeeAuthtorization].[Comment], [item.EmployeeAuthtorization].[DateFrom], [item.EmployeeAuthtorization].[dateInsert], [item.EmployeeAuthtorization].[DateTo], [item.EmployeeAuthtorization].[dateUpdate], [item.EmployeeAuthtorization].[EmployeeAuthorizationName], [item.EmployeeAuthtorization].[EmployeeID], [item.EmployeeAuthtorization].[SiteId], [item.EmployeeAuthtorization].[state], [item.EmployeeAuthtorization].[userInsert], [item.EmployeeAuthtorization].[UserUpdate]
+FROM [BB_HR_EmployeeAuthtorization] AS [item.EmployeeAuthtorization]
+INNER JOIN (
+    SELECT DISTINCT [t16].*
+    FROM (
+        SELECT TOP(1) [item13].[EmployeeID]
+        FROM [BB_HR_Employee] AS [item13]
+        LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry1] ON [item13].[PassportCountryID] = [item.PassportCountry1].[CountryID]
+        LEFT JOIN (
+            SELECT [a7].*
+            FROM [BB_GEN_PhoneMail] AS [a7]
+            WHERE [a7].[EntityTypeID] = (
+                SELECT TOP(1) [item14].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item14]
+                WHERE [item14].[EntityTypeName] = @__tableName_1
+            )
+        ) AS [t11] ON [item13].[EmployeeID] = [t11].[EntityID]
+        LEFT JOIN (
+            SELECT [a8].*
+            FROM [BB_GEN_Docs] AS [a8]
+            WHERE ([a8].[EntityTypeID] = (
+                SELECT TOP(1) [item15].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item15]
+                WHERE [item15].[EntityTypeName] = @__tableName_2
+            )) AND ([a8].[DocumentTypeID] = 7)
+        ) AS [t12] ON [item13].[EmployeeID] = [t12].[EntityID]
+        LEFT JOIN (
+            SELECT [a9].*
+            FROM [BB_GEN_Docs] AS [a9]
+            WHERE ([a9].[EntityTypeID] = (
+                SELECT TOP(1) [item16].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item16]
+                WHERE [item16].[EntityTypeName] = @__tableName_3
+            )) AND ([a9].[DocumentTypeID] = 1)
+        ) AS [t13] ON [item13].[EmployeeID] = [t13].[EntityID]
+        LEFT JOIN (
+            SELECT [a10].*
+            FROM [BB_GEN_Docs] AS [a10]
+            WHERE ([a10].[EntityTypeID] = (
+                SELECT TOP(1) [item17].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item17]
+                WHERE [item17].[EntityTypeName] = @__tableName_4
+            )) AND ([a10].[DocumentTypeID] = 2)
+        ) AS [t14] ON [item13].[EmployeeID] = [t14].[EntityID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture1] ON [item13].[EmployeeID] = [docsEmplyeePicture1].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item18].*
+            FROM [BB_VR_HealthDeclaration] AS [item18]
+            WHERE (CONVERT(date, [item18].[Date]) = CONVERT(date, GETDATE())) AND ([item18].[EntityTypeID] = (
+                SELECT TOP(1) [item19].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item19]
+                WHERE [item19].[EntityTypeName] = @__tableName_5
+            ))
+        ) AS [t15] ON [item13].[EmployeeID] = [t15].[EntityID]
+        WHERE [item13].[EmployeeID] = @__entity_EmployeeId_0
+        ORDER BY [item13].[EmployeeID]
+    ) AS [t16]
+) AS [t17] ON [item.EmployeeAuthtorization].[EmployeeID] = [t17].[EmployeeID]
+ORDER BY [t17].[EmployeeID]
+2020-06-09 10:21:46,799 INFO - Executed DbCommand (76ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item.EmployeeTraining].[EmployeeTrainingID], [item.EmployeeTraining].[Comment], [item.EmployeeTraining].[DateFrom], [item.EmployeeTraining].[dateInsert], [item.EmployeeTraining].[DateTo], [item.EmployeeTraining].[dateUpdate], [item.EmployeeTraining].[EmployeeID], [item.EmployeeTraining].[EmployeeTrainingName], [item.EmployeeTraining].[SiteID], [item.EmployeeTraining].[state], [item.EmployeeTraining].[TrainingTypeID], [item.EmployeeTraining].[userInsert], [item.EmployeeTraining].[UserUpdate]
+FROM [BB_HR_EmployeeTraining] AS [item.EmployeeTraining]
+INNER JOIN (
+    SELECT DISTINCT [t23].*
+    FROM (
+        SELECT TOP(1) [item20].[EmployeeID]
+        FROM [BB_HR_Employee] AS [item20]
+        LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry2] ON [item20].[PassportCountryID] = [item.PassportCountry2].[CountryID]
+        LEFT JOIN (
+            SELECT [a11].*
+            FROM [BB_GEN_PhoneMail] AS [a11]
+            WHERE [a11].[EntityTypeID] = (
+                SELECT TOP(1) [item21].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item21]
+                WHERE [item21].[EntityTypeName] = @__tableName_1
+            )
+        ) AS [t18] ON [item20].[EmployeeID] = [t18].[EntityID]
+        LEFT JOIN (
+            SELECT [a12].*
+            FROM [BB_GEN_Docs] AS [a12]
+            WHERE ([a12].[EntityTypeID] = (
+                SELECT TOP(1) [item22].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item22]
+                WHERE [item22].[EntityTypeName] = @__tableName_2
+            )) AND ([a12].[DocumentTypeID] = 7)
+        ) AS [t19] ON [item20].[EmployeeID] = [t19].[EntityID]
+        LEFT JOIN (
+            SELECT [a13].*
+            FROM [BB_GEN_Docs] AS [a13]
+            WHERE ([a13].[EntityTypeID] = (
+                SELECT TOP(1) [item23].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item23]
+                WHERE [item23].[EntityTypeName] = @__tableName_3
+            )) AND ([a13].[DocumentTypeID] = 1)
+        ) AS [t20] ON [item20].[EmployeeID] = [t20].[EntityID]
+        LEFT JOIN (
+            SELECT [a14].*
+            FROM [BB_GEN_Docs] AS [a14]
+            WHERE ([a14].[EntityTypeID] = (
+                SELECT TOP(1) [item24].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item24]
+                WHERE [item24].[EntityTypeName] = @__tableName_4
+            )) AND ([a14].[DocumentTypeID] = 2)
+        ) AS [t21] ON [item20].[EmployeeID] = [t21].[EntityID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture2] ON [item20].[EmployeeID] = [docsEmplyeePicture2].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item25].*
+            FROM [BB_VR_HealthDeclaration] AS [item25]
+            WHERE (CONVERT(date, [item25].[Date]) = CONVERT(date, GETDATE())) AND ([item25].[EntityTypeID] = (
+                SELECT TOP(1) [item26].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item26]
+                WHERE [item26].[EntityTypeName] = @__tableName_5
+            ))
+        ) AS [t22] ON [item20].[EmployeeID] = [t22].[EntityID]
+        WHERE [item20].[EmployeeID] = @__entity_EmployeeId_0
+        ORDER BY [item20].[EmployeeID]
+    ) AS [t23]
+) AS [t24] ON [item.EmployeeTraining].[EmployeeID] = [t24].[EmployeeID]
+ORDER BY [t24].[EmployeeID]
+2020-06-09 10:21:46,877 INFO - Executed DbCommand (76ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item.EmployeeWorkPermit].[EmployeeWorkPermitID], [item.EmployeeWorkPermit].[Comment], [item.EmployeeWorkPermit].[DateFrom], [item.EmployeeWorkPermit].[dateInsert], [item.EmployeeWorkPermit].[DateTo], [item.EmployeeWorkPermit].[dateUpdate], [item.EmployeeWorkPermit].[EmployeeID], [item.EmployeeWorkPermit].[EmployeeWorkPermitName], [item.EmployeeWorkPermit].[IsRequired], [item.EmployeeWorkPermit].[SiteID], [item.EmployeeWorkPermit].[state], [item.EmployeeWorkPermit].[userInsert], [item.EmployeeWorkPermit].[UserUpdate]
+FROM [BB_HR_EmployeeWorkPermit] AS [item.EmployeeWorkPermit]
+INNER JOIN (
+    SELECT DISTINCT [t30].*
+    FROM (
+        SELECT TOP(1) [item27].[EmployeeID]
+        FROM [BB_HR_Employee] AS [item27]
+        LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry3] ON [item27].[PassportCountryID] = [item.PassportCountry3].[CountryID]
+        LEFT JOIN (
+            SELECT [a15].*
+            FROM [BB_GEN_PhoneMail] AS [a15]
+            WHERE [a15].[EntityTypeID] = (
+                SELECT TOP(1) [item28].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item28]
+                WHERE [item28].[EntityTypeName] = @__tableName_1
+            )
+        ) AS [t25] ON [item27].[EmployeeID] = [t25].[EntityID]
+        LEFT JOIN (
+            SELECT [a16].*
+            FROM [BB_GEN_Docs] AS [a16]
+            WHERE ([a16].[EntityTypeID] = (
+                SELECT TOP(1) [item29].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item29]
+                WHERE [item29].[EntityTypeName] = @__tableName_2
+            )) AND ([a16].[DocumentTypeID] = 7)
+        ) AS [t26] ON [item27].[EmployeeID] = [t26].[EntityID]
+        LEFT JOIN (
+            SELECT [a17].*
+            FROM [BB_GEN_Docs] AS [a17]
+            WHERE ([a17].[EntityTypeID] = (
+                SELECT TOP(1) [item30].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item30]
+                WHERE [item30].[EntityTypeName] = @__tableName_3
+            )) AND ([a17].[DocumentTypeID] = 1)
+        ) AS [t27] ON [item27].[EmployeeID] = [t27].[EntityID]
+        LEFT JOIN (
+            SELECT [a18].*
+            FROM [BB_GEN_Docs] AS [a18]
+            WHERE ([a18].[EntityTypeID] = (
+                SELECT TOP(1) [item31].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item31]
+                WHERE [item31].[EntityTypeName] = @__tableName_4
+            )) AND ([a18].[DocumentTypeID] = 2)
+        ) AS [t28] ON [item27].[EmployeeID] = [t28].[EntityID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture3] ON [item27].[EmployeeID] = [docsEmplyeePicture3].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item32].*
+            FROM [BB_VR_HealthDeclaration] AS [item32]
+            WHERE (CONVERT(date, [item32].[Date]) = CONVERT(date, GETDATE())) AND ([item32].[EntityTypeID] = (
+                SELECT TOP(1) [item33].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item33]
+                WHERE [item33].[EntityTypeName] = @__tableName_5
+            ))
+        ) AS [t29] ON [item27].[EmployeeID] = [t29].[EntityID]
+        WHERE [item27].[EmployeeID] = @__entity_EmployeeId_0
+        ORDER BY [item27].[EmployeeID]
+    ) AS [t30]
+) AS [t31] ON [item.EmployeeWorkPermit].[EmployeeID] = [t31].[EmployeeID]
+ORDER BY [t31].[EmployeeID]
+2020-06-09 10:21:51,669 INFO - Executed DbCommand (74ms) [Parameters=[@__entity_UserName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[EmployeeID], [x].[Address], [x].[BirthDate], [x].[Citizenship], [x].[dateInsert], [x].[dateUpdate], [x].[FirstName], [x].[FirstNameEN], [x].[GenderID], [x].[Guid], [x].[IdentificationTypeID], [x].[IdentityNumber], [x].[LastName], [x].[LastNameEN], [x].[OrganizationID], [x].[PassportCountryID], [x].[state], [x].[userInsert], [x].[UserUpdate], [x.Organization].[OrganizationID], [x.Organization].[Comment], [x.Organization].[dateInsert], [x.Organization].[dateUpdate], [x.Organization].[OrganizationExpertiseTypeID], [x.Organization].[OrganizationFaceGroup], [x.Organization].[OrganizationName], [x.Organization].[OrganizationNumber], [x.Organization].[OrganizationParentID], [x.Organization].[OrganizationTypeID], [x.Organization].[state], [x.Organization].[userInsert], [x.Organization].[UserUpdate]
+FROM [BB_HR_Employee] AS [x]
+LEFT JOIN [BB_GEN_Organization] AS [x.Organization] ON [x].[OrganizationID] = [x.Organization].[OrganizationID]
+INNER JOIN (
+    SELECT [item].*
+    FROM [BB_HR_Users] AS [item]
+    WHERE [item].[UserName] = @__entity_UserName_0
+) AS [t] ON [x].[EmployeeID] = [t].[EmployeeID]
+2020-06-09 10:22:56,427 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-09 10:22:56,461 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 10:22:56,610 INFO - Request finished in 185.9582ms 200 text/html
+2020-06-09 10:22:56,797 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-09 10:22:56,801 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 10:22:57,260 INFO - Request finished in 463.6082ms 200 application/json;charset=utf-8
+2020-06-09 10:23:09,118 INFO - Request starting HTTP/1.1 POST http://localhost:59821/api/v1/Employee/User application/json-patch+json 192
+2020-06-09 10:23:09,121 INFO - CORS policy execution failed.
+2020-06-09 10:23:09,123 INFO - Request origin http://localhost:59821 does not have permission to access the resource.
+2020-06-09 10:23:10,283 INFO - Successfully validated the token.
+2020-06-09 10:23:10,290 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-06-09 10:23:10,773 INFO - Route matched with {action = "PostUserAsync", controller = "Employee"}. Executing action Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync (Malam.Mastpen.HR.API)
+2020-06-09 10:23:10,787 INFO - Authorization was successful.
+2020-06-09 10:23:10,830 INFO - 'PostUserAsync' has been invoked
+2020-06-09 10:23:10,836 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync (Malam.Mastpen.HR.API) with arguments (Malam.Mastpen.Core.BL.Requests.UsersRequest) - Validation state: Valid
+2020-06-09 10:23:11,933 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-09 10:23:13,385 INFO - Executed DbCommand (101ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item.PassportCountry].[CountryID], [item.PassportCountry].[CountryName], [item.PassportCountry].[dateInsert], [item.PassportCountry].[dateUpdate], [item.PassportCountry].[LanguageID], [item.PassportCountry].[state], [item.PassportCountry].[userInsert], [item.PassportCountry].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate], [t0].[DocumentID], [t0].[dateInsert], [t0].[dateUpdate], [t0].[DocumentDate], [t0].[DocumentPath], [t0].[DocumentTypeID], [t0].[EntityID], [t0].[EntityTypeID], [t0].[IsDocumentSigned], [t0].[LanguageID], [t0].[state], [t0].[userInsert], [t0].[UserUpdate], [t0].[ValIdDate], [t1].[DocumentID], [t1].[dateInsert], [t1].[dateUpdate], [t1].[DocumentDate], [t1].[DocumentPath], [t1].[DocumentTypeID], [t1].[EntityID], [t1].[EntityTypeID], [t1].[IsDocumentSigned], [t1].[LanguageID], [t1].[state], [t1].[userInsert], [t1].[UserUpdate], [t1].[ValIdDate], [t2].[DocumentID], [t2].[dateInsert], [t2].[dateUpdate], [t2].[DocumentDate], [t2].[DocumentPath], [t2].[DocumentTypeID], [t2].[EntityID], [t2].[EntityTypeID], [t2].[IsDocumentSigned], [t2].[LanguageID], [t2].[state], [t2].[userInsert], [t2].[UserUpdate], [t2].[ValIdDate], [docsEmplyeePicture].[EmployeePictureID], [docsEmplyeePicture].[dateInsert], [docsEmplyeePicture].[dateUpdate], [docsEmplyeePicture].[EmployeeFacePrintID], [docsEmplyeePicture].[EmployeeID], [docsEmplyeePicture].[EmployeePicture], [docsEmplyeePicture].[IsUniqueDoc], [docsEmplyeePicture].[state], [docsEmplyeePicture].[userInsert], [docsEmplyeePicture].[UserUpdate], [t3].[DeclarationID], [t3].[Date], [t3].[dateInsert], [t3].[dateUpdate], [t3].[EntityID], [t3].[EntityTypeID], [t3].[FullName], [t3].[IdentityNumber], [t3].[SiteID], [t3].[state], [t3].[userInsert], [t3].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry] ON [item].[PassportCountryID] = [item.PassportCountry].[CountryID]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+LEFT JOIN (
+    SELECT [a0].[DocumentID], [a0].[dateInsert], [a0].[dateUpdate], [a0].[DocumentDate], [a0].[DocumentPath], [a0].[DocumentTypeID], [a0].[EntityID], [a0].[EntityTypeID], [a0].[IsDocumentSigned], [a0].[LanguageID], [a0].[state], [a0].[userInsert], [a0].[UserUpdate], [a0].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a0]
+    WHERE ([a0].[EntityTypeID] = (
+        SELECT TOP(1) [item1].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item1]
+        WHERE [item1].[EntityTypeName] = @__tableName_2
+    )) AND ([a0].[DocumentTypeID] = 7)
+) AS [t0] ON [item].[EmployeeID] = [t0].[EntityID]
+LEFT JOIN (
+    SELECT [a1].[DocumentID], [a1].[dateInsert], [a1].[dateUpdate], [a1].[DocumentDate], [a1].[DocumentPath], [a1].[DocumentTypeID], [a1].[EntityID], [a1].[EntityTypeID], [a1].[IsDocumentSigned], [a1].[LanguageID], [a1].[state], [a1].[userInsert], [a1].[UserUpdate], [a1].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a1]
+    WHERE ([a1].[EntityTypeID] = (
+        SELECT TOP(1) [item2].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item2]
+        WHERE [item2].[EntityTypeName] = @__tableName_3
+    )) AND ([a1].[DocumentTypeID] = 1)
+) AS [t1] ON [item].[EmployeeID] = [t1].[EntityID]
+LEFT JOIN (
+    SELECT [a2].[DocumentID], [a2].[dateInsert], [a2].[dateUpdate], [a2].[DocumentDate], [a2].[DocumentPath], [a2].[DocumentTypeID], [a2].[EntityID], [a2].[EntityTypeID], [a2].[IsDocumentSigned], [a2].[LanguageID], [a2].[state], [a2].[userInsert], [a2].[UserUpdate], [a2].[ValIdDate]
+    FROM [BB_GEN_Docs] AS [a2]
+    WHERE ([a2].[EntityTypeID] = (
+        SELECT TOP(1) [item3].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item3]
+        WHERE [item3].[EntityTypeName] = @__tableName_4
+    )) AND ([a2].[DocumentTypeID] = 2)
+) AS [t2] ON [item].[EmployeeID] = [t2].[EntityID]
+LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture] ON [item].[EmployeeID] = [docsEmplyeePicture].[EmployeeID]
+LEFT JOIN (
+    SELECT [item4].[DeclarationID], [item4].[Date], [item4].[dateInsert], [item4].[dateUpdate], [item4].[EntityID], [item4].[EntityTypeID], [item4].[FullName], [item4].[IdentityNumber], [item4].[SiteID], [item4].[state], [item4].[userInsert], [item4].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item4]
+    WHERE (CONVERT(date, [item4].[Date]) = CONVERT(date, GETDATE())) AND ([item4].[EntityTypeID] = (
+        SELECT TOP(1) [item5].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item5]
+        WHERE [item5].[EntityTypeName] = @__tableName_5
+    ))
+) AS [t3] ON [item].[EmployeeID] = [t3].[EntityID]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+ORDER BY [item].[EmployeeID]
+2020-06-09 10:23:13,694 INFO - Executed DbCommand (75ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item.EmployeeProffesionType].[EmployeeAuthorizationID], [item.EmployeeProffesionType].[Comment], [item.EmployeeProffesionType].[dateInsert], [item.EmployeeProffesionType].[dateUpdate], [item.EmployeeProffesionType].[EmployeeID], [item.EmployeeProffesionType].[ProffesionTypeID], [item.EmployeeProffesionType].[state], [item.EmployeeProffesionType].[userInsert], [item.EmployeeProffesionType].[UserUpdate], [e.ProffesionType].[ProffesionTypeID], [e.ProffesionType].[Comment], [e.ProffesionType].[dateInsert], [e.ProffesionType].[dateUpdate], [e.ProffesionType].[ProffesionTypeName], [e.ProffesionType].[state], [e.ProffesionType].[userInsert], [e.ProffesionType].[UserUpdate]
+FROM [BB_HR_EmployeeProffesionType] AS [item.EmployeeProffesionType]
+LEFT JOIN [BB_HR_ProffesionType] AS [e.ProffesionType] ON [item.EmployeeProffesionType].[ProffesionTypeID] = [e.ProffesionType].[ProffesionTypeID]
+INNER JOIN (
+    SELECT DISTINCT [t9].*
+    FROM (
+        SELECT TOP(1) [item6].[EmployeeID]
+        FROM [BB_HR_Employee] AS [item6]
+        LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry0] ON [item6].[PassportCountryID] = [item.PassportCountry0].[CountryID]
+        LEFT JOIN (
+            SELECT [a3].*
+            FROM [BB_GEN_PhoneMail] AS [a3]
+            WHERE [a3].[EntityTypeID] = (
+                SELECT TOP(1) [item7].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item7]
+                WHERE [item7].[EntityTypeName] = @__tableName_1
+            )
+        ) AS [t4] ON [item6].[EmployeeID] = [t4].[EntityID]
+        LEFT JOIN (
+            SELECT [a4].*
+            FROM [BB_GEN_Docs] AS [a4]
+            WHERE ([a4].[EntityTypeID] = (
+                SELECT TOP(1) [item8].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item8]
+                WHERE [item8].[EntityTypeName] = @__tableName_2
+            )) AND ([a4].[DocumentTypeID] = 7)
+        ) AS [t5] ON [item6].[EmployeeID] = [t5].[EntityID]
+        LEFT JOIN (
+            SELECT [a5].*
+            FROM [BB_GEN_Docs] AS [a5]
+            WHERE ([a5].[EntityTypeID] = (
+                SELECT TOP(1) [item9].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item9]
+                WHERE [item9].[EntityTypeName] = @__tableName_3
+            )) AND ([a5].[DocumentTypeID] = 1)
+        ) AS [t6] ON [item6].[EmployeeID] = [t6].[EntityID]
+        LEFT JOIN (
+            SELECT [a6].*
+            FROM [BB_GEN_Docs] AS [a6]
+            WHERE ([a6].[EntityTypeID] = (
+                SELECT TOP(1) [item10].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item10]
+                WHERE [item10].[EntityTypeName] = @__tableName_4
+            )) AND ([a6].[DocumentTypeID] = 2)
+        ) AS [t7] ON [item6].[EmployeeID] = [t7].[EntityID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture0] ON [item6].[EmployeeID] = [docsEmplyeePicture0].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item11].*
+            FROM [BB_VR_HealthDeclaration] AS [item11]
+            WHERE (CONVERT(date, [item11].[Date]) = CONVERT(date, GETDATE())) AND ([item11].[EntityTypeID] = (
+                SELECT TOP(1) [item12].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item12]
+                WHERE [item12].[EntityTypeName] = @__tableName_5
+            ))
+        ) AS [t8] ON [item6].[EmployeeID] = [t8].[EntityID]
+        WHERE [item6].[EmployeeID] = @__entity_EmployeeId_0
+        ORDER BY [item6].[EmployeeID]
+    ) AS [t9]
+) AS [t10] ON [item.EmployeeProffesionType].[EmployeeID] = [t10].[EmployeeID]
+ORDER BY [t10].[EmployeeID]
+2020-06-09 10:23:13,809 INFO - Executed DbCommand (76ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item.EmployeeAuthtorization].[EmployeeAuthorizationID], [item.EmployeeAuthtorization].[AuthorizationTypeID], [item.EmployeeAuthtorization].[Comment], [item.EmployeeAuthtorization].[DateFrom], [item.EmployeeAuthtorization].[dateInsert], [item.EmployeeAuthtorization].[DateTo], [item.EmployeeAuthtorization].[dateUpdate], [item.EmployeeAuthtorization].[EmployeeAuthorizationName], [item.EmployeeAuthtorization].[EmployeeID], [item.EmployeeAuthtorization].[SiteId], [item.EmployeeAuthtorization].[state], [item.EmployeeAuthtorization].[userInsert], [item.EmployeeAuthtorization].[UserUpdate]
+FROM [BB_HR_EmployeeAuthtorization] AS [item.EmployeeAuthtorization]
+INNER JOIN (
+    SELECT DISTINCT [t16].*
+    FROM (
+        SELECT TOP(1) [item13].[EmployeeID]
+        FROM [BB_HR_Employee] AS [item13]
+        LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry1] ON [item13].[PassportCountryID] = [item.PassportCountry1].[CountryID]
+        LEFT JOIN (
+            SELECT [a7].*
+            FROM [BB_GEN_PhoneMail] AS [a7]
+            WHERE [a7].[EntityTypeID] = (
+                SELECT TOP(1) [item14].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item14]
+                WHERE [item14].[EntityTypeName] = @__tableName_1
+            )
+        ) AS [t11] ON [item13].[EmployeeID] = [t11].[EntityID]
+        LEFT JOIN (
+            SELECT [a8].*
+            FROM [BB_GEN_Docs] AS [a8]
+            WHERE ([a8].[EntityTypeID] = (
+                SELECT TOP(1) [item15].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item15]
+                WHERE [item15].[EntityTypeName] = @__tableName_2
+            )) AND ([a8].[DocumentTypeID] = 7)
+        ) AS [t12] ON [item13].[EmployeeID] = [t12].[EntityID]
+        LEFT JOIN (
+            SELECT [a9].*
+            FROM [BB_GEN_Docs] AS [a9]
+            WHERE ([a9].[EntityTypeID] = (
+                SELECT TOP(1) [item16].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item16]
+                WHERE [item16].[EntityTypeName] = @__tableName_3
+            )) AND ([a9].[DocumentTypeID] = 1)
+        ) AS [t13] ON [item13].[EmployeeID] = [t13].[EntityID]
+        LEFT JOIN (
+            SELECT [a10].*
+            FROM [BB_GEN_Docs] AS [a10]
+            WHERE ([a10].[EntityTypeID] = (
+                SELECT TOP(1) [item17].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item17]
+                WHERE [item17].[EntityTypeName] = @__tableName_4
+            )) AND ([a10].[DocumentTypeID] = 2)
+        ) AS [t14] ON [item13].[EmployeeID] = [t14].[EntityID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture1] ON [item13].[EmployeeID] = [docsEmplyeePicture1].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item18].*
+            FROM [BB_VR_HealthDeclaration] AS [item18]
+            WHERE (CONVERT(date, [item18].[Date]) = CONVERT(date, GETDATE())) AND ([item18].[EntityTypeID] = (
+                SELECT TOP(1) [item19].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item19]
+                WHERE [item19].[EntityTypeName] = @__tableName_5
+            ))
+        ) AS [t15] ON [item13].[EmployeeID] = [t15].[EntityID]
+        WHERE [item13].[EmployeeID] = @__entity_EmployeeId_0
+        ORDER BY [item13].[EmployeeID]
+    ) AS [t16]
+) AS [t17] ON [item.EmployeeAuthtorization].[EmployeeID] = [t17].[EmployeeID]
+ORDER BY [t17].[EmployeeID]
+2020-06-09 10:23:13,939 INFO - Executed DbCommand (76ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item.EmployeeTraining].[EmployeeTrainingID], [item.EmployeeTraining].[Comment], [item.EmployeeTraining].[DateFrom], [item.EmployeeTraining].[dateInsert], [item.EmployeeTraining].[DateTo], [item.EmployeeTraining].[dateUpdate], [item.EmployeeTraining].[EmployeeID], [item.EmployeeTraining].[EmployeeTrainingName], [item.EmployeeTraining].[SiteID], [item.EmployeeTraining].[state], [item.EmployeeTraining].[TrainingTypeID], [item.EmployeeTraining].[userInsert], [item.EmployeeTraining].[UserUpdate]
+FROM [BB_HR_EmployeeTraining] AS [item.EmployeeTraining]
+INNER JOIN (
+    SELECT DISTINCT [t23].*
+    FROM (
+        SELECT TOP(1) [item20].[EmployeeID]
+        FROM [BB_HR_Employee] AS [item20]
+        LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry2] ON [item20].[PassportCountryID] = [item.PassportCountry2].[CountryID]
+        LEFT JOIN (
+            SELECT [a11].*
+            FROM [BB_GEN_PhoneMail] AS [a11]
+            WHERE [a11].[EntityTypeID] = (
+                SELECT TOP(1) [item21].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item21]
+                WHERE [item21].[EntityTypeName] = @__tableName_1
+            )
+        ) AS [t18] ON [item20].[EmployeeID] = [t18].[EntityID]
+        LEFT JOIN (
+            SELECT [a12].*
+            FROM [BB_GEN_Docs] AS [a12]
+            WHERE ([a12].[EntityTypeID] = (
+                SELECT TOP(1) [item22].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item22]
+                WHERE [item22].[EntityTypeName] = @__tableName_2
+            )) AND ([a12].[DocumentTypeID] = 7)
+        ) AS [t19] ON [item20].[EmployeeID] = [t19].[EntityID]
+        LEFT JOIN (
+            SELECT [a13].*
+            FROM [BB_GEN_Docs] AS [a13]
+            WHERE ([a13].[EntityTypeID] = (
+                SELECT TOP(1) [item23].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item23]
+                WHERE [item23].[EntityTypeName] = @__tableName_3
+            )) AND ([a13].[DocumentTypeID] = 1)
+        ) AS [t20] ON [item20].[EmployeeID] = [t20].[EntityID]
+        LEFT JOIN (
+            SELECT [a14].*
+            FROM [BB_GEN_Docs] AS [a14]
+            WHERE ([a14].[EntityTypeID] = (
+                SELECT TOP(1) [item24].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item24]
+                WHERE [item24].[EntityTypeName] = @__tableName_4
+            )) AND ([a14].[DocumentTypeID] = 2)
+        ) AS [t21] ON [item20].[EmployeeID] = [t21].[EntityID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture2] ON [item20].[EmployeeID] = [docsEmplyeePicture2].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item25].*
+            FROM [BB_VR_HealthDeclaration] AS [item25]
+            WHERE (CONVERT(date, [item25].[Date]) = CONVERT(date, GETDATE())) AND ([item25].[EntityTypeID] = (
+                SELECT TOP(1) [item26].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item26]
+                WHERE [item26].[EntityTypeName] = @__tableName_5
+            ))
+        ) AS [t22] ON [item20].[EmployeeID] = [t22].[EntityID]
+        WHERE [item20].[EmployeeID] = @__entity_EmployeeId_0
+        ORDER BY [item20].[EmployeeID]
+    ) AS [t23]
+) AS [t24] ON [item.EmployeeTraining].[EmployeeID] = [t24].[EmployeeID]
+ORDER BY [t24].[EmployeeID]
+2020-06-09 10:23:14,032 INFO - Executed DbCommand (76ms) [Parameters=[@__tableName_1='?' (Size = 50), @__tableName_2='?' (Size = 50), @__tableName_3='?' (Size = 50), @__tableName_4='?' (Size = 50), @__tableName_5='?' (Size = 50), @__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item.EmployeeWorkPermit].[EmployeeWorkPermitID], [item.EmployeeWorkPermit].[Comment], [item.EmployeeWorkPermit].[DateFrom], [item.EmployeeWorkPermit].[dateInsert], [item.EmployeeWorkPermit].[DateTo], [item.EmployeeWorkPermit].[dateUpdate], [item.EmployeeWorkPermit].[EmployeeID], [item.EmployeeWorkPermit].[EmployeeWorkPermitName], [item.EmployeeWorkPermit].[IsRequired], [item.EmployeeWorkPermit].[SiteID], [item.EmployeeWorkPermit].[state], [item.EmployeeWorkPermit].[userInsert], [item.EmployeeWorkPermit].[UserUpdate]
+FROM [BB_HR_EmployeeWorkPermit] AS [item.EmployeeWorkPermit]
+INNER JOIN (
+    SELECT DISTINCT [t30].*
+    FROM (
+        SELECT TOP(1) [item27].[EmployeeID]
+        FROM [BB_HR_Employee] AS [item27]
+        LEFT JOIN [BB_GEN_Country] AS [item.PassportCountry3] ON [item27].[PassportCountryID] = [item.PassportCountry3].[CountryID]
+        LEFT JOIN (
+            SELECT [a15].*
+            FROM [BB_GEN_PhoneMail] AS [a15]
+            WHERE [a15].[EntityTypeID] = (
+                SELECT TOP(1) [item28].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item28]
+                WHERE [item28].[EntityTypeName] = @__tableName_1
+            )
+        ) AS [t25] ON [item27].[EmployeeID] = [t25].[EntityID]
+        LEFT JOIN (
+            SELECT [a16].*
+            FROM [BB_GEN_Docs] AS [a16]
+            WHERE ([a16].[EntityTypeID] = (
+                SELECT TOP(1) [item29].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item29]
+                WHERE [item29].[EntityTypeName] = @__tableName_2
+            )) AND ([a16].[DocumentTypeID] = 7)
+        ) AS [t26] ON [item27].[EmployeeID] = [t26].[EntityID]
+        LEFT JOIN (
+            SELECT [a17].*
+            FROM [BB_GEN_Docs] AS [a17]
+            WHERE ([a17].[EntityTypeID] = (
+                SELECT TOP(1) [item30].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item30]
+                WHERE [item30].[EntityTypeName] = @__tableName_3
+            )) AND ([a17].[DocumentTypeID] = 1)
+        ) AS [t27] ON [item27].[EmployeeID] = [t27].[EntityID]
+        LEFT JOIN (
+            SELECT [a18].*
+            FROM [BB_GEN_Docs] AS [a18]
+            WHERE ([a18].[EntityTypeID] = (
+                SELECT TOP(1) [item31].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item31]
+                WHERE [item31].[EntityTypeName] = @__tableName_4
+            )) AND ([a18].[DocumentTypeID] = 2)
+        ) AS [t28] ON [item27].[EmployeeID] = [t28].[EntityID]
+        LEFT JOIN [BB_EmplyeePicture] AS [docsEmplyeePicture3] ON [item27].[EmployeeID] = [docsEmplyeePicture3].[EmployeeID]
+        LEFT JOIN (
+            SELECT [item32].*
+            FROM [BB_VR_HealthDeclaration] AS [item32]
+            WHERE (CONVERT(date, [item32].[Date]) = CONVERT(date, GETDATE())) AND ([item32].[EntityTypeID] = (
+                SELECT TOP(1) [item33].[EntityTypeID]
+                FROM [BB_GEN_EntityType] AS [item33]
+                WHERE [item33].[EntityTypeName] = @__tableName_5
+            ))
+        ) AS [t29] ON [item27].[EmployeeID] = [t29].[EntityID]
+        WHERE [item27].[EmployeeID] = @__entity_EmployeeId_0
+        ORDER BY [item27].[EmployeeID]
+    ) AS [t30]
+) AS [t31] ON [item.EmployeeWorkPermit].[EmployeeID] = [t31].[EmployeeID]
+ORDER BY [t31].[EmployeeID]
+2020-06-09 10:23:16,811 WARN - Query: '(from Employee x in DbSet<Employee> join Users user in  from Users item in DbSet<Users> where [item]...' uses First/FirstOrDefault/Last/LastOrDefault operation without OrderBy and filter which may lead to unpredictable results.
+2020-06-09 10:23:16,918 INFO - Executed DbCommand (74ms) [Parameters=[@__entity_UserName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [x].[EmployeeID], [x].[Address], [x].[BirthDate], [x].[Citizenship], [x].[dateInsert], [x].[dateUpdate], [x].[FirstName], [x].[FirstNameEN], [x].[GenderID], [x].[Guid], [x].[IdentificationTypeID], [x].[IdentityNumber], [x].[LastName], [x].[LastNameEN], [x].[OrganizationID], [x].[PassportCountryID], [x].[state], [x].[userInsert], [x].[UserUpdate], [x.Organization].[OrganizationID], [x.Organization].[Comment], [x.Organization].[dateInsert], [x.Organization].[dateUpdate], [x.Organization].[OrganizationExpertiseTypeID], [x.Organization].[OrganizationFaceGroup], [x.Organization].[OrganizationName], [x.Organization].[OrganizationNumber], [x.Organization].[OrganizationParentID], [x.Organization].[OrganizationTypeID], [x.Organization].[state], [x.Organization].[userInsert], [x.Organization].[UserUpdate]
+FROM [BB_HR_Employee] AS [x]
+LEFT JOIN [BB_GEN_Organization] AS [x.Organization] ON [x].[OrganizationID] = [x.Organization].[OrganizationID]
+INNER JOIN (
+    SELECT [item].*
+    FROM [BB_HR_Users] AS [item]
+    WHERE [item].[UserName] = @__entity_UserName_0
+) AS [t] ON [x].[EmployeeID] = [t].[EmployeeID]
+2020-06-09 10:23:17,031 INFO - Executed DbCommand (78ms) [Parameters=[@__entity_EmployeeId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[UserID], [item].[Comment], [item].[dateInsert], [item].[dateUpdate], [item].[EmployeeID], [item].[IsActive], [item].[OrganizationID], [item].[Password], [item].[PasswordChangeDate], [item].[state], [item].[userInsert], [item].[UserName], [item].[UserUpdate]
+FROM [BB_HR_Users] AS [item]
+WHERE [item].[EmployeeID] = @__entity_EmployeeId_0
+2020-06-09 10:23:17,376 INFO - Executed DbCommand (78ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = Int32), @p4='?' (DbType = Boolean), @p5='?' (DbType = Int32), @p6='?' (Size = 50), @p7='?' (DbType = DateTime), @p8='?', @p9='?' (DbType = Int32), @p10='?' (Size = 50), @p11='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BB_HR_Users] ([Comment], [dateInsert], [dateUpdate], [EmployeeID], [IsActive], [OrganizationID], [Password], [PasswordChangeDate], [state], [userInsert], [UserName], [UserUpdate])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+SELECT [UserID]
+FROM [BB_HR_Users]
+WHERE @@ROWCOUNT = 1 AND [UserID] = scope_identity();
+2020-06-09 10:23:17,536 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 6696.7641ms.
+2020-06-09 10:23:17,538 INFO - The PostUserAsync have been retrieved successfully.
+2020-06-09 10:23:17,550 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.DAL.Entities.Users, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-09 10:23:17,565 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeController.PostUserAsync (Malam.Mastpen.HR.API) in 6788.5423ms
+2020-06-09 10:23:17,574 INFO - Request finished in 8455.5811ms 200 application/json; charset=utf-8
+2020-06-09 13:18:42,395 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-09 13:18:42,434 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 13:18:42,608 INFO - Request finished in 217.84ms 200 text/html
+2020-06-09 13:18:42,858 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-09 13:18:42,900 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 13:18:43,497 INFO - Request finished in 596.0341ms 200 application/json;charset=utf-8
+2020-06-09 13:18:51,421 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeeByOrganization?OrganizationId=1  
+2020-06-09 13:18:51,423 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 13:18:51,953 INFO - Route matched with {action = "GetEmployeesByOrganizationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesByOrganizationAsync (Malam.Mastpen.HR.API)
+2020-06-09 13:18:51,979 INFO - 'GetEmployeesByOrganizationAsync' has been invoked
+2020-06-09 13:18:51,986 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesByOrganizationAsync (Malam.Mastpen.HR.API) with arguments (1) - Validation state: Valid
+2020-06-09 13:19:04,064 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-09 13:19:21,257 INFO - Executed DbCommand (88ms) [Parameters=[@__tableName_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+2020-06-09 13:19:23,420 INFO - Executed DbCommand (84ms) [Parameters=[@__tableName_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+2020-06-09 13:19:23,534 INFO - Executed DbCommand (84ms) [Parameters=[@__tableName_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+2020-06-09 13:19:56,886 INFO - Executed DbCommand (94ms) [Parameters=[@__tableName_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+2020-06-09 13:19:56,914 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesByOrganizationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 64924.2283ms.
+2020-06-09 13:19:56,916 INFO - The GetEmployeesByOrganizationAsync have been retrieved successfully.
+2020-06-09 13:19:56,926 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[System.Collections.Generic.List`1[[Malam.Mastpen.Core.BL.Requests.EmployeeGuid, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2020-06-09 13:19:56,943 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesByOrganizationAsync (Malam.Mastpen.HR.API) in 64984.9294ms
+2020-06-09 13:19:56,954 INFO - Request finished in 65534.8646ms 200 application/json; charset=utf-8
+2020-06-09 13:19:59,157 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeeByOrganization?OrganizationId=1  
+2020-06-09 13:19:59,158 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 13:19:59,161 INFO - Route matched with {action = "GetEmployeesByOrganizationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesByOrganizationAsync (Malam.Mastpen.HR.API)
+2020-06-09 13:19:59,162 INFO - 'GetEmployeesByOrganizationAsync' has been invoked
+2020-06-09 13:19:59,167 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesByOrganizationAsync (Malam.Mastpen.HR.API) with arguments (1) - Validation state: Valid
+2020-06-09 13:20:05,406 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-09 13:21:19,039 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-09 13:21:19,087 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 13:21:19,280 INFO - Request finished in 246.8093ms 200 text/html
+2020-06-09 13:21:19,623 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-09 13:21:19,629 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 13:21:20,229 INFO - Request finished in 610.2337ms 200 application/json;charset=utf-8
+2020-06-09 13:21:28,188 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeeByOrganization?OrganizationId=1  
+2020-06-09 13:21:28,189 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 13:21:28,675 INFO - Route matched with {action = "GetEmployeesByOrganizationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesByOrganizationAsync (Malam.Mastpen.HR.API)
+2020-06-09 13:21:28,703 INFO - 'GetEmployeesByOrganizationAsync' has been invoked
+2020-06-09 13:21:28,717 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesByOrganizationAsync (Malam.Mastpen.HR.API) with arguments (1) - Validation state: Valid
+2020-06-09 13:21:36,441 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-09 13:21:45,171 INFO - Executed DbCommand (93ms) [Parameters=[@__tableName_1='?' (Size = 50), @__OrganizationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+WHERE [item].[OrganizationID] = @__OrganizationId_0
+2020-06-09 13:21:49,153 INFO - Executed DbCommand (92ms) [Parameters=[@__tableName_1='?' (Size = 50), @__OrganizationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+WHERE [item].[OrganizationID] = @__OrganizationId_0
+2020-06-09 13:21:49,169 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesByOrganizationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 20448.3868ms.
+2020-06-09 13:21:49,170 INFO - The GetEmployeesByOrganizationAsync have been retrieved successfully.
+2020-06-09 13:21:49,181 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[System.Collections.Generic.List`1[[Malam.Mastpen.Core.BL.Requests.EmployeeGuid, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2020-06-09 13:21:49,193 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesByOrganizationAsync (Malam.Mastpen.HR.API) in 20514.4985ms
+2020-06-09 13:21:49,203 INFO - Request finished in 21014.8615ms 200 application/json; charset=utf-8
+2020-06-09 13:21:52,930 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeeByOrganization?OrganizationId=22  
+2020-06-09 13:21:52,931 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-09 13:21:52,934 INFO - Route matched with {action = "GetEmployeesByOrganizationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesByOrganizationAsync (Malam.Mastpen.HR.API)
+2020-06-09 13:21:52,935 INFO - 'GetEmployeesByOrganizationAsync' has been invoked
+2020-06-09 13:21:52,938 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesByOrganizationAsync (Malam.Mastpen.HR.API) with arguments (22) - Validation state: Valid
+2020-06-09 13:21:52,952 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-09 13:21:54,429 INFO - Executed DbCommand (77ms) [Parameters=[@__tableName_1='?' (Size = 50), @__OrganizationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [item].[EmployeeID], [item].[Address], [item].[BirthDate], [item].[Citizenship], [item].[dateInsert], [item].[dateUpdate], [item].[FirstName], [item].[FirstNameEN], [item].[GenderID], [item].[Guid], [item].[IdentificationTypeID], [item].[IdentityNumber], [item].[LastName], [item].[LastNameEN], [item].[OrganizationID], [item].[PassportCountryID], [item].[state], [item].[userInsert], [item].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [item]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE [a].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_1
+    )
+) AS [t] ON [item].[EmployeeID] = [t].[EntityID]
+WHERE [item].[OrganizationID] = @__OrganizationId_0
+2020-06-09 13:21:54,506 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesByOrganizationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1567.1769ms.
+2020-06-09 13:21:54,506 INFO - The GetEmployeesByOrganizationAsync have been retrieved successfully.
+2020-06-09 13:21:54,507 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[System.Collections.Generic.List`1[[Malam.Mastpen.Core.BL.Requests.EmployeeGuid, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2020-06-09 13:21:54,510 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesByOrganizationAsync (Malam.Mastpen.HR.API) in 1574.2714ms
+2020-06-09 13:21:54,511 INFO - Request finished in 1581.8673ms 200 application/json; charset=utf-8

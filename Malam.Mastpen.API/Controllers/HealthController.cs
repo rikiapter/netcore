@@ -130,6 +130,64 @@ namespace Malam.Mastpen.API.Controllers
             return response.ToHttpResponse();
         }
 
+        // GET
+        // api/v1/Employee/Visit
+
+        /// <summary>
+        /// Retrieves Site Visit
+        /// </summary>
+        /// <param name="pageSize">Page size</param>
+        /// <param name="pageNumber">Page number</param>
+        /// <param name="EmployeeId">Employee Id</param>
+        /// <param name="SiteId">Site Id</param>
+        /// <returns>A response with Site Employee list</returns>
+        /// <response code="200">Returns the Site Employee list</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpGet("Visit")]
+        [Authorize]
+        public async Task<IActionResult> GetVisitAsync(
+ 
+            int SiteId 
+          )
+        {
+            var response = await HealthService.GetVisitHealthDeclarationAsync(     SiteId );
+
+            // Return as http response
+            return response.ToHttpResponse();
+        }
+
+
+
+        // GET
+        // api/v1/Health/EmployeesHealthDeclaration
+
+        /// <summary>
+        /// הצהרת בריאות
+        /// אם שולחים בסוף חיובי מחזיר רק את הרשימה של מי שמילא
+        ///ההפך מחזיר רק מי שלא מילא
+        /// </summary>
+        /// <param name="pageSize">Page size</param>
+        /// <param name="pageNumber">Page number</param>
+        /// <param name="EmployeeId">Employee Id</param>
+        /// <param name="SiteId">Site Id</param>
+        /// <returns>A response with Site Employee list</returns>
+        /// <response code="200">Returns the Site Employee list</response>
+        /// <response code="500">If there was an internal server error</response>
+        [HttpGet("EmployeesHealthDeclaration")]
+     
+        public async Task<IActionResult> GetEmployeesHealthDeclarationAsync(
+            int pageSize = 10,
+            int pageNumber = 1,
+            int? OrganizationId = null,
+            int? SiteId = null,
+            bool isHealthDeclaration = false)
+        {
+            var response = await HealthService.GetEmployeeHealteDeclarationAsync(pageSize, pageNumber, OrganizationId, SiteId,isHealthDeclaration);
+            
+            response.Model = response.Model.Where(x => x.DeclarationID > 0 && isHealthDeclaration || x.DeclarationID == 0 && !isHealthDeclaration);
+      
+            return response.ToHttpResponse();
+        }
 
         // GET
         // api/v1/Employee/Organization

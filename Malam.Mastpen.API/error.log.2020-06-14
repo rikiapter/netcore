@@ -1,0 +1,736 @@
+2020-06-14 09:24:40,573 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-14 09:24:40,634 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 09:24:42,322 INFO - Request finished in 1736.3184ms 200 text/html
+2020-06-14 09:24:42,898 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-14 09:24:42,989 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 09:24:44,413 INFO - Request finished in 1551.8199ms 200 application/json;charset=utf-8
+2020-06-14 09:26:55,450 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/EmployeeByPhone/548060168  
+2020-06-14 09:26:55,452 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 09:27:12,407 INFO - Route matched with {action = "GetEmployeeByPhone", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API)
+2020-06-14 09:27:12,433 INFO - 'GetEmployeeByPhone' has been invoked
+2020-06-14 09:27:12,440 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API) with arguments (548060168) - Validation state: Valid
+2020-06-14 09:27:13,671 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 09:27:13,811 WARN - Query: '(from Employee Employee in DbSet<Employee> join PhoneMail phonMail in  from PhoneMail a in DbSet<Pho...' uses First/FirstOrDefault/Last/LastOrDefault operation without OrderBy and filter which may lead to unpredictable results.
+2020-06-14 09:27:25,392 INFO - Executed DbCommand (118ms) [Parameters=[@__tableName_0='?' (Size = 50), @__Phone_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_0
+    )) AND ([a].[PhoneNumber] = @__Phone_1)
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 09:27:25,507 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 13064.075ms.
+2020-06-14 09:27:25,508 INFO - The GetEmployeeByPhone have been retrieved successfully.
+2020-06-14 09:27:25,521 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeGuid, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-14 09:27:25,536 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API) in 13124.5719ms
+2020-06-14 09:27:25,547 INFO - Request finished in 30122.1775ms 200 application/json; charset=utf-8
+2020-06-14 09:32:03,830 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-14 09:32:03,889 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 09:32:04,397 INFO - Request finished in 553.5395ms 200 text/html
+2020-06-14 09:32:05,057 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-14 09:32:05,084 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 09:32:05,839 INFO - Request finished in 811.3074ms 200 application/json;charset=utf-8
+2020-06-14 09:45:42,956 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/EmployeeByPhone/548060168  
+2020-06-14 09:45:42,957 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 09:45:43,469 INFO - Route matched with {action = "GetEmployeeByPhone", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API)
+2020-06-14 09:45:43,493 INFO - 'GetEmployeeByPhone' has been invoked
+2020-06-14 09:45:43,501 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API) with arguments (548060168) - Validation state: Valid
+2020-06-14 09:45:44,628 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 09:46:08,265 INFO - Executed DbCommand (77ms) [Parameters=[@__tableName_0='?' (Size = 50), @__Phone_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_0
+    )) AND ([a].[PhoneNumber] = @__Phone_1)
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 09:46:10,766 INFO - Executed DbCommand (66ms) [Parameters=[@__tableName_0='?' (Size = 50), @__Phone_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_0
+    )) AND ([a].[PhoneNumber] = @__Phone_1)
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 09:46:10,851 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50), @__Phone_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_0
+    )) AND ([a].[PhoneNumber] = @__Phone_1)
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 09:46:33,732 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50), @__Phone_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_0
+    )) AND ([a].[PhoneNumber] = @__Phone_1)
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 09:46:42,563 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50), @__Phone_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_0
+    )) AND ([a].[PhoneNumber] = @__Phone_1)
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 09:46:44,180 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50), @__Phone_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_0
+    )) AND ([a].[PhoneNumber] = @__Phone_1)
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 09:46:44,263 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50), @__Phone_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_0
+    )) AND ([a].[PhoneNumber] = @__Phone_1)
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 09:46:48,752 WARN - Query: '(from Employee Employee in DbSet<Employee> join PhoneMail phonMail in  from PhoneMail a in DbSet<Pho...' uses First/FirstOrDefault/Last/LastOrDefault operation without OrderBy and filter which may lead to unpredictable results.
+2020-06-14 09:46:48,885 INFO - Executed DbCommand (75ms) [Parameters=[@__tableName_0='?' (Size = 50), @__Phone_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_0
+    )) AND ([a].[PhoneNumber] = @__Phone_1)
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 09:46:48,904 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 65399.7746ms.
+2020-06-14 09:46:48,905 INFO - The GetEmployeeByPhone have been retrieved successfully.
+2020-06-14 09:46:48,917 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeGuid, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-14 09:46:48,931 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API) in 65458.9107ms
+2020-06-14 09:46:48,940 INFO - Request finished in 65986.763ms 200 application/json; charset=utf-8
+2020-06-14 09:46:50,975 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/EmployeeByPhone/548060168  
+2020-06-14 09:46:50,976 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 09:46:50,979 INFO - Route matched with {action = "GetEmployeeByPhone", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API)
+2020-06-14 09:46:50,980 INFO - 'GetEmployeeByPhone' has been invoked
+2020-06-14 09:46:50,995 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API) with arguments (548060168) - Validation state: Valid
+2020-06-14 09:46:51,001 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 09:47:30,589 INFO - Executed DbCommand (76ms) [Parameters=[@__tableName_0='?' (Size = 50), @__Phone_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [t].[ContactID], [t].[dateInsert], [t].[dateUpdate], [t].[EMail], [t].[EntityID], [t].[EntityTypeID], [t].[PhoneNumber], [t].[PhoneTypeID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN (
+    SELECT [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate]
+    FROM [BB_GEN_PhoneMail] AS [a]
+    WHERE ([a].[EntityTypeID] = (
+        SELECT TOP(1) [item].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item]
+        WHERE [item].[EntityTypeName] = @__tableName_0
+    )) AND ([a].[PhoneNumber] = @__Phone_1)
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 09:47:37,201 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 46203.9584ms.
+2020-06-14 09:47:37,202 INFO - The GetEmployeeByPhone have been retrieved successfully.
+2020-06-14 09:47:37,203 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeGuid, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-14 09:47:37,205 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API) in 46224.2349ms
+2020-06-14 09:47:37,207 INFO - Request finished in 46232.7932ms 200 application/json; charset=utf-8
+2020-06-14 09:47:39,372 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/EmployeeByPhone/548060168  
+2020-06-14 09:47:39,373 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 09:47:39,376 INFO - Route matched with {action = "GetEmployeeByPhone", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API)
+2020-06-14 09:47:39,376 INFO - 'GetEmployeeByPhone' has been invoked
+2020-06-14 09:47:39,380 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API) with arguments (548060168) - Validation state: Valid
+2020-06-14 09:47:39,385 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 09:51:15,493 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-14 09:51:15,545 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 09:51:15,823 INFO - Request finished in 347.503ms 200 text/html
+2020-06-14 09:51:16,139 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-14 09:51:16,223 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 09:51:16,875 INFO - Request finished in 727.5705ms 200 application/json;charset=utf-8
+2020-06-14 09:51:32,424 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/EmployeeByPhone/548060168  
+2020-06-14 09:51:32,432 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 09:51:33,046 INFO - Route matched with {action = "GetEmployeeByPhone", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API)
+2020-06-14 09:51:33,079 INFO - 'GetEmployeeByPhone' has been invoked
+2020-06-14 09:51:33,087 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API) with arguments (548060168) - Validation state: Valid
+2020-06-14 09:51:34,453 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 09:51:35,678 INFO - Executed DbCommand (90ms) [Parameters=[@__tableName_0='?' (Size = 50), @__Phone_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate], [employee].[EmployeeID], [employee].[Address], [employee].[BirthDate], [employee].[Citizenship], [employee].[dateInsert], [employee].[dateUpdate], [employee].[FirstName], [employee].[FirstNameEN], [employee].[GenderID], [employee].[Guid], [employee].[IdentificationTypeID], [employee].[IdentityNumber], [employee].[LastName], [employee].[LastNameEN], [employee].[OrganizationID], [employee].[PassportCountryID], [employee].[state], [employee].[userInsert], [employee].[UserUpdate]
+FROM [BB_GEN_PhoneMail] AS [a]
+LEFT JOIN [BB_HR_Employee] AS [employee] ON [a].[EntityID] = [employee].[EmployeeID]
+WHERE ([a].[EntityTypeID] = (
+    SELECT TOP(1) [item].[EntityTypeID]
+    FROM [BB_GEN_EntityType] AS [item]
+    WHERE [item].[EntityTypeName] = @__tableName_0
+)) AND ([a].[PhoneNumber] = @__Phone_1)
+2020-06-14 09:51:39,470 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 6375.703ms.
+2020-06-14 09:51:39,476 INFO - The GetEmployeeByPhone have been retrieved successfully.
+2020-06-14 09:51:39,489 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeGuid, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-14 09:51:39,506 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API) in 6454.6874ms
+2020-06-14 09:51:39,516 INFO - Request finished in 7095.4336ms 200 application/json; charset=utf-8
+2020-06-14 10:36:14,649 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-14 10:36:14,694 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 10:36:15,002 INFO - Request finished in 365.735ms 200 text/html
+2020-06-14 10:36:15,906 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-14 10:36:15,920 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 10:36:16,543 INFO - Request finished in 624.9124ms 200 application/json;charset=utf-8
+2020-06-14 10:36:24,707 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/EmployeeByPhone/קר'  
+2020-06-14 10:36:24,716 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 10:36:25,418 INFO - Route matched with {action = "GetEmployeeByPhone", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API)
+2020-06-14 10:36:25,445 INFO - 'GetEmployeeByPhone' has been invoked
+2020-06-14 10:36:25,452 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API) with arguments (קר') - Validation state: Valid
+2020-06-14 10:36:27,170 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 10:36:28,846 INFO - Executed DbCommand (126ms) [Parameters=[@__tableName_0='?' (Size = 50), @__Phone_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate], [employee].[EmployeeID], [employee].[Address], [employee].[BirthDate], [employee].[Citizenship], [employee].[dateInsert], [employee].[dateUpdate], [employee].[FirstName], [employee].[FirstNameEN], [employee].[GenderID], [employee].[Guid], [employee].[IdentificationTypeID], [employee].[IdentityNumber], [employee].[LastName], [employee].[LastNameEN], [employee].[OrganizationID], [employee].[PassportCountryID], [employee].[state], [employee].[userInsert], [employee].[UserUpdate]
+FROM [BB_GEN_PhoneMail] AS [a]
+LEFT JOIN [BB_HR_Employee] AS [employee] ON [a].[EntityID] = [employee].[EmployeeID]
+WHERE ([a].[EntityTypeID] = (
+    SELECT TOP(1) [item].[EntityTypeID]
+    FROM [BB_GEN_EntityType] AS [item]
+    WHERE [item].[EntityTypeName] = @__tableName_0
+)) AND ([a].[PhoneNumber] = @__Phone_1)
+2020-06-14 10:36:28,924 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 3449.8157ms.
+2020-06-14 10:36:28,926 INFO - The GetEmployeeByPhone have been retrieved successfully.
+2020-06-14 10:36:28,968 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeGuid, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-14 10:36:28,997 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API) in 3559.8478ms
+2020-06-14 10:36:29,036 INFO - Request finished in 4345.7408ms 404 application/json; charset=utf-8
+2020-06-14 10:36:48,814 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/EmployeeByPhone/קר'  
+2020-06-14 10:36:48,816 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 10:36:48,825 INFO - Route matched with {action = "GetEmployeeByPhone", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API)
+2020-06-14 10:36:48,825 INFO - 'GetEmployeeByPhone' has been invoked
+2020-06-14 10:36:48,837 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API) with arguments (קר') - Validation state: Valid
+2020-06-14 10:36:52,856 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 10:36:53,992 INFO - Executed DbCommand (64ms) [Parameters=[@__tableName_0='?' (Size = 50), @__Phone_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate], [employee].[EmployeeID], [employee].[Address], [employee].[BirthDate], [employee].[Citizenship], [employee].[dateInsert], [employee].[dateUpdate], [employee].[FirstName], [employee].[FirstNameEN], [employee].[GenderID], [employee].[Guid], [employee].[IdentificationTypeID], [employee].[IdentityNumber], [employee].[LastName], [employee].[LastNameEN], [employee].[OrganizationID], [employee].[PassportCountryID], [employee].[state], [employee].[userInsert], [employee].[UserUpdate]
+FROM [BB_GEN_PhoneMail] AS [a]
+LEFT JOIN [BB_HR_Employee] AS [employee] ON [a].[EntityID] = [employee].[EmployeeID]
+WHERE ([a].[EntityTypeID] = (
+    SELECT TOP(1) [item].[EntityTypeID]
+    FROM [BB_GEN_EntityType] AS [item]
+    WHERE [item].[EntityTypeName] = @__tableName_0
+)) AND ([a].[PhoneNumber] = @__Phone_1)
+2020-06-14 10:59:25,640 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-14 10:59:25,683 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 10:59:25,938 INFO - Request finished in 302.9514ms 200 text/html
+2020-06-14 10:59:26,202 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-14 10:59:26,206 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 10:59:27,265 INFO - Request finished in 942.9616ms 200 application/json;charset=utf-8
+2020-06-14 10:59:44,352 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/EmployeeByPhone/548060168  
+2020-06-14 10:59:44,364 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 10:59:44,942 INFO - Route matched with {action = "GetEmployeeByPhone", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API)
+2020-06-14 10:59:44,970 INFO - 'GetEmployeeByPhone' has been invoked
+2020-06-14 10:59:44,986 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API) with arguments (548060168) - Validation state: Valid
+2020-06-14 10:59:50,398 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 10:59:51,652 INFO - Executed DbCommand (79ms) [Parameters=[@__tableName_0='?' (Size = 50), @__Phone_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate], [employee].[EmployeeID], [employee].[Address], [employee].[BirthDate], [employee].[Citizenship], [employee].[dateInsert], [employee].[dateUpdate], [employee].[FirstName], [employee].[FirstNameEN], [employee].[GenderID], [employee].[Guid], [employee].[IdentificationTypeID], [employee].[IdentityNumber], [employee].[LastName], [employee].[LastNameEN], [employee].[OrganizationID], [employee].[PassportCountryID], [employee].[state], [employee].[userInsert], [employee].[UserUpdate]
+FROM [BB_GEN_PhoneMail] AS [a]
+LEFT JOIN [BB_HR_Employee] AS [employee] ON [a].[EntityID] = [employee].[EmployeeID]
+WHERE ([a].[EntityTypeID] = (
+    SELECT TOP(1) [item].[EntityTypeID]
+    FROM [BB_GEN_EntityType] AS [item]
+    WHERE [item].[EntityTypeName] = @__tableName_0
+)) AND ([a].[PhoneNumber] = @__Phone_1)
+2020-06-14 10:59:51,769 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 6779.791ms.
+2020-06-14 10:59:51,771 INFO - The GetEmployeeByPhone have been retrieved successfully.
+2020-06-14 10:59:51,784 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeGuid, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-14 10:59:51,818 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API) in 6860.7423ms
+2020-06-14 10:59:51,840 INFO - Request finished in 7480.4385ms 200 application/json; charset=utf-8
+2020-06-14 11:00:01,375 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/EmployeeByPhone/545  
+2020-06-14 11:00:01,376 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 11:00:01,379 INFO - Route matched with {action = "GetEmployeeByPhone", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API)
+2020-06-14 11:00:01,381 INFO - 'GetEmployeeByPhone' has been invoked
+2020-06-14 11:00:01,384 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API) with arguments (545) - Validation state: Valid
+2020-06-14 11:00:02,693 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 11:00:02,776 INFO - Executed DbCommand (74ms) [Parameters=[@__tableName_0='?' (Size = 50), @__Phone_1='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[ContactID], [a].[dateInsert], [a].[dateUpdate], [a].[EMail], [a].[EntityID], [a].[EntityTypeID], [a].[PhoneNumber], [a].[PhoneTypeID], [a].[state], [a].[userInsert], [a].[UserUpdate], [employee].[EmployeeID], [employee].[Address], [employee].[BirthDate], [employee].[Citizenship], [employee].[dateInsert], [employee].[dateUpdate], [employee].[FirstName], [employee].[FirstNameEN], [employee].[GenderID], [employee].[Guid], [employee].[IdentificationTypeID], [employee].[IdentityNumber], [employee].[LastName], [employee].[LastNameEN], [employee].[OrganizationID], [employee].[PassportCountryID], [employee].[state], [employee].[userInsert], [employee].[UserUpdate]
+FROM [BB_GEN_PhoneMail] AS [a]
+LEFT JOIN [BB_HR_Employee] AS [employee] ON [a].[EntityID] = [employee].[EmployeeID]
+WHERE ([a].[EntityTypeID] = (
+    SELECT TOP(1) [item].[EntityTypeID]
+    FROM [BB_GEN_EntityType] AS [item]
+    WHERE [item].[EntityTypeName] = @__tableName_0
+)) AND ([a].[PhoneNumber] = @__Phone_1)
+2020-06-14 11:00:02,779 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1393.0551ms.
+2020-06-14 11:00:02,779 INFO - The GetEmployeeByPhone have been retrieved successfully.
+2020-06-14 11:00:02,780 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeGuid, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-14 11:00:02,782 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeWebController.GetEmployeeByPhone (Malam.Mastpen.HR.API) in 1402.1203ms
+2020-06-14 11:00:02,784 INFO - Request finished in 1409.1581ms 200 application/json; charset=utf-8
+2020-06-14 11:02:30,175 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/TextHealthDeclaration/E8F6230E-2143-4AE6-B9BC-60D2ACC8147F?Type=site  
+2020-06-14 11:02:30,181 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 11:02:30,188 INFO - Route matched with {action = "GetTextHealthDeclarationByGuidEntry", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API)
+2020-06-14 11:02:30,191 INFO - 'GetTextHealthDeclarationByGuidEntry' has been invoked
+2020-06-14 11:02:30,193 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) with arguments (E8F6230E-2143-4AE6-B9BC-60D2ACC8147F, site) - Validation state: Valid
+2020-06-14 11:02:30,204 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 11:02:30,290 INFO - Executed DbCommand (62ms) [Parameters=[@__guid_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[SiteID], [item].[Comment], [item].[dateInsert], [item].[dateUpdate], [item].[OrganizationID], [item].[SiteActivityStartDate], [item].[SiteName], [item].[SiteStatusID], [item].[SiteTypeID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item].[guid]
+FROM [BB_GEN_Sites] AS [item]
+WHERE [item].[guid] = @__guid_0
+2020-06-14 11:02:42,688 INFO - Executed DbCommand (64ms) [Parameters=[@__OrganizationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[TextSystemID], [x].[Comment], [x].[dateInsert], [x].[dateUpdate], [x].[OrganizationID], [x].[state], [x].[Text], [x].[TextSystemTypeID], [x].[Title], [x].[userInsert], [x].[UserUpdate]
+FROM [BB_GEN_TextSystem] AS [x]
+WHERE ([x].[state] = 1) AND ([x].[OrganizationID] = @__OrganizationId_0)
+2020-06-14 11:02:42,706 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 12511.6165ms.
+2020-06-14 11:02:42,706 INFO - The GetTextHealthDeclarationByGuidEntry have been retrieved successfully.
+2020-06-14 11:02:42,708 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeTrainingDocResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-14 11:02:42,724 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) in 12532.4247ms
+2020-06-14 11:02:42,728 INFO - Request finished in 12571.8759ms 200 application/json; charset=utf-8
+2020-06-14 11:03:41,828 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-14 11:03:41,869 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 11:03:42,127 INFO - Request finished in 313.5263ms 200 text/html
+2020-06-14 11:03:42,430 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-14 11:03:42,484 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 11:03:43,194 INFO - Request finished in 776.4786ms 200 application/json;charset=utf-8
+2020-06-14 11:16:29,301 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-14 11:16:29,367 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 11:16:29,603 INFO - Request finished in 307.5737ms 200 text/html
+2020-06-14 11:16:29,939 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-14 11:16:29,969 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 11:16:30,606 INFO - Request finished in 719.4863ms 200 application/json;charset=utf-8
+2020-06-14 11:17:02,019 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/TextHealthDeclaration/E8F6230E-2143-4AE6-B9BC-60D2ACC8147F?Type=site  
+2020-06-14 11:17:02,026 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 11:17:02,532 INFO - Route matched with {action = "GetTextHealthDeclarationByGuidEntry", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API)
+2020-06-14 11:17:02,557 INFO - 'GetTextHealthDeclarationByGuidEntry' has been invoked
+2020-06-14 11:17:02,564 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) with arguments (E8F6230E-2143-4AE6-B9BC-60D2ACC8147F, site) - Validation state: Valid
+2020-06-14 11:17:05,372 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 11:17:06,313 INFO - Executed DbCommand (77ms) [Parameters=[@__guid_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[SiteID], [item].[Comment], [item].[dateInsert], [item].[dateUpdate], [item].[OrganizationID], [item].[SiteActivityStartDate], [item].[SiteName], [item].[SiteStatusID], [item].[SiteTypeID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item].[guid]
+FROM [BB_GEN_Sites] AS [item]
+WHERE [item].[guid] = @__guid_0
+2020-06-14 11:17:09,531 INFO - Executed DbCommand (64ms) [Parameters=[@__OrganizationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[TextSystemID], [x].[Comment], [x].[dateInsert], [x].[dateUpdate], [x].[OrganizationID], [x].[state], [x].[Text], [x].[TextSystemTypeID], [x].[Title], [x].[userInsert], [x].[UserUpdate]
+FROM [BB_GEN_TextSystem] AS [x]
+WHERE ([x].[state] = 1) AND ([x].[OrganizationID] = @__OrganizationId_0)
+2020-06-14 11:17:09,551 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 6984.1352ms.
+2020-06-14 11:17:09,552 INFO - The GetTextHealthDeclarationByGuidEntry have been retrieved successfully.
+2020-06-14 11:17:09,565 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeTrainingDocResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-14 11:17:09,592 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) in 7056.7611ms
+2020-06-14 11:17:09,601 INFO - Request finished in 7584.5534ms 200 application/json; charset=utf-8
+2020-06-14 11:17:45,344 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/TextHealthDeclaration/E8F6230E-2143-4AE6-B9BC-60D2ACC8147F?Type=site  
+2020-06-14 11:17:45,350 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 11:17:45,367 INFO - Route matched with {action = "GetTextHealthDeclarationByGuidEntry", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API)
+2020-06-14 11:17:45,368 INFO - 'GetTextHealthDeclarationByGuidEntry' has been invoked
+2020-06-14 11:17:45,380 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) with arguments (E8F6230E-2143-4AE6-B9BC-60D2ACC8147F, site) - Validation state: Valid
+2020-06-14 11:18:00,063 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 11:18:00,133 INFO - Executed DbCommand (62ms) [Parameters=[@__guid_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[SiteID], [item].[Comment], [item].[dateInsert], [item].[dateUpdate], [item].[OrganizationID], [item].[SiteActivityStartDate], [item].[SiteName], [item].[SiteStatusID], [item].[SiteTypeID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item].[guid]
+FROM [BB_GEN_Sites] AS [item]
+WHERE [item].[guid] = @__guid_0
+2020-06-14 11:18:05,366 INFO - Executed DbCommand (65ms) [Parameters=[@__OrganizationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[TextSystemID], [x].[Comment], [x].[dateInsert], [x].[dateUpdate], [x].[OrganizationID], [x].[state], [x].[Text], [x].[TextSystemTypeID], [x].[Title], [x].[userInsert], [x].[UserUpdate]
+FROM [BB_GEN_TextSystem] AS [x]
+WHERE ([x].[state] = 1) AND ([x].[OrganizationID] = @__OrganizationId_0)
+2020-06-14 11:19:11,672 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-14 11:19:11,725 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 11:19:11,940 INFO - Request finished in 261.3293ms 200 text/html
+2020-06-14 11:19:12,205 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-14 11:19:12,214 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 11:19:12,940 INFO - Request finished in 730.0988ms 200 application/json;charset=utf-8
+2020-06-14 11:19:27,425 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/EmployeeWeb/TextHealthDeclaration/E8F6230E-2143-4AE6-B9BC-60D2ACC8147F?Type=site  
+2020-06-14 11:19:27,427 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 11:19:28,066 INFO - Route matched with {action = "GetTextHealthDeclarationByGuidEntry", controller = "EmployeeWeb"}. Executing action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API)
+2020-06-14 11:19:28,098 INFO - 'GetTextHealthDeclarationByGuidEntry' has been invoked
+2020-06-14 11:19:28,108 INFO - Executing action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) with arguments (E8F6230E-2143-4AE6-B9BC-60D2ACC8147F, site) - Validation state: Valid
+2020-06-14 11:19:34,297 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 11:19:35,270 INFO - Executed DbCommand (81ms) [Parameters=[@__guid_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [item].[SiteID], [item].[Comment], [item].[dateInsert], [item].[dateUpdate], [item].[OrganizationID], [item].[SiteActivityStartDate], [item].[SiteName], [item].[SiteStatusID], [item].[SiteTypeID], [item].[state], [item].[userInsert], [item].[UserUpdate], [item].[guid]
+FROM [BB_GEN_Sites] AS [item]
+WHERE [item].[guid] = @__guid_0
+2020-06-14 11:19:38,508 INFO - Executed DbCommand (65ms) [Parameters=[@__OrganizationId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [x].[TextSystemID], [x].[Comment], [x].[dateInsert], [x].[dateUpdate], [x].[OrganizationID], [x].[state], [x].[Text], [x].[TextSystemTypeID], [x].[Title], [x].[userInsert], [x].[UserUpdate]
+FROM [BB_GEN_TextSystem] AS [x]
+WHERE ([x].[state] = 1) AND ([x].[OrganizationID] = @__OrganizationId_0)
+2020-06-14 11:19:38,529 INFO - Executed action method Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 10418.9748ms.
+2020-06-14 11:19:38,531 INFO - The GetTextHealthDeclarationByGuidEntry have been retrieved successfully.
+2020-06-14 11:19:38,544 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.SingleResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeTrainingDocResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-14 11:19:38,564 INFO - Executed action Malam.Mastpen.API.Controllers.EmployeeWebController.GetTextHealthDeclarationByGuidEntry (Malam.Mastpen.HR.API) in 10491.836ms
+2020-06-14 11:19:38,575 INFO - Request finished in 11155.0472ms 200 application/json; charset=utf-8
+2020-06-14 11:59:43,568 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-14 11:59:43,616 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 11:59:44,930 INFO - Request finished in 1358.4668ms 200 text/html
+2020-06-14 11:59:45,312 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-14 11:59:45,326 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 11:59:46,174 INFO - Request finished in 858.9483ms 200 application/json;charset=utf-8
+2020-06-14 12:01:27,262 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-14 12:01:27,329 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 12:01:27,781 INFO - Request finished in 529.4566ms 200 text/html
+2020-06-14 12:01:28,245 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-14 12:01:28,258 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 12:01:29,030 INFO - Request finished in 757.7633ms 200 application/json;charset=utf-8
+2020-06-14 12:03:49,785 INFO - Request starting HTTP/1.1 GET http://localhost:59821/oauth2-redirect.html  
+2020-06-14 12:03:49,786 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 12:03:49,802 INFO - The file /oauth2-redirect.html was not modified
+2020-06-14 12:03:49,808 INFO - Request finished in 26.1956ms 304 text/html
+2020-06-14 12:06:26,776 INFO - Request starting HTTP/1.1 GET http://localhost:59821/oauth2-redirect.html  
+2020-06-14 12:06:26,781 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 12:06:26,784 INFO - The file /oauth2-redirect.html was not modified
+2020-06-14 12:06:26,801 INFO - Request finished in 11.7205ms 304 text/html
+2020-06-14 12:09:12,240 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-14 12:09:12,279 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 12:09:12,521 INFO - Request finished in 288.3303ms 200 text/html
+2020-06-14 12:09:12,777 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-14 12:09:12,784 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 12:09:13,487 INFO - Request finished in 696.5726ms 200 application/json;charset=utf-8
+2020-06-14 12:09:36,594 INFO - Request starting HTTP/1.1 GET http://localhost:59821/oauth2-redirect.html  
+2020-06-14 12:09:36,596 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 12:09:36,614 INFO - The file /oauth2-redirect.html was not modified
+2020-06-14 12:09:36,640 INFO - Request finished in 25.1663ms 304 text/html
+2020-06-14 12:10:27,600 INFO - Request starting HTTP/1.1 GET http://localhost:59821/oauth2-redirect.html  
+2020-06-14 12:10:27,605 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 12:10:27,607 INFO - The file /oauth2-redirect.html was not modified
+2020-06-14 12:10:27,609 INFO - Request finished in 9.2846ms 304 text/html
+2020-06-14 13:15:07,818 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-14 13:15:07,957 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 13:15:08,314 INFO - Request finished in 495.7597ms 200 text/html
+2020-06-14 13:15:08,614 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-14 13:15:08,636 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 13:15:09,314 INFO - Request finished in 680.5994ms 200 application/json;charset=utf-8
+2020-06-14 13:15:32,372 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&isHealthDeclaration=true  
+2020-06-14 13:15:34,260 INFO - Successfully validated the token.
+2020-06-14 13:15:34,266 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-06-14 13:15:34,896 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-14 13:15:34,915 INFO - Authorization was successful.
+2020-06-14 13:15:34,947 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-14 13:15:34,960 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , True) - Validation state: Valid
+2020-06-14 13:15:36,512 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 13:15:36,789 WARN - The Include operation for navigation '[s].Site' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-06-14 13:15:38,074 INFO - Executed DbCommand (127ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 13:15:38,142 WARN - Query: '(from Employee Employee in DbSet<Employee> join SiteEmployee siteEmployee in DbSet<SiteEmployee> on ...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2020-06-14 13:15:38,304 INFO - Executed DbCommand (87ms) [Parameters=[@__tableName_0='?' (Size = 50), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+ORDER BY (SELECT 1)
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2020-06-14 13:15:38,546 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 3582.7359ms.
+2020-06-14 13:15:38,548 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-14 13:15:38,565 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-14 13:15:38,589 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 3685.868ms
+2020-06-14 13:15:38,597 INFO - Request finished in 6239.0984ms 200 application/json; charset=utf-8
+2020-06-14 13:15:51,271 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&isHealthDeclaration=false  
+2020-06-14 13:15:51,274 INFO - Successfully validated the token.
+2020-06-14 13:15:51,276 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-06-14 13:15:51,278 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-14 13:15:51,280 INFO - Authorization was successful.
+2020-06-14 13:15:51,281 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-14 13:15:51,286 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , False) - Validation state: Valid
+2020-06-14 13:15:51,291 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 13:15:51,370 INFO - Executed DbCommand (70ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 13:15:51,444 INFO - Executed DbCommand (71ms) [Parameters=[@__tableName_0='?' (Size = 50), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+ORDER BY (SELECT 1)
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2020-06-14 13:15:51,447 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 159.425ms.
+2020-06-14 13:15:51,447 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-14 13:15:51,449 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-14 13:15:51,451 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 171.7779ms
+2020-06-14 13:15:51,453 INFO - Request finished in 181.7292ms 200 application/json; charset=utf-8
+2020-06-14 13:15:57,334 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&OrganizationId=22&isHealthDeclaration=false  
+2020-06-14 13:15:57,336 INFO - Successfully validated the token.
+2020-06-14 13:15:57,338 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-06-14 13:15:57,339 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-14 13:15:57,342 INFO - Authorization was successful.
+2020-06-14 13:15:57,342 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-14 13:15:57,344 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, 22, , False) - Validation state: Valid
+2020-06-14 13:15:57,345 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 13:15:57,351 WARN - The Include operation for navigation '[s].Site' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-06-14 13:15:57,376 WARN - The LINQ expression 'where ([Employee].ToEntity(null, null, null, null, null, [x_siteEmployee], null, [x_healthDeclaration]).ToEntity([x_siteEmployee.Site]).OrganizationId == __OrganizationId_1)' could not be translated and will be evaluated locally.
+2020-06-14 13:15:57,383 WARN - The LINQ expression 'Count()' could not be translated and will be evaluated locally.
+2020-06-14 13:15:57,496 INFO - Executed DbCommand (85ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 13:15:57,573 WARN - Query: '(from Employee Employee in DbSet<Employee> join SiteEmployee siteEmployee in DbSet<SiteEmployee> on ...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2020-06-14 13:15:57,593 WARN - The LINQ expression 'where ([Employee].ToEntity(null, null, null, null, null, [x_siteEmployee], null, [x_healthDeclaration]).ToEntity([x_siteEmployee.Site]).OrganizationId == __OrganizationId_1)' could not be translated and will be evaluated locally.
+2020-06-14 13:15:57,597 WARN - The LINQ expression 'Skip(__p_2)' could not be translated and will be evaluated locally.
+2020-06-14 13:15:57,600 WARN - The LINQ expression 'Take(__p_3)' could not be translated and will be evaluated locally.
+2020-06-14 13:15:57,693 INFO - Executed DbCommand (70ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 13:15:57,704 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 359.5138ms.
+2020-06-14 13:15:57,704 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-14 13:15:57,706 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-14 13:15:57,710 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 366.8372ms
+2020-06-14 13:15:57,713 INFO - Request finished in 377.8258ms 200 application/json; charset=utf-8
+2020-06-14 13:19:03,358 INFO - Request starting HTTP/1.1 GET http://localhost:59821/index.html  
+2020-06-14 13:19:03,405 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 13:19:03,596 INFO - Request finished in 241.2141ms 200 text/html
+2020-06-14 13:19:03,874 INFO - Request starting HTTP/1.1 GET http://localhost:59821/swagger/v1/swagger.json  
+2020-06-14 13:19:03,891 DEBUG - AuthenticationScheme: Bearer was not authenticated.
+2020-06-14 13:19:04,519 INFO - Request finished in 646.2414ms 200 application/json;charset=utf-8
+2020-06-14 13:19:18,012 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&isHealthDeclaration=true  
+2020-06-14 13:19:20,661 INFO - Successfully validated the token.
+2020-06-14 13:19:20,668 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-06-14 13:19:21,335 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-14 13:19:21,354 INFO - Authorization was successful.
+2020-06-14 13:19:21,383 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-14 13:19:21,396 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , True) - Validation state: Valid
+2020-06-14 13:19:22,843 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 13:19:23,074 WARN - The Include operation for navigation '[s].Site' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-06-14 13:19:24,095 INFO - Executed DbCommand (83ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 13:19:24,192 WARN - Query: '(from Employee Employee in DbSet<Employee> join SiteEmployee siteEmployee in DbSet<SiteEmployee> on ...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2020-06-14 13:19:24,497 INFO - Executed DbCommand (67ms) [Parameters=[@__tableName_0='?' (Size = 50), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+ORDER BY (SELECT 1)
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2020-06-14 13:19:24,853 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 3379.5345ms.
+2020-06-14 13:19:24,857 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-14 13:19:24,925 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-14 13:19:24,962 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 3607.6903ms
+2020-06-14 13:19:24,979 INFO - Request finished in 6993.0316ms 200 application/json; charset=utf-8
+2020-06-14 13:19:30,013 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=10&pageNumber=1&isHealthDeclaration=false  
+2020-06-14 13:19:30,017 INFO - Successfully validated the token.
+2020-06-14 13:19:30,020 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-06-14 13:19:30,026 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-14 13:19:30,030 INFO - Authorization was successful.
+2020-06-14 13:19:30,031 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-14 13:19:30,035 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (10, 1, , , False) - Validation state: Valid
+2020-06-14 13:19:30,049 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 13:19:30,126 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 13:19:30,198 INFO - Executed DbCommand (66ms) [Parameters=[@__tableName_0='?' (Size = 50), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+ORDER BY (SELECT 1)
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2020-06-14 13:19:30,201 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 164.5806ms.
+2020-06-14 13:19:30,201 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-14 13:19:30,203 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-14 13:19:30,218 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 184.4003ms
+2020-06-14 13:19:30,248 INFO - Request finished in 222.3105ms 200 application/json; charset=utf-8
+2020-06-14 13:19:42,980 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=100&pageNumber=1&isHealthDeclaration=false  
+2020-06-14 13:19:42,982 INFO - Successfully validated the token.
+2020-06-14 13:19:42,983 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-06-14 13:19:42,985 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-14 13:19:42,987 INFO - Authorization was successful.
+2020-06-14 13:19:42,987 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-14 13:19:42,988 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (100, 1, , , False) - Validation state: Valid
+2020-06-14 13:19:42,990 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 13:19:43,055 INFO - Executed DbCommand (63ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 13:19:43,122 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+ORDER BY (SELECT 1)
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2020-06-14 13:19:43,187 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 196.7689ms.
+2020-06-14 13:19:43,187 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-14 13:19:43,188 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-14 13:19:43,191 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 203.4861ms
+2020-06-14 13:19:43,192 INFO - Request finished in 212.235ms 200 application/json; charset=utf-8
+2020-06-14 13:19:48,217 INFO - Request starting HTTP/1.1 GET http://localhost:59821/api/v1/Health/EmployeesHealthDeclaration?pageSize=100&pageNumber=1&OrganizationId=22&isHealthDeclaration=true  
+2020-06-14 13:19:48,219 INFO - Successfully validated the token.
+2020-06-14 13:19:48,220 DEBUG - AuthenticationScheme: Bearer was successfully authenticated.
+2020-06-14 13:19:48,222 INFO - Route matched with {action = "GetEmployeesHealthDeclarationAsync", controller = "Health"}. Executing action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API)
+2020-06-14 13:19:48,223 INFO - Authorization was successful.
+2020-06-14 13:19:48,224 INFO - 'GetEmployeesHealthDeclarationAsync' has been invoked
+2020-06-14 13:19:48,225 INFO - Executing action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) with arguments (100, 1, 22, , True) - Validation state: Valid
+2020-06-14 13:19:48,226 INFO - Entity Framework Core 2.2.4-servicing-10062 initialized 'MastpenBitachonDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2020-06-14 13:19:48,233 WARN - The Include operation for navigation '[s].Site' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2020-06-14 13:19:48,256 WARN - The LINQ expression 'where ([Employee].ToEntity(null, null, null, null, null, [x_siteEmployee], null, [x_healthDeclaration]).ToEntity([x_siteEmployee.Site]).OrganizationId == __OrganizationId_1)' could not be translated and will be evaluated locally.
+2020-06-14 13:19:48,265 WARN - The LINQ expression 'Count()' could not be translated and will be evaluated locally.
+2020-06-14 13:19:48,352 INFO - Executed DbCommand (64ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 13:19:48,420 WARN - Query: '(from Employee Employee in DbSet<Employee> join SiteEmployee siteEmployee in DbSet<SiteEmployee> on ...' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2020-06-14 13:19:48,437 WARN - The LINQ expression 'where ([Employee].ToEntity(null, null, null, null, null, [x_siteEmployee], null, [x_healthDeclaration]).ToEntity([x_siteEmployee.Site]).OrganizationId == __OrganizationId_1)' could not be translated and will be evaluated locally.
+2020-06-14 13:19:48,440 WARN - The LINQ expression 'Skip(__p_2)' could not be translated and will be evaluated locally.
+2020-06-14 13:19:48,442 WARN - The LINQ expression 'Take(__p_3)' could not be translated and will be evaluated locally.
+2020-06-14 13:19:48,534 INFO - Executed DbCommand (65ms) [Parameters=[@__tableName_0='?' (Size = 50)], CommandType='Text', CommandTimeout='30']
+SELECT [Employee].[EmployeeID], [Employee].[Address], [Employee].[BirthDate], [Employee].[Citizenship], [Employee].[dateInsert], [Employee].[dateUpdate], [Employee].[FirstName], [Employee].[FirstNameEN], [Employee].[GenderID], [Employee].[Guid], [Employee].[IdentificationTypeID], [Employee].[IdentityNumber], [Employee].[LastName], [Employee].[LastNameEN], [Employee].[OrganizationID], [Employee].[PassportCountryID], [Employee].[state], [Employee].[userInsert], [Employee].[UserUpdate], [siteEmployee].[SiteEmployeeID], [siteEmployee].[Comment], [siteEmployee].[DateFrom], [siteEmployee].[dateInsert], [siteEmployee].[DateTo], [siteEmployee].[dateUpdate], [siteEmployee].[EmployeeID], [siteEmployee].[SiteID], [siteEmployee].[state], [siteEmployee].[userInsert], [siteEmployee].[UserUpdate], [x_siteEmployee.Site].[SiteID], [x_siteEmployee.Site].[Comment], [x_siteEmployee.Site].[dateInsert], [x_siteEmployee.Site].[dateUpdate], [x_siteEmployee.Site].[OrganizationID], [x_siteEmployee.Site].[SiteActivityStartDate], [x_siteEmployee.Site].[SiteName], [x_siteEmployee.Site].[SiteStatusID], [x_siteEmployee.Site].[SiteTypeID], [x_siteEmployee.Site].[state], [x_siteEmployee.Site].[userInsert], [x_siteEmployee.Site].[UserUpdate], [x_siteEmployee.Site].[guid], [t].[DeclarationID], [t].[Date], [t].[dateInsert], [t].[dateUpdate], [t].[EntityID], [t].[EntityTypeID], [t].[FullName], [t].[IdentityNumber], [t].[SiteID], [t].[state], [t].[userInsert], [t].[UserUpdate]
+FROM [BB_HR_Employee] AS [Employee]
+LEFT JOIN [BB_EC_SiteEmployee] AS [siteEmployee] ON [Employee].[EmployeeID] = [siteEmployee].[EmployeeID]
+LEFT JOIN [BB_GEN_Sites] AS [x_siteEmployee.Site] ON [siteEmployee].[SiteID] = [x_siteEmployee.Site].[SiteID]
+LEFT JOIN (
+    SELECT [item].[DeclarationID], [item].[Date], [item].[dateInsert], [item].[dateUpdate], [item].[EntityID], [item].[EntityTypeID], [item].[FullName], [item].[IdentityNumber], [item].[SiteID], [item].[state], [item].[userInsert], [item].[UserUpdate]
+    FROM [BB_VR_HealthDeclaration] AS [item]
+    WHERE (CONVERT(date, [item].[Date]) = CONVERT(date, GETDATE())) AND ([item].[EntityTypeID] = (
+        SELECT TOP(1) [item0].[EntityTypeID]
+        FROM [BB_GEN_EntityType] AS [item0]
+        WHERE [item0].[EntityTypeName] = @__tableName_0
+    ))
+) AS [t] ON [Employee].[EmployeeID] = [t].[EntityID]
+2020-06-14 13:19:48,554 INFO - Executed action method Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 327.1717ms.
+2020-06-14 13:19:48,554 INFO - The GetEmployeesHealthDeclarationAsync have been retrieved successfully.
+2020-06-14 13:19:48,555 INFO - Executing ObjectResult, writing value of type 'Malam.Mastpen.Core.BL.Responses.PagedResponse`1[[Malam.Mastpen.Core.BL.Requests.EmployeeDeclarationResponse, Malam.Mastpen.HR.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2020-06-14 13:19:48,557 INFO - Executed action Malam.Mastpen.API.Controllers.HealthController.GetEmployeesHealthDeclarationAsync (Malam.Mastpen.HR.API) in 334.0252ms
+2020-06-14 13:19:48,559 INFO - Request finished in 342.4263ms 200 application/json; charset=utf-8
