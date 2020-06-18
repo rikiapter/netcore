@@ -174,7 +174,7 @@ namespace Malam.Mastpen.API.Controllers
         /// <response code="200">Returns the Site Employee list</response>
         /// <response code="500">If there was an internal server error</response>
         [HttpGet("EmployeesHealthDeclaration")]
-     
+        [Authorize]
         public async Task<IActionResult> GetEmployeesHealthDeclarationAsync(
             int pageSize = 10,
             int pageNumber = 1,
